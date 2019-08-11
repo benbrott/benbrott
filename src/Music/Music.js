@@ -1,7 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 import styles from './Music.module.css';
 import { DATA } from './data';
-import classNames from 'classnames';
+import { KEYS, killEvent } from '../utils/events';
+import record from './record.svg';
 
 class Music extends React.Component {
   constructor(props) {
@@ -9,28 +11,58 @@ class Music extends React.Component {
     this.state = {}
   }
 
-  onItemClick = index => {
+  onAlbumClick = index => {
     this.setState(state => {
-      const open = state.open === index ? undefined : index;
-      return { open };
+      const isClosing = state.openIndex === index;
+      const openIndex =  isClosing ? undefined : index;
+      const focusIndex = isClosing ? undefined : index;
+      return { openIndex, focusIndex };
     });
   }
 
-  renderItem = (album, index) => {
-    const { artist, title, src, backgroundColor, color, shadowColor } = album;
-    const alt = `${title} by ${artist}`;
-    const classes = classNames([
-      styles.album,
-      this.state.open === index && styles.open
+  onAlbumFocus = focusIndex => {
+    this.setState({ focusIndex });
+  }
+
+  onAlbumKeyPress = (event, index) => {
+    switch (event.key) {
+      case KEYS.ENTER:
+        this.onAlbumClick(index);
+        break;
+      case KEYS.SPACE:
+          killEvent(event);
+        this.onAlbumClick(index);
+        break;
+      default:
+        break;
+    }
+  }
+
+  renderAlbum = (album, index) => {
+    const { artist, title, src, backgroundColor, color } = album;
+    const { focusIndex, openIndex } = this.state;
+    const albumProps = {
+      className: styles.album,
+      onClick: () => this.onAlbumClick(index),
+      onFocus: () => this.onAlbumFocus(index),
+      onKeyPress: event => this.onAlbumKeyPress(event, index),
+      tabIndex: 0,
+      key: index
+    };
+    const albumArtClasses = classNames([
+      styles.albumArt,
+      openIndex === index && styles.open,
+      focusIndex === index && styles.focus
     ]);
-    const boxShadowColor = shadowColor;
+    const albumArtAlt = `${title} by ${artist}`;
     return (
-      <div className={styles.gridItem} onClick={() => this.onItemClick(index)} tabIndex={0} key={index}>
-        <img src={src} className={classes} style={{ color: boxShadowColor }} alt={alt} />
+      <div {...albumProps}>
+        <img src={record} className={styles.record} alt="" />
         <div className={styles.albumInfo} style={{ color }}>
           <span className={styles.title} style={{ backgroundColor }}>{title}</span>
           <span className={styles.artist} style={{ backgroundColor }}>{artist}</span>
         </div>
+        <img src={src} className={albumArtClasses} alt={albumArtAlt} />
       </div>
     )
   }
@@ -38,7 +70,7 @@ class Music extends React.Component {
   render() {
     return (
       <div className={styles.grid}>
-        {DATA.map(((album, index) => this.renderItem(album, index)))}
+        {DATA.map(((album, index) => this.renderAlbum(album, index)))}
       </div>
     );
   }
