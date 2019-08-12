@@ -1,0 +1,16 @@
+.container {
+  padding-left: 55px;
+}
+
+.navBar {
+  position: fixed;
+  z-index: 10;
+  top: 5px;
+  left: 5px;
+
+  width: 50px;
+  height: calc(100vh - 10px);
+
+  border-radius: 25px;
+  background-color: #222;
+}
