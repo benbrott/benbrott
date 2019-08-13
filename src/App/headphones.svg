@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="
+    M 10,65
+    A 40 50 0 0 1 90,65 
+  " stroke="#eee" stroke-width="5" fill="none" />
+  <path d="
+    M 10,65
+    L 10,80
+    A 5 5 0 1 0 25,80
+    L 25,65
+    A 5 5 0 1 0 10,65
+  " stroke="#eee" stroke-width="5" fill="#eee" transform="rotate(-10, 10, 65)"/>
+  <path d="
+    M 90,65
+    L 90,80
+    A 5 5 0 0 1 75,80
+    L 75,65
+    A 5 5 0 0 1 90,65
+  " stroke="#eee" stroke-width="5" fill="#eee" transform="rotate(10, 90, 65)"/>
+</svg>

@@ -47,7 +47,7 @@ class Music extends React.Component {
       onFocus: () => this.onAlbumFocus(index),
       onKeyPress: event => this.onAlbumKeyPress(event, index),
       tabIndex: 0,
-      key: index
+      key: `album_${index}`
     };
     const albumArtClasses = classNames([
       styles.albumArt,
