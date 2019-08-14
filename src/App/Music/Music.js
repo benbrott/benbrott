@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Music.module.css';
 import { DATA } from './data';
-import { KEYS, killEvent } from '../utils/events';
+import { KEYS, killEvent } from '../../utils/events';
 import record from './record.svg';
 
 class Music extends React.Component {
