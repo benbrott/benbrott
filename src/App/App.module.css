@@ -34,9 +34,11 @@
   transition: border 400ms;
 }
 
+.iconContainer:focus,
 .iconContainer:hover {
   border-right: 2px solid #eee;
   border-left: 2px solid #eee;
+  outline: none;
 }
 
 .icon {

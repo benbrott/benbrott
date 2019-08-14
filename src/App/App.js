@@ -1,44 +1,37 @@
 import React from 'react';
+import { HashRouter, Route, Link } from "react-router-dom";
 import styles from './App.module.css';
 import Music from '../Music/Music'
 import headphones from './headphones.svg';
 import logoLight from './logoLight.svg';
 
-const icons = [
-  {
-    src: logoLight,
-    title: "Home"
-  },
-  {
-    src: headphones,
-    title: "Music"
-  }
-];
+const PATH_HOME = '/';
+const PATH_MUSIC = '/music';
 
-const renderIcons = () => {
-  return icons.map((icon, index) => {
-    return (
-      <div className={styles.iconContainer} key={`icon_${index}`}>
-        <img src={icon.src} className={styles.icon} alt={icon.title} />
-      </div>
-    );
-  });
-}
+const musicComponent = () => <Music />
 
 const renderNavBar = () => {
   return (
     <div className={styles.navBar}>
-      {renderIcons()}
+      <Link to={PATH_HOME} className={styles.iconContainer}>
+        <img src={logoLight} className={styles.icon} alt="Home" />
+      </Link>
+      <Link to={PATH_MUSIC} className={styles.iconContainer}>
+        <img src={headphones} className={styles.icon} alt="Music" />
+      </Link>
     </div>
   );
 }
 
 const App = () => {
   return (
-    <div className={styles.container}>
-      {renderNavBar()}
-      <Music />
-    </div>
+    <HashRouter basename={PATH_HOME}>
+      <div className={styles.container}>
+        {renderNavBar()}
+        <Route path={PATH_HOME} exact component={musicComponent} />
+        <Route path={PATH_MUSIC} component={musicComponent} />
+      </div>
+    </HashRouter>
   );
 }
 

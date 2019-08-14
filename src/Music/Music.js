@@ -20,6 +20,10 @@ class Music extends React.Component {
     });
   }
 
+  onAlbumBlur = () => {
+    this.setState({ openIndex: undefined, focusIndex: undefined });
+  }
+
   onAlbumFocus = focusIndex => {
     this.setState({ focusIndex });
   }
@@ -30,7 +34,7 @@ class Music extends React.Component {
         this.onAlbumClick(index);
         break;
       case KEYS.SPACE:
-          killEvent(event);
+        killEvent(event);
         this.onAlbumClick(index);
         break;
       default:
@@ -44,6 +48,7 @@ class Music extends React.Component {
     const albumProps = {
       className: styles.album,
       onClick: () => this.onAlbumClick(index),
+      onBlur: this.onAlbumBlur,
       onFocus: () => this.onAlbumFocus(index),
       onKeyPress: event => this.onAlbumKeyPress(event, index),
       tabIndex: 0,
