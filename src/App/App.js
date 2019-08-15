@@ -10,6 +10,8 @@ import headphonesDark from './assets/headphonesDark.svg';
 import logoLight from './assets/logoLight.svg';
 import logoDark from './assets/logoDark.svg';
 import sunLight from './assets/sunLight.svg';
+import sunDark from './assets/sunDark.svg';
+import moonLight from './assets/moonLight.svg';
 import moonDark from './assets/moonDark.svg';
 import { KEYS } from '../utils/events';
 
@@ -25,7 +27,10 @@ const DARK_BACKGROUND = '#333';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isDark: localStorage.getItem(THEME) === DARK };
+    this.state = {
+      isDark: localStorage.getItem(THEME) === DARK,
+      isHoveredOnTheme: false
+    };
   }
 
   componentDidMount() {
@@ -70,7 +75,7 @@ class App extends React.Component {
     const toggleDark = !this.state.isDark;
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
-    this.setState({ isDark: toggleDark });
+    this.setState({ isDark: toggleDark, isHoveredOnTheme: false });
   }
 
   onThemeIconKeyPress = event => {
@@ -79,19 +84,29 @@ class App extends React.Component {
     }
   }
 
+  onThemeMouseEvent = isHoveredOnTheme => this.setState({ isHoveredOnTheme })
+
+  getThemeIconSrc = () => {
+    const { isDark, isHoveredOnTheme } = this.state;
+    if (isDark) {
+      return isHoveredOnTheme ? sunLight : moonLight;
+    }
+    return isHoveredOnTheme ? moonDark : sunDark;
+  }
+
   renderThemeIcon = isDark => {
     const containerClasses = classNames([styles.iconContainer, isDark && styles.dark]);
-    const src = isDark ? sunLight : moonDark;
-    const alt = isDark ? 'sun' : 'moon';
     return (
       <div
         className={containerClasses}
         onClick={this.toggleTheme}
         onKeyPress={this.onThemeIconKeyPress}
+        onMouseEnter={() => this.onThemeMouseEvent(true)}
+        onMouseLeave={() => this.onThemeMouseEvent(false)}
         tabIndex={0}
         ref={'theme'}
       >
-        <img src={src} className={styles.icon} alt={alt} />
+        <img src={this.getThemeIconSrc()} className={styles.icon} alt={'theme toggle'} />
       </div>
     );
   }
