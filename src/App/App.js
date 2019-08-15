@@ -36,8 +36,8 @@ class App extends React.Component {
     document.body.style.backgroundColor = null;
   }
 
-  onNavIconClick = alt => {
-    ReactDom.findDOMNode(this.refs[alt]).blur();
+  onIconClick = ref => {
+    ReactDom.findDOMNode(this.refs[ref]).blur();
   }
 
   renderNavIcons = isDark => {
@@ -54,10 +54,11 @@ class App extends React.Component {
         alt: 'music'
       }
     ].map(({path, icon, alt}, index) => {
-      const onClick = () => this.onNavIconClick(alt);
+      const ref = alt;
+      const onClick = () => this.onIconClick(ref);
       const key = `navIcon_${index}`;
       return (
-        <Link to={path} className={containerClasses} onClick={onClick} ref={alt} key={key}>
+        <Link to={path} className={containerClasses} onClick={onClick} ref={ref} key={key}>
           <img src={icon} className={styles.icon} alt={alt} />
         </Link>
       );
@@ -65,6 +66,7 @@ class App extends React.Component {
   }
 
   toggleTheme = () => {
+    this.onIconClick('theme');
     const toggleDark = !this.state.isDark;
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
@@ -82,7 +84,13 @@ class App extends React.Component {
     const src = isDark ? sunLight : moonDark;
     const alt = isDark ? 'sun' : 'moon';
     return (
-      <div className={containerClasses} onClick={this.toggleTheme} onKeyPress={this.onThemeIconKeyPress} tabIndex={0}>
+      <div
+        className={containerClasses}
+        onClick={this.toggleTheme}
+        onKeyPress={this.onThemeIconKeyPress}
+        tabIndex={0}
+        ref={'theme'}
+      >
         <img src={src} className={styles.icon} alt={alt} />
       </div>
     );
