@@ -25,7 +25,7 @@ class Home extends React.Component {
     window.removeEventListener('resize', this.handleResize); 
   }
 
-  isNarrowScreen = () => window.matchMedia('(max-width: 56em)').matches
+  isNarrowScreen = () => window.matchMedia('(max-width: 58em)').matches
 
   handleResize = throttle(() => {
     const isNarrow = this.isNarrowScreen();

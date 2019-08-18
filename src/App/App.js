@@ -116,8 +116,12 @@ class App extends React.Component {
     const containerClasses = classNames([styles.navBar, isDark && styles.dark]);
     return (
       <div className={containerClasses}>
-        {this.renderNavIcons(isDark)}
-        {this.renderThemeIcon(isDark)}
+        <div className={styles.iconGroup}>
+          {this.renderNavIcons(isDark)}
+        </div>
+        <div className={styles.iconGroup}>
+          {this.renderThemeIcon(isDark)}
+        </div>
       </div>
     );
   }

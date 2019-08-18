@@ -1,22 +1,62 @@
-.container {
-  padding: 10px 10px 10px 65px;
+@media only screen
+  and (max-width: 58em) {
+  .container {
+    padding: 5px 10px 10px 10px;
+  }
+
+  .navBar {
+    z-index: 10;
+
+    flex-direction: row;
+
+    width: calc(100vw - 10px);
+    height: 50px;
+    margin: 0 0 10px -5px;
+  }
+
+  .iconContainer:focus,
+  .iconContainer:hover {
+    border-top-width: 2px;
+    border-top-style: solid;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+  }
+}
+
+@media only screen
+  and (min-width: 58em) {
+  .container {
+    padding: 10px 10px 10px 65px;
+  }
+
+  .navBar {
+    position: fixed;
+    z-index: 10;
+    top: 5px;
+    left: 5px;
+
+    flex-direction: column;
+
+    width: 50px;
+    height: calc(100vh - 10px);
+  }
+
+  .iconContainer:focus,
+  .iconContainer:hover {
+    border-right-width: 2px;
+    border-right-style: solid;
+    border-left-width: 2px;
+    border-left-style: solid;
+  }
 }
 
 .navBar {
-  position: fixed;
-  z-index: 10;
-  top: 5px;
-  left: 5px;
-
   display: flex;
   overflow: hidden;
   align-items: center;
-  flex-direction: column;
+  justify-content: space-between;
 
   box-sizing: border-box;
-  width: 50px;
-  height: calc(100vh - 10px);
-  padding: 5px 0;
 
   border-radius: 5px;
   background-color: #eee;
@@ -24,6 +64,11 @@
 
 .navBar.dark {
   background-color: #111;
+}
+
+.iconGroup {
+  display: flex;
+  flex-direction: inherit;
 }
 
 .iconContainer {
@@ -47,10 +92,6 @@
 
 .iconContainer:focus,
 .iconContainer:hover {
-  border-right-width: 2px;
-  border-right-style: solid;
-  border-left-width: 2px;
-  border-left-style: solid;
   outline: none;
 }
 
