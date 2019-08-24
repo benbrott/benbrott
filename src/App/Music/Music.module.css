@@ -1,13 +1,24 @@
 @media only screen
-  and (max-width: 46em) {
+  and (max-width: 45.99em) {
   .grid {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
+  }
+
+  .albumArt.open {
+    margin-left: -75%;
+  }
+}
+
+@media only screen
+  and (min-width: 46em) {
+  .albumArt.open {
+    margin-left: -55%;
   }
 }
 
 @media only screen
   and (min-width: 46em)
-  and (max-width: 58em) {
+  and (max-width: 57.99em) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -15,7 +26,7 @@
 
 @media only screen
   and (min-width: 58em)
-  and (max-width: 70em) {
+  and (max-width: 69.99em) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -78,10 +89,6 @@
 
   width: calc(100% + 10px);
   height: calc(100% + 10px);
-}
-
-.albumArt.open {
-  margin-left: calc(-55%);
 }
 
 .albumInfo {

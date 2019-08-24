@@ -1,5 +1,5 @@
 @media only screen
-  and (max-width: 46em) {
+  and (max-width: 57.99em) {
   .container {
     padding: 5px 10px 10px 10px;
   }
@@ -24,7 +24,7 @@
 }
 
 @media only screen
-  and (min-width: 46em) {
+  and (min-width: 58em) {
   .container {
     padding: 10px 10px 10px 65px;
   }
