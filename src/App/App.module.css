@@ -1,5 +1,5 @@
 @media only screen
-  and (max-width: 58em) {
+  and (max-width: 46em) {
   .container {
     padding: 5px 10px 10px 10px;
   }
@@ -16,15 +16,15 @@
 
   .iconContainer:focus,
   .iconContainer:hover {
-    border-top-width: 2px;
+    border-top-width: 3px;
     border-top-style: solid;
-    border-bottom-width: 2px;
+    border-bottom-width: 3px;
     border-bottom-style: solid;
   }
 }
 
 @media only screen
-  and (min-width: 58em) {
+  and (min-width: 46em) {
   .container {
     padding: 10px 10px 10px 65px;
   }
@@ -43,9 +43,9 @@
 
   .iconContainer:focus,
   .iconContainer:hover {
-    border-right-width: 2px;
+    border-right-width: 3px;
     border-right-style: solid;
-    border-left-width: 2px;
+    border-left-width: 3px;
     border-left-style: solid;
   }
 }
@@ -58,7 +58,7 @@
 
   box-sizing: border-box;
 
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #eee;
 }
 
@@ -83,11 +83,8 @@
   cursor: pointer;
   transition: border 200ms;
 
-  border-color: #111;
-}
-
-.iconContainer.dark {
-  border-color: #eee;
+  border-color: #00e;
+  border-radius: 3px;
 }
 
 .iconContainer:focus,
@@ -95,8 +92,19 @@
   outline: none;
 }
 
+.iconContainer.dark {
+  border-color: #fcb514;
+}
+
+.iconContainer.currentIcon {
+  background-color: #00e;
+}
+
+.iconContainer.dark.currentIcon {
+  background-color: #fcb514;
+}
+
 .icon {
-  box-sizing: border-box;
   width: 35px;
   height: 35px;
 }

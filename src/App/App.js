@@ -18,18 +18,25 @@ import { KEYS } from '../utils/events';
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
 
+const REFS = {
+  HOME: 'home',
+  MUSIC: 'music',
+  THEME: 'theme'
+};
+
 const THEME = 'THEME';
 const LIGHT = 'LIGHT';
 const DARK = 'DARK';
 const LIGHT_BACKGROUND = '#bbb';
 const DARK_BACKGROUND = '#333';
 
-class App extends React.Component {
+class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
       isDark: localStorage.getItem(THEME) === DARK,
-      isHoveredOnTheme: false
+      isHoveredOnTheme: false,
+      currentPage: undefined
     };
   }
 
@@ -45,25 +52,39 @@ class App extends React.Component {
     ReactDom.findDOMNode(this.refs[ref]).blur();
   }
 
-  renderNavIcons = isDark => {
-    const containerClasses = classNames([styles.iconContainer, isDark && styles.dark]);
+  getThemedNavIcon = (icons, isDark, currentIcon) => {
+    if (isDark) {
+      return currentIcon ? icons.dark : icons.light;
+    }
+    return currentIcon ? icons.light : icons.dark;
+  }
+
+  renderNavIcons = () => {
+    const { isDark, currentPage } = this.state;
+    const containerClasses = [styles.iconContainer, isDark && styles.dark];
     return [
       {
         path: PATH_HOME,
-        icon: isDark ? logoLight : logoDark,
-        alt: 'home'
+        icons: { light: logoLight, dark: logoDark },
+        alt: REFS.HOME
       },
       {
         path: PATH_MUSIC,
-        icon: isDark ? headphonesLight : headphonesDark,
-        alt: 'music'
+        icons: { light: headphonesLight, dark: headphonesDark },
+        alt: REFS.MUSIC
       }
-    ].map(({path, icon, alt}, index) => {
+    ].map(({path, icons, alt}, index) => {
       const ref = alt;
+      const currentIcon = ref === currentPage;
+      const classes = classNames([
+        ...containerClasses,
+        currentIcon && styles.currentIcon
+      ]);
+      const icon = this.getThemedNavIcon(icons, isDark, currentIcon);
       const onClick = () => this.onIconClick(ref);
       const key = `navIcon_${index}`;
       return (
-        <Link to={path} className={containerClasses} onClick={onClick} ref={ref} key={key}>
+        <Link to={path} className={classes} onClick={onClick} ref={ref} key={key}>
           <img src={icon} className={styles.icon} alt={alt} />
         </Link>
       );
@@ -94,8 +115,8 @@ class App extends React.Component {
     return isHoveredOnTheme ? moonDark : sunDark;
   }
 
-  renderThemeIcon = isDark => {
-    const containerClasses = classNames([styles.iconContainer, isDark && styles.dark]);
+  renderThemeIcon = () => {
+    const containerClasses = classNames([styles.iconContainer, this.state.isDark && styles.dark]);
     return (
       <div
         className={containerClasses}
@@ -104,7 +125,7 @@ class App extends React.Component {
         onMouseEnter={() => this.onThemeMouseEvent(true)}
         onMouseLeave={() => this.onThemeMouseEvent(false)}
         tabIndex={0}
-        ref={'theme'}
+        ref={REFS.THEME}
       >
         <img src={this.getThemeIconSrc()} className={styles.icon} alt={'theme toggle'} />
       </div>
@@ -112,22 +133,28 @@ class App extends React.Component {
   }
 
   renderNavBar = () => {
-    const isDark = this.state.isDark;
-    const containerClasses = classNames([styles.navBar, isDark && styles.dark]);
+    const containerClasses = classNames([styles.navBar, this.state.isDark && styles.dark]);
     return (
       <div className={containerClasses}>
         <div className={styles.iconGroup}>
-          {this.renderNavIcons(isDark)}
+          {this.renderNavIcons()}
         </div>
         <div className={styles.iconGroup}>
-          {this.renderThemeIcon(isDark)}
+          {this.renderThemeIcon()}
         </div>
       </div>
     );
   }
 
-  homeComponent = () => <Home isDark={this.state.isDark}/>
-  musicComponent = () => <Music isDark={this.state.isDark}/>
+  homeComponent = () => {
+    this.setState({ currentPage: REFS.HOME });
+    return (<Home isDark={this.state.isDark}/>);
+  };
+
+  musicComponent = () => {
+    this.setState({ currentPage: REFS.MUSIC });
+    return (<Music isDark={this.state.isDark}/>);
+  };
 
   render() {
     return (

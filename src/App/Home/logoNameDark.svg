@@ -90,7 +90,7 @@
   <use href="#bKey" x="0"/>
   <use href="#eKey" x="110"/>
   <use href="#nKey" x="220"/>
-  <use href="#bKey" x="20" y="110"/>
+  <use href="#bKey" x="25" y="110"/>
   <use href="#rKey" x="135" y="110"/>
   <use href="#oKey" x="245" y="110"/>
   <use href="#tKey" x="355" y="110"/>

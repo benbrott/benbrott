@@ -5,7 +5,7 @@ import { DATA } from './data';
 import { KEYS, killEvent } from '../../utils/events';
 import record from './record.svg';
 
-class Music extends React.Component {
+class Music extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {}
@@ -64,8 +64,8 @@ class Music extends React.Component {
       <div {...albumProps}>
         <img src={record} className={styles.record} alt="" />
         <div className={styles.albumInfo} style={{ color }}>
-          <span className={styles.title} style={{ backgroundColor }}>{title}</span>
-          <span className={styles.artist} style={{ backgroundColor }}>{artist}</span>
+          <span style={{ backgroundColor }}>{title}</span>
+          <span style={{ backgroundColor }}>{artist}</span>
         </div>
         <img src={src} className={albumArtClasses} alt={albumArtAlt} />
       </div>
