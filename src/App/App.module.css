@@ -83,7 +83,7 @@
   cursor: pointer;
   transition: border 200ms;
 
-  border-color: #00e;
+  border-color: #e87722;
   border-radius: 3px;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .iconContainer.currentIcon {
-  background-color: #00e;
+  background-color: #e87722;
 }
 
 .iconContainer.dark.currentIcon {

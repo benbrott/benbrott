@@ -10,8 +10,6 @@ import headphonesDark from './assets/headphonesDark.svg';
 import logoLight from './assets/logoLight.svg';
 import logoDark from './assets/logoDark.svg';
 import sunLight from './assets/sunLight.svg';
-import sunDark from './assets/sunDark.svg';
-import moonLight from './assets/moonLight.svg';
 import moonDark from './assets/moonDark.svg';
 import { KEYS } from '../utils/events';
 
@@ -35,7 +33,6 @@ class App extends React.PureComponent {
     super(props);
     this.state = {
       isDark: localStorage.getItem(THEME) === DARK,
-      isHoveredOnTheme: false,
       currentPage: undefined
     };
   }
@@ -92,11 +89,11 @@ class App extends React.PureComponent {
   }
 
   toggleTheme = () => {
-    this.onIconClick('theme');
+    this.onIconClick(REFS.THEME);
     const toggleDark = !this.state.isDark;
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
-    this.setState({ isDark: toggleDark, isHoveredOnTheme: false });
+    this.setState({ isDark: toggleDark });
   }
 
   onThemeIconKeyPress = event => {
@@ -105,29 +102,19 @@ class App extends React.PureComponent {
     }
   }
 
-  onThemeMouseEvent = isHoveredOnTheme => this.setState({ isHoveredOnTheme })
-
-  getThemeIconSrc = () => {
-    const { isDark, isHoveredOnTheme } = this.state;
-    if (isDark) {
-      return isHoveredOnTheme ? sunLight : moonLight;
-    }
-    return isHoveredOnTheme ? moonDark : sunDark;
-  }
-
   renderThemeIcon = () => {
-    const containerClasses = classNames([styles.iconContainer, this.state.isDark && styles.dark]);
+    const isDark = this.state.isDark;
+    const containerClasses = classNames([styles.iconContainer, isDark && styles.dark]);
+    const src = isDark ? sunLight : moonDark;
     return (
       <div
         className={containerClasses}
         onClick={this.toggleTheme}
         onKeyPress={this.onThemeIconKeyPress}
-        onMouseEnter={() => this.onThemeMouseEvent(true)}
-        onMouseLeave={() => this.onThemeMouseEvent(false)}
         tabIndex={0}
         ref={REFS.THEME}
       >
-        <img src={this.getThemeIconSrc()} className={styles.icon} alt={'theme toggle'} />
+        <img src={src} className={styles.icon} alt={'theme toggle'} />
       </div>
     );
   }
