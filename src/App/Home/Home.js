@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import throttle from 'lodash.throttle';
 import styles from './Home.module.css';
-import logoNameLight from './logoNameLight.svg';
-import logoNameDark from './logoNameDark.svg';
-import logoNameFlatLight from './logoNameFlatLight.svg';
-import logoNameFlatDark from './logoNameFlatDark.svg';
+import logoNameLight from '../assets/logoNameLight.svg';
+import logoNameDark from '../assets/logoNameDark.svg';
+import logoNameFlatLight from '../assets/logoNameFlatLight.svg';
+import logoNameFlatDark from '../assets/logoNameFlatDark.svg';
 
 class Home extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool }
