@@ -6,7 +6,7 @@
 .banner {
   width: 90%;
   max-height: 250px;
-  margin: 0 5%;
+  margin: 5px 5% 0;
 }
 
 .text {
@@ -21,7 +21,7 @@
 }
 
 .text > p > a {
-  color: #e87722;
+  color: #8d5cdc;
 }
 
 .text.dark {

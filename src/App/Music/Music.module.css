@@ -45,6 +45,7 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
+  padding: 5px;
 
   grid-gap: 10px;
 }
@@ -73,11 +74,13 @@
   top: 0;
   left: 0;
 
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
 
   transition: margin-left 600ms, height 200ms, width 200ms, top 200ms, left 200ms;
 
+  border: solid #000 3px;
   border-radius: 3px;
 }
 
@@ -104,6 +107,7 @@
 
   padding: 5px 3px;
 
+  border: solid #000 3px;
   border-radius: 3px;
 }
 

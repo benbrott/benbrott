@@ -1,7 +1,7 @@
 @media only screen
   and (max-width: 57.99em) {
   .container {
-    padding: 5px 10px 10px 10px;
+    padding: 5px 5px 5px 5px;
   }
 
   .navBar {
@@ -9,22 +9,22 @@
 
     width: calc(100vw - 10px);
     height: 50px;
-    margin: 0 0 10px -5px;
+    margin: 0 0 5px 0;
   }
 
-  .iconContainer:focus,
-  .iconContainer:hover {
-    border-top-width: 3px;
-    border-top-style: solid;
-    border-bottom-width: 3px;
-    border-bottom-style: solid;
+  .iconGroup:first-of-type {
+    margin-left: -3px;
+  }
+
+  .iconGroup:last-of-type {
+    margin-right: -3px;
   }
 }
 
 @media only screen
   and (min-width: 58em) {
   .container {
-    padding: 10px 10px 10px 65px;
+    padding: 5px 5px 5px 60px;
   }
 
   .navBar {
@@ -38,12 +38,12 @@
     height: calc(100vh - 10px);
   }
 
-  .iconContainer:focus,
-  .iconContainer:hover {
-    border-right-width: 3px;
-    border-right-style: solid;
-    border-left-width: 3px;
-    border-left-style: solid;
+  .iconGroup:first-of-type {
+    margin-top: -3px;
+  }
+
+  .iconGroup:last-of-type {
+    margin-bottom: -3px;
   }
 }
 
@@ -57,6 +57,7 @@
 
   box-sizing: border-box;
 
+  border: 3px solid #000;
   border-radius: 3px;
   background-color: #eee;
 }
@@ -80,9 +81,8 @@
   height: 50px;
 
   cursor: pointer;
-  transition: border 200ms;
 
-  border-color: #e87722;
+  border-color: #8d5cdc;
   border-radius: 3px;
 }
 
@@ -96,10 +96,11 @@
 }
 
 .iconContainer.currentIcon {
-  background-color: #e87722;
+  border: 3px solid #000;
+  background-color: #8d5cdc;
 }
 
-.iconContainer.dark.currentIcon {
+.iconContainer.currentIcon.dark {
   background-color: #fcb514;
 }
 

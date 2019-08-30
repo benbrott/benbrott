@@ -8,10 +8,10 @@ import Music from './Music/Music'
 import About from './About/About'
 import headphonesLight from './assets/headphonesLight.svg';
 import headphonesDark from './assets/headphonesDark.svg';
+import homeLight from './assets/homeLight.svg';
+import homeDark from './assets/homeDark.svg';
 import legoLight from './assets/legoLight.svg';
 import legoDark from './assets/legoDark.svg';
-import logoLight from './assets/logoLight.svg';
-import logoDark from './assets/logoDark.svg';
 import sunLight from './assets/sunLight.svg';
 import moonDark from './assets/moonDark.svg';
 import { KEYS } from '../utils/events';
@@ -73,7 +73,7 @@ class App extends React.PureComponent {
     return [
       {
         path: PATH_HOME,
-        icons: { light: logoLight, dark: logoDark },
+        icons: { light: homeLight, dark: homeDark },
         alt: REFS.HOME
       },
       {
