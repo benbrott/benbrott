@@ -5,8 +5,11 @@ import classNames from 'classnames';
 import styles from './App.module.css';
 import Home from './Home/Home'
 import Music from './Music/Music'
+import About from './About/About'
 import headphonesLight from './assets/headphonesLight.svg';
 import headphonesDark from './assets/headphonesDark.svg';
+import legoLight from './assets/legoLight.svg';
+import legoDark from './assets/legoDark.svg';
 import logoLight from './assets/logoLight.svg';
 import logoDark from './assets/logoDark.svg';
 import sunLight from './assets/sunLight.svg';
@@ -15,10 +18,12 @@ import { KEYS } from '../utils/events';
 
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
+const PATH_ABOUT = '/about';
 
 const REFS = {
   HOME: 'home',
   MUSIC: 'music',
+  ABOUT: 'about',
   THEME: 'theme'
 };
 
@@ -39,14 +44,20 @@ class App extends React.PureComponent {
 
   componentDidMount() {
     document.body.style.backgroundColor = this.state.isDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
+    this.setState({ currentPage: this.initialPage })
   }
 
   componentWillUnmount() {
     document.body.style.backgroundColor = null;
   }
 
-  onIconClick = ref => {
+  blurIcon = ref => {
     ReactDom.findDOMNode(this.refs[ref]).blur();
+  }
+
+  onNavIconClick = ref => {
+    this.blurIcon(ref);
+    this.setState({ currentPage: ref });
   }
 
   getThemedNavIcon = (icons, isDark, currentIcon) => {
@@ -69,6 +80,11 @@ class App extends React.PureComponent {
         path: PATH_MUSIC,
         icons: { light: headphonesLight, dark: headphonesDark },
         alt: REFS.MUSIC
+      },
+      {
+        path: PATH_ABOUT,
+        icons: { light: legoLight, dark: legoDark },
+        alt: REFS.ABOUT
       }
     ].map(({path, icons, alt}, index) => {
       const ref = alt;
@@ -78,7 +94,7 @@ class App extends React.PureComponent {
         currentIcon && styles.currentIcon
       ]);
       const icon = this.getThemedNavIcon(icons, isDark, currentIcon);
-      const onClick = () => this.onIconClick(ref);
+      const onClick = () => this.onNavIconClick(ref);
       const key = `navIcon_${index}`;
       return (
         <Link to={path} className={classes} onClick={onClick} ref={ref} key={key}>
@@ -89,7 +105,7 @@ class App extends React.PureComponent {
   }
 
   toggleTheme = () => {
-    this.onIconClick(REFS.THEME);
+    this.blurIcon(REFS.THEME);
     const toggleDark = !this.state.isDark;
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
@@ -134,13 +150,18 @@ class App extends React.PureComponent {
   }
 
   homeComponent = () => {
-    this.setState({ currentPage: REFS.HOME });
+    this.initialPage = REFS.HOME;
     return (<Home isDark={this.state.isDark}/>);
   };
 
   musicComponent = () => {
-    this.setState({ currentPage: REFS.MUSIC });
+    this.initialPage = REFS.MUSIC;
     return (<Music isDark={this.state.isDark}/>);
+  };
+
+  aboutComponent = () => {
+    this.initialPage = REFS.ABOUT;
+    return (<About isDark={this.state.isDark}/>);
   };
 
   render() {
@@ -150,6 +171,7 @@ class App extends React.PureComponent {
           {this.renderNavBar()}
           <Route path={PATH_HOME} exact component={this.homeComponent} />
           <Route path={PATH_MUSIC} component={this.musicComponent} />
+          <Route path={PATH_ABOUT} component={this.aboutComponent} />
         </div>
       </HashRouter>
     );
