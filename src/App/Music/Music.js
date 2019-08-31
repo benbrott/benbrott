@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Music.module.css';
+import styles from './Music.module.scss';
 import { DATA } from './data';
-import { KEYS, killEvent } from '../../utils/events';
-import record from '../assets/record.svg';
+import { KEYS, killEvent } from 'utils/events';
+import record from 'assets/record.svg';
 
 class Music extends React.PureComponent {
   constructor(props) {

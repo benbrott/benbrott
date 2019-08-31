@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import styles from './Home.module.css';
+import styles from './Home.module.scss';
 
 class Home extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool }

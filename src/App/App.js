@@ -2,19 +2,19 @@ import React from 'react';
 import ReactDom from 'react-dom';
 import { HashRouter, Route, Link } from "react-router-dom";
 import classNames from 'classnames';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 import Home from './Home/Home'
 import Music from './Music/Music'
 import About from './About/About'
-import headphonesLight from './assets/headphonesLight.svg';
-import headphonesDark from './assets/headphonesDark.svg';
-import homeLight from './assets/homeLight.svg';
-import homeDark from './assets/homeDark.svg';
-import legoLight from './assets/legoLight.svg';
-import legoDark from './assets/legoDark.svg';
-import sunLight from './assets/sunLight.svg';
-import moonDark from './assets/moonDark.svg';
-import { KEYS } from '../utils/events';
+import headphonesLight from 'assets/headphonesLight.svg';
+import headphonesDark from 'assets/headphonesDark.svg';
+import homeLight from 'assets/homeLight.svg';
+import homeDark from 'assets/homeDark.svg';
+import legoLight from 'assets/legoLight.svg';
+import legoDark from 'assets/legoDark.svg';
+import sunLight from 'assets/sunLight.svg';
+import moonDark from 'assets/moonDark.svg';
+import { KEYS } from 'utils/events';
 
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
