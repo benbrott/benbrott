@@ -1,3 +1,5 @@
+@import 'shared';
+
 .container {
   width: 100%;
   height: 100%;
@@ -6,7 +8,7 @@
 .banner {
   width: 90%;
   max-height: 250px;
-  margin: 5px 5% 0;
+  margin: $spacing-default 5% 0;
 }
 
 .text {
@@ -17,17 +19,20 @@
   width: 80%;
   margin: 20px 10%;
 
-  color: #000;
-}
 
-.text > p > a {
-  color: #8d5cdc;
-}
+  &.dark {
+    color: #bbb;
 
-.text.dark {
-  color: #bbb;
-}
+    a {
+      color: $accent-gold;
+    }
+  }
 
-.text.dark > p > a {
-  color: #fcb514;
+  &.light {
+    color: #000;
+
+    a {
+      color: $accent-purple;
+    }
+  }
 }

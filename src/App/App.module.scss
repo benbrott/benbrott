@@ -1,49 +1,52 @@
+@import 'shared';
+
 @media only screen
   and (max-width: 57.99em) {
   .container {
-    padding: 5px 5px 5px 5px;
+    padding: $spacing-default;
   }
 
   .navBar {
     flex-direction: row;
 
-    width: calc(100vw - 10px);
-    height: 50px;
-    margin: 0 0 5px 0;
+    width: calc(100vw - 2 * #{$spacing-default});
+    height: $navbar-size;
+    margin: 0 0 $spacing-default 0;
   }
 
   .iconGroup:first-of-type {
-    margin-left: -3px;
+    margin-left: -$border-radius-default;
   }
 
   .iconGroup:last-of-type {
-    margin-right: -3px;
+    margin-right: -$border-radius-default;
   }
 }
 
 @media only screen
   and (min-width: 58em) {
   .container {
-    padding: 5px 5px 5px 60px;
+    padding: $spacing-default;
+    padding-left: calc(#{$navbar-size} + 2 * #{$spacing-default});
   }
 
   .navBar {
     position: fixed;
-    top: 5px;
-    left: 5px;
+    top: $spacing-default;
+    left: $spacing-default;
 
     flex-direction: column;
 
-    width: 50px;
-    height: calc(100vh - 10px);
+    width: $navbar-size;
+    height: calc(100vh - 2 * #{$spacing-default});
   }
 
   .iconGroup:first-of-type {
-    margin-top: -3px;
+    margin-top: -$border-radius-default;
   }
 
   .iconGroup:last-of-type {
-    margin-bottom: -3px;
+    margin-bottom: -$border-radius-default;
   }
 }
 
@@ -57,13 +60,15 @@
 
   box-sizing: border-box;
 
-  border: 3px solid #000;
-  border-radius: 3px;
-  background-color: #eee;
-}
+  @extend %bordered-default;
 
-.navBar.dark {
-  background-color: #111;
+  &.dark {
+    background-color: #111;
+  }
+
+  &.light {
+    background-color: #eee;
+  }
 }
 
 .iconGroup {
@@ -77,31 +82,29 @@
   justify-content: center;
 
   box-sizing: border-box;
-  width: 50px;
-  height: 50px;
+  width: $navbar-size;
+  height: $navbar-size;
 
   cursor: pointer;
 
-  border-color: #8d5cdc;
-  border-radius: 3px;
-}
+  border-radius: $border-radius-default;
 
-.iconContainer:focus,
-.iconContainer:hover {
-  outline: none;
-}
+  &:focus,
+  &:hover {
+    outline: none;
+  }
 
-.iconContainer.dark {
-  border-color: #fcb514;
-}
+  &.currentIcon {
+    border: $border-default;
 
-.iconContainer.currentIcon {
-  border: 3px solid #000;
-  background-color: #8d5cdc;
-}
+    &.dark {
+      background-color: $accent-gold;
+    }
 
-.iconContainer.currentIcon.dark {
-  background-color: #fcb514;
+    &.light {
+      background-color: $accent-purple;
+    }
+  }
 }
 
 .icon {

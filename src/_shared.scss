@@ -1,0 +1,12 @@
+$accent-gold: #fcb514;
+$accent-red: #e22d4e;
+$accent-purple: #8d5cdc;
+$border-radius-default: 3px;
+$border-default: solid #000 $border-radius-default;
+$navbar-size: 50px;
+$spacing-default: 5px;
+
+%bordered-default {
+  border: $border-default;
+  border-radius: $border-radius-default;
+}

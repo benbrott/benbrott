@@ -67,9 +67,15 @@ class App extends React.PureComponent {
     return currentIcon ? icons.light : icons.dark;
   }
 
+  getIconContainerClasses = isDark => {
+    return [
+      styles.iconContainer,
+      isDark ? styles.dark : styles.light
+    ];
+  }
+
   renderNavIcons = () => {
     const { isDark, currentPage } = this.state;
-    const containerClasses = [styles.iconContainer, isDark && styles.dark];
     return [
       {
         path: PATH_HOME,
@@ -90,7 +96,7 @@ class App extends React.PureComponent {
       const ref = alt;
       const currentIcon = ref === currentPage;
       const classes = classNames([
-        ...containerClasses,
+        ...this.getIconContainerClasses(isDark),
         currentIcon && styles.currentIcon
       ]);
       const icon = this.getThemedNavIcon(icons, isDark, currentIcon);
@@ -120,11 +126,10 @@ class App extends React.PureComponent {
 
   renderThemeIcon = () => {
     const isDark = this.state.isDark;
-    const containerClasses = classNames([styles.iconContainer, isDark && styles.dark]);
     const src = isDark ? sunLight : moonDark;
     return (
       <div
-        className={containerClasses}
+        className={classNames(this.getIconContainerClasses(isDark))}
         onClick={this.toggleTheme}
         onKeyPress={this.onThemeIconKeyPress}
         tabIndex={0}
@@ -136,7 +141,10 @@ class App extends React.PureComponent {
   }
 
   renderNavBar = () => {
-    const containerClasses = classNames([styles.navBar, this.state.isDark && styles.dark]);
+    const containerClasses = classNames([
+      styles.navBar,
+      this.state.isDark ? styles.dark : styles.light
+    ]);
     return (
       <div className={containerClasses}>
         <div className={styles.iconGroup}>

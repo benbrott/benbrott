@@ -44,7 +44,7 @@ class About extends React.PureComponent {
     const isDark = this.props.isDark;
     const textStyles = classNames([
       styles.text,
-      isDark && styles.dark
+      isDark ? styles.dark : styles.light
     ]);
     return (
       <div className={textStyles}>

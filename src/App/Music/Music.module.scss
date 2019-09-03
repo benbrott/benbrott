@@ -1,3 +1,7 @@
+@import 'shared';
+
+$grow-duration: 200ms;
+
 @media only screen
   and (max-width: 45.99em) {
   .grid {
@@ -45,9 +49,9 @@
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: $spacing-default;
 
-  grid-gap: 10px;
+  grid-gap: calc(2 * #{$spacing-default});
 }
 
 .album {
@@ -58,10 +62,10 @@
   height: 100%;
 
   cursor: pointer;
-}
 
-.album:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .record {
@@ -78,39 +82,37 @@
   width: 100%;
   height: 100%;
 
-  transition: margin-left 600ms, height 200ms, width 200ms, top 200ms, left 200ms;
+  transition: margin-left 600ms, height $grow-duration, width $grow-duration, top $grow-duration, left $grow-duration;
 
-  border: solid #000 3px;
-  border-radius: 3px;
-}
+  @extend %bordered-default;
 
-.albumArt:hover,
-.albumArt.focus,
-.albumArt.open {
-  top: -5px;
-  left: -5px;
+  &:hover,
+  &.focus,
+  &.open {
+    top: -$spacing-default;
+    left: -$spacing-default;
 
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
+    width: calc(100% + 2 * #{$spacing-default});
+    height: calc(100% + 2 * #{$spacing-default});
+  }
 }
 
 .albumInfo {
   position: absolute;
   top: 0;
-  right: 10px;
+  right: calc(2 * #{$spacing-default});
 
   writing-mode: vertical-rl;
-}
 
-.albumInfo > span {
-  display: table;
+  span {
+    display: table;
 
-  padding: 5px 3px;
+    padding: 5px 3px;
 
-  border: solid #000 3px;
-  border-radius: 3px;
-}
+    @extend %bordered-default;
 
-.albumInfo > span:first-child {
-  margin-left: 5px;
+    &:first-child {
+      margin-left: $spacing-default;
+    }
+  }
 }

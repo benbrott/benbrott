@@ -1,16 +1,4 @@
-@media only screen
-  and (max-width: 57.99em) {
-  .container {
-    height: calc(100vh - 65px);
-  }
-}
-
-@media only screen
-  and (min-width: 58em) {
-  .container {
-    height: calc(100vh - 10px);
-  }
-}
+@import 'shared';
 
 .container {
   display: grid;
@@ -19,43 +7,52 @@
 
   grid-template-columns: 15px 15px 15px 1fr 1fr 1fr 15px 15px 15px;
   grid-template-rows: 15px 15px 15px 1fr 1fr 1fr 15px 15px 15px;
-}
 
-.container > div {
-  border: solid #000 3px;
-  border-radius: 3px;
+  @media only screen
+  and (max-width: 57.99em) {
+    height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
+  }
+
+  @media only screen
+  and (min-width: 58em) {
+    height: calc(100vh - 2 * #{$spacing-default});
+  }
+
+  div {
+    @extend %bordered-default;
+  }
 }
 
 .layer1 {
-  background-color: #fcb514;
+  background-color: $accent-gold;
 
   grid-column: 1 / span 4;
   grid-row: 1 / span 4;
 }
 
 .layer2 {
-  background-color: #e22d4e;
+  background-color: $accent-red;
 
   grid-column: 2 / span 4;
   grid-row: 2 / span 4;
 }
 
 .layer3 {
-  background-color: #fcb514;
+  background-color: $accent-gold;
 
   grid-column: 6 / span 4;
   grid-row: 6 / span 4;
 }
 
 .layer4 {
-  background-color: #e22d4e;
+  background-color: $accent-red;
 
   grid-column: 5 / span 4;
   grid-row: 5 / span 4;
 }
 
 .layer5 {
-  background-color: #8d5cdc;
+  background-color: $accent-purple;
 
   grid-column: 3 / span 5;
   grid-row: 3 / span 5;
