@@ -98,6 +98,8 @@ $grow-duration: 200ms;
 }
 
 .albumInfo {
+  font-family: $font-family-lexend-deca;
+
   position: absolute;
   top: 0;
   right: calc(2 * #{$spacing-default});
