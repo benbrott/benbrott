@@ -1,5 +1,8 @@
 @import 'shared';
 
+$font-size-default: 1.7em;
+$line-height-default: 1.2em;
+
 .container {
   width: 100%;
   height: 100%;
@@ -7,32 +10,102 @@
 
 .banner {
   width: 90%;
-  max-height: 250px;
-  margin: $spacing-default 5% 0;
+  max-height: 300px;
+  margin: $spacing-default 5%;
 }
 
-.text {
+.grid {
   font-family: $font-family-nunito;
-  font-size: 1.7em;
-  line-height: 1.5em;
+  font-size: $font-size-default;
+  line-height: $line-height-default;
 
-  width: 80%;
-  margin: 20px 10%;
+  display: grid;
 
+  width: 84%;
+  margin: 20px 8%;
+
+  grid-column-gap: 15px;
+
+
+  @media only screen
+  and (max-width: 45.99em) {
+    grid-template-columns: $line-height-default 1fr;
+    grid-template-rows: repeat(4, max-content);
+    grid-template-areas: 'a b'
+    'c d'
+    'e f'
+    'g h';
+    grid-row-gap: 25px;
+  }
+
+  @media only screen
+  and (min-width: 46em) {
+    grid-template-columns: repeat(4, $line-height-default) 1fr;
+    grid-template-rows: repeat(5, max-content);
+    grid-template-areas: 'a b b b b'
+    'a c d d d'
+    'a c e f f'
+    'a c e g h'
+    'a c e g h';
+    grid-row-gap: 15px;
+  }
+}
+
+.label {
+  font-weight: 600;
+
+  transform: rotate(180deg);
+  text-align: end;
+
+  writing-mode: vertical-rl;
 
   &.dark {
-    color: #bbb;
-
-    a {
-      color: $accent-gold;
-    }
+    color: $accent-gold;
   }
 
   &.light {
-    color: #000;
-
-    a {
-      color: $accent-purple;
-    }
+    color: $accent-purple;
   }
+}
+
+.label0 {
+  grid-area: a;
+}
+
+.label1 {
+  grid-area: c;
+}
+
+.label2 {
+  grid-area: e;
+}
+
+.label3 {
+  grid-area: g;
+}
+
+.info {
+  &.dark {
+    color: #bbb;
+  }
+
+  &.light {
+    color: #111;
+  }
+}
+
+.info0 {
+  grid-area: b;
+}
+
+.info1 {
+  grid-area: d;
+}
+
+.info2 {
+  grid-area: f;
+}
+
+.info3 {
+  grid-area: h;
 }
