@@ -64,7 +64,7 @@ $line-height-default: 1.2em;
   }
 
   &.light {
-    color: $accent-purple;
+    color: $primary-light-gray;
   }
 }
 
@@ -86,11 +86,11 @@ $line-height-default: 1.2em;
 
 .info {
   &.dark {
-    color: #bbb;
+    color: $primary-light-gray;
   }
 
   &.light {
-    color: #111;
+    color: $primary-black;
   }
 }
 

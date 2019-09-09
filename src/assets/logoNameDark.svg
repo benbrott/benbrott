@@ -8,7 +8,7 @@
     }
   </style>
   <defs>
-    <rect id="bounds" width="100" height="100" rx="8" fill="#000"/>
+    <rect id="bounds" width="100" height="100" rx="8" fill="#111"/>
     <clipPath id="clip">
       <use href="#bounds"/>
     </clipPath>
@@ -20,7 +20,7 @@
         M 100,0
         L 0,100
       " stroke="#bbb" stroke-width="3" clip-path="url(#clip)"/>
-      <rect width="84" height="84" x="8" y="8" rx="4" stroke="#bbb" stroke-width="4" fill="#000"/>
+      <rect width="84" height="84" x="8" y="8" rx="4" stroke="#bbb" stroke-width="4" fill="#111"/>
     </g>
     <g id="bKey">
       <use href="#key"/>

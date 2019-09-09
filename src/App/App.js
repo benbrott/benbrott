@@ -30,7 +30,7 @@ const REFS = {
 const THEME = 'THEME';
 const LIGHT = 'LIGHT';
 const DARK = 'DARK';
-const LIGHT_BACKGROUND = '#bbb';
+const LIGHT_BACKGROUND = '#138270';
 const DARK_BACKGROUND = '#333';
 
 class App extends React.PureComponent {

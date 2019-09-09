@@ -63,11 +63,11 @@
   @extend %bordered-default;
 
   &.dark {
-    background-color: #111;
+    background-color: $primary-black;
   }
 
   &.light {
-    background-color: #eee;
+    background-color: $primary-light-gray;
   }
 }
 
@@ -102,7 +102,7 @@
     }
 
     &.light {
-      background-color: $accent-purple;
+      background-color: $primary-black;
     }
   }
 }
