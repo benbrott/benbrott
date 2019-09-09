@@ -109,3 +109,21 @@ $line-height-default: 1.2em;
 .info3 {
   grid-area: h;
 }
+
+.socialLinksContainer {
+  display: flex;
+  justify-content: center;
+
+  width: 60%;
+  margin: $spacing-default 20%;
+}
+
+.socialLink {
+  width: 30px;
+  height: 30px;
+  margin-right: calc(#{$spacing-default} * 2);
+
+  :last-of-type {
+    margin-right: 0px;
+  }
+}

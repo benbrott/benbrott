@@ -7,12 +7,19 @@ import logoNameLight from 'assets/logoNameLight.svg';
 import logoNameDark from 'assets/logoNameDark.svg';
 import logoNameFlatLight from 'assets/logoNameFlatLight.svg';
 import logoNameFlatDark from 'assets/logoNameFlatDark.svg';
+import twitterWhite from 'assets/twitterWhite.svg';
+import githubWhite from 'assets/githubWhite.svg';
 
 const TEXT_MAPS = [
   { label: 'WHO', info: 'Ben Brott, software engineer at Appian' },
   { label: 'WHAT', info: 'A site inspired by talks at An Event Apart DC' },
   { label: 'WHY', info: 'To learn CSS, explore SVG, and design eye-catching, responsive UIs' },
   { label: 'HOW', info: 'React, Sass, GitHub Pages' }
+];
+
+const SOCIAL_LINKS = [
+  { name: 'twitter', icon: twitterWhite, href: 'https://twitter.com/BenBrott' },
+  { name: 'GitHub', icon: githubWhite, href: 'https://github.com/BenBrott' }
 ];
 
 class About extends React.PureComponent {
@@ -75,11 +82,30 @@ class About extends React.PureComponent {
     );
   }
 
+  renderLinkItems = () => {
+    return SOCIAL_LINKS.map(({name, icon, href}) => {
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer">
+          <img src={icon} className={styles.socialLink} alt={name} />
+        </a>
+      )
+    });
+  }
+
+  renderSocialLinks = () => {
+    return(
+      <div className={styles.socialLinksContainer}>
+        {this.renderLinkItems()}
+      </div>
+    )
+  }
+
   render() {
     return (
       <div className={styles.container}>
         <img src={this.getBannerSrc()} className={styles.banner} alt="" />
         {this.renderTextGrid()}
+        {this.renderSocialLinks()}
       </div>
     );
   }
