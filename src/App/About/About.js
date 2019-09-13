@@ -85,8 +85,8 @@ class About extends React.PureComponent {
   renderLinkItems = () => {
     return SOCIAL_LINKS.map(({name, icon, href}) => {
       return (
-        <a href={href} target="_blank" rel="noopener noreferrer">
-          <img src={icon} className={styles.socialLink} alt={name} />
+        <a className={styles.socialLink} href={href} target="_blank" rel="noopener noreferrer">
+          <img src={icon} className={styles.socialLinkIcon} alt={name} />
         </a>
       )
     });
@@ -103,8 +103,10 @@ class About extends React.PureComponent {
   render() {
     return (
       <div className={styles.container}>
-        <img src={this.getBannerSrc()} className={styles.banner} alt="" />
-        {this.renderTextGrid()}
+        <div>
+          <img src={this.getBannerSrc()} className={styles.banner} alt="" />
+          {this.renderTextGrid()}
+        </div>
         {this.renderSocialLinks()}
       </div>
     );

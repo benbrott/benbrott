@@ -2,8 +2,7 @@
 
 $grow-duration: 200ms;
 
-@media only screen
-  and (max-width: 45.99em) {
+@media only screen and (max-width: 45.99em) {
   .grid {
     grid-template-columns: repeat(2, minmax(100px, 1fr));
   }
@@ -13,31 +12,25 @@ $grow-duration: 200ms;
   }
 }
 
-@media only screen
-  and (min-width: 46em) {
+@media only screen and (min-width: 46em) {
   .albumArt.open {
     margin-left: -55%;
   }
 }
 
-@media only screen
-  and (min-width: 46em)
-  and (max-width: 57.99em) {
+@media only screen and (min-width: 46em) and (max-width: 57.99em) {
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media only screen
-  and (min-width: 58em)
-  and (max-width: 69.99em) {
+@media only screen and (min-width: 58em) and (max-width: 69.99em) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media only screen
-  and (min-width: 70em) {
+@media only screen and (min-width: 70em) {
   .grid {
     grid-template-columns: repeat(5, 1fr);
   }
@@ -74,7 +67,6 @@ $grow-duration: 200ms;
 
 .albumArt {
   position: absolute;
-  z-index: 1;
   top: 0;
   left: 0;
 

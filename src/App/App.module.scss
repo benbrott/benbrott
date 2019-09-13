@@ -1,7 +1,6 @@
 @import 'shared';
 
-@media only screen
-  and (max-width: 57.99em) {
+@media only screen and (max-width: 57.99em) {
   .container {
     padding: $spacing-default;
   }
@@ -15,16 +14,15 @@
   }
 
   .iconGroup:first-of-type {
-    margin-left: -$border-radius-default;
+    margin-left: -$border-width-default;
   }
 
   .iconGroup:last-of-type {
-    margin-right: -$border-radius-default;
+    margin-right: -$border-width-default;
   }
 }
 
-@media only screen
-  and (min-width: 58em) {
+@media only screen and (min-width: 58em) {
   .container {
     padding: $spacing-default;
     padding-left: calc(#{$navbar-size} + 2 * #{$spacing-default});
@@ -42,11 +40,11 @@
   }
 
   .iconGroup:first-of-type {
-    margin-top: -$border-radius-default;
+    margin-top: -$border-width-default;
   }
 
   .iconGroup:last-of-type {
-    margin-bottom: -$border-radius-default;
+    margin-bottom: -$border-width-default;
   }
 }
 
@@ -78,10 +76,13 @@
 
 .iconGroup {
   display: flex;
+  overflow: hidden;
   flex-direction: inherit;
 }
 
 .iconContainer {
+  position: relative;
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,12 +92,17 @@
   height: $navbar-size;
 
   cursor: pointer;
+  transition: $hover-transition;
 
-  border-radius: $border-radius-default;
+  border-radius: $border-width-default;
 
   &:focus,
   &:hover {
     outline: none;
+
+    &:not(.currentIcon) {
+      opacity: $hover-opacity;
+    }
   }
 
   &.currentIcon {
@@ -113,6 +119,8 @@
 }
 
 .icon {
+  z-index: 1;
+
   width: 35px;
   height: 35px;
 }
