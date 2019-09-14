@@ -7,8 +7,9 @@ import logoNameLight from 'assets/logoNameLight.svg';
 import logoNameDark from 'assets/logoNameDark.svg';
 import logoNameFlatLight from 'assets/logoNameFlatLight.svg';
 import logoNameFlatDark from 'assets/logoNameFlatDark.svg';
-import twitterWhite from 'assets/twitterWhite.svg';
 import githubWhite from 'assets/githubWhite.svg';
+import linkedInWhite from 'assets/linkedInWhite.svg';
+import twitterWhite from 'assets/twitterWhite.svg';
 
 const TEXT_MAPS = [
   { label: 'WHO', info: 'Ben Brott, software engineer at Appian' },
@@ -19,7 +20,8 @@ const TEXT_MAPS = [
 
 const SOCIAL_LINKS = [
   { name: 'twitter', icon: twitterWhite, href: 'https://twitter.com/BenBrott' },
-  { name: 'GitHub', icon: githubWhite, href: 'https://github.com/BenBrott' }
+  { name: 'GitHub', icon: githubWhite, href: 'https://github.com/BenBrott' },
+  { name: 'LinkedIn', icon: linkedInWhite, href: 'https://www.linkedin.com/in/brott/' }
 ];
 
 class About extends React.PureComponent {
