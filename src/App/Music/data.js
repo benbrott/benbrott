@@ -92,6 +92,13 @@ export const DATA = [
   },
   {
     artist: 'Car Seat Headrest',
+    title: 'Teens of Style',
+    src: 'https://i.scdn.co/image/56c7eef83e481717bf9c2f698880b544065d54b7',
+    backgroundColor: '#72bda9',
+    color: '#192622'
+  },
+  {
+    artist: 'Car Seat Headrest',
     title: 'Twin Fantasy',
     src: 'https://i.scdn.co/image/086082cb51c9dac76d913b8adb31f0e3afdea7aa',
     backgroundColor: '#ffffff',
@@ -159,6 +166,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/a32c2510cbe897256c4f4a8204eba79f895f24c5',
     backgroundColor: '#ffffff',
     color: '#666666'
+  },
+  {
+    artist: 'Dr. Dog',
+    title: 'Critical Equation',
+    src: 'https://i.scdn.co/image/6905558ed43aff440730992747d5d7bc87289a59',
+    backgroundColor: '#ebded5',
+    color: '#030706'
   },
   {
     artist: 'Drake',
