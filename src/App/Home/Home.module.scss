@@ -16,40 +16,51 @@
     height: calc(100vh - 2 * #{$spacing-default});
   }
 
-  div {
+  div,
+  a {
     @extend %bordered-default;
   }
 }
 
-.layer1 {
+.bottomLayer1 {
+  z-index: 0;
+
   background-color: $accent-gold;
 
   grid-column: 1 / span 4;
   grid-row: 1 / span 4;
 }
 
-.layer2 {
-  background-color: $accent-red;
+.bottomLayer2 {
+  z-index: 0;
 
-  grid-column: 2 / span 4;
-  grid-row: 2 / span 4;
-}
-
-.layer3 {
   background-color: $accent-gold;
 
   grid-column: 6 / span 4;
   grid-row: 6 / span 4;
 }
 
-.layer4 {
+.midLayer1 {
+  z-index: 1;
+
+  background-color: $accent-red;
+
+  grid-column: 2 / span 4;
+  grid-row: 2 / span 4;
+}
+
+.midLayer2 {
+  z-index: 1;
+
   background-color: $accent-red;
 
   grid-column: 5 / span 4;
   grid-row: 5 / span 4;
 }
 
-.layer5 {
+.topLayer {
+  z-index: 2;
+
   background-color: $accent-purple;
 
   grid-column: 3 / span 5;

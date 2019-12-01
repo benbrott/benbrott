@@ -10,11 +10,11 @@ class Home extends React.PureComponent {
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.layer1}/>
-        <div className={styles.layer2}/>
-        <div className={styles.layer3}/>
-        <div className={styles.layer4}/>
-        <div className={styles.layer5}/>
+        <div className={styles.bottomLayer1}/>
+        <div className={styles.bottomLayer2}/>
+        <div className={styles.midLayer1}/>
+        <div className={styles.midLayer2}/>
+        <div className={styles.topLayer}/>
       </div>
     );
   }

@@ -231,6 +231,20 @@ export const DATA = [
     color: '#000000'
   },
   {
+    artist: 'Frank Ocean',
+    title: 'Blonde',
+    src: 'https://i.scdn.co/image/e22f959dae6f088b9c6614c4f777efacaf3544f1',
+    backgroundColor: '#e4e4e4',
+    color: '#000000'
+  },
+  {
+    artist: 'Frank Ocean',
+    title: 'channel ORANGE',
+    src: 'https://i.scdn.co/image/274280f8c875eadbd0c08bf6bf48bf41803c055e',
+    backgroundColor: '#f37520',
+    color: '#ffffff'
+  },
+  {
     artist: 'fun.',
     title: 'Aim and Ignite',
     src: 'https://i.scdn.co/image/209de0a5213165ed26855482257f2a2be55cd872',
