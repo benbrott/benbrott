@@ -1,5 +1,12 @@
 export const DATA = [
   {
+    artist: '070 Shake',
+    title: 'Modus Vivendi',
+    src: 'https://i.scdn.co/image/aa21603983c3e31764f7cbe8f4e2e8d7a00f37eb',
+    backgroundColor: '#efefef',
+    color: '#6c568f'
+  },
+  {
     artist: 'Adele',
     title: '21',
     src: 'https://i.scdn.co/image/26007fcd7781ea9222b23ab3654ba86f60dd6e18',
@@ -138,6 +145,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/dc9d2b0cf38e51fb3f7e58ca372bdda2b8b8daca',
     backgroundColor: '#dddddd',
     color: '#352524'
+  },
+  {
+    artist: 'Denzel Curry',
+    title: 'TA13OO',
+    src: 'https://i.scdn.co/image/ab67616d0000b2737d05dd3ebb77cc048d66b294',
+    backgroundColor: '#1e1e1e',
+    color: '#d9d9d9'
   },
   {
     artist: 'The Districts',
