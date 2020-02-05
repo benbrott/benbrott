@@ -2,40 +2,6 @@
 
 $grow-duration: 200ms;
 
-@media only screen and (max-width: 45.99em) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-  }
-
-  .albumArt.open {
-    margin-left: -75%;
-  }
-}
-
-@media only screen and (min-width: 46em) {
-  .albumArt.open {
-    margin-left: -55%;
-  }
-}
-
-@media only screen and (min-width: 46em) and (max-width: 57.99em) {
-  .grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media only screen and (min-width: 58em) and (max-width: 69.99em) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-@media only screen and (min-width: 70em) {
-  .grid {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
 .grid {
   display: grid;
 
@@ -44,6 +10,7 @@ $grow-duration: 200ms;
   height: 100%;
   padding: $spacing-default;
 
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   grid-gap: calc(2 * #{$spacing-default});
 }
 
@@ -77,6 +44,10 @@ $grow-duration: 200ms;
   transition: margin-left 600ms, height $grow-duration, width $grow-duration, top $grow-duration, left $grow-duration;
 
   @extend %bordered-default;
+
+  &.open {
+    margin-left: -75%;
+  }
 
   &:hover,
   &.focus,
