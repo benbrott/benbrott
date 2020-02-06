@@ -1,6 +1,6 @@
 @import 'shared';
 
-@media only screen and (max-width: 57.99em) {
+@media only screen and (max-width: $screen-width-tablet-max) {
   .container {
     padding: $spacing-default;
   }
@@ -22,7 +22,7 @@
   }
 }
 
-@media only screen and (min-width: 58em) {
+@media only screen and (min-width: $screen-width-desktop-min) {
   .container {
     padding: $spacing-default;
     padding-left: calc(#{$navbar-size} + 2 * #{$spacing-default});

@@ -41,6 +41,7 @@ class About extends React.PureComponent {
     window.removeEventListener('resize', this.handleResize); 
   }
 
+  // Matches $screen-width-desktop-min in _shared.scss
   isNarrowScreen = () => window.matchMedia('(max-width: 66em)').matches
 
   handleResize = throttle(() => {

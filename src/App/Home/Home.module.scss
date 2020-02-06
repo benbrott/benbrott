@@ -8,11 +8,11 @@
   grid-template-columns: 15px 15px 15px 1fr 1fr 1fr 15px 15px 15px;
   grid-template-rows: 15px 15px 15px 1fr 1fr 1fr 15px 15px 15px;
 
-  @media only screen and (max-width: 57.99em) {
+  @media only screen and (max-width: $screen-width-tablet-max) {
     height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
   }
 
-  @media only screen and (min-width: 58em) {
+  @media only screen and (min-width: $screen-width-desktop-min) {
     height: calc(100vh - 2 * #{$spacing-default});
   }
 
