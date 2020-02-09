@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import throttle from 'lodash.throttle';
 import styles from './About.module.scss';
-import logoNameLight from 'assets/logoNameLight.svg';
-import logoNameDark from 'assets/logoNameDark.svg';
-import logoNameFlatLight from 'assets/logoNameFlatLight.svg';
-import logoNameFlatDark from 'assets/logoNameFlatDark.svg';
-import githubWhite from 'assets/githubWhite.svg';
-import linkedInWhite from 'assets/linkedInWhite.svg';
-import twitterWhite from 'assets/twitterWhite.svg';
+import logoNameLight from 'svg/logoNameLight.svg';
+import logoNameDark from 'svg/logoNameDark.svg';
+import logoNameFlatLight from 'svg/logoNameFlatLight.svg';
+import logoNameFlatDark from 'svg/logoNameFlatDark.svg';
+import GitHub from 'svgComponents/GitHub';
+import LinkedIn from 'svgComponents/LinkedIn';
+import Twitter from 'svgComponents/Twitter';
 
 const TEXT_MAPS = [
   { label: 'WHO', info: 'Ben Brott, software engineer at Appian' },
@@ -19,9 +19,9 @@ const TEXT_MAPS = [
 ];
 
 const SOCIAL_LINKS = [
-  { name: 'twitter', icon: twitterWhite, href: 'https://twitter.com/BenBrott' },
-  { name: 'GitHub', icon: githubWhite, href: 'https://github.com/BenBrott' },
-  { name: 'LinkedIn', icon: linkedInWhite, href: 'https://www.linkedin.com/in/brott/' }
+  { Component: Twitter, href: 'https://twitter.com/BenBrott' },
+  { Component: GitHub, href: 'https://github.com/BenBrott' },
+  { Component: LinkedIn, href: 'https://www.linkedin.com/in/brott/' }
 ];
 
 class About extends React.PureComponent {
@@ -86,10 +86,10 @@ class About extends React.PureComponent {
   }
 
   renderLinkItems = () => {
-    return SOCIAL_LINKS.map(({name, icon, href}) => {
+    return SOCIAL_LINKS.map(({Component, href}) => {
       return (
         <a className={styles.socialLink} href={href} target="_blank" rel="noopener noreferrer">
-          <img src={icon} className={styles.socialLinkIcon} alt={name} />
+          <Component />
         </a>
       )
     });

@@ -26,10 +26,10 @@ $grow-duration: 200ms;
   &:focus {
     outline: none;
   }
-}
 
-.record {
-  display: block;
+  svg {
+    display: block;
+  }
 }
 
 .albumArt {

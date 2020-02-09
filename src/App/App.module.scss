@@ -116,11 +116,11 @@
       background-color: $primary-black;
     }
   }
-}
 
-.icon {
-  z-index: 1;
+  svg {
+    z-index: 1;
 
-  width: 35px;
-  height: 35px;
+    width: 35px;
+    height: 35px;
+  }
 }

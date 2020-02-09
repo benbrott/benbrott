@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import styles from './Music.module.scss';
 import { DATA } from './data';
 import { KEYS, killEvent } from 'utils/events';
-import record from 'assets/record.svg';
+import Record from 'svgComponents/Record';
 
 class Music extends React.PureComponent {
   constructor(props) {
@@ -62,7 +62,7 @@ class Music extends React.PureComponent {
     const albumArtAlt = `${title} by ${artist}`;
     return (
       <div {...albumProps}>
-        <img src={record} className={styles.record} alt="" />
+        <Record />
         <div className={styles.albumInfo} style={{ color }}>
           <span style={{ backgroundColor }}>{title}</span>
           <span style={{ backgroundColor }}>{artist}</span>

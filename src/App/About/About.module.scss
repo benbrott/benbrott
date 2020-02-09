@@ -158,11 +158,11 @@ $line-height-default: 1.2em;
     opacity: $hover-opacity;
     outline: none;
   }
-}
 
-.socialLinkIcon {
-  display: block;
+  svg {
+    display: block;
 
-  width: 30px;
-  height: 30px;
+    width: 30px;
+    height: 30px;
+  }
 }
