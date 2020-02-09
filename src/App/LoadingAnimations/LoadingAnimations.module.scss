@@ -1,0 +1,39 @@
+@import 'shared';
+
+.grid {
+  display: grid;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: $spacing-default;
+}
+
+.container {
+  position: relative;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding-top: 100%; // padding is based on width so this ensures square grid cells
+
+  @extend %bordered-default;
+
+  &.dark {
+    background-color: $accent-red;
+  }
+
+  &.light {
+    background-color: $primary-black;
+  }
+}
+
+.animation {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+
+  width: 80%;
+  height: 80%;
+}

@@ -10,22 +10,50 @@ import headphonesLight from 'assets/headphonesLight.svg';
 import headphonesDark from 'assets/headphonesDark.svg';
 import homeLight from 'assets/homeLight.svg';
 import homeDark from 'assets/homeDark.svg';
+import hourglassLight from 'assets/hourglassLight.svg';
+import hourglassDark from 'assets/hourglassDark.svg';
 import legoLight from 'assets/legoLight.svg';
 import legoDark from 'assets/legoDark.svg';
 import sunLight from 'assets/sunLight.svg';
 import moonDark from 'assets/moonDark.svg';
 import { KEYS } from 'utils/events';
+import LoadingAnimations from './LoadingAnimations/LoadingAnimations';
 
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
+const PATH_LOADING_ANIMATIONS = '/loadingAnimations';
 const PATH_ABOUT = '/about';
 
 const REFS = {
   HOME: 'home',
   MUSIC: 'music',
+  LOADING_ANIMATIONS: 'loading animations',
   ABOUT: 'about',
   THEME: 'theme'
 };
+
+const NAV_ICONS = [
+  {
+    path: PATH_HOME,
+    themes: { light: homeLight, dark: homeDark },
+    alt: REFS.HOME
+  },
+  {
+    path: PATH_MUSIC,
+    themes: { light: headphonesLight, dark: headphonesDark },
+    alt: REFS.MUSIC
+  },
+  {
+    path: PATH_LOADING_ANIMATIONS,
+    themes: { light: hourglassLight, dark: hourglassDark },
+    alt: REFS.LOADING_ANIMATIONS
+  },
+  {
+    path: PATH_ABOUT,
+    themes: { light: legoLight, dark: legoDark },
+    alt: REFS.ABOUT
+  }
+];
 
 const THEME = 'THEME';
 const LIGHT = 'LIGHT';
@@ -60,11 +88,11 @@ class App extends React.PureComponent {
     this.setState({ currentPage: ref });
   }
 
-  getThemedNavIcon = (icons, isDark, currentIcon) => {
+  getThemedNavIconSrc = (themes, isDark, currentIcon) => {
     if (isDark) {
-      return currentIcon ? icons.dark : icons.light;
+      return currentIcon ? themes.dark : themes.light;
     }
-    return currentIcon ? icons.light : icons.dark;
+    return currentIcon ? themes.light : themes.dark;
   }
 
   getIconContainerClasses = isDark => {
@@ -76,35 +104,19 @@ class App extends React.PureComponent {
 
   renderNavIcons = () => {
     const { isDark, currentPage } = this.state;
-    return [
-      {
-        path: PATH_HOME,
-        icons: { light: homeLight, dark: homeDark },
-        alt: REFS.HOME
-      },
-      {
-        path: PATH_MUSIC,
-        icons: { light: headphonesLight, dark: headphonesDark },
-        alt: REFS.MUSIC
-      },
-      {
-        path: PATH_ABOUT,
-        icons: { light: legoLight, dark: legoDark },
-        alt: REFS.ABOUT
-      }
-    ].map(({path, icons, alt}, index) => {
+    return NAV_ICONS.map(({path, themes, alt}, index) => {
       const ref = alt;
       const currentIcon = ref === currentPage;
       const classes = classNames([
         ...this.getIconContainerClasses(isDark),
         currentIcon && styles.currentIcon
       ]);
-      const icon = this.getThemedNavIcon(icons, isDark, currentIcon);
+      const src = this.getThemedNavIconSrc(themes, isDark, currentIcon);
       const onClick = () => this.onNavIconClick(ref);
       const key = `navIcon_${index}`;
       return (
         <Link to={path} className={classes} onClick={onClick} ref={ref} key={key}>
-          <img src={icon} className={styles.icon} alt={alt} />
+          <img src={src} className={styles.icon} alt={alt} />
         </Link>
       );
     });
@@ -167,6 +179,11 @@ class App extends React.PureComponent {
     return (<Music isDark={this.state.isDark}/>);
   };
 
+  loadingAnimationsComponent = () => {
+    this.initialPage = REFS.LOADING_ANIMATIONS;
+    return (<LoadingAnimations isDark={this.state.isDark}/>);
+  };
+
   aboutComponent = () => {
     this.initialPage = REFS.ABOUT;
     return (<About isDark={this.state.isDark}/>);
@@ -179,6 +196,7 @@ class App extends React.PureComponent {
           {this.renderNavBar()}
           <Route path={PATH_HOME} exact component={this.homeComponent} />
           <Route path={PATH_MUSIC} component={this.musicComponent} />
+          <Route path={PATH_LOADING_ANIMATIONS} component={this.loadingAnimationsComponent} />
           <Route path={PATH_ABOUT} component={this.aboutComponent} />
         </div>
       </HashRouter>
