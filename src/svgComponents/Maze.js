@@ -22,39 +22,11 @@ class Maze extends React.PureComponent {
           L 27.5,50
           L 50,50
         " fill="none" stroke={primaryColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-        <rect width="22.5" height="22.5" rx="1" ry="1" stroke={primaryColor} strokeWidth="3" fill={primaryColor}>
+        <rect x="50" width="22.5" height="22.5" rx="1" ry="1" stroke={primaryColor} strokeWidth="3" fill={primaryColor}>
           <animate 
-            values="
-              5;27.5;50;72.5;
-              72.5;72.5;72.5;
-              50;27.5;5;
-              5;5;
-              27.5;50;
-              50;
-              27.5;
-              27.5;
-              27.5;
-              50;
-              50;27.5;
-              5;
-              5;
-            " attributeName="x" dur="3s" repeatCount="indefinite"/>
+            values="5;27.5;50;72.5;72.5;72.5;72.5;50;27.5;5;5;5;27.5;50;50;27.5;27.5;27.5;50;50;27.5;5;5;" attributeName="x" dur="3s" repeatCount="indefinite"/>
           <animate 
-            values="
-              5;5;5;5;
-              27.5;50;72.5;
-              72.5;72.5;72.5;
-              50;27.5;
-              27.5;27.5;
-              50;
-              50;
-              50;
-              50;
-              50;
-              27.5;27.5;
-              27.5;
-              5;
-            " attributeName="y" dur="3s" repeatCount="indefinite"/>
+            values="5;5;5;5;27.5;50;72.5;72.5;72.5;72.5;50;27.5;27.5;27.5;50;50;50;50;50;27.5;27.5;27.5;5;" attributeName="y" dur="3s" repeatCount="indefinite"/>
         </rect>
       </svg>
     );
