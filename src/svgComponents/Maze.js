@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withTheming from './withTheming';
 
 class Maze extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
@@ -22,8 +21,8 @@ class Maze extends React.PureComponent {
           L 27.5,72.5
           L 27.5,50
           L 50,50
-        " fill="none" stroke={primaryColor} strokeLinecap="round" strokeLinejoin="round"/>
-        <rect width="22.5" height="22.5" rx="1" ry="1" stroke={primaryColor} fill={primaryColor}>
+        " fill="none" stroke={primaryColor} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+        <rect width="22.5" height="22.5" rx="1" ry="1" stroke={primaryColor} strokeWidth="3" fill={primaryColor}>
           <animate 
             values="
               5;27.5;50;72.5;
@@ -62,4 +61,4 @@ class Maze extends React.PureComponent {
   }
 }
 
-export default withTheming(Maze);
+export default Maze;

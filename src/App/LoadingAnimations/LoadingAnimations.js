@@ -18,7 +18,7 @@ class LoadingAnimations extends React.PureComponent {
     return [Hourglass, Maze].map(Component => {
       return (
         <div className={containerClasses}>
-          <Component isDark={isDark} />
+          <Component primaryColor={isDark ? '#fcb514' : '#111'} />
         </div>
       );
     });

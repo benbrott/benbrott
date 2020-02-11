@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withTheming from './withTheming';
 
 class Hourglass extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
@@ -55,4 +54,4 @@ class Hourglass extends React.PureComponent {
   }
 }
 
-export default withTheming(Hourglass);
+export default Hourglass;

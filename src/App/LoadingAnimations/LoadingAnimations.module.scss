@@ -21,11 +21,11 @@
   @extend %bordered-default;
 
   &.dark {
-    background-color: $accent-red;
+    background-color: $primary-black;
   }
 
   &.light {
-    background-color: $primary-black;
+    background-color: $primary-light-gray;
   }
 
   svg {

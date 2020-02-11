@@ -10,6 +10,7 @@ import Headphones from 'svgComponents/Headphones';
 import Hourglass from 'svgComponents/Hourglass';
 import House from 'svgComponents/House';
 import Lego from 'svgComponents/Lego';
+import Loading from 'svgComponents/Loading';
 import Moon from 'svgComponents/Moon';
 import Sun from 'svgComponents/Sun';
 import { KEYS } from 'utils/events';
@@ -40,7 +41,7 @@ const NAV_ICONS = [
     ref: REFS.MUSIC
   },
   {
-    Component: Hourglass,
+    Component: Loading,
     path: PATH_LOADING_ANIMATIONS,
     ref: REFS.LOADING_ANIMATIONS
   },
