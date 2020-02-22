@@ -5,6 +5,7 @@ import styles from './LoadingAnimations.module.scss';
 import Hourglass from 'svgComponents/Hourglass';
 import Maze from 'svgComponents/Maze';
 import Pulse from 'svgComponents/Pulse';
+import RotatingSquares from 'svgComponents/RotatingSquares';
 
 class LoadingAnimations extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool }
@@ -16,7 +17,7 @@ class LoadingAnimations extends React.PureComponent {
       styles.container,
       isDark ? styles.dark : styles.light
     ]);
-    return [Hourglass, Pulse, Maze].map(Component => {
+    return [Hourglass, Pulse, Maze, RotatingSquares].map(Component => {
       return (
         <div className={containerClasses}>
           <Component primaryColor={isDark ? '#fcb514' : '#111'} />
