@@ -7,7 +7,6 @@ import Home from './Home/Home'
 import Music from './Music/Music'
 import About from './About/About'
 import Headphones from 'svgComponents/Headphones';
-import Hourglass from 'svgComponents/Hourglass';
 import House from 'svgComponents/House';
 import Lego from 'svgComponents/Lego';
 import Loading from 'svgComponents/Loading';

@@ -58,8 +58,9 @@ $line-height-default: 1.2em;
   flex-direction: column;
   justify-content: space-between;
 
-  width: 100%;
+  max-width: 1800px;
   height: 100%;
+  margin: auto;
 }
 
 .banner {
