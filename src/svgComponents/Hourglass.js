@@ -37,13 +37,15 @@ class Hourglass extends React.PureComponent {
           L 42,48
           L 12,18
           L 12,10
-        " stroke={primaryColor} strokeWidth="6" strokeLinejoin="round" fill="none"/>
+        " stroke={primaryColor} strokeWidth="3" strokeLinejoin="round" fill="none"/>
         <path d="
-          M 50,47
-          L 30,27
-          L 70,27
+          M 51,48
+          L 49,48
+          L 29,28
+          L 71,28
           Z
-          M 50,66
+          M 51,68
+          L 49,68
           L 20,83
           L 80,83
           Z
