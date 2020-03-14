@@ -71,7 +71,7 @@ class About extends React.PureComponent {
         themeStyle
       ]);
       return ([
-        <span className={labelStyles}>{label}</span>,
+        <h4 className={labelStyles}>{label}</h4>,
         <span className={infoStyles}>{info}</span>
       ]);
     });

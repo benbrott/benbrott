@@ -175,6 +175,13 @@ export const DATA = [
     color: '#403328'
   },
   {
+    artist: 'The Districts',
+    title: 'You Know I\'m Not Going Anywhere',
+    src: 'https://i.scdn.co/image/ab67616d0000b273d785a28a6b2d7e366c075b20',
+    backgroundColor: '#3fadda',
+    color: '#fff'
+  },
+  {
     artist: 'Donnie Trumpet & The Social Experiment',
     title: 'Surf',
     src: 'https://i.scdn.co/image/a32c2510cbe897256c4f4a8204eba79f895f24c5',
