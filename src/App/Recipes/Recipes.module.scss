@@ -1,1 +1,52 @@
 @import 'shared';
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: $spacing-default;
+
+  @extend %bordered-default;
+
+  &.dark {
+    background-color: $primary-black;
+  }
+
+  &.light {
+    background-color: $primary-light-gray;
+  }
+}
+
+.heading {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.name {
+  font-family: $font-family-heading;
+  font-size: 1.5em;
+  font-weight: normal;
+
+  margin: 0 10px 0 0;
+
+  &.dark {
+    color: $accent-gold;
+  }
+
+  &.light {
+    color: $primary-black;
+  }
+}
+
+.info {
+  line-height: 1.6em;
+
+  &.dark {
+    color: $primary-light-gray;
+  }
+
+  &.light {
+    color: $primary-black;
+  }
+}
