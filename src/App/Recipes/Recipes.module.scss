@@ -1,52 +1,137 @@
 @import 'shared';
 
+$hover-triangle-size: .5em;
+
 .container {
-  box-sizing: border-box;
-  width: 100%;
-  padding: $spacing-default;
+  font-size: 1.125em;
 
-  @extend %bordered-default;
-
-  &.dark {
-    background-color: $primary-black;
-  }
-
-  &.light {
-    background-color: $primary-light-gray;
-  }
-}
-
-.heading {
   display: flex;
-  align-items: flex-end;
-  flex-direction: row;
-  flex-wrap: wrap;
+
+  width: 100%;
+
+  @media only screen and (max-width: $screen-width-tablet-max) {
+    height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
+  }
+
+  @media only screen and (min-width: $screen-width-desktop-min) {
+    height: calc(100vh - 2 * #{$spacing-default});
+  }
 }
 
-.name {
-  font-family: $font-family-heading;
-  font-size: 1.5em;
-  font-weight: normal;
+.recipeList {
+  z-index: 1;
 
-  margin: 0 10px 0 0;
+  overflow-y: scroll;
+
+  min-width: max-content;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.label {
+  font-family: $font-family-heading;
+  font-weight: normal;
 
   &.dark {
     color: $accent-gold;
   }
-
-  &.light {
-    color: $primary-black;
-  }
 }
 
-.info {
-  line-height: 1.6em;
+.recipeHeader {
+  position: relative;
+
+  margin-right: calc(#{$spacing-default} + #{$border-width-default});
+  padding: $spacing-default calc(2 * #{$spacing-default});
+
+  cursor: pointer;
+  text-align: center;
+
+  @extend %bordered-default;
+
+  &.open {
+    margin-right: 0;
+    padding-right: calc(3 * #{$spacing-default} + 2 * #{$border-width-default});
+
+    border-right: none;
+  };
+
+  &:not(:last-of-type) {
+    margin-bottom: $spacing-default;
+  }
 
   &.dark {
     color: $primary-light-gray;
+    background-color: $primary-black;
+
+    &::before {
+      border-bottom: $hover-triangle-size solid $accent-gold;
+      border-left: $hover-triangle-size solid $accent-gold;
+    }
   }
 
   &.light {
     color: $primary-black;
+    background-color: $primary-light-gray;
+
+    &::before {
+      border-bottom: $hover-triangle-size solid $primary-black;
+      border-left: $hover-triangle-size solid $primary-black;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    content: '';
+    transition: $hover-transition;
+
+    opacity: 0;
+    border-top: $hover-triangle-size solid transparent;
+    border-right: $hover-triangle-size solid transparent;
+  }
+
+  &:focus::before,
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .label {
+    margin: 0;
+  }
+}
+
+.recipe {
+  overflow-y: scroll;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin-left: -$border-width-default;
+  padding: calc(2 * #{$spacing-default});
+
+  @extend %bordered-default;
+
+  &.dark {
+    color: $primary-light-gray;
+    background-color: $primary-black;
+  }
+
+  &.light {
+    color: $primary-black;
+    background-color: $primary-light-gray;
+  }
+
+  ul,
+  ol {
+    line-height: 1.5em;
+  };
+
+  .label {
+    text-align: center;
   }
 }

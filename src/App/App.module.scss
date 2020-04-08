@@ -93,8 +93,6 @@
 
   &:focus,
   &:hover {
-    outline: none;
-
     &:not(.currentIcon) {
       opacity: $hover-opacity;
     }

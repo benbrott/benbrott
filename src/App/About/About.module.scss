@@ -145,18 +145,15 @@ $line-height-default: 1.2em;
 }
 
 .socialLink {
-  margin-right: $spacing-default;
-
   transition: $hover-transition;
 
-  &:last-of-type {
-    margin-right: 0;
+  &:not(:last-of-type) {
+    margin-right: $spacing-default;
   }
 
   &:focus,
   &:hover {
     opacity: $hover-opacity;
-    outline: none;
   }
 
   svg {
