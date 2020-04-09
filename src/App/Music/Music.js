@@ -67,7 +67,7 @@ class Music extends React.PureComponent {
           <span style={{ backgroundColor }}>{title}</span>
           <span style={{ backgroundColor }}>{artist}</span>
         </div>
-        <img src={src} className={albumArtClasses} alt={albumArtAlt} />
+        <img src={src} className={albumArtClasses} alt={albumArtAlt} loading="lazy" />
       </div>
     )
   }
