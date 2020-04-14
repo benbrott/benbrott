@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import throttle from 'lodash.throttle';
 import styles from './About.module.scss';
+import withFormFactor from 'utils/withFormFactor';
 import logoNameLight from 'svg/logoNameLight.svg';
 import logoNameDark from 'svg/logoNameDark.svg';
 import logoNameFlatLight from 'svg/logoNameFlatLight.svg';
@@ -28,30 +28,9 @@ class About extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool }
   static defaultProps = { isDark: false }
 
-  constructor(props) {
-    super(props);
-    this.state = { isNarrow: this.isNarrowScreen() };
-  }
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize); 
-  }
-
-  // Matches $screen-width-desktop-min in _shared.scss
-  isNarrowScreen = () => window.matchMedia('(max-width: 66em)').matches
-
-  handleResize = throttle(() => {
-    const isNarrow = this.isNarrowScreen();
-    this.setState({ isNarrow });
-  }, 100)
-
   getBannerSrc = () => {
-    const isDark = this.props.isDark;
-    if (this.state.isNarrow) {
+    const { isDark, isMobile } = this.props;
+    if (isMobile) {
       return isDark ? logoNameLight : logoNameDark;
     }
     return isDark ? logoNameFlatLight : logoNameFlatDark;
@@ -116,4 +95,4 @@ class About extends React.PureComponent {
   }
 }
 
-export default About;
+export default withFormFactor(About);

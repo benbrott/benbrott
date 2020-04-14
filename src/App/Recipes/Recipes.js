@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Recipes.module.scss';
 import { DATA } from './data';
+import withFormFactor from 'utils/withFormFactor';
 import { KEYS, killEvent } from 'utils/events';
 
 class Recipes extends React.PureComponent {
@@ -94,4 +95,4 @@ class Recipes extends React.PureComponent {
   }
 }
 
-export default Recipes;
+export default withFormFactor(Recipes);
