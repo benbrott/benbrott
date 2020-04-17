@@ -48,9 +48,9 @@ class Recipes extends React.PureComponent {
     };
     return(
       <div {...headerProps}>
-        <h2 className={classNames([styles.label, themeClass])}>
+        <h3 className={classNames([styles.label, themeClass])}>
           {name}
-        </h2>
+        </h3>
         <span>Serves {serves} | {time}</span>
       </div>
     );
@@ -63,15 +63,15 @@ class Recipes extends React.PureComponent {
       const { ingredients, directions } = DATA[openIndex];
       return (
         <div className={classNames([styles.recipe, themeClass])}>
-          <h3 className={classNames([styles.label, themeClass])}>
+          <h4 className={classNames([styles.label, themeClass])}>
             INGREDIENTS
-          </h3>
+          </h4>
           <ul>
             {ingredients.map(item => <li>{item}</li>)}
           </ul>
-          <h3 className={classNames([styles.label, themeClass])}>
+          <h4 className={classNames([styles.label, themeClass])}>
             DIRECTIONS
-          </h3>
+          </h4>
           <ol>
             {directions.map(step => <li>{step}</li>)}
           </ol>
