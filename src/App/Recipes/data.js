@@ -1,41 +1,85 @@
-// Unicode fractions
-const U = {
-  'deg': '\u00B0',
-  '1/4': '\u00BC',
-  '1/2': '\u00BD',
-  '3/4': '\u00BE'
-};
-
 export const DATA = [
-  // {
-  //   name: 'Cheesy Jalepeño Cornbread ',
-  //   serves: 8,
-  //   time: '1 hour',
-  //   ingredients: [],
-  //   directions: []
-  // },
+  {
+    name: 'Chocolate Sticky Buns',
+    makes: 15,
+    time: '1 hour',
+    ingredients: {
+      Dough: [
+        '¼ cup warm water',
+        '1 ¼-ounce package active dry yeast',
+        '⅓ cup sugar',
+        '¾ cup milk',
+        '4 tablespoons butter, softened',
+        '2 large eggs',
+        '½ teaspoon vanilla extract',
+        '1¼ teaspoons salt',
+        '4 cups flour'
+      ],
+      Filling: [
+        '4 tablespoons melted butter',
+        '½ cup packed brown sugar',
+        '1 tablespoon cinnamon',
+        '¾ cup semisweet chocolate chips'
+      ],
+      Topping: [
+        '¾ cup packed brown sugar',
+        '4 tablespoons butter',
+        '4 tablespoons honey',
+        '1½ cups chopped hazelnuts (any nut works)'
+      ]
+    },
+    directions: {
+      Dough: [
+        'In the bowl of a stand mixer, dissolve the yeast and 1 teaspoon of sugar in the warm water, about 5 minutes',
+        'Add milk, butter, sugar, eggs, vanilla, and salt, and mix to combine',
+        'Add 3 cups of flour, continuing to mix on low speed until just combined',
+        'Using a dough hook, knead on medium-low speed and slowly add in remaining flour, about 3 minutes',
+        'Shape the dough into a ball and place it in a greased bowl',
+        'Cover with plastic wrap and let rise until the dough has doubled in size, 1-2 hours',
+      ],
+      Filling: [
+        'Roll the dough into a large rectangle, about 12" x 18"',
+        'Melt the butter and brush it evenly on the dough',
+        'Make the filling by combining the brown sugar and cinnamon and sprinkle it evenly to the edges',
+        'Sprinkle the chocolate chips on top of the cinnamon-sugar mixture',
+        'Roll the dough tightly, from the long side, and turn so that the seam is down',
+        'Cut the roll into 15 even slices'
+      ],
+      Topping: [
+        'Grease a 9" x 13" pan',
+        'Put the butter, sugar, and honey in a pot and heat over low heat until the ingredients are melted and combined',
+        'Pour the mixture in the pan and top with nuts',
+        'Place the roll slices on top of the nuts and cover with plastic wrap',
+        'Refridgerate until ready to bake'
+      ],
+      Bake: [
+        'Take the rolls out of the fridge and preheat oven to 375°',
+        'Bake until golden brown, about 25 minutes',
+        'Flip the buns out onto a large baking dish'
+      ]
+    }
+  },
   {
     name: 'Fruit Cocktail Cake',
     serves: 9,
     time: '45 minutes',
     ingredients: [
-      `${U['1/2']} cup unsalted butter, softened`,
-      `${U['1/4']} cup sugar`,
+      '½ cup butter, softened',
+      '¼ cup sugar',
       '1 large egg',
-      '1 16oz can fruit cocktail',
+      '1 16-ounce can fruit cocktail',
       '1 teaspoon baking soda',
-      `${U['1/2']} teaspoon salt`,
-      `1${U['3/4']} cups flour`,
-      `${U['1/2']} cup brown sugar`,
-      `${U['1/2']} cup chopped pecans`
+      '½ teaspoon salt',
+      '1¾ cups flour',
+      '½ cup brown sugar',
+      '½ cup chopped pecans'
     ],
     directions: [
-      `Preheat oven to 350${U['deg']}`,
+      'Preheat oven to 350° and grease an 8" x 8" pan',
       'Cream butter and sugar',
       'Mix in egg and undrained can of fruit cocktail',
       'Combine baking soda, salt, and flour',
-      'Add dry ingredients into the wet mixture',
-      'Pour into a greased 8x8 pan',
+      'Add dry ingredients into the wet mixture and pour into the pan',
       'Combine brown sugar and chopped pecans',
       'Spinkle the topping evenly on the batter',
       'Bake for 25-30 minutes'
@@ -46,11 +90,11 @@ export const DATA = [
     serves: 6,
     time: '1 hour',
     ingredients: [
-      `1${U['1/2']} cups canola oil`,
-      `4 medium gold potatoes, peeled and very thinly sliced`,
-      `1 spanish onion, thinly sliced`,
-      `6 large eggs`,
-      `Salt & pepper, to taste`,
+      '1½ cups canola oil',
+      '4 medium gold potatoes, peeled and very thinly sliced',
+      '1 spanish onion, thinly sliced',
+      '6 large eggs',
+      'Salt & pepper, to taste',
     ],
     directions: [
       'In a 9" nonstick pan, heat the oil over medium heat',

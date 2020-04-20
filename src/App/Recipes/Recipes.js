@@ -12,7 +12,7 @@ class Recipes extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { openIndex: -1 };
   }
 
   onRecipeHeaderClick = index => {
@@ -34,62 +34,85 @@ class Recipes extends React.PureComponent {
     }
   }
 
-  renderRecipeHeader = ({ name, serves, time }, index) => {
+  renderListSection = (data, ordered, themeClass) => {
+    const List = ordered ? 'ol' : 'ul';
+    return Array.isArray(data) ? (
+      <List className={styles.list}>
+        {data.map(item => <li>{item}</li>)}
+      </List>
+    ) : Object.keys(data).map(section => (
+      <div>
+        <h5 className={classNames([styles.label, themeClass])}>
+          - - - {section} - - -
+        </h5>
+        <List className={styles.list}>
+          {data[section].map(item => <li>{item}</li>)}
+        </List>
+      </div>
+    ));
+  }
+
+  renderRecipeLists = (ingredients, directions, themeClass) => {
+    const headerClasses = classNames([styles.label, themeClass]);
+    return (
+      <div>
+        <h4 className={headerClasses}>INGREDIENTS</h4>
+        {this.renderListSection(ingredients, false, themeClass)}
+        <h4 className={headerClasses}>DIRECTIONS</h4>
+        {this.renderListSection(directions, true, themeClass)}
+      </div>
+    );
+  }
+
+  renderOpenRecipeDesktop = () => {
+    const openIndex = this.state.openIndex;
+    if (openIndex === -1) {
+      return;
+    }
     const themeClass = this.props.isDark ? styles.dark : styles.light;
-    const headerProps = {
+    const { ingredients, directions } = DATA[openIndex];
+    return (
+      <div className={classNames([styles.openRecipeDesktop, themeClass])}>
+        {this.renderRecipeLists(ingredients, directions, themeClass)}
+      </div>
+    );
+  }
+
+  renderRecipe = (recipe, index, isMobile) => {
+    const { name, serves, makes, time, ingredients, directions } = recipe;
+    const themeClass = this.props.isDark ? styles.dark : styles.light;
+    const isOpen = index === this.state.openIndex;
+    const props = {
       className: classNames([
-        styles.recipeHeader,
-        index === this.state.openIndex && styles.open,
+        styles.recipe,
+        isOpen && styles.open,
+        isMobile && styles.mobile,
         themeClass
       ]),
       onClick: () => this.onRecipeHeaderClick(index),
       onKeyPress: event => this.onRecipeHeaderKeyPress(event, index),
       tabIndex: 0
     };
+    const portion = serves ? `Serves ${serves}` : `Makes ${makes}`
     return(
-      <div {...headerProps}>
-        <h3 className={classNames([styles.label, themeClass])}>
+      <div {...props}>
+        <h3 className={classNames([styles.label, styles.noMargin, themeClass])}>
           {name}
         </h3>
-        <span>Serves {serves} | {time}</span>
+        <span>{portion} | {time}</span>
+        {isMobile && isOpen && this.renderRecipeLists(ingredients, directions, themeClass)}
       </div>
     );
   }
 
-  renderOpenRecipe = () => {
-    const openIndex = this.state.openIndex;
-    if (openIndex > -1) {
-      const themeClass = this.props.isDark ? styles.dark : styles.light;
-      const { ingredients, directions } = DATA[openIndex];
-      return (
-        <div className={classNames([styles.recipe, themeClass])}>
-          <h4 className={classNames([styles.label, themeClass])}>
-            INGREDIENTS
-          </h4>
-          <ul>
-            {ingredients.map(item => <li>{item}</li>)}
-          </ul>
-          <h4 className={classNames([styles.label, themeClass])}>
-            DIRECTIONS
-          </h4>
-          <ol>
-            {directions.map(step => <li>{step}</li>)}
-          </ol>
-        </div>
-      )
-    }
-    return;
-  }
-
   render() {
+    const isMobile = this.props.isMobile;
     return (
       <div className={styles.container}>
-        <div className={styles.leftPane}>
-          <div className={styles.recipeList}>
-            {DATA.map((recipe, index) =>  this.renderRecipeHeader(recipe, index))}
-          </div>
+        <div className={classNames([styles.recipes, isMobile && styles.mobile])}>
+          {DATA.map((recipe, index) =>  this.renderRecipe(recipe, index, isMobile))}
         </div>
-        {this.renderOpenRecipe()}
+        {!isMobile && this.renderOpenRecipeDesktop()}
       </div>
     );
   }

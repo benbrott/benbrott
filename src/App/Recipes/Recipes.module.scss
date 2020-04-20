@@ -1,6 +1,6 @@
 @import 'shared';
 
-$hover-triangle-size: .5em;
+$hover-triangle-size: .3em;
 
 .container {
   font-size: 1.5em;
@@ -8,6 +8,8 @@ $hover-triangle-size: .5em;
   display: flex;
 
   width: 100%;
+
+  text-align: center;
 
   @media only screen and (max-width: $screen-width-tablet-max) {
     height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
@@ -18,13 +20,20 @@ $hover-triangle-size: .5em;
   }
 }
 
-.recipeList {
+.recipes {
   z-index: 1;
 
   overflow-y: scroll;
 
-  min-width: max-content;
   height: 100%;
+
+  &.mobile {
+    width: 100%;
+  }
+
+  &:not(.mobile) {
+    min-width: max-content;
+  }
 
   &::-webkit-scrollbar {
     display: none;
@@ -40,25 +49,21 @@ $hover-triangle-size: .5em;
   &.dark {
     color: $accent-gold;
   }
+
+  &.noMargin {
+    margin: 0;
+  }
 }
 
-.recipeHeader {
+.recipe {
   position: relative;
 
-  margin-right: calc(#{$spacing-default} + #{$border-width-default});
+  box-sizing: border-box;
   padding: $spacing-default calc(2 * #{$spacing-default});
 
   cursor: pointer;
-  text-align: center;
 
   @extend %bordered-default;
-
-  &.open {
-    margin-right: 0;
-    padding-right: calc(3 * #{$spacing-default} + 2 * #{$border-width-default});
-
-    border-right: none;
-  };
 
   &:not(:last-of-type) {
     margin-bottom: $spacing-default;
@@ -69,7 +74,7 @@ $hover-triangle-size: .5em;
     background-color: $primary-black;
 
     &::before {
-      border-bottom: $hover-triangle-size solid $accent-gold;
+      border-top: $hover-triangle-size solid $accent-gold;
       border-left: $hover-triangle-size solid $accent-gold;
     }
   }
@@ -79,22 +84,22 @@ $hover-triangle-size: .5em;
     background-color: $primary-light-gray;
 
     &::before {
-      border-bottom: $hover-triangle-size solid $primary-black;
+      border-top: $hover-triangle-size solid $primary-black;
       border-left: $hover-triangle-size solid $primary-black;
     }
   }
 
   &::before {
     position: absolute;
-    bottom: 0;
+    top: 0;
     left: 0;
 
     content: '';
     transition: $hover-transition;
 
     opacity: 0;
-    border-top: $hover-triangle-size solid transparent;
     border-right: $hover-triangle-size solid transparent;
+    border-bottom: $hover-triangle-size solid transparent;
   }
 
   &:focus::before,
@@ -102,12 +107,23 @@ $hover-triangle-size: .5em;
     opacity: 1;
   }
 
-  .label {
-    margin: 0;
+  &.mobile {
+    width: 100%;
+  }
+
+  &:not(.mobile) {
+    margin-right: calc(#{$spacing-default} + #{$border-width-default});
+
+    &.open {
+      margin-right: 0;
+      padding-right: calc(3 * #{$spacing-default} + 2 * #{$border-width-default});
+
+      border-right: none;
+    };
   }
 }
 
-.recipe {
+.openRecipeDesktop {
   overflow-y: scroll;
 
   box-sizing: border-box;
@@ -127,13 +143,12 @@ $hover-triangle-size: .5em;
     color: $primary-black;
     background-color: $primary-light-gray;
   }
+}
 
-  ul,
-  ol {
-    line-height: 1.5em;
-  };
+.list {
+  line-height: 1.4em;
 
-  .label {
-    text-align: center;
-  }
+  margin: .5em 0;
+
+  text-align: start;
 }
