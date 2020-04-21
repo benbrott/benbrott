@@ -86,6 +86,38 @@ export const DATA = [
     ]
   },
   {
+    name: 'Snickerdoodles',
+    makes: 24,
+    time: '45 minutes',
+    ingredients: {
+      Dough: [
+      '1 cup butter, softened',
+      '1½ cups sugar',
+      '2 large eggs',
+      '2 teaspoons vanilla',
+      '2½ cups flour',
+      '1½ teaspoons cream of tartar',
+      '½ teaspoon baking soda',
+      '1 teaspoon salt'
+      ],
+      'Cinnamon-Sugar': [
+        '¼ cup sugar',
+        '1½ tablespoons cinnamon'
+      ]
+    },
+    directions: [
+      'Cream butter and sugar',
+      'Add in eggs and vanilla and cream mixture until combined',
+      'Mix in flour, cream of tartar, baking soda, and salt until just combined',
+      'Refridgerate dough for 20 minutes',
+      'Preheat oven to 350° and line 2 large baking sheets with parchment paper',
+      'Combine remaining sugar and cinnamon in a small bowl',
+      'Roll the dough into small balls, about 1 heaping tablespoon each',
+      'Coat the balls in the cinnamon-sugar mixture and place on the baking sheets, lightly pressing down in the middle of each',
+      'Bake for 10 minutes'
+    ]
+  },
+  {
     name: 'Tortilla Española',
     serves: 6,
     time: '1 hour',

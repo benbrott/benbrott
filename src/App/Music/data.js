@@ -637,6 +637,13 @@ export const DATA = [
     color: '#227c83'
   },
   {
+    artist: 'The Strokes',
+    title: 'The New Abnormal',
+    src: 'https://i.scdn.co/image/ab67616d0000b273bfa99afb5ef0d26d5064b23b',
+    backgroundColor: '#3eaad5',
+    color: '#000000'
+  },
+  {
     artist: 'Sufjan Stevens',
     title: 'Carrie & Lowell',
     src: 'https://i.scdn.co/image/a0779f588d1f1f50921a083f5a1fc4217f0ddf7d',
