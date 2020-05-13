@@ -52,14 +52,16 @@ class Recipes extends React.PureComponent {
     ));
   }
 
-  renderRecipeLists = (ingredients, directions, themeClass) => {
+  renderRecipeContent = (ingredients, directions, source, themeClass) => {
     const headerClasses = classNames([styles.label, themeClass]);
+    const sourceSpan = source && <span className={styles.source}> Based on recipe from {source}</span>;
     return (
       <div>
         <h4 className={headerClasses}>INGREDIENTS</h4>
         {this.renderListSection(ingredients, false, themeClass)}
         <h4 className={headerClasses}>DIRECTIONS</h4>
         {this.renderListSection(directions, true, themeClass)}
+        {sourceSpan}
       </div>
     );
   }
@@ -70,16 +72,16 @@ class Recipes extends React.PureComponent {
       return;
     }
     const themeClass = this.props.isDark ? styles.dark : styles.light;
-    const { ingredients, directions } = DATA[openIndex];
+    const { ingredients, directions, source } = DATA[openIndex];
     return (
       <div className={classNames([styles.openRecipeDesktop, themeClass])}>
-        {this.renderRecipeLists(ingredients, directions, themeClass)}
+        {this.renderRecipeContent(ingredients, directions, source, themeClass)}
       </div>
     );
   }
 
   renderRecipe = (recipe, index, isMobile) => {
-    const { name, serves, makes, time, ingredients, directions } = recipe;
+    const { name, serves, makes, time, source, ingredients, directions } = recipe;
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const isOpen = index === this.state.openIndex;
     const props = {
@@ -100,7 +102,7 @@ class Recipes extends React.PureComponent {
           {name}
         </h3>
         <span>{portion} | {time}</span>
-        {isMobile && isOpen && this.renderRecipeLists(ingredients, directions, themeClass)}
+        {isMobile && isOpen && this.renderRecipeContent(ingredients, directions, source, themeClass)}
       </div>
     );
   }

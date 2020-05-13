@@ -1,8 +1,87 @@
 export const DATA = [
   {
+    name: 'Baklava',
+    makes: 24,
+    time: '1½ hours',
+    source: 'NEONWILLIE (allrecipes)',
+    ingredients: {
+      Filling: [
+        '6 ounces shelled pistachios',
+        '10 ounces walnuts',
+        '1 tablespoon cinnamon',
+        '¼ cup sugar'
+      ],
+      Pastry: [
+        '¾ cup butter, melted',
+        '1 1-pound package phyllo dough, thawed'
+      ],
+      Syrup: [
+        '¾ cup water',
+        '½ cup sugar',
+        '½ cup honey'
+      ]
+    },
+    directions: {
+      Filling: [
+        'Using a food processor, roughly chop the nuts',
+        'Mix in the cinnamon and sugar, and set aside'
+      ],
+      Pastry: [
+        'Preheat the oven to 350°',
+        'Lightly brush the bottom and sides of a 9" x 13" pan with butter',
+        'Carefully unroll the phyllo dough and keep it covered with a damp towel while assembling the pastry',
+        'Place two layers of phyllo in the pan, and brush the top with butter',
+        'Repeat this until almost half of the phyllo is used',
+        'Sprinkle half of the filling over the top layer',
+        'Using about 20% of the remaining phyllo, repeat the dough/butter layers',
+        'Sprinkle the remaining filling over the top layer',
+        'Repeat the dough/butter layers until all of the dough is used',
+        'Cut the baklava into 24 even pieces, making sure to cut all the way through',
+        'Bake for about 45 minutes, until the pastry is crisp and cooked through'
+      ],
+      Syrup: [
+        'Mix the water and sugar in a small pot and heat until dissolved',
+        'Add in honey and bring to boil',
+        'Reduce to simmer and stir occasionally until the mixture is hot and well combined, about 15 minutes',
+        'Remove from heat until the pastry is done',
+        'Remove the pastry from the oven and immediately pour the syrup over the baklava',
+        'Let cool completely before storing'
+      ]
+    }
+  },
+  {
+    name: 'Cheesy Jalapeño Cornbread',
+    serves: '10',
+    time: '1 hour',
+    source: 'Hillstone Restaurant Group',
+    ingredients: [
+      '¾ cup butter, softened',
+      '½ cup sugar',
+      '4 large eggs',
+      '1 can creamed corn',
+      '4 ounces shredded pepper jack, or similar cheese',
+      '4 jalapeños, seeded and diced',
+      '1¼ cups flour',
+      '1 cup cornmeal',
+      '1 teaspoon salt',
+      '1 tablespoon baking powder'
+    ],
+    directions: [
+      'Preheat a 10" cast iron skillet in a 350° oven',
+      'Mix the butter and sugar in a large bowl until the mixture is almost smooth',
+      'Add in eggs, corn, cheese, and jalapeños and mix until combined',
+      'Combine remaining dry ingredients in a separate bowl',
+      'Mix the dry ingredients into the wet, until just combined',
+      'Pour the mixture into the skillet and return to the oven',
+      'Turn the oven up to 400° and bake until golden brown and cooked through, about 40 minutes',
+      'Flip the cornbread out of the skillet and slice into 10 wedges'
+    ]
+  },
+  {
     name: 'Chocolate Sticky Buns',
     makes: 15,
-    time: '1 hour',
+    time: '3 hours',
+    source: 'Elise Bauer',
     ingredients: {
       Dough: [
         '¼ cup warm water',
@@ -50,15 +129,44 @@ export const DATA = [
         'Put the butter, sugar, and honey in a pot and heat over low heat until the ingredients are melted and combined',
         'Pour the mixture in the pan and top with nuts',
         'Place the roll slices on top of the nuts and cover with plastic wrap',
-        'Refridgerate until ready to bake'
+        'Refrigerate until ready to bake'
       ],
       Bake: [
-        'Take the rolls out of the fridge and preheat oven to 375°',
+        'Take the rolls out of the fridge and preheat the oven to 375°',
         'Bake until golden brown, about 25 minutes',
         'Flip the buns out onto a large baking dish'
       ]
     }
   },
+  // {
+  //   name: 'Corn Salad',
+  //   serves: 6,
+  //   time: '',
+  //   ingredients: {
+  //     Dough: [
+  //       '2 cups flour',
+  //       '½ teaspoon salt sugar',
+  //       '2 tablespoons butter',
+  //       '½ cup water',
+  //       '1 large egg'
+  //     ],
+  //     Filling: [
+  //       '1 pound potatoes, peeled and cubed',
+  //       '1 large yellow onion, diced',
+  //       '1 clove garlic, minced',
+  //       '2 tablespoons butter',
+  //       '4 ounces ricotta cheese (½ cup)',
+  //       'Salt & pepper, to taste'
+  //     ]
+  //   },
+  //   directions: [
+  //     'In a large pot, cover the potatoes in water and bring to boil',
+  //     'Reduce to summer and cook until the potatoes are fork tender',
+  //     'Sauté the onions and garlic in butter on low-medium heat until lightly browned',
+  //     'Using an electric mixer, blend the potatoes, onions, and ricotta until smooth',
+  //     'Season with salt and pepper'
+  //   ]
+  // },
   {
     name: 'Fruit Cocktail Cake',
     serves: 9,
@@ -75,20 +183,77 @@ export const DATA = [
       '½ cup chopped pecans'
     ],
     directions: [
-      'Preheat oven to 350° and grease an 8" x 8" pan',
+      'Preheat the oven to 350° and grease an 8" x 8" pan',
       'Cream butter and sugar',
       'Mix in egg and undrained can of fruit cocktail',
       'Combine baking soda, salt, and flour',
       'Add dry ingredients into the wet mixture and pour into the pan',
       'Combine brown sugar and chopped pecans',
-      'Spinkle the topping evenly on the batter',
-      'Bake for 25-30 minutes'
+      'Sprinkle the topping evenly on the batter',
+      'Bake until cooked through, about 25 minutes'
     ]
+  },
+  {
+    name: 'Potato & Cheese Pierogi',
+    makes: 36,
+    time: '2 hours',
+    ingredients: {
+      Dough: [
+        '2 cups flour',
+        '½ teaspoon salt',
+        '2 tablespoons butter',
+        '½ cup water',
+        '1 large egg'
+      ],
+      Filling: [
+        '1 pound potatoes, peeled and cubed',
+        '1 large yellow onion, diced',
+        '1 clove garlic, minced',
+        '2 tablespoons butter',
+        '4 ounces ricotta cheese (½ cup)',
+        'Salt & pepper, to taste'
+      ],
+      Pierogi: [
+        '6 tablespoons butter'
+      ]
+    },
+    directions: {
+      Dough: [
+        'In a large bowl, mix the flour and salt',
+        'Heat the water and butter on low heat until the butter has melted',
+        'Pour the liquid mixture into the dry ingredients and mix to combine',
+        'Beat the egg and add it to the dough',
+        'Knead the dough until soft and smooth, about 5 minutes',
+        'Cover the dough and let rest while making the filling'
+      ],
+      Filling: [
+        'In a large pot, cover the potatoes in water and bring to boil',
+        'Reduce to summer and cook until the potatoes are fork tender, about 20 minutes',
+        'Sauté the onions and garlic in butter on low-medium heat until lightly browned',
+        'Using an electric mixer, blend the potatoes, onions, and ricotta until smooth',
+        'Season with salt and pepper'
+      ],
+      Pierogi: [
+        'Fill a large pot with water and bring to a boil',
+        'Repeat the following steps twice, using about half of the dough each time',
+        'On a floured surface, roll out the dough until thin, at most ⅛" thick (like a noodle)',
+        'Cut out circles of dough using a pint glass, about 3" in diameter each',
+        'Put a heaping tablespoon of filling in the center of each circle, and pinch the edges to seal',
+        'Once you have about 10 done, drop them in the boiling water',
+        'Cook the pierogi until they float to the top, plus another minute or two',
+        'Set the cooked pierogi aside, and continue until all of the dough is used',
+        'Collect the dough scraps and boil to make noodles',
+        'In a large pan, melt 2 tablespoons of butter',
+        'Pan fry ⅓ of the pierogi until golden brown, about 5 minutes each side',
+        'Repeat the steps two more times, until all of the pierogi have been fried'
+      ]
+    }
   },
   {
     name: 'Snickerdoodles',
     makes: 24,
     time: '45 minutes',
+    source: 'Modern Honey',
     ingredients: {
       Dough: [
       '1 cup butter, softened',
@@ -109,12 +274,38 @@ export const DATA = [
       'Cream butter and sugar',
       'Add in eggs and vanilla and cream mixture until combined',
       'Mix in flour, cream of tartar, baking soda, and salt until just combined',
-      'Refridgerate dough for 20 minutes',
-      'Preheat oven to 350° and line 2 large baking sheets with parchment paper',
+      'Refrigerate dough for 20 minutes',
+      'Preheat the oven to 350° and line 2 large baking sheets with parchment paper',
       'Combine remaining sugar and cinnamon in a small bowl',
       'Roll the dough into small balls, about 1 heaping tablespoon each',
       'Coat the balls in the cinnamon-sugar mixture and place on the baking sheets, lightly pressing down in the middle of each',
       'Bake for 10 minutes'
+    ]
+  },
+  {
+    name: 'Spinach & Artichoke Dip',
+    serves: 12,
+    time: '45 minutes',
+    ingredients: [
+      '1 large onion, diced',
+      '3 cloves garlic, minced',
+      '2 14-ounce cans artichoke hearts, drained and chopped',
+      '4 tablespoons butter',
+      '10 ounces fresh spinach',
+      '16 ounces cream cheese',
+      '½ cup grated parmesan',
+      'Salt & pepper, to taste',
+      '1 cup shredded mozzarella'
+    ],
+    directions: [
+      'Preheat the oven to 400°',
+      'Sauté the onion, garlic, and artichokes in butter until tender',
+      'Mix in spinach and cook until wilted',
+      'Add in cream cheese and parmesan',
+      'Continue to heat and stir the mixture until well combined',
+      'Season with salt and pepper',
+      'Pour mixture into a 9" x 13" or 8" x 8" pan and top with mozzarella',
+      'Bake until bubbly, about 25 minutes'
     ]
   },
   {
