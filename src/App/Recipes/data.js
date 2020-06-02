@@ -50,6 +50,46 @@ export const DATA = [
     }
   },
   {
+    name: 'Blueberry Pie',
+    serves: 10,
+    time: '3 hours',
+    ingredients: {
+      Dough: [
+        '2½ cups flour',
+        '1 teaspoon salt',
+        '1 cup cold butter, cubed',
+        '½ cold water'
+      ],
+      Filling: [
+        '4 cups blueberries',
+        '¼ cup sugar',
+        '3½ tablespoons cornstarch',
+        '1 tablespoon lemon juice'
+      ]
+    },
+    directions: {
+      Dough: [
+        'Sift together the flour and salt',
+        'Rub the butter into the flour until the butter is in small bits',
+        'Slowly add in the water, a little at a time, until the dough can be pressed into a ball, but is not sticky',
+        'Shape the dough into 2 discs, using about 60% for one and 40% for the other',
+        'Wrap the discs in plastic wrap and refrigerate until very cold'
+      ],
+      Pie: [
+        'Preheat the oven to 400° and grease a 10" cast iron skillet',
+        'Roll out the larger dough of disc until it is large enough to cover the pan',
+        'Bake the bottom crust until just done, about 20 minutes',
+        'Mix the blueberries, sugar, cornstarch, and lemon juice until the berries are well coated',
+        'Pour the blueberries into the pie crust',
+        'Roll out the other dough disc until large enough to cover the pie',
+        'Place the dough on top of the filling and press the dough around the edges to seal the pie',
+        'Make 4 cuts in the top crust to let steam escape',
+        'Bake until the top crust is golden brown and the filling is bubbling, about 25 minutes',
+        'Let cool for a couple of hours before serving, to let the filling thicken'
+      ]
+    }
+  },
+  {
     name: 'Cheesy Jalapeño Cornbread',
     serves: '10',
     time: '1 hour',
@@ -58,7 +98,7 @@ export const DATA = [
       '¾ cup butter, softened',
       '½ cup sugar',
       '4 large eggs',
-      '1 can creamed corn',
+      '1 14.5-ounce can creamed corn',
       '4 ounces shredded pepper jack, or similar cheese',
       '4 jalapeños, seeded and diced',
       '1¼ cups flour',
@@ -78,6 +118,34 @@ export const DATA = [
     ]
   },
   {
+    name: 'Chicken Tortilla Soup',
+    serves: '6',
+    time: '45 minutes',
+    ingredients: [
+      '1 large onion, diced',
+      '2 cloves garlic, minced',
+      '2 tablespoons canola oil',
+      '2 serrano peppers, seeded and diced',
+      '1 14.5-ounce can corn, drained',
+      '1 14.5-ounce can black beans, rinsed',
+      '1 14.5-ounce can fire roasted-tomatoes',
+      '1 16-ounce jar chunky salsa',
+      '1 rotisserie chicken, pulled',
+      '42 ounces chicken broth',
+      'Juice and zest from 1 lime',
+      '1 cup cilantro, chopped',
+      'Tortilla chips'
+    ],
+    directions: [
+      'In a large pot, sauté the onion and garlic in the canola oil until onions are tender',
+      'Add in serrano peppers and cook for a couple minutes',
+      'Add in corn, beans, tomatoes, salsa, chicken and broth',
+      'Bring to a boil and simmer, covered, for 30 minutes',
+      'Add in lime juice, zest, and cilantro',
+      'Serve over tortilla chips',
+    ]
+  },
+  {
     name: 'Chocolate Sticky Buns',
     makes: 15,
     time: '3 hours',
@@ -90,7 +158,7 @@ export const DATA = [
         '¾ cup milk',
         '4 tablespoons butter, softened',
         '2 large eggs',
-        '½ teaspoon vanilla extract',
+        '½ teaspoon vanilla',
         '1¼ teaspoons salt',
         '4 cups flour'
       ],
@@ -138,35 +206,75 @@ export const DATA = [
       ]
     }
   },
-  // {
-  //   name: 'Corn Salad',
-  //   serves: 6,
-  //   time: '',
-  //   ingredients: {
-  //     Dough: [
-  //       '2 cups flour',
-  //       '½ teaspoon salt sugar',
-  //       '2 tablespoons butter',
-  //       '½ cup water',
-  //       '1 large egg'
-  //     ],
-  //     Filling: [
-  //       '1 pound potatoes, peeled and cubed',
-  //       '1 large yellow onion, diced',
-  //       '1 clove garlic, minced',
-  //       '2 tablespoons butter',
-  //       '4 ounces ricotta cheese (½ cup)',
-  //       'Salt & pepper, to taste'
-  //     ]
-  //   },
-  //   directions: [
-  //     'In a large pot, cover the potatoes in water and bring to boil',
-  //     'Reduce to summer and cook until the potatoes are fork tender',
-  //     'Sauté the onions and garlic in butter on low-medium heat until lightly browned',
-  //     'Using an electric mixer, blend the potatoes, onions, and ricotta until smooth',
-  //     'Season with salt and pepper'
-  //   ]
-  // },
+  {
+    name: 'Corn Salad',
+    serves: 8,
+    time: '1 hour',
+    ingredients: [
+      '8 ears of corn (or 6 cups frozen corn)',
+      '½ cup mayo',
+      '¼ cup lime juice (about 2 limes)',
+      '4 ounces queso fresco, crumbled',
+      '¾ cup cilantro, chopped',
+      '2 jalapeños, seeded and diced',
+      '½ tablespoon chili powder, or to taste',
+      'Salt, to taste'
+    ],
+    directions: [
+      'Grill the corn, turning occasionally, until lightly charred. If using frozen corn, use a hot, dry pan',
+      'Let the corn cool while prepping the other ingredients',
+      'Once cool, mix in all other ingredients, and season with salt to taste',
+      'Serve chilled'
+    ]
+  },
+  {
+    name: 'Crab Cakes',
+    serves: '3',
+    time: '45 minutes',
+    ingredients: [
+      '1 pound lump crab meat',
+      '1 small green pepper, finely diced',
+      '⅓ cup panko bread crumbs',
+      '⅓ cup mayo',
+      '1 tablespoon brown mustard',
+      '1 large egg, beaten',
+      '½ tablespoon worcestershire',
+      '2 teaspoons lemon juice',
+      '1 teaspoon paprika',
+      '¼ teaspoon cayenne pepper',
+      'Salt & pepper, to taste'
+    ],
+    directions: [
+      'Mix together all ingredients until well combined',
+      'Form 6 crab cakes using about ⅓ cup each',
+      'Lightly coat each cake with extra panko bread crumbs, if desired, to form a crunchy crust',
+      'Pan fry the cakes in 2 batches in butter and oil until golden brown, about 6 minutes each side'
+    ]
+  },
+  {
+    name: 'Fennel & Burrata Pasta',
+    serves: 4,
+    time: '30 minutes',
+    source: 'The New York Times',
+    ingredients: [
+      '¾ cup olive oil',
+      '3 cups fennel, thinly sliced (about 1 large bulb, or 2-3 smaller ones)',
+      '1 large onion, diced',
+      '1 head garlic, thinly sliced',
+      '1 teaspoon red pepper flakes',
+      '1 pound rotini, or similar pasta',
+      '8 ounces burrata',
+      'Salt & pepper, to taste'
+    ],
+    directions: [
+      'In a small pot, heat the olive oil over medium-low heat',
+      'Add in the fennel, onion, garlic, and red pepper flakes',
+      'Cook until the fennel and onions are very tender, about 25 minutes',
+      'Cook the pasta, strain, and return to the pot',
+      'Mix the oil and vegetable mixture into the pasta, and season with salt and pepper',
+      'Serve the pasta in 4 bowls, each topped with 2 ounces of burrata'
+    ]
+  },
   {
     name: 'Fruit Cocktail Cake',
     serves: 9,
@@ -191,6 +299,35 @@ export const DATA = [
       'Combine brown sugar and chopped pecans',
       'Sprinkle the topping evenly on the batter',
       'Bake until cooked through, about 25 minutes'
+    ]
+  },
+  {
+    name: 'Oatmeal Apple Chip Cookies',
+    makes: 30,
+    time: '45 minutes',
+    ingredients: [
+      '1 cup butter, softened',
+      '1 cup brown sugar',
+      '½ cup sugar',
+      '2 large eggs',
+      '4 teaspoons vanilla',
+      '1 tablespoon bitters',
+      '2 cups oats (rolled or steel-cut)',
+      '1½ cups flour',
+      '1 tablespoon ground cinnamon',
+      '1 teaspoon baking soda',
+      '½ teaspoon salt',
+      '1 cup semisweet chocolate chips',
+      '1 cup finely diced apple, peeled (about 1 small apple)'
+    ],
+    directions: [
+      'Preheat the oven to 350°',
+      'Cream butter and sugars',
+      'Mix in eggs, vanilla, and bitters',
+      'Combine oats, flour, cinnamon, baking soda, and salt',
+      'Mix dry ingredients into the wet mixture until just combined',
+      'Fold in chocolate chips and apple',
+      'Drop cookie dough onto baking sheets and bake for about 12 minutes, until cooked through but soft'
     ]
   },
   {
@@ -280,6 +417,32 @@ export const DATA = [
       'Roll the dough into small balls, about 1 heaping tablespoon each',
       'Coat the balls in the cinnamon-sugar mixture and place on the baking sheets, lightly pressing down in the middle of each',
       'Bake for 10 minutes'
+    ]
+  },
+  {
+    name: 'Southwest Burgers',
+    makes: 4,
+    time: '45 minutes',
+    ingredients: [
+      '1 large onion, sliced',
+      '2 tablespoons canola oil',
+      '2 jalapeños',
+      '½ cup cilantro',
+      '2 cloves garlic',
+      '1 tablespoon lime juice',
+      '1 pound ground beef or ground turkey',
+      '4 slices pepper jack cheese',
+      '4 hamburger buns or english muffins, toasted',
+      'Chipotle mayo'
+    ],
+    directions: [
+      'Caramelize the onions in canola oil over low-medium heat',
+      'Add jalapeños (with seeds), cilantro, garlic, and lime juice to a food processor and chop until very fine',
+      'Add the mixture into the ground meet and combine well',
+      'Form 4 patties, each slightly bigger than the buns',
+      'Pan fry the burgers until cooked through, about 5 minutes on each side',
+      'Melt the cheese on top of the burgers in the last couple minutes of cooking',
+      'Top the burgers with the caramelized onions and chipotle mayo'
     ]
   },
   {

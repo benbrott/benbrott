@@ -92,6 +92,13 @@ export const DATA = [
   },
   {
     artist: 'Car Seat Headrest',
+    title: 'Making a Door Less Open',
+    src: 'https://i.scdn.co/image/ab67616d0000b273962ca53ba96df449c656bf38',
+    backgroundColor: '#000000',
+    color: '#b3b7a6'
+  },
+  {
+    artist: 'Car Seat Headrest',
     title: 'Teens of Denial',
     src: 'https://i.scdn.co/image/44a940469cc54c0a0eb3bdf6ef48f20f776110c1',
     backgroundColor: '#717171',
@@ -180,6 +187,20 @@ export const DATA = [
     src: 'https://i.scdn.co/image/ab67616d0000b273d785a28a6b2d7e366c075b20',
     backgroundColor: '#3fadda',
     color: '#fff'
+  },
+  {
+    artist: 'The Dodos',
+    title: 'Beware the Maniacs',
+    src: 'https://i.scdn.co/image/ab67616d0000b27354dff508633a713f34121f92',
+    backgroundColor: '#c0a888',
+    color: '#971913'
+  },
+  {
+    artist: 'The Dodos',
+    title: 'Visiter',
+    src: 'https://i.scdn.co/image/ab67616d0000b273541acb4b33434191f2a756d6',
+    backgroundColor: '#fde718',
+    color: '#000'
   },
   {
     artist: 'Donnie Trumpet & The Social Experiment',
