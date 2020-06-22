@@ -302,6 +302,37 @@ export const DATA = [
     ]
   },
   {
+    name: 'Mexican Hot Chocolate Cookies',
+    makes: 24,
+    time: '55 minutes',
+    source: 'Nealey Dozier',
+    ingredients: [
+      '½ cup butter',
+      '4 ounces unsweetened chocolate',
+      '1 cup brown sugar',
+      '½ cup white sugar',
+      '2 teaspoons vanilla',
+      '1 large egg + 2 egg yolks',
+      '1 cups flour',
+      '½ cup unsweetened cocoa powder',
+      '1 tablespoon ground cinnamon',
+      '1 teaspoon chili powder',
+      '¼ teaspoon cayenne pepper',
+      '½ teaspoon salt',
+      '½ teaspoon baking powder',
+      '1½ cups semisweet chocolate chunks'
+    ],
+    directions: [
+      'Preheat the oven to 325°',
+      'Melt butter and unsweetened chocolate together and let cool',
+      'Slowly beat together sugars, vanilla, and eggs until well combined',
+      'Mix in cooled chocolate mixture',
+      'Sift together remaining dry ingredients and mix slowly into the batter',
+      'Fold in chocolate chunks',
+      'Form cookies using a heaping tablespoon each and bake for about 14 minutes'
+    ]
+  },
+  {
     name: 'Oatmeal Apple Chip Cookies',
     makes: 30,
     time: '45 minutes',

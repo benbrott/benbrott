@@ -245,6 +245,13 @@ export const DATA = [
     color: '#fe0000'
   },
   {
+    artist: 'Father John Misty',
+    title: 'Fear Fun',
+    src: 'https://i.scdn.co/image/ab67616d0000b273f8445f566ccdb3efff4694b2',
+    backgroundColor: '#3dbdc1',
+    color: '#c61f26'
+  },
+  {
     artist: 'Fleet Foxes',
     title: 'Crack-Up',
     src: 'https://i.scdn.co/image/ab271d811b2f755d07657a2b4b924a6ec1b13c6e',
@@ -401,7 +408,7 @@ export const DATA = [
   {
     artist: 'Joey Bada$$',
     title: 'ALL-AMERIKKKAN BADA$$',
-    src: 'https://pl.scdn.co/images/pl/default/64e2a2520253e7aa36cf015d090e4bd935382003',
+    src: 'https://i.scdn.co/image/ab67706c0000da84344e58ebcf307a2fc02bb99d',
     backgroundColor: '#96c3d6',
     color: '#c2594b'
   },
