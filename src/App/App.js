@@ -63,7 +63,7 @@ const NAV_ICONS = [
 const THEME = 'THEME';
 const LIGHT = 'LIGHT';
 const DARK = 'DARK';
-const LIGHT_BACKGROUND = '#1d7156';
+const LIGHT_BACKGROUND = '#999';
 const DARK_BACKGROUND = '#333';
 
 class App extends React.PureComponent {
