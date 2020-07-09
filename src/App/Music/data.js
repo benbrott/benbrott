@@ -231,6 +231,13 @@ export const DATA = [
     color: '#e72a2e'
   },
   {
+    artist: 'Dreamville',
+    title: 'Revenge of the Dreamers III',
+    src: 'https://i.scdn.co/image/ab67616d0000b273a145ed96ce61bf4201d619c3',
+    backgroundColor: '#fad46d',
+    color: '#000000'
+  },
+  {
     artist: 'Electric Guest',
     title: 'Mondo',
     src: 'https://i.scdn.co/image/b75b7e569fb13f964c19c007d7de2605abd8f8d1',
@@ -334,6 +341,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/c2afd4ee2dc6ae704733654c20ca772abe0e590f',
     backgroundColor: '#2d6981',
     color: '#1b140a'
+  },
+  {
+    artist: 'IDK',
+    title: 'Is He Real?',
+    src: 'https://i.scdn.co/image/ab67616d0000b27321036922dca01ae33cac03ad',
+    backgroundColor: '#1d7fc4',
+    color: '#b3ba51'
   },
   {
     artist: 'J. Cole',
@@ -469,11 +483,25 @@ export const DATA = [
     color: '#14ef42'
   },
   {
+    artist: 'Kate Bollinger',
+    title: 'I Don\'t Wanna Lose',
+    src: 'https://i.scdn.co/image/ab67616d0000b27301709f805e42d2ee0d0e2407',
+    backgroundColor: '#c7c767',
+    color: '#ffffff'
+  },
+  {
     artist: 'Khalid',
     title: 'American Teen',
     src: 'https://i.scdn.co/image/5026fddc6c0b69e931ae99130f15d4214f1e7d41',
     backgroundColor: '#2a5575',
     color: '#ffffff'
+  },
+  {
+    artist: 'Khruangbin',
+    title: 'Mordechai',
+    src: 'https://i.scdn.co/image/ab67616d0000b2739ebb959418f1e621f8934faa',
+    backgroundColor: '#387e88',
+    color: '#000000'
   },
   {
     artist: 'KIDS SEE GHOSTS',
@@ -705,6 +733,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/e0daa9bb73e8a39cb83bf1d789a01c758c9e1ed0',
     backgroundColor: '#1c1c1c',
     color: '#c3c7a9'
+  },
+  {
+    artist: 'Vansire',
+    title: 'Angel Youth',
+    src: 'https://i.scdn.co/image/ab67616d0000b273c556c8613499c8e465d3ba3c',
+    backgroundColor: '#bad1de',
+    color: '#000000'
   },
   {
     artist: 'Vince Staples',
