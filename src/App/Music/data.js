@@ -529,7 +529,14 @@ export const DATA = [
     title: 'The Incredible True Story',
     src: 'https://i.scdn.co/image/6d25bd982779e26081c55c5760a94fef529cd855',
     backgroundColor: '#1a4582',
-    color: '#e8d88d'
+    color: '#eeddaa'
+  },
+  {
+    artist: 'Logic',
+    title: 'No Pressure',
+    src: 'https://i.scdn.co/image/ab67616d0000b2731c76e29153f29cc1e1b2b434',
+    backgroundColor: '#f06f10',
+    color: '#000000'
   },
   {
     artist: 'Logic',
@@ -551,6 +558,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/520bc52bb0ebfe7554bafc55992071efa2e96fec',
     backgroundColor: '#b7b3d7',
     color: '#1e1e1e'
+  },
+  {
+    artist: 'Mac Miller',
+    title: 'Circles',
+    src: 'https://i.scdn.co/image/ab67616d0000b27326b7dd89810cc1a40ada642c',
+    backgroundColor: '#ffffff',
+    color: '#000000'
   },
   {
     artist: 'Mac Miller',
@@ -600,6 +614,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/4cf84cd8d42c1ead2e7d05735941dfbd3edf1f54',
     backgroundColor: '#eed8a9',
     color: '#352935'
+  },
+  {
+    artist: 'Phoebe Bridgers',
+    title: 'Punisher',
+    src: 'https://i.scdn.co/image/ab67616d0000b2733040ca980277cf1445934add',
+    backgroundColor: '#052036',
+    color: '#ce1e23'
   },
   {
     artist: 'Portugal. The Man',

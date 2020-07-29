@@ -58,7 +58,7 @@ export const DATA = [
         '2½ cups flour',
         '1 teaspoon salt',
         '1 cup cold butter, cubed',
-        '½ cold water'
+        '½ cup cold water'
       ],
       Filling: [
         '4 cups blueberries',
@@ -249,6 +249,29 @@ export const DATA = [
       'Form 6 crab cakes using about ⅓ cup each',
       'Lightly coat each cake with extra panko bread crumbs, if desired, to form a crunchy crust',
       'Pan fry the cakes in 2 batches in butter and oil until golden brown, about 6 minutes each side'
+    ]
+  },
+  {
+    name: 'Cranberry Bog Turkey Burgers',
+    makes: 4,
+    time: '45 minutes',
+    source: 'Rachael Ray',
+    ingredients: [
+      '1 pound ground turkey',
+      '1 small apple, finely diced',
+      '1 small onion, finely diced',
+      '1 teaspoon poultry seasoning',
+      'Salt & pepper, to taste',
+      '1 cup whole-berry cranberry sauce',
+      '½ cup mayo',
+      '4 english muffins, toasted',
+      'Bibb lettuce'
+    ],
+    directions: [
+      'Combine turkey, apple, onion, and seasonings and form into 4 patties',
+      'Pan fry the burgers in a cast iron skillet',
+      'Combine the cranberry sauce and mayo and mix until well combined',
+      'Serve burgers on english muffins, topped with lettuce and cranberry mayo'
     ]
   },
   {
@@ -469,7 +492,7 @@ export const DATA = [
     directions: [
       'Caramelize the onions in canola oil over low-medium heat',
       'Add jalapeños (with seeds), cilantro, garlic, and lime juice to a food processor and chop until very fine',
-      'Add the mixture into the ground meet and combine well',
+      'Add the mixture into the ground meat and combine well',
       'Form 4 patties, each slightly bigger than the buns',
       'Pan fry the burgers until cooked through, about 5 minutes on each side',
       'Melt the cheese on top of the burgers in the last couple minutes of cooking',
