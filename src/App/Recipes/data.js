@@ -1,6 +1,14 @@
+export const CATEGORIES = Object.freeze({
+  MEAT: 'Meats',
+  VEGETARIAN: 'Vegetarian',
+  SIDES: 'Sides',
+  DESSERTS: 'Desserts'
+});
+
 export const DATA = [
   {
     name: 'Baklava',
+    category: CATEGORIES.DESSERTS,
     makes: 24,
     time: '1½ hours',
     source: 'NEONWILLIE (allrecipes)',
@@ -51,6 +59,7 @@ export const DATA = [
   },
   {
     name: 'Banana Nut Bars',
+    category: CATEGORIES.DESSERTS,
     makes: 15,
     time: '30 minutes',
     ingredients: [
@@ -79,6 +88,7 @@ export const DATA = [
   },
   {
     name: 'Blueberry Pie',
+    category: CATEGORIES.DESSERTS,
     serves: 10,
     time: '3 hours',
     ingredients: {
@@ -119,6 +129,7 @@ export const DATA = [
   },
   {
     name: 'Cheesy Jalapeño Cornbread',
+    category: CATEGORIES.SIDES,
     serves: '10',
     time: '1 hour',
     source: 'Hillstone Restaurant Group',
@@ -147,6 +158,7 @@ export const DATA = [
   },
   {
     name: 'Chicken Tortilla Soup',
+    category: CATEGORIES.MEAT,
     serves: '6',
     time: '45 minutes',
     ingredients: [
@@ -175,6 +187,7 @@ export const DATA = [
   },
   {
     name: 'Chocolate Sticky Buns',
+    category: CATEGORIES.DESSERTS,
     makes: 15,
     time: '3 hours',
     source: 'Elise Bauer',
@@ -236,6 +249,7 @@ export const DATA = [
   },
   {
     name: 'Corn Salad',
+    category: CATEGORIES.SIDES,
     serves: 8,
     time: '1 hour',
     ingredients: [
@@ -257,6 +271,7 @@ export const DATA = [
   },
   {
     name: 'Crab Cakes',
+    category: CATEGORIES.MEAT,
     serves: '3',
     time: '45 minutes',
     ingredients: [
@@ -281,6 +296,7 @@ export const DATA = [
   },
   {
     name: 'Cranberry Bog Turkey Burgers',
+    category: CATEGORIES.MEAT,
     makes: 4,
     time: '45 minutes',
     source: 'Rachael Ray',
@@ -304,6 +320,7 @@ export const DATA = [
   },
   {
     name: 'Fennel & Burrata Pasta',
+    category: CATEGORIES.VEGETARIAN,
     serves: 4,
     time: '30 minutes',
     source: 'The New York Times',
@@ -328,6 +345,7 @@ export const DATA = [
   },
   {
     name: 'Fruit Cocktail Cake',
+    category: CATEGORIES.DESSERTS,
     serves: 9,
     time: '45 minutes',
     ingredients: [
@@ -354,6 +372,7 @@ export const DATA = [
   },
   {
     name: 'Mexican Hot Chocolate Cookies',
+    category: CATEGORIES.DESSERTS,
     makes: 24,
     time: '55 minutes',
     source: 'Nealey Dozier',
@@ -385,6 +404,7 @@ export const DATA = [
   },
   {
     name: 'Oatmeal Apple Chip Cookies',
+    category: CATEGORIES.DESSERTS,
     makes: 30,
     time: '45 minutes',
     ingredients: [
@@ -414,6 +434,7 @@ export const DATA = [
   },
   {
     name: 'Potato & Cheese Pierogi',
+    category: CATEGORIES.VEGETARIAN,
     makes: 36,
     time: '2 hours',
     ingredients: {
@@ -470,6 +491,7 @@ export const DATA = [
   },
   {
     name: 'Snickerdoodles',
+    category: CATEGORIES.DESSERTS,
     makes: 24,
     time: '45 minutes',
     source: 'Modern Honey',
@@ -503,6 +525,7 @@ export const DATA = [
   },
   {
     name: 'Southwest Burgers',
+    category: CATEGORIES.MEAT,
     makes: 4,
     time: '45 minutes',
     ingredients: [
@@ -529,6 +552,7 @@ export const DATA = [
   },
   {
     name: 'Spinach & Artichoke Dip',
+    category: CATEGORIES.VEGETARIAN,
     serves: 12,
     time: '45 minutes',
     ingredients: [
@@ -555,6 +579,7 @@ export const DATA = [
   },
   {
     name: 'Tortilla Española',
+    category: CATEGORIES.VEGETARIAN,
     serves: 6,
     time: '1 hour',
     ingredients: [

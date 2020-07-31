@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './Recipes.module.scss';
-import { DATA } from './data';
+import { CATEGORIES, DATA } from './data';
 import withFormFactor from 'utils/withFormFactor';
 import { KEYS, killEvent } from 'utils/events';
 
@@ -12,22 +12,50 @@ class Recipes extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = { openIndex: -1 };
+    this.state = { categories: [], openRecipe: {} };
   }
 
-  onRecipeHeaderClick = index => {
-    const isOpen = index === this.state.openIndex;
-    this.setState({ openIndex: isOpen ? -1 : index })
+  onRecipeHeaderClick = recipe => {
+    const isOpen = recipe.name === this.state.openRecipe.name;
+    this.setState({ openRecipe: isOpen ? {} : recipe })
   }
 
-  onRecipeHeaderKeyPress = (event, index) => {
+  onRecipeHeaderKeyPress = (event, recipe) => {
     switch (event.key) {
       case KEYS.ENTER:
-        this.onRecipeHeaderClick(index);
+        this.onRecipeHeaderClick(recipe);
         break;
       case KEYS.SPACE:
         killEvent(event);
-        this.onRecipeHeaderClick(index);
+        this.onRecipeHeaderClick(recipe);
+        break;
+      default:
+        break;
+    }
+  }
+
+  onCategoryClick = category => {
+    const { categories, openRecipe } = this.state;
+    const newCategories = categories.includes(category) ? 
+      categories.filter(cat => cat !== category) :
+      [...categories, category];
+
+      if (newCategories.length && !newCategories.includes(openRecipe.category)) {
+      // Reset the openRecipe state variable if the recipe was just filtered out
+      this.setState({ categories: newCategories, openRecipe: {} });
+    } else {
+      this.setState({ categories: newCategories });
+    }
+  }
+
+  onCategoryKeyPress = (event, category) => {
+    switch (event.key) {
+      case KEYS.ENTER:
+        this.onCategoryClick(category);
+        break;
+      case KEYS.SPACE:
+        killEvent(event);
+        this.onCategoryClick(category);
         break;
       default:
         break;
@@ -67,12 +95,12 @@ class Recipes extends React.PureComponent {
   }
 
   renderOpenRecipeDesktop = () => {
-    const openIndex = this.state.openIndex;
-    if (openIndex === -1) {
+    const openRecipe = this.state.openRecipe;
+    if (!openRecipe.name) {
       return;
     }
+    const { ingredients, directions, source } = openRecipe;
     const themeClass = this.props.isDark ? styles.dark : styles.light;
-    const { ingredients, directions, source } = DATA[openIndex];
     return (
       <div className={classNames([styles.openRecipeDesktop, themeClass])}>
         {this.renderRecipeContent(ingredients, directions, source, themeClass)}
@@ -80,10 +108,13 @@ class Recipes extends React.PureComponent {
     );
   }
 
-  renderRecipe = (recipe, index, isMobile) => {
-    const { name, serves, makes, time, source, ingredients, directions } = recipe;
+  renderRecipe = (recipe, isMobile) => {
+    const { name, category, serves, makes, time, source, ingredients, directions } = recipe;
+    if (this.state.categories.length && !this.state.categories.includes(category)) {
+      return null;
+    }
     const themeClass = this.props.isDark ? styles.dark : styles.light;
-    const isOpen = index === this.state.openIndex;
+    const isOpen = name === this.state.openRecipe.name;
     const props = {
       className: classNames([
         styles.recipe,
@@ -91,8 +122,8 @@ class Recipes extends React.PureComponent {
         isMobile && styles.mobile,
         themeClass
       ]),
-      onClick: () => this.onRecipeHeaderClick(index),
-      onKeyPress: event => this.onRecipeHeaderKeyPress(event, index),
+      onClick: () => this.onRecipeHeaderClick(recipe),
+      onKeyPress: event => this.onRecipeHeaderKeyPress(event, recipe),
       tabIndex: 0
     };
     const portion = serves ? `Serves ${serves}` : `Makes ${makes}`
@@ -107,12 +138,36 @@ class Recipes extends React.PureComponent {
     );
   }
 
+  renderCategory = category => {
+    const themeClass = this.props.isDark ? styles.dark : styles.light;
+    const props = {
+      className: classNames([
+        styles.category,
+        this.state.categories.includes(category) && styles.selected,
+        themeClass
+      ]),
+      onClick: () => this.onCategoryClick(category),
+      onKeyPress: event => this.onCategoryKeyPress(event, category),
+      tabIndex: 0
+    };
+    return(
+      <div {...props}>
+        <span>{category}</span>
+      </div>
+    );
+  }
+
   render() {
     const isMobile = this.props.isMobile;
     return (
       <div className={styles.container}>
-        <div className={classNames([styles.recipes, isMobile && styles.mobile])}>
-          {DATA.map((recipe, index) =>  this.renderRecipe(recipe, index, isMobile))}
+        <div className={classNames([styles.recipeColumn, isMobile && styles.mobile])}>
+          <div className={classNames([styles.categories, isMobile && styles.mobile])}>
+            {Object.values(CATEGORIES).map(category => this.renderCategory(category))}
+          </div>
+          <div className={styles.recipes}>
+            {DATA.map(recipe => this.renderRecipe(recipe, isMobile))}
+          </div>
         </div>
         {!isMobile && this.renderOpenRecipeDesktop()}
       </div>

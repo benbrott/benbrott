@@ -93,13 +93,6 @@ class App extends React.PureComponent {
     this.setState({ currentPage: ref });
   }
 
-  iconIsDark = (themes, isDark, currentIcon) => {
-    if (isDark) {
-      return currentIcon;
-    }
-    return currentIcon ? themes.light : themes.dark;
-  }
-
   getIconContainerClasses = isDark => {
     return [
       styles.iconContainer,
