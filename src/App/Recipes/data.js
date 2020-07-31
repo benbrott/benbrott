@@ -50,6 +50,34 @@ export const DATA = [
     }
   },
   {
+    name: 'Banana Nut Bars',
+    makes: 15,
+    time: '30 minutes',
+    ingredients: [
+      '4 ripe bananas',
+      '3 tablespoons peanut butter',
+      '½ tablespoon vanilla',
+      '¾ cup brown sugar',
+      '1 teaspoon cinnamon',
+      '¼ cup coconut oil',
+      '¼ cup whole milk',
+      '2 large eggs, beaten',
+      '½ cup walnuts, finely chopped',
+      '¾ cup mini chocolate chips',
+      '1 teaspoon baking soda',
+      '½ teaspoon salt',
+      '1½ cups flour'
+    ],
+    directions: [
+      'Preheat the oven to 350° and grease a jelly roll pan',
+      'Mash bananas and mix in peanut butter, vanilla, sugar, cinnamon, oil, milk, and eggs',
+      'Mix in nuts, and chocolate chips. The mixture should still be very wet',
+      'Combine baking soda, salt, and flour',
+      'Add dry ingredients into the wet mixture and spread evenly in the pan',
+      'Bake until cooked through, about 20 minutes'
+    ]
+  },
+  {
     name: 'Blueberry Pie',
     serves: 10,
     time: '3 hours',
@@ -531,9 +559,9 @@ export const DATA = [
     time: '1 hour',
     ingredients: [
       '1½ cups canola oil',
-      '4 medium gold potatoes, peeled and very thinly sliced',
+      '3 large russet potatoes, peeled and very thinly sliced',
       '1 spanish onion, thinly sliced',
-      '6 large eggs',
+      '4 large eggs',
       'Salt & pepper, to taste',
     ],
     directions: [
