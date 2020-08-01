@@ -8,25 +8,25 @@ import Record from 'svgComponents/Record';
 class Music extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = {}
+    this.state = {};
   }
 
   onAlbumClick = index => {
     this.setState(state => {
       const isClosing = state.openIndex === index;
-      const openIndex =  isClosing ? undefined : index;
+      const openIndex = isClosing ? undefined : index;
       const focusIndex = isClosing ? undefined : index;
       return { openIndex, focusIndex };
     });
-  }
+  };
 
   onAlbumBlur = () => {
     this.setState({ openIndex: undefined, focusIndex: undefined });
-  }
+  };
 
   onAlbumFocus = focusIndex => {
     this.setState({ focusIndex });
-  }
+  };
 
   onAlbumKeyPress = (event, index) => {
     switch (event.key) {
@@ -40,7 +40,7 @@ class Music extends React.PureComponent {
       default:
         break;
     }
-  }
+  };
 
   renderAlbum = (album, index) => {
     const { artist, title, src, backgroundColor, color } = album;
@@ -69,15 +69,11 @@ class Music extends React.PureComponent {
         </div>
         <img src={src} className={albumArtClasses} alt={albumArtAlt} loading="lazy" />
       </div>
-    )
-  }
+    );
+  };
 
   render() {
-    return (
-      <div className={styles.grid}>
-        {DATA.map(((album, index) => this.renderAlbum(album, index)))}
-      </div>
-    );
+    return <div className={styles.grid}>{DATA.map((album, index) => this.renderAlbum(album, index))}</div>;
   }
 }
 

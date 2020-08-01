@@ -7,15 +7,15 @@ function withFormFactor(WrappedComponent) {
       super(props);
       this.state = { formFactor: this.getFormFactor() };
     }
-  
+
     componentDidMount() {
       window.addEventListener('resize', this.handleResize);
     }
-  
+
     componentWillUnmount() {
-      window.removeEventListener('resize', this.handleResize); 
+      window.removeEventListener('resize', this.handleResize);
     }
-  
+
     // Matches $screen-width- variables in _shared.scss
     getFormFactor = () => {
       if (window.matchMedia('(max-width: 46em)').matches) {
@@ -23,14 +23,14 @@ function withFormFactor(WrappedComponent) {
       } else if (window.matchMedia('(max-width: 66em)').matches) {
         return 'TABLET';
       } else {
-        return 'DESKTOP'
+        return 'DESKTOP';
       }
-    }
-  
+    };
+
     handleResize = throttle(() => {
       this.setState({ formFactor: this.getFormFactor() });
-    }, 100)
-    
+    }, 100);
+
     render() {
       const formFactor = this.state.formFactor;
       const isMobile = formFactor !== 'DESKTOP';

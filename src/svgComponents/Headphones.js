@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import withTheming from './withTheming';
+import withTheming from 'utils/withTheming';
 
 class Headphones extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }

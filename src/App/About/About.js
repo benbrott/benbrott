@@ -25,8 +25,8 @@ const SOCIAL_LINKS = [
 ];
 
 class About extends React.PureComponent {
-  static propTypes = { isDark: PropTypes.bool }
-  static defaultProps = { isDark: false }
+  static propTypes = { isDark: PropTypes.bool };
+  static defaultProps = { isDark: false };
 
   getBannerSrc = () => {
     const { isDark, isMobile } = this.props;
@@ -34,53 +34,34 @@ class About extends React.PureComponent {
       return isDark ? logoNameLight : logoNameDark;
     }
     return isDark ? logoNameFlatLight : logoNameFlatDark;
-  }
+  };
 
   renderTextItems = () => {
     const themeStyle = this.props.isDark ? styles.dark : styles.light;
-    return TEXT_MAPS.map(({label, info}, index) => {
-      const labelStyles = classNames([
-        styles.label,
-        styles[`label${index}`],
-        themeStyle
-      ]);
-      const infoStyles = classNames([
-        styles.info,
-        styles[`info${index}`],
-        themeStyle
-      ]);
-      return ([
-        <h4 className={labelStyles}>{label}</h4>,
-        <span className={infoStyles}>{info}</span>
-      ]);
+    return TEXT_MAPS.map(({ label, info }, index) => {
+      const labelStyles = classNames([styles.label, styles[`label${index}`], themeStyle]);
+      const infoStyles = classNames([styles.info, styles[`info${index}`], themeStyle]);
+      return [<h4 className={labelStyles}>{label}</h4>, <span className={infoStyles}>{info}</span>];
     });
-  }
+  };
 
   renderTextGrid = () => {
-    return (
-      <div className={styles.grid}>
-        {this.renderTextItems()}
-      </div>
-    );
-  }
+    return <div className={styles.grid}>{this.renderTextItems()}</div>;
+  };
 
   renderLinkItems = () => {
-    return SOCIAL_LINKS.map(({Component, href}) => {
+    return SOCIAL_LINKS.map(({ Component, href }) => {
       return (
         <a className={styles.socialLink} href={href} target="_blank" rel="noopener noreferrer">
           <Component />
         </a>
-      )
+      );
     });
-  }
+  };
 
   renderSocialLinks = () => {
-    return(
-      <div className={styles.socialLinksContainer}>
-        {this.renderLinkItems()}
-      </div>
-    )
-  }
+    return <div className={styles.socialLinksContainer}>{this.renderLinkItems()}</div>;
+  };
 
   render() {
     return (

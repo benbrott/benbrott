@@ -1,6 +1,6 @@
 @import 'shared';
 
-$hover-triangle-size: .3em;
+$hover-triangle-size: 0.3em;
 
 .container {
   font-size: 1.5em;
@@ -47,7 +47,7 @@ $hover-triangle-size: .3em;
 }
 
 .category {
-  font-size: .8em;
+  font-size: 0.8em;
 
   overflow: hidden;
   flex-grow: 1;
@@ -59,10 +59,10 @@ $hover-triangle-size: .3em;
   text-transform: uppercase;
   text-overflow: ellipsis;
 
-  @extend %bordered-default;;
+  @extend %bordered-default;
 
   &:not(:last-of-type) {
-    margin-right: $spacing-default;;
+    margin-right: $spacing-default;
   }
 
   &.dark {
@@ -106,7 +106,7 @@ $hover-triangle-size: .3em;
   font-family: $font-family-heading;
   font-weight: normal;
 
-  margin: .3em;
+  margin: 0.3em;
 
   &.dark {
     color: $accent-gold;
@@ -181,7 +181,7 @@ $hover-triangle-size: .3em;
       padding-right: calc(3 * #{$spacing-default} + 2 * #{$border-width-default});
 
       border-right: none;
-    };
+    }
   }
 }
 
@@ -210,11 +210,11 @@ $hover-triangle-size: .3em;
 .list {
   line-height: 1.4em;
 
-  margin: .5em 0;
+  margin: 0.5em 0;
 
   text-align: start;
 }
 
 .source {
-  font-size: .6em;
+  font-size: 0.6em;
 }

@@ -183,7 +183,7 @@ export const DATA = [
   },
   {
     artist: 'The Districts',
-    title: 'You Know I\'m Not Going Anywhere',
+    title: "You Know I'm Not Going Anywhere",
     src: 'https://i.scdn.co/image/ab67616d0000b273d785a28a6b2d7e366c075b20',
     backgroundColor: '#3fadda',
     color: '#fff'
@@ -393,7 +393,7 @@ export const DATA = [
   },
   {
     artist: 'James Vincent McMorrow',
-    title: 'We Don\'t Eat EP',
+    title: "We Don't Eat EP",
     src: 'https://i.scdn.co/image/a955d987b82e25135677ebc9ae91c56e8e91a1cf',
     backgroundColor: '#a2b2b2',
     color: '#2d383a'
@@ -484,7 +484,7 @@ export const DATA = [
   },
   {
     artist: 'Kate Bollinger',
-    title: 'I Don\'t Wanna Lose',
+    title: "I Don't Wanna Lose",
     src: 'https://i.scdn.co/image/ab67616d0000b27301709f805e42d2ee0d0e2407',
     backgroundColor: '#c7c767',
     color: '#ffffff'
@@ -519,7 +519,7 @@ export const DATA = [
   },
   {
     artist: 'The Killers',
-    title: 'Sam\'s Town',
+    title: "Sam's Town",
     src: 'https://i.scdn.co/image/3d7b7545a896adc90ba3926be09d4cd3858c7bcb',
     backgroundColor: '#e3e7ea',
     color: '#050505'
@@ -764,7 +764,7 @@ export const DATA = [
   },
   {
     artist: 'Vince Staples',
-    title: 'Summertime \'06',
+    title: "Summertime '06",
     src: 'https://i.scdn.co/image/17576d8352989483a3067003e929ca400a74d3e6',
     backgroundColor: '#fbf4d7',
     color: '#000000'
@@ -814,7 +814,8 @@ export const DATA = [
   {
     artist: 'Young the Giant',
     title: 'Home of the Strange',
-    src: 'https://www.youngthegiant.com/sites/g/files/g2000007966/f/styles/music_600_600/public/201608/YTG_HOTS_AlbumArt_1000_1.jpg?itok=MotHU_rS',
+    src:
+      'https://www.youngthegiant.com/sites/g/files/g2000007966/f/styles/music_600_600/public/201608/YTG_HOTS_AlbumArt_1000_1.jpg?itok=MotHU_rS',
     backgroundColor: '#f0ece9',
     color: '#353340'
   },
@@ -828,7 +829,8 @@ export const DATA = [
   {
     artist: 'Young the Giant',
     title: 'Mirror Master',
-    src: 'https://www.youngthegiant.com/sites/g/files/g2000007966/f/styles/music_600_600/public/201810/YTG_MirrorMaster_Cover_HR_final.jpg?itok=h2cudpVA',
+    src:
+      'https://www.youngthegiant.com/sites/g/files/g2000007966/f/styles/music_600_600/public/201810/YTG_MirrorMaster_Cover_HR_final.jpg?itok=h2cudpVA',
     backgroundColor: '#9ce1f4',
     color: '#1a1a1a'
   },

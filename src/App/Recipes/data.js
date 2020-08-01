@@ -13,27 +13,12 @@ export const DATA = [
     time: '1½ hours',
     source: 'NEONWILLIE (allrecipes)',
     ingredients: {
-      Filling: [
-        '6 ounces shelled pistachios',
-        '10 ounces walnuts',
-        '1 tablespoon cinnamon',
-        '¼ cup sugar'
-      ],
-      Pastry: [
-        '¾ cup butter, melted',
-        '1 1-pound package phyllo dough, thawed'
-      ],
-      Syrup: [
-        '¾ cup water',
-        '½ cup sugar',
-        '½ cup honey'
-      ]
+      Filling: ['6 ounces shelled pistachios', '10 ounces walnuts', '1 tablespoon cinnamon', '¼ cup sugar'],
+      Pastry: ['¾ cup butter, melted', '1 1-pound package phyllo dough, thawed'],
+      Syrup: ['¾ cup water', '½ cup sugar', '½ cup honey']
     },
     directions: {
-      Filling: [
-        'Using a food processor, roughly chop the nuts',
-        'Mix in the cinnamon and sugar, and set aside'
-      ],
+      Filling: ['Using a food processor, roughly chop the nuts', 'Mix in the cinnamon and sugar, and set aside'],
       Pastry: [
         'Preheat the oven to 350°',
         'Lightly brush the bottom and sides of a 9" x 13" pan with butter',
@@ -92,18 +77,8 @@ export const DATA = [
     serves: 10,
     time: '3 hours',
     ingredients: {
-      Dough: [
-        '2½ cups flour',
-        '1 teaspoon salt',
-        '1 cup cold butter, cubed',
-        '½ cup cold water'
-      ],
-      Filling: [
-        '4 cups blueberries',
-        '¼ cup sugar',
-        '3½ tablespoons cornstarch',
-        '1 tablespoon lemon juice'
-      ]
+      Dough: ['2½ cups flour', '1 teaspoon salt', '1 cup cold butter, cubed', '½ cup cold water'],
+      Filling: ['4 cups blueberries', '¼ cup sugar', '3½ tablespoons cornstarch', '1 tablespoon lemon juice']
     },
     directions: {
       Dough: [
@@ -182,7 +157,7 @@ export const DATA = [
       'Add in corn, beans, tomatoes, salsa, chicken and broth',
       'Bring to a boil and simmer, covered, for 30 minutes',
       'Add in lime juice, zest, and cilantro',
-      'Serve over tortilla chips',
+      'Serve over tortilla chips'
     ]
   },
   {
@@ -223,7 +198,7 @@ export const DATA = [
         'Add 3 cups of flour, continuing to mix on low speed until just combined',
         'Using a dough hook, knead on medium-low speed and slowly add in remaining flour, about 3 minutes',
         'Shape the dough into a ball and place it in a greased bowl',
-        'Cover with plastic wrap and let rise until the dough has doubled in size, 1-2 hours',
+        'Cover with plastic wrap and let rise until the dough has doubled in size, 1-2 hours'
       ],
       Filling: [
         'Roll the dough into a large rectangle, about 12" x 18"',
@@ -438,13 +413,7 @@ export const DATA = [
     makes: 36,
     time: '2 hours',
     ingredients: {
-      Dough: [
-        '2 cups flour',
-        '½ teaspoon salt',
-        '2 tablespoons butter',
-        '½ cup water',
-        '1 large egg'
-      ],
+      Dough: ['2 cups flour', '½ teaspoon salt', '2 tablespoons butter', '½ cup water', '1 large egg'],
       Filling: [
         '1 pound potatoes, peeled and cubed',
         '1 large yellow onion, diced',
@@ -453,9 +422,7 @@ export const DATA = [
         '4 ounces ricotta cheese (½ cup)',
         'Salt & pepper, to taste'
       ],
-      Pierogi: [
-        '6 tablespoons butter'
-      ]
+      Pierogi: ['6 tablespoons butter']
     },
     directions: {
       Dough: [
@@ -497,19 +464,16 @@ export const DATA = [
     source: 'Modern Honey',
     ingredients: {
       Dough: [
-      '1 cup butter, softened',
-      '1½ cups sugar',
-      '2 large eggs',
-      '2 teaspoons vanilla',
-      '2½ cups flour',
-      '1½ teaspoons cream of tartar',
-      '½ teaspoon baking soda',
-      '1 teaspoon salt'
+        '1 cup butter, softened',
+        '1½ cups sugar',
+        '2 large eggs',
+        '2 teaspoons vanilla',
+        '2½ cups flour',
+        '1½ teaspoons cream of tartar',
+        '½ teaspoon baking soda',
+        '1 teaspoon salt'
       ],
-      'Cinnamon-Sugar': [
-        '¼ cup sugar',
-        '1½ tablespoons cinnamon'
-      ]
+      'Cinnamon-Sugar': ['¼ cup sugar', '1½ tablespoons cinnamon']
     },
     directions: [
       'Cream butter and sugar',
@@ -587,7 +551,7 @@ export const DATA = [
       '3 large russet potatoes, peeled and very thinly sliced',
       '1 spanish onion, thinly sliced',
       '4 large eggs',
-      'Salt & pepper, to taste',
+      'Salt & pepper, to taste'
     ],
     directions: [
       'In a 9" nonstick pan, heat the oil over medium heat',

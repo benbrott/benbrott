@@ -3,11 +3,11 @@ import ReactDom from 'react-dom';
 import { HashRouter, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.scss';
-import Home from './Home/Home'
-import Music from './Music/Music'
-import Recipes from './Recipes/Recipes'
+import Home from './Home/Home';
+import Music from './Music/Music';
+import Recipes from './Recipes/Recipes';
 import LoadingAnimations from './LoadingAnimations/LoadingAnimations';
-import About from './About/About'
+import About from './About/About';
 import Food from 'svgComponents/Food';
 import Headphones from 'svgComponents/Headphones';
 import House from 'svgComponents/House';
@@ -77,7 +77,7 @@ class App extends React.PureComponent {
 
   componentDidMount() {
     document.body.style.backgroundColor = this.state.isDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
-    this.setState({ currentPage: this.initialPage })
+    this.setState({ currentPage: this.initialPage });
   }
 
   componentWillUnmount() {
@@ -86,37 +86,31 @@ class App extends React.PureComponent {
 
   blurIcon = ref => {
     ReactDom.findDOMNode(this.refs[ref]).blur();
-  }
+  };
 
   onNavIconClick = ref => {
     this.blurIcon(ref);
     this.setState({ currentPage: ref });
-  }
+  };
 
   getIconContainerClasses = isDark => {
-    return [
-      styles.iconContainer,
-      isDark ? styles.dark : styles.light
-    ];
-  }
+    return [styles.iconContainer, isDark ? styles.dark : styles.light];
+  };
 
   renderNavIcons = () => {
     const { isDark, currentPage } = this.state;
-    return NAV_ICONS.map(({Component, path, ref}, index) => {
+    return NAV_ICONS.map(({ Component, path, ref }, index) => {
       const currentIcon = ref === currentPage;
-      const classes = classNames([
-        ...this.getIconContainerClasses(isDark),
-        currentIcon && styles.currentIcon
-      ]);
+      const classes = classNames([...this.getIconContainerClasses(isDark), currentIcon && styles.currentIcon]);
       const onClick = () => this.onNavIconClick(ref);
       const key = `navIcon_${index}`;
       return (
         <Link to={path} className={classes} onClick={onClick} ref={ref} key={key}>
-          <Component isDark={isDark ? currentIcon : !currentIcon}/>
+          <Component isDark={isDark ? currentIcon : !currentIcon} />
         </Link>
       );
     });
-  }
+  };
 
   toggleTheme = () => {
     this.blurIcon(REFS.THEME);
@@ -124,13 +118,13 @@ class App extends React.PureComponent {
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
     this.setState({ isDark: toggleDark });
-  }
+  };
 
   onThemeIconKeyPress = event => {
     if (event.key === KEYS.ENTER) {
       this.toggleTheme();
     }
-  }
+  };
 
   renderThemeIcon = () => {
     const isDark = this.state.isDark;
@@ -143,51 +137,44 @@ class App extends React.PureComponent {
         tabIndex={0}
         ref={REFS.THEME}
       >
-        <Component/>
+        <Component />
       </div>
     );
-  }
+  };
 
   renderNavBar = () => {
-    const containerClasses = classNames([
-      styles.navBar,
-      this.state.isDark ? styles.dark : styles.light
-    ]);
+    const containerClasses = classNames([styles.navBar, this.state.isDark ? styles.dark : styles.light]);
     return (
       <div className={containerClasses}>
-        <div className={styles.iconGroup}>
-          {this.renderNavIcons()}
-        </div>
-        <div className={styles.iconGroup}>
-          {this.renderThemeIcon()}
-        </div>
+        <div className={styles.iconGroup}>{this.renderNavIcons()}</div>
+        <div className={styles.iconGroup}>{this.renderThemeIcon()}</div>
       </div>
     );
-  }
+  };
 
   homeComponent = () => {
     this.initialPage = REFS.HOME;
-    return (<Home isDark={this.state.isDark}/>);
+    return <Home isDark={this.state.isDark} />;
   };
 
   musicComponent = () => {
     this.initialPage = REFS.MUSIC;
-    return (<Music isDark={this.state.isDark}/>);
+    return <Music isDark={this.state.isDark} />;
   };
 
   recipesComponent = () => {
     this.initialPage = REFS.RECIPES;
-    return (<Recipes isDark={this.state.isDark}/>);
+    return <Recipes isDark={this.state.isDark} />;
   };
 
   loadingAnimationsComponent = () => {
     this.initialPage = REFS.LOADING_ANIMATIONS;
-    return (<LoadingAnimations isDark={this.state.isDark}/>);
+    return <LoadingAnimations isDark={this.state.isDark} />;
   };
 
   aboutComponent = () => {
     this.initialPage = REFS.ABOUT;
-    return (<About isDark={this.state.isDark}/>);
+    return <About isDark={this.state.isDark} />;
   };
 
   render() {

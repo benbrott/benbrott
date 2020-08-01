@@ -9,15 +9,12 @@ import PulsingSquares from 'svgComponents/PulsingSquares';
 import RotatingSquares from 'svgComponents/RotatingSquares';
 
 class LoadingAnimations extends React.PureComponent {
-  static propTypes = { isDark: PropTypes.bool }
-  static defaultProps = { isDark: false }
+  static propTypes = { isDark: PropTypes.bool };
+  static defaultProps = { isDark: false };
 
   renderLoadingAnimations = () => {
     const isDark = this.props.isDark;
-    const containerClasses = classNames([
-      styles.container,
-      isDark ? styles.dark : styles.light
-    ]);
+    const containerClasses = classNames([styles.container, isDark ? styles.dark : styles.light]);
     return [Hourglass, Maze, Pulse, PulsingSquares, RotatingSquares].map(Component => {
       return (
         <div className={containerClasses}>
@@ -25,14 +22,10 @@ class LoadingAnimations extends React.PureComponent {
         </div>
       );
     });
-  }
+  };
 
   render() {
-    return (
-      <div className={styles.grid}>
-        {this.renderLoadingAnimations()}
-      </div>
-    );
+    return <div className={styles.grid}>{this.renderLoadingAnimations()}</div>;
   }
 }
 

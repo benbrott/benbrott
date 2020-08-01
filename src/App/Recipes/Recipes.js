@@ -7,8 +7,8 @@ import withFormFactor from 'utils/withFormFactor';
 import { KEYS, killEvent } from 'utils/events';
 
 class Recipes extends React.PureComponent {
-  static propTypes = { isDark: PropTypes.bool }
-  static defaultProps = { isDark: false }
+  static propTypes = { isDark: PropTypes.bool };
+  static defaultProps = { isDark: false };
 
   constructor(props) {
     super(props);
@@ -17,8 +17,8 @@ class Recipes extends React.PureComponent {
 
   onRecipeHeaderClick = recipe => {
     const isOpen = recipe.name === this.state.openRecipe.name;
-    this.setState({ openRecipe: isOpen ? {} : recipe })
-  }
+    this.setState({ openRecipe: isOpen ? {} : recipe });
+  };
 
   onRecipeHeaderKeyPress = (event, recipe) => {
     switch (event.key) {
@@ -32,21 +32,21 @@ class Recipes extends React.PureComponent {
       default:
         break;
     }
-  }
+  };
 
   onCategoryClick = category => {
     const { categories, openRecipe } = this.state;
-    const newCategories = categories.includes(category) ? 
-      categories.filter(cat => cat !== category) :
-      [...categories, category];
+    const newCategories = categories.includes(category)
+      ? categories.filter(cat => cat !== category)
+      : [...categories, category];
 
-      if (newCategories.length && !newCategories.includes(openRecipe.category)) {
+    if (newCategories.length && !newCategories.includes(openRecipe.category)) {
       // Reset the openRecipe state variable if the recipe was just filtered out
       this.setState({ categories: newCategories, openRecipe: {} });
     } else {
       this.setState({ categories: newCategories });
     }
-  }
+  };
 
   onCategoryKeyPress = (event, category) => {
     switch (event.key) {
@@ -60,25 +60,29 @@ class Recipes extends React.PureComponent {
       default:
         break;
     }
-  }
+  };
 
   renderListSection = (data, ordered, themeClass) => {
     const List = ordered ? 'ol' : 'ul';
     return Array.isArray(data) ? (
       <List className={styles.list}>
-        {data.map(item => <li>{item}</li>)}
+        {data.map(item => (
+          <li>{item}</li>
+        ))}
       </List>
-    ) : Object.keys(data).map(section => (
-      <div>
-        <h5 className={classNames([styles.label, themeClass])}>
-          - - - {section} - - -
-        </h5>
-        <List className={styles.list}>
-          {data[section].map(item => <li>{item}</li>)}
-        </List>
-      </div>
-    ));
-  }
+    ) : (
+      Object.keys(data).map(section => (
+        <div>
+          <h5 className={classNames([styles.label, themeClass])}>- - - {section} - - -</h5>
+          <List className={styles.list}>
+            {data[section].map(item => (
+              <li>{item}</li>
+            ))}
+          </List>
+        </div>
+      ))
+    );
+  };
 
   renderRecipeContent = (ingredients, directions, source, themeClass) => {
     const headerClasses = classNames([styles.label, themeClass]);
@@ -92,7 +96,7 @@ class Recipes extends React.PureComponent {
         {sourceSpan}
       </div>
     );
-  }
+  };
 
   renderOpenRecipeDesktop = () => {
     const openRecipe = this.state.openRecipe;
@@ -106,7 +110,7 @@ class Recipes extends React.PureComponent {
         {this.renderRecipeContent(ingredients, directions, source, themeClass)}
       </div>
     );
-  }
+  };
 
   renderRecipe = (recipe, isMobile) => {
     const { name, category, serves, makes, time, source, ingredients, directions } = recipe;
@@ -116,46 +120,37 @@ class Recipes extends React.PureComponent {
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const isOpen = name === this.state.openRecipe.name;
     const props = {
-      className: classNames([
-        styles.recipe,
-        isOpen && styles.open,
-        isMobile && styles.mobile,
-        themeClass
-      ]),
+      className: classNames([styles.recipe, isOpen && styles.open, isMobile && styles.mobile, themeClass]),
       onClick: () => this.onRecipeHeaderClick(recipe),
       onKeyPress: event => this.onRecipeHeaderKeyPress(event, recipe),
       tabIndex: 0
     };
-    const portion = serves ? `Serves ${serves}` : `Makes ${makes}`
-    return(
+    const portion = serves ? `Serves ${serves}` : `Makes ${makes}`;
+    return (
       <div {...props}>
-        <h3 className={classNames([styles.label, styles.noMargin, themeClass])}>
-          {name}
-        </h3>
-        <span>{portion} | {time}</span>
+        <h3 className={classNames([styles.label, styles.noMargin, themeClass])}>{name}</h3>
+        <span>
+          {portion} | {time}
+        </span>
         {isMobile && isOpen && this.renderRecipeContent(ingredients, directions, source, themeClass)}
       </div>
     );
-  }
+  };
 
   renderCategory = category => {
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const props = {
-      className: classNames([
-        styles.category,
-        this.state.categories.includes(category) && styles.selected,
-        themeClass
-      ]),
+      className: classNames([styles.category, this.state.categories.includes(category) && styles.selected, themeClass]),
       onClick: () => this.onCategoryClick(category),
       onKeyPress: event => this.onCategoryKeyPress(event, category),
       tabIndex: 0
     };
-    return(
+    return (
       <div {...props}>
         <span>{category}</span>
       </div>
     );
-  }
+  };
 
   render() {
     const isMobile = this.props.isMobile;
@@ -165,9 +160,7 @@ class Recipes extends React.PureComponent {
           <div className={classNames([styles.categories, isMobile && styles.mobile])}>
             {Object.values(CATEGORIES).map(category => this.renderCategory(category))}
           </div>
-          <div className={styles.recipes}>
-            {DATA.map(recipe => this.renderRecipe(recipe, isMobile))}
-          </div>
+          <div className={styles.recipes}>{DATA.map(recipe => this.renderRecipe(recipe, isMobile))}</div>
         </div>
         {!isMobile && this.renderOpenRecipeDesktop()}
       </div>
