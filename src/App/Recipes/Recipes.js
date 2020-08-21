@@ -12,7 +12,7 @@ class Recipes extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    this.state = { categories: [], openRecipe: {} };
+    this.state = { category: '', openRecipe: {} };
   }
 
   onRecipeHeaderClick = recipe => {
@@ -34,17 +34,15 @@ class Recipes extends React.PureComponent {
     }
   };
 
-  onCategoryClick = category => {
-    const { categories, openRecipe } = this.state;
-    const newCategories = categories.includes(category)
-      ? categories.filter(cat => cat !== category)
-      : [...categories, category];
+  onCategoryClick = categoryClicked => {
+    const { category, openRecipe } = this.state;
+    const newCategory = category === categoryClicked ? '' : categoryClicked;
 
-    if (newCategories.length && !newCategories.includes(openRecipe.category)) {
+    if (newCategory && newCategory !== openRecipe.category) {
       // Reset the openRecipe state variable if the recipe was just filtered out
-      this.setState({ categories: newCategories, openRecipe: {} });
+      this.setState({ category: newCategory, openRecipe: {} });
     } else {
-      this.setState({ categories: newCategories });
+      this.setState({ category: newCategory });
     }
   };
 
@@ -114,7 +112,7 @@ class Recipes extends React.PureComponent {
 
   renderRecipe = (recipe, isMobile) => {
     const { name, category, serves, makes, time, source, ingredients, directions } = recipe;
-    if (this.state.categories.length && !this.state.categories.includes(category)) {
+    if (this.state.category && this.state.category !== category) {
       return null;
     }
     const themeClass = this.props.isDark ? styles.dark : styles.light;
@@ -140,7 +138,7 @@ class Recipes extends React.PureComponent {
   renderCategory = category => {
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const props = {
-      className: classNames([styles.category, this.state.categories.includes(category) && styles.selected, themeClass]),
+      className: classNames([styles.category, this.state.category === category && styles.selected, themeClass]),
       onClick: () => this.onCategoryClick(category),
       onKeyPress: event => this.onCategoryKeyPress(event, category),
       tabIndex: 0
