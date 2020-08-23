@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Hourglass extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
-  static defaultProps = { primaryColor: '#000' }
 
   renderFallingSand = primaryColor => {
     return [0, 0.1, 0.2].map(delay => {

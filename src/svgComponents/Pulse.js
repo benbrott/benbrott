@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Pulse extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
-  static defaultProps = { primaryColor: '#000' }
 
   renderCircle = (radiusValues, opacityValues) => {
     return (

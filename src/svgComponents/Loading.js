@@ -4,7 +4,6 @@ import withTheming from 'utils/withTheming';
 
 class Loading extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
-  static defaultProps = { primaryColor: '#000' }
 
   render() {
     const primaryColor = this.props.primaryColor;

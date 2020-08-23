@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class Maze extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
-  static defaultProps = { primaryColor: '#000' }
 
   render() {
     const primaryColor = this.props.primaryColor;

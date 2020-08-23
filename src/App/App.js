@@ -6,9 +6,11 @@ import styles from './App.module.scss';
 import Home from './Home/Home';
 import Music from './Music/Music';
 import Recipes from './Recipes/Recipes';
+import Crossword from './Crossword/Crossword';
 import LoadingAnimations from './LoadingAnimations/LoadingAnimations';
 import About from './About/About';
 import Food from 'svgComponents/Food';
+import CrosswordIcon from 'svgComponents/CrosswordIcon';
 import Headphones from 'svgComponents/Headphones';
 import House from 'svgComponents/House';
 import Lego from 'svgComponents/Lego';
@@ -20,6 +22,7 @@ import { KEYS } from 'utils/events';
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
 const PATH_RECIPES = '/recipes';
+const PATH_CROSSWORD = '/crossword';
 const PATH_LOADING_ANIMATIONS = '/loadingAnimations';
 const PATH_ABOUT = '/about';
 
@@ -27,6 +30,7 @@ const REFS = {
   HOME: 'home',
   MUSIC: 'music',
   RECIPES: 'recipes',
+  CROSSWORD: 'crossword',
   LOADING_ANIMATIONS: 'loading animations',
   ABOUT: 'about',
   THEME: 'theme'
@@ -47,6 +51,11 @@ const NAV_ICONS = [
     Component: Food,
     path: PATH_RECIPES,
     ref: REFS.RECIPES
+  },
+  {
+    Component: CrosswordIcon,
+    path: PATH_CROSSWORD,
+    ref: REFS.CROSSWORD
   },
   {
     Component: Loading,
@@ -70,7 +79,7 @@ class App extends React.PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      isDark: localStorage.getItem(THEME) === DARK,
+      isDark: this.initialThemeIsDark(),
       currentPage: undefined
     };
   }
@@ -83,6 +92,11 @@ class App extends React.PureComponent {
   componentWillUnmount() {
     document.body.style.backgroundColor = null;
   }
+
+  initialThemeIsDark = () => {
+    const storedTheme = localStorage.getItem(THEME);
+    return storedTheme ? storedTheme === DARK : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  };
 
   blurIcon = ref => {
     ReactDom.findDOMNode(this.refs[ref]).blur();
@@ -167,6 +181,11 @@ class App extends React.PureComponent {
     return <Recipes isDark={this.state.isDark} />;
   };
 
+  crosswordComponent = () => {
+    this.initialPage = REFS.CROSSWORD;
+    return <Crossword isDark={this.state.isDark} />;
+  };
+
   loadingAnimationsComponent = () => {
     this.initialPage = REFS.LOADING_ANIMATIONS;
     return <LoadingAnimations isDark={this.state.isDark} />;
@@ -185,6 +204,7 @@ class App extends React.PureComponent {
           <Route path={PATH_HOME} exact component={this.homeComponent} />
           <Route path={PATH_MUSIC} component={this.musicComponent} />
           <Route path={PATH_RECIPES} component={this.recipesComponent} />
+          <Route path={PATH_CROSSWORD} component={this.crosswordComponent} />
           <Route path={PATH_LOADING_ANIMATIONS} component={this.loadingAnimationsComponent} />
           <Route path={PATH_ABOUT} component={this.aboutComponent} />
         </div>
