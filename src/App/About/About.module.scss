@@ -11,11 +11,10 @@ $line-height-default: 1.2em;
   .grid {
     grid-template-columns: $line-height-default 1fr;
     grid-template-rows: repeat(4, max-content);
-    grid-template-areas:
-      'a b'
-      'c d'
-      'e f'
-      'g h';
+    grid-template-areas: 'a b'
+    'c d'
+    'e f'
+    'g h';
     grid-row-gap: 25px;
   }
 }
@@ -28,12 +27,11 @@ $line-height-default: 1.2em;
   .grid {
     grid-template-columns: repeat(4, $line-height-default) 1fr;
     grid-template-rows: repeat(5, max-content);
-    grid-template-areas:
-      'a b b b b'
-      'a c d d d'
-      'a c e f f'
-      'a c e g h'
-      'a c e g h';
+    grid-template-areas: 'a b b b b'
+    'a c d d d'
+    'a c e f f'
+    'a c e g h'
+    'a c e g h';
     grid-row-gap: 15px;
   }
 }
@@ -96,7 +94,7 @@ $line-height-default: 1.2em;
   }
 
   &.light {
-    color: $primary-light-gray;
+    color: $off-white;
   }
 }
 
@@ -118,7 +116,7 @@ $line-height-default: 1.2em;
 
 .info {
   &.dark {
-    color: $primary-light-gray;
+    color: $off-white;
   }
 
   &.light {

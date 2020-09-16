@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Music.module.scss';
 import { DATA } from './data';
-import { KEYS, killEvent } from 'utils/events';
+import { KEY_CODES, killEvent } from 'utils/events';
 import Record from 'svgComponents/Record';
 
 class Music extends React.PureComponent {
@@ -29,11 +29,11 @@ class Music extends React.PureComponent {
   };
 
   onAlbumKeyPress = (event, index) => {
-    switch (event.key) {
-      case KEYS.ENTER:
+    switch (event.code) {
+      case KEY_CODES.ENTER:
         this.onAlbumClick(index);
         break;
-      case KEYS.SPACE:
+      case KEY_CODES.SPACE:
         killEvent(event);
         this.onAlbumClick(index);
         break;

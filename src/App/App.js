@@ -17,7 +17,7 @@ import Lego from 'svgComponents/Lego';
 import Loading from 'svgComponents/Loading';
 import Moon from 'svgComponents/Moon';
 import Sun from 'svgComponents/Sun';
-import { KEYS } from 'utils/events';
+import { KEY_CODES } from 'utils/events';
 
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
@@ -135,7 +135,7 @@ class App extends React.PureComponent {
   };
 
   onThemeIconKeyPress = event => {
-    if (event.key === KEYS.ENTER) {
+    if (event.code === KEY_CODES.ENTER) {
       this.toggleTheme();
     }
   };

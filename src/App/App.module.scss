@@ -56,8 +56,6 @@
   align-items: center;
   justify-content: space-between;
 
-  box-sizing: border-box;
-
   @extend %bordered-default;
 
   &.dark {
@@ -65,7 +63,7 @@
   }
 
   &.light {
-    background-color: $primary-light-gray;
+    background-color: $off-white;
   }
 }
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import throttle from 'lodash.throttle';
 
-function withFormFactor(WrappedComponent) {
+function withFormFactor(WrappedComponent, alwaysUpdate) {
   return class extends React.Component {
     constructor(props) {
       super(props);
-      this.state = { formFactor: this.getFormFactor() };
+      this.state = {
+        formFactor: this.getFormFactor(),
+        lastUpdate: this.getTimestamp()
+      };
     }
 
     componentDidMount() {
@@ -18,7 +21,7 @@ function withFormFactor(WrappedComponent) {
 
     // Matches $screen-width- variables in _shared.scss
     getFormFactor = () => {
-      if (window.matchMedia('(max-width: 46em)').matches) {
+      if (window.matchMedia('(max-width: 42em)').matches) {
         return 'PHONE';
       } else if (window.matchMedia('(max-width: 66em)').matches) {
         return 'TABLET';
@@ -27,14 +30,27 @@ function withFormFactor(WrappedComponent) {
       }
     };
 
-    handleResize = throttle(() => {
-      this.setState({ formFactor: this.getFormFactor() });
-    }, 100);
+    getTimestamp = () => new Date().toUTCString();
+
+    handleResize = throttle(
+      () => {
+        this.setState(prevState => {
+          const formFactor = this.getFormFactor();
+          const lastUpdate = this.getTimestamp();
+          if (alwaysUpdate || prevState.formFactor !== formFactor) {
+            return { formFactor, lastUpdate };
+          }
+          return prevState;
+        });
+      },
+      100,
+      { leading: true, trailing: true }
+    );
 
     render() {
-      const formFactor = this.state.formFactor;
+      const { formFactor, lastUpdate } = this.state;
       const isMobile = formFactor !== 'DESKTOP';
-      return <WrappedComponent formFactor={formFactor} isMobile={isMobile} {...this.props} />;
+      return <WrappedComponent formFactor={formFactor} isMobile={isMobile} lastUpdate={lastUpdate} {...this.props} />;
     }
   };
 }

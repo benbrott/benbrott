@@ -1,6 +1,6 @@
 @import 'shared';
 
-$hover-triangle-size: 0.3em;
+$hover-triangle-size: .3em;
 
 .container {
   font-size: 1.5em;
@@ -47,7 +47,7 @@ $hover-triangle-size: 0.3em;
 }
 
 .category {
-  font-size: 0.8em;
+  font-size: .8em;
 
   overflow: hidden;
   flex-grow: 1;
@@ -66,7 +66,7 @@ $hover-triangle-size: 0.3em;
   }
 
   &.dark {
-    color: $primary-light-gray;
+    color: $off-white;
     background-color: $primary-black;
 
     &.selected {
@@ -77,7 +77,7 @@ $hover-triangle-size: 0.3em;
 
   &.light {
     color: $primary-black;
-    background-color: $primary-light-gray;
+    background-color: $off-white;
 
     &.selected {
       color: $primary-white;
@@ -106,7 +106,7 @@ $hover-triangle-size: 0.3em;
   font-family: $font-family-heading;
   font-weight: normal;
 
-  margin: 0.3em;
+  margin: .3em;
 
   &.dark {
     color: $accent-gold;
@@ -120,7 +120,6 @@ $hover-triangle-size: 0.3em;
 .recipe {
   position: relative;
 
-  box-sizing: border-box;
   padding: $spacing-default calc(2 * #{$spacing-default});
 
   cursor: pointer;
@@ -132,7 +131,7 @@ $hover-triangle-size: 0.3em;
   }
 
   &.dark {
-    color: $primary-light-gray;
+    color: $off-white;
     background-color: $primary-black;
 
     &::before {
@@ -143,7 +142,7 @@ $hover-triangle-size: 0.3em;
 
   &.light {
     color: $primary-black;
-    background-color: $primary-light-gray;
+    background-color: $off-white;
 
     &::before {
       border-top: $hover-triangle-size solid $primary-black;
@@ -188,7 +187,6 @@ $hover-triangle-size: 0.3em;
 .openRecipeDesktop {
   overflow-y: scroll;
 
-  box-sizing: border-box;
   width: 60%;
   height: 100%;
   margin-left: -$border-width-default;
@@ -197,24 +195,24 @@ $hover-triangle-size: 0.3em;
   @extend %bordered-default;
 
   &.dark {
-    color: $primary-light-gray;
+    color: $off-white;
     background-color: $primary-black;
   }
 
   &.light {
     color: $primary-black;
-    background-color: $primary-light-gray;
+    background-color: $off-white;
   }
 }
 
 .list {
   line-height: 1.4em;
 
-  margin: 0.5em 0;
+  margin: .5em 0;
 
   text-align: start;
 }
 
 .source {
-  font-size: 0.6em;
+  font-size: .6em;
 }

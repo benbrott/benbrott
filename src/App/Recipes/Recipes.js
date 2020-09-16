@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Recipes.module.scss';
 import { CATEGORIES, DATA } from './data';
 import withFormFactor from 'utils/withFormFactor';
-import { KEYS, killEvent } from 'utils/events';
+import { KEY_CODES, killEvent } from 'utils/events';
 
 class Recipes extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool };
@@ -21,11 +21,11 @@ class Recipes extends React.PureComponent {
   };
 
   onRecipeHeaderKeyPress = (event, recipe) => {
-    switch (event.key) {
-      case KEYS.ENTER:
+    switch (event.code) {
+      case KEY_CODES.ENTER:
         this.onRecipeHeaderClick(recipe);
         break;
-      case KEYS.SPACE:
+      case KEY_CODES.SPACE:
         killEvent(event);
         this.onRecipeHeaderClick(recipe);
         break;
@@ -47,11 +47,11 @@ class Recipes extends React.PureComponent {
   };
 
   onCategoryKeyPress = (event, category) => {
-    switch (event.key) {
-      case KEYS.ENTER:
+    switch (event.code) {
+      case KEY_CODES.ENTER:
         this.onCategoryClick(category);
         break;
-      case KEYS.SPACE:
+      case KEY_CODES.SPACE:
         killEvent(event);
         this.onCategoryClick(category);
         break;

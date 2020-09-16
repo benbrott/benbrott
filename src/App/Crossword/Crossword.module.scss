@@ -1,1 +1,147 @@
 @import 'shared';
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  box-sizing: border-box;
+  width: 100%;
+
+  @media only screen and (max-width: $screen-width-phone-max) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: $screen-width-tablet-min) {
+    flex-direction: row;
+  }
+
+  @media only screen and (max-width: $screen-width-tablet-max) {
+    height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
+  }
+
+  @media only screen and (min-width: $screen-width-desktop-min) {
+    height: calc(100vh - 2 * #{$spacing-default});
+  }
+}
+
+.crossword_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media only screen and (max-width: $screen-width-phone-max) {
+    width: 100%;
+    height: 100%;
+    margin-bottom: $spacing-default;
+  }
+
+  @media only screen and (min-width: $screen-width-tablet-min) {
+    width: 65%;
+    height: 100%;
+    margin-right: $spacing-default;
+  }
+}
+
+.crossword {
+  display: grid;
+
+  user-select: none;
+
+  background-color: #000;
+
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  grid-gap: 2px;
+  @extend %bordered-default;
+}
+
+.cell {
+  cursor: pointer;
+
+  &.dark {
+    background-color: $gray;
+
+    fill: $off-white;
+
+    &.in_clue {
+      background-color: $dark-gray;
+
+      &.current {
+        background-color: $accent-gold;
+
+        fill: $primary-black;
+      }
+    }
+  }
+
+  &.light {
+    background-color: $off-white;
+
+    fill: $primary-black;
+
+    &.in_clue {
+      background-color: $light-gray;
+
+      &.current {
+        background-color: $dark-gray;
+
+        fill: $primary-white;
+      }
+    }
+  }
+}
+
+.clue_decoration {
+  font-size: .44em;
+  font-weight: 600;
+}
+
+.clues {
+  overflow-y: scroll;
+
+  width: 35%;
+  height: 100%;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.clue {
+  font-size: 1.2em;
+
+  width: 100%;
+  padding: $spacing-default;
+
+  @extend %bordered-default;
+
+  &:not(:last-of-type) {
+    margin-bottom: $spacing-default;
+  }
+
+  &.dark {
+    color: $off-white;
+    background-color: $primary-black;
+
+    &.current {
+      color: $primary-black;
+      background-color: $accent-gold;
+    }
+  }
+
+  &.light {
+    color: $primary-black;
+    background-color: $off-white;
+
+    &.current {
+      color: $primary-white;
+      background-color: $primary-black;
+    }
+  }
+
+  @media only screen and (max-width: $screen-width-phone-max) {
+    text-align: center;
+  }
+}

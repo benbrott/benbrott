@@ -14,7 +14,6 @@
 .container {
   position: relative;
 
-  box-sizing: border-box;
   width: 100%;
   padding-top: 100%; // padding is based on width so this ensures square grid cells
 
@@ -25,7 +24,7 @@
   }
 
   &.light {
-    background-color: $primary-light-gray;
+    background-color: $off-white;
   }
 
   svg {
