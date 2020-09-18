@@ -11,9 +11,9 @@
     L 100,100
     M 100,0
     L 0,100
-  " stroke="#eee" stroke-width="3" clip-path="url(#clip)"/>
-  <rect width="84" height="84" x="8" y="8" rx="4" stroke="#eee" stroke-width="4" fill="#bbb"/>
-  <g stroke="#000" stroke-width="3" stroke-linecap="round" fill="none">
+  " stroke="#eee" strokeWidth="3" clip-path="url(#clip)"/>
+  <rect width="84" height="84" x="8" y="8" rx="4" stroke="#eee" strokeWidth="4" fill="#bbb"/>
+  <g stroke="#000" strokeWidth="3" stroke-linecap="round" fill="none">
     <path d="
       M 42,37
       L 42,63

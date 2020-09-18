@@ -5,9 +5,10 @@ class Hourglass extends React.PureComponent {
   static propTypes = { primaryColor: PropTypes.string }
 
   renderFallingSand = primaryColor => {
-    return [0, 0.1, 0.2].map(delay => {
+    return [0, 0.1, 0.2].map((delay, index) => {
+      const key = `sand_${index}`;
       return (
-        <rect x="48.5" y="43" width="3" height="3" rx="0.7" ry="0.7" fill={primaryColor}>
+        <rect key={key} x="48.5" y="43" width="3" height="3" rx="0.7" ry="0.7" fill={primaryColor}>
           <animate attributeName="y" values="43;44;45;47;50;53;57;61;65;66" dur="1s" repeatCount="indefinite" calcMode="discrete" begin={`${delay}s`}/>
         </rect>
       );

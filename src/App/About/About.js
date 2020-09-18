@@ -36,23 +36,32 @@ class About extends React.PureComponent {
     return isDark ? logoNameFlatLight : logoNameFlatDark;
   };
 
-  renderTextItems = () => {
+  renderTextGrid = () => {
     const themeStyle = this.props.isDark ? styles.dark : styles.light;
-    return TEXT_MAPS.map(({ label, info }, index) => {
+    const textItems = TEXT_MAPS.map(({ label, info }, index) => {
       const labelStyles = classNames([styles.label, styles[`label${index}`], themeStyle]);
       const infoStyles = classNames([styles.info, styles[`info${index}`], themeStyle]);
-      return [<h4 className={labelStyles}>{label}</h4>, <span className={infoStyles}>{info}</span>];
+      return [
+        <h4 key={`${label}_label`} className={labelStyles}>
+          {label}
+        </h4>,
+        <span key={`${label}_info`} className={infoStyles}>
+          {info}
+        </span>
+      ];
     });
-  };
-
-  renderTextGrid = () => {
-    return <div className={styles.grid}>{this.renderTextItems()}</div>;
+    return (
+      <div key={'content'} className={styles.grid}>
+        {textItems}
+      </div>
+    );
   };
 
   renderLinkItems = () => {
-    return SOCIAL_LINKS.map(({ Component, href }) => {
+    return SOCIAL_LINKS.map(({ Component, href }, index) => {
+      const key = `social_link_${index}`;
       return (
-        <a className={styles.socialLink} href={href} target="_blank" rel="noopener noreferrer">
+        <a key={key} className={styles.socialLink} href={href} target="_blank" rel="noopener noreferrer">
           <Component />
         </a>
       );
@@ -67,7 +76,7 @@ class About extends React.PureComponent {
     return (
       <div className={styles.container}>
         <div>
-          <img src={this.getBannerSrc()} className={styles.banner} alt="" />
+          <img key={'banner'} src={this.getBannerSrc()} className={styles.banner} alt="" />
           {this.renderTextGrid()}
         </div>
         {this.renderSocialLinks()}

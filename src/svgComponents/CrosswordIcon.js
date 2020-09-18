@@ -8,7 +8,7 @@ class CrosswordIcon extends React.PureComponent {
   render() {
     const primaryColor = this.props.primaryColor;
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} stroke-width="3">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} strokeWidth="3">
         <defs>
           <rect id="number" x="0" y="0" width="2" height="2"/>
         </defs>

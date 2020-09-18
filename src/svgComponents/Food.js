@@ -8,7 +8,7 @@ class Food extends React.PureComponent {
   render() {
     const primaryColor = this.props.primaryColor;
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} stroke-linejoin="round" fill={primaryColor}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} strokeLinejoin="round" fill={primaryColor}>
         <defs>
           <path id="steam" d="
             M 0,5
@@ -29,7 +29,7 @@ class Food extends React.PureComponent {
           L 45,93
           Q 7,93 7,50
           Z
-        " stroke-width="4"/>
+        " strokeWidth="4"/>
         <use href="#chopstick" x="70" y="15" transform="rotate(20, 70, 55)"/>
         <use href="#chopstick" x="75" y="15" transform="rotate(30, 75, 55)"/>
       </svg>

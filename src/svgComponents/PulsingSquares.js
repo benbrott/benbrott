@@ -79,11 +79,11 @@ class PulsingSquares extends React.PureComponent {
               L 84,100
               M 100,90
               L 90,100
-            " stroke="#fff" stroke-width="2"/>
+            " stroke="#fff" strokeWidth="2"/>
             <use href="#dynamicSquare"/>
           </mask>
         </defs>
-        <g mask="url(#pulsingSquaresMask)" stroke={primaryColor} stroke-width="4" fill="none">
+        <g mask="url(#pulsingSquaresMask)" stroke={primaryColor} strokeWidth="4" fill="none">
           <rect width="86" height="86" x="7" y="7"/>
           <rect width="70" height="70" x="15" y="15"/>
           <rect width="54" height="54" x="23" y="23"/>

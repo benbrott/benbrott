@@ -15,9 +15,10 @@ class LoadingAnimations extends React.PureComponent {
   renderLoadingAnimations = () => {
     const isDark = this.props.isDark;
     const containerClasses = classNames([styles.container, isDark ? styles.dark : styles.light]);
-    return [Hourglass, Maze, Pulse, PulsingSquares, RotatingSquares].map(Component => {
+    return [Hourglass, Maze, Pulse, PulsingSquares, RotatingSquares].map((Component, index) => {
+      const key = `animation_${index}`;
       return (
-        <div className={containerClasses}>
+        <div key={key} className={containerClasses}>
           <Component primaryColor={isDark ? '#fcb514' : '#111'} />
         </div>
       );

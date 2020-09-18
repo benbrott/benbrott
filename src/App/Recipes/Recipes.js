@@ -64,17 +64,17 @@ class Recipes extends React.PureComponent {
     const List = ordered ? 'ol' : 'ul';
     return Array.isArray(data) ? (
       <List className={styles.list}>
-        {data.map(item => (
-          <li>{item}</li>
+        {data.map((item, index) => (
+          <li key={`list_item_${index}`}>{item}</li>
         ))}
       </List>
     ) : (
       Object.keys(data).map(section => (
-        <div>
+        <div key={`section_${section}`}>
           <h5 className={classNames([styles.label, themeClass])}>- - - {section} - - -</h5>
           <List className={styles.list}>
-            {data[section].map(item => (
-              <li>{item}</li>
+            {data[section].map((item, index) => (
+              <li key={`list_item_${index}`}>{item}</li>
             ))}
           </List>
         </div>
@@ -87,9 +87,9 @@ class Recipes extends React.PureComponent {
     const sourceSpan = source && <span className={styles.source}> Based on recipe from {source}</span>;
     return (
       <div>
-        <h4 className={headerClasses}>INGREDIENTS</h4>
+        <h3 className={headerClasses}>Ingredients</h3>
         {this.renderListSection(ingredients, false, themeClass)}
-        <h4 className={headerClasses}>DIRECTIONS</h4>
+        <h3 className={headerClasses}>Directions</h3>
         {this.renderListSection(directions, true, themeClass)}
         {sourceSpan}
       </div>
@@ -118,6 +118,7 @@ class Recipes extends React.PureComponent {
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const isOpen = name === this.state.openRecipe.name;
     const props = {
+      key: `recipe_${name}`,
       className: classNames([styles.recipe, isOpen && styles.open, isMobile && styles.mobile, themeClass]),
       onClick: () => this.onRecipeHeaderClick(recipe),
       onKeyPress: event => this.onRecipeHeaderKeyPress(event, recipe),
@@ -138,6 +139,7 @@ class Recipes extends React.PureComponent {
   renderCategory = category => {
     const themeClass = this.props.isDark ? styles.dark : styles.light;
     const props = {
+      key: `category_${category}`,
       className: classNames([styles.category, this.state.category === category && styles.selected, themeClass]),
       onClick: () => this.onCategoryClick(category),
       onKeyPress: event => this.onCategoryKeyPress(event, category),
