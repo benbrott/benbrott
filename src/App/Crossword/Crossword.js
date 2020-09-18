@@ -151,15 +151,24 @@ class Crossword extends React.PureComponent {
         this.clearPreviousDownCell(row, col);
       }
     } else if (code.length === 4 && code.startsWith('Key')) {
+      const previousLetter = letters[row][col];
       letters[row][col] = code[3];
       this.storeLetters(letters);
       if (this.checkLettersForCompletion(letters)) {
         return;
       }
       if (clueSet === ACROSS) {
-        this.goToNextOpenAcrossCell(row, col);
+        if (previousLetter) {
+          this.goToNextAcrossCell(row, col);
+        } else {
+          this.goToNextOpenAcrossCell(row, col);
+        }
       } else {
-        this.goToNextOpenDownCell(row, col);
+        if (previousLetter) {
+          this.goToNextDownCell(row, col);
+        } else {
+          this.goToNextOpenDownCell(row, col);
+        }
       }
     }
   };
@@ -203,6 +212,50 @@ class Crossword extends React.PureComponent {
   };
 
   /*** HANDLERS FOR A NEW LETTER KEYDOWN ***/
+
+  goToNextAcrossCell = (row, col) => {
+    if (CELLS[row][col + 1]) {
+      this.setState({ currentCell: { row, col: col + 1 } });
+      return;
+    }
+    const currentClue = CELLS[row][col][ACROSS];
+    const acrossClues = Object.keys(CLUES[ACROSS]);
+    const nextClueNumber = acrossClues[acrossClues.indexOf(currentClue) + 1];
+    if (nextClueNumber) {
+      const nextCell = CLUES[ACROSS][nextClueNumber].startingCell;
+      this.scrollClueIntoView(ACROSS, nextClueNumber);
+      this.setState({ currentCell: { row: nextCell.row, col: nextCell.col } });
+    } else {
+      const firstDownCell = CLUES[DOWN]['1'].startingCell;
+      this.scrollClueIntoView(DOWN, '1');
+      this.setState({
+        clueSet: DOWN,
+        currentCell: { row: firstDownCell.row, col: firstDownCell.col }
+      });
+    }
+  };
+
+  goToNextDownCell = (row, col) => {
+    if (CELLS[row + 1] && CELLS[row + 1][col]) {
+      this.setState({ currentCell: { row: row + 1, col: col } });
+      return;
+    }
+    const currentClue = CELLS[row][col][DOWN];
+    const downClues = Object.keys(CLUES[DOWN]);
+    const nextClueNumber = downClues[downClues.indexOf(currentClue) + 1];
+    if (nextClueNumber) {
+      const nextCell = CLUES[DOWN][nextClueNumber].startingCell;
+      this.scrollClueIntoView(DOWN, nextClueNumber);
+      this.setState({ currentCell: { row: nextCell.row, col: nextCell.col } });
+    } else {
+      const firstAcrossCell = CLUES[ACROSS]['1'].startingCell;
+      this.scrollClueIntoView(ACROSS, '1');
+      this.setState({
+        clueSet: ACROSS,
+        currentCell: { row: firstAcrossCell.row, col: firstAcrossCell.col }
+      });
+    }
+  };
 
   goToFirstOpenCell = clueSet => {
     const { row, col } = CLUES[clueSet]['1'].startingCell;
