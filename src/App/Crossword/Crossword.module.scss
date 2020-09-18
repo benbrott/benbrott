@@ -109,8 +109,22 @@
   }
 }
 
+.clue_set_label {
+  font-family: $font-family-heading;
+  font-size: 1.7em;
+  font-weight: normal;
+
+  &.dark {
+    color: $accent-gold;
+  }
+
+  &.light {
+    color: $primary-black;
+  }
+}
+
 .clue {
-  font-size: 1.2em;
+  font-size: 1em;
 
   width: 100%;
   padding: $spacing-default;

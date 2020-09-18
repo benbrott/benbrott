@@ -181,11 +181,22 @@ class Crossword extends React.PureComponent {
       });
     });
     if (correct) {
-      window.alert('correct');
+      this.forceUpdate();
+      const clear = window.confirm('Congratulations! You solved the crossword!\nWould you like to clear the puzzle?');
+      if (clear) {
+        localStorage.removeItem(LOCAL_STORAGE_KEY);
+        this.setState({
+          currentCell: { row: 0, col: 0 },
+          clueSet: ACROSS,
+          letters: this.constructEmptyLetters()
+        });
+        this.scrollClueIntoView(ACROSS, '1');
+      }
       return true;
     }
     if (filled) {
-      window.alert('incorrect');
+      this.forceUpdate();
+      window.alert(`Something isn't quite right... Take another look!`);
       return true;
     }
     return false;
@@ -369,6 +380,8 @@ class Crossword extends React.PureComponent {
     }
   };
 
+  getCellKey = (row, col) => `[${row}][${col}]`;
+
   renderCell = (cell, number, rowIdx, colIdx) => {
     const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
@@ -385,8 +398,9 @@ class Crossword extends React.PureComponent {
         {number}
       </text>
     ) : null;
+    const key = this.getCellKey(rowIdx, colIdx);
     return (
-      <svg viewBox="0 0 25 25" className={cellStyles} onClick={() => this.onCellClick(rowIdx, colIdx)}>
+      <svg key={key} viewBox="0 0 25 25" className={cellStyles} onClick={() => this.onCellClick(rowIdx, colIdx)}>
         {decoration}
         <text x="50%" y="57%" textAnchor="middle" alignmentBaseline="central">
           {letters[rowIdx][colIdx]}
@@ -403,7 +417,7 @@ class Crossword extends React.PureComponent {
     const renderedCells = CELLS.map((row, rowIdx) => {
       return row.map((cell, colIdx) => {
         if (!cell) {
-          return <div />;
+          return <div key={this.getCellKey(rowIdx, colIdx)} />;
         }
         const { across, down } = cell;
         let number;
@@ -462,9 +476,12 @@ class Crossword extends React.PureComponent {
 
     const renderedAcross = this.renderClueList(ACROSS);
     const renderedDown = this.renderClueList(DOWN);
+    const labelClasses = classNames([styles.clue_set_label, this.props.isDark ? styles.dark : styles.light]);
     return (
       <div className={styles.clues}>
+        <span className={labelClasses}>Across</span>
         {renderedAcross}
+        <span className={labelClasses}>Down</span>
         {renderedDown}
       </div>
     );
