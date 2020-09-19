@@ -2,59 +2,60 @@
 
 @media only screen and (max-width: $screen-width-tablet-max) {
   .container {
-    padding: $spacing-default;
+    flex-direction: column;
   }
 
   .navBar {
+    width: 100%;
+    height: $navbar-size;
+    margin-bottom: $spacing-default;
+  }
+
+  .iconGroup {
+    display: inline-flex;
     flex-direction: row;
 
-    width: calc(100vw - 2 * #{$spacing-default});
-    height: $navbar-size;
-    margin: 0 0 $spacing-default 0;
-  }
-
-  .iconGroup:first-of-type {
-    margin-left: -$border-width-default;
-  }
-
-  .iconGroup:last-of-type {
-    margin-right: -$border-width-default;
+    &:last-of-type {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 
 @media only screen and (min-width: $screen-width-desktop-min) {
   .container {
-    padding: $spacing-default;
-    padding-left: calc(#{$navbar-size} + 2 * #{$spacing-default});
+    flex-direction: row;
   }
 
   .navBar {
-    position: fixed;
-    top: $spacing-default;
-    left: $spacing-default;
+    width: $navbar-size;
+    height: 100%;
+    margin-right: $spacing-default;
+  }
 
+  .iconGroup {
+    display: flex;
     flex-direction: column;
 
-    width: $navbar-size;
-    height: calc(100vh - 2 * #{$spacing-default});
-  }
-
-  .iconGroup:first-of-type {
-    margin-top: -$border-width-default;
-  }
-
-  .iconGroup:last-of-type {
-    margin-bottom: -$border-width-default;
+    &:last-of-type {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
 }
 
-.navBar {
-  z-index: 10;
-
+.container {
   display: flex;
-  overflow: hidden;
-  align-items: center;
-  justify-content: space-between;
+
+  box-sizing: border-box;
+  height: 100%;
+  padding: $spacing-default;
+}
+
+.navBar {
+  position: relative;
 
   @extend %bordered-default;
 
@@ -68,26 +69,22 @@
 }
 
 .iconGroup {
-  display: flex;
   overflow: hidden;
-  flex-direction: inherit;
+
+  margin: -$border-width-default;
 }
 
 .iconContainer {
   position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-sizing: border-box;
-  width: $navbar-size;
-  height: $navbar-size;
+  box-sizing: content-box;
+  width: calc(#{$navbar-size} - 2 * #{$border-width-default});
+  height: calc(#{$navbar-size} - 2 * #{$border-width-default});
 
   cursor: pointer;
   transition: $hover-transition;
 
-  border-radius: $border-width-default;
+  border: $border-default;
 
   &:focus,
   &:hover {
@@ -96,9 +93,11 @@
     }
   }
 
-  &.currentIcon {
-    border: $border-default;
+  &:not(.currentIcon) {
+    border-color: transparent;
+  }
 
+  &.currentIcon {
     &.dark {
       background-color: $accent-gold;
     }
@@ -109,9 +108,13 @@
   }
 
   svg {
-    z-index: 1;
-
-    width: 38px;
-    height: 38px;
+    width: 86%;
+    height: 86%;
+    padding: 7%;
   }
+}
+
+.pageContainer {
+  overflow: hidden;
+  flex: 1;
 }

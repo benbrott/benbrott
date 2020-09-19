@@ -87,19 +87,15 @@ $hover-triangle-size: .3em;
 
   &:focus,
   &:hover {
-    font-weight: 600;
+    background-color: $gray;
   }
 }
 
 .recipes {
-  overflow-y: scroll;
-
   width: 100%;
   height: 100%;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @extend %scrollable;
 }
 
 .label {
@@ -185,14 +181,13 @@ $hover-triangle-size: .3em;
 }
 
 .openRecipeDesktop {
-  overflow-y: scroll;
-
   width: 60%;
   height: 100%;
   margin-left: -$border-width-default;
   padding: 2em 5%;
 
   @extend %bordered-default;
+  @extend %scrollable;
 
   &.dark {
     color: $off-white;

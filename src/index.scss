@@ -1,8 +1,13 @@
 @import 'shared';
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: $font-family-primary;
 
+  height: 100%;
   margin: 0;
 
   -webkit-font-smoothing: antialiased;
@@ -10,5 +15,9 @@ body {
 
   *:focus {
     outline: none;
+  }
+
+  #root {
+    height: 100%;
   }
 }

@@ -201,12 +201,14 @@ class App extends React.PureComponent {
       <HashRouter basename={PATH_HOME}>
         <div className={styles.container}>
           {this.renderNavBar()}
-          <Route path={PATH_HOME} exact component={this.homeComponent} />
-          <Route path={PATH_MUSIC} component={this.musicComponent} />
-          <Route path={PATH_RECIPES} component={this.recipesComponent} />
-          <Route path={PATH_CROSSWORD} component={this.crosswordComponent} />
-          <Route path={PATH_LOADING_ANIMATIONS} component={this.loadingAnimationsComponent} />
-          <Route path={PATH_ABOUT} component={this.aboutComponent} />
+          <div className={styles.pageContainer}>
+            <Route path={PATH_HOME} exact component={this.homeComponent} />
+            <Route path={PATH_MUSIC} component={this.musicComponent} />
+            <Route path={PATH_RECIPES} component={this.recipesComponent} />
+            <Route path={PATH_CROSSWORD} component={this.crosswordComponent} />
+            <Route path={PATH_LOADING_ANIMATIONS} component={this.loadingAnimationsComponent} />
+            <Route path={PATH_ABOUT} component={this.aboutComponent} />
+          </div>
         </div>
       </HashRouter>
     );

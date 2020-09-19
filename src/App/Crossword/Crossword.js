@@ -443,11 +443,11 @@ class Crossword extends React.PureComponent {
     const cellStyles = classNames([
       styles.cell,
       this.props.isDark ? styles.dark : styles.light,
-      inClue && styles.in_clue,
+      inClue && styles.inClue,
       isCurrent && styles.current
     ]);
     const decoration = number ? (
-      <text x="1.5" y="1" alignmentBaseline="hanging" className={styles.clue_decoration}>
+      <text x="1.5" y="1" alignmentBaseline="hanging" className={styles.clueDecoration}>
         {number}
       </text>
     ) : null;
@@ -485,7 +485,7 @@ class Crossword extends React.PureComponent {
     });
 
     return (
-      <div className={styles.crossword_container} ref={this.crosswordContainer}>
+      <div className={styles.crosswordContainer} ref={this.crosswordContainer}>
         <div className={styles.crossword} style={crosswordStyle}>
           {renderedCells}
         </div>
@@ -520,16 +520,9 @@ class Crossword extends React.PureComponent {
   };
 
   renderClues() {
-    const clueSet = this.state.clueSet;
-    if (this.isPhone()) {
-      const { row, col } = this.state.currentCell;
-      const number = CELLS[row][col][clueSet];
-      return this.renderClue(clueSet, number, false);
-    }
-
     const renderedAcross = this.renderClueList(ACROSS);
     const renderedDown = this.renderClueList(DOWN);
-    const labelClasses = classNames([styles.clue_set_label, this.props.isDark ? styles.dark : styles.light]);
+    const labelClasses = classNames([styles.clueSetLabel, this.props.isDark ? styles.dark : styles.light]);
     return (
       <div className={styles.clues}>
         <span className={labelClasses}>Across</span>
@@ -541,6 +534,18 @@ class Crossword extends React.PureComponent {
   }
 
   render() {
+    if (this.isPhone()) {
+      const clueSet = this.state.clueSet;
+      const { row, col } = this.state.currentCell;
+      const number = CELLS[row][col][clueSet];
+      const clue = this.renderClue(clueSet, number, false);
+      return (
+        <div className={styles.container}>
+          {clue}
+          {this.renderCrossword()}
+        </div>
+      );
+    }
     return (
       <div className={styles.container}>
         {this.renderCrossword()}

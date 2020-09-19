@@ -10,6 +10,7 @@ $grow-duration: 200ms;
   height: 100%;
   padding: $spacing-default;
 
+  @extend %scrollable;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: calc(2 * #{$spacing-default});
 }

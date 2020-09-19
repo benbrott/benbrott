@@ -28,3 +28,11 @@ $screen-width-desktop-min: 66em;
   border: $border-default;
   border-radius: $border-width-default;
 }
+
+%scrollable {
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

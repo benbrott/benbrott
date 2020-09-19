@@ -1,47 +1,44 @@
 @import 'shared';
 
-.container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-
-  box-sizing: border-box;
-  width: 100%;
-
-  @media only screen and (max-width: $screen-width-phone-max) {
+@media only screen and (max-width: $screen-width-phone-max) {
+  .container {
     flex-direction: column;
   }
 
-  @media only screen and (min-width: $screen-width-tablet-min) {
-    flex-direction: row;
-  }
+  .crosswordContainer {
+    align-items: flex-start;
 
-  @media only screen and (max-width: $screen-width-tablet-max) {
-    height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
-  }
-
-  @media only screen and (min-width: $screen-width-desktop-min) {
-    height: calc(100vh - 2 * #{$spacing-default});
+    width: 100%;
+    height: 100%;
+    margin-top: $spacing-default;
   }
 }
 
-.crossword_container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @media only screen and (max-width: $screen-width-phone-max) {
-    width: 100%;
-    height: 100%;
-    margin-bottom: $spacing-default;
+@media only screen and (min-width: $screen-width-tablet-min) {
+  .container {
+    flex-direction: row;
   }
 
-  @media only screen and (min-width: $screen-width-tablet-min) {
+  .crosswordContainer {
+    align-items: center;
+
     width: 65%;
     height: 100%;
     margin-right: $spacing-default;
   }
+}
+
+.container {
+  display: flex;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.crosswordContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .crossword {
@@ -67,7 +64,7 @@
 
     fill: $off-white;
 
-    &.in_clue {
+    &.inClue {
       background-color: $dark-gray;
 
       &.current {
@@ -83,7 +80,7 @@
 
     fill: $primary-black;
 
-    &.in_clue {
+    &.inClue {
       background-color: $light-gray;
 
       &.current {
@@ -95,23 +92,19 @@
   }
 }
 
-.clue_decoration {
+.clueDecoration {
   font-size: .44em;
   font-weight: 600;
 }
 
 .clues {
-  overflow-y: scroll;
-
   width: 35%;
   height: 100%;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @extend %scrollable;
 }
 
-.clue_set_label {
+.clueSetLabel {
   font-family: $font-family-heading;
   font-size: 2em;
   font-weight: normal;
@@ -155,9 +148,5 @@
       color: $primary-white;
       background-color: $primary-black;
     }
-  }
-
-  @media only screen and (max-width: $screen-width-phone-max) {
-    text-align: center;
   }
 }
