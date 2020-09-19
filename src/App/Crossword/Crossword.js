@@ -78,14 +78,13 @@ class Crossword extends React.PureComponent {
   onKeyDown = event => {
     const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
-    const cell = CELLS[row][col];
     if (KEY_EVENTS.SPACE(event)) {
       event.preventDefault();
-      this.switchClueSet(cell);
+      this.switchClueSet(row, col);
     } else if (KEY_EVENTS.UP(event)) {
       event.preventDefault();
       if (clueSet === ACROSS) {
-        this.switchClueSet(cell);
+        this.switchClueSet(row, col);
       } else {
         let i = row - 1;
         while (i >= 0) {
@@ -99,7 +98,7 @@ class Crossword extends React.PureComponent {
     } else if (KEY_EVENTS.DOWN(event)) {
       event.preventDefault();
       if (clueSet === ACROSS) {
-        this.switchClueSet(cell);
+        this.switchClueSet(row, col);
       } else {
         let i = row + 1;
         while (i < ROW_COUNT) {
@@ -113,7 +112,7 @@ class Crossword extends React.PureComponent {
     } else if (KEY_EVENTS.LEFT(event)) {
       event.preventDefault();
       if (clueSet === DOWN) {
-        this.switchClueSet(cell);
+        this.switchClueSet(row, col);
       } else {
         let i = col - 1;
         while (i >= 0) {
@@ -127,7 +126,7 @@ class Crossword extends React.PureComponent {
     } else if (KEY_EVENTS.RIGHT(event)) {
       event.preventDefault();
       if (clueSet === DOWN) {
-        this.switchClueSet(cell);
+        this.switchClueSet(row, col);
       } else {
         let i = col + 1;
         while (i < COL_COUNT) {
@@ -196,12 +195,12 @@ class Crossword extends React.PureComponent {
       const clear = window.confirm('Congratulations! You solved the crossword!\nWould you like to clear the puzzle?');
       if (clear) {
         localStorage.removeItem(LOCAL_STORAGE_KEY);
+        this.scrollCluesIntoView(0, 0);
         this.setState({
           currentCell: { row: 0, col: 0 },
           clueSet: ACROSS,
           letters: this.constructEmptyLetters()
         });
-        this.scrollClueIntoView(ACROSS, '1');
       }
       return true;
     }
@@ -224,15 +223,15 @@ class Crossword extends React.PureComponent {
     const acrossClues = Object.keys(CLUES[ACROSS]);
     const nextClueNumber = acrossClues[acrossClues.indexOf(currentClue) + 1];
     if (nextClueNumber) {
-      const nextCell = CLUES[ACROSS][nextClueNumber].startingCell;
-      this.scrollClueIntoView(ACROSS, nextClueNumber);
-      this.setState({ currentCell: { row: nextCell.row, col: nextCell.col } });
+      const { row: nextRow, col: nextCol } = CLUES[ACROSS][nextClueNumber].startingCell;
+      this.scrollCluesIntoView(nextRow, nextCol);
+      this.setState({ currentCell: { row: nextRow, col: nextCol } });
     } else {
-      const firstDownCell = CLUES[DOWN]['1'].startingCell;
-      this.scrollClueIntoView(DOWN, '1');
+      const { row: firstDownRow, col: firstDownCol } = CLUES[DOWN]['1'].startingCell;
+      this.scrollCluesIntoView(firstDownRow, firstDownCol);
       this.setState({
         clueSet: DOWN,
-        currentCell: { row: firstDownCell.row, col: firstDownCell.col }
+        currentCell: { row: firstDownRow, col: firstDownCol }
       });
     }
   };
@@ -246,15 +245,15 @@ class Crossword extends React.PureComponent {
     const downClues = Object.keys(CLUES[DOWN]);
     const nextClueNumber = downClues[downClues.indexOf(currentClue) + 1];
     if (nextClueNumber) {
-      const nextCell = CLUES[DOWN][nextClueNumber].startingCell;
-      this.scrollClueIntoView(DOWN, nextClueNumber);
-      this.setState({ currentCell: { row: nextCell.row, col: nextCell.col } });
+      const { row: nextRow, col: nextCol } = CLUES[DOWN][nextClueNumber].startingCell;
+      this.scrollCluesIntoView(nextRow, nextCol);
+      this.setState({ currentCell: { row: nextRow, col: nextCol } });
     } else {
-      const firstAcrossCell = CLUES[ACROSS]['1'].startingCell;
-      this.scrollClueIntoView(ACROSS, '1');
+      const { row: firstAcrossRow, col: firstAcrossCol } = CLUES[ACROSS]['1'].startingCell;
+      this.scrollCluesIntoView(firstAcrossRow, firstAcrossCol);
       this.setState({
         clueSet: ACROSS,
-        currentCell: { row: firstAcrossCell.row, col: firstAcrossCell.col }
+        currentCell: { row: firstAcrossRow, col: firstAcrossCol }
       });
     }
   };
@@ -268,7 +267,7 @@ class Crossword extends React.PureComponent {
         this.goToNextOpenDownCell(row, col);
       }
     } else {
-      this.scrollClueIntoView(clueSet, '1');
+      this.scrollCluesIntoView(row, col);
       this.setState({ clueSet, currentCell: { row, col } });
     }
   };
@@ -321,7 +320,7 @@ class Crossword extends React.PureComponent {
     let col = startCol;
     while (CELLS[row][col]) {
       if (!this.state.letters[row][col]) {
-        this.scrollClueIntoView(ACROSS, number);
+        this.scrollCluesIntoView(row, col);
         this.setState({ clueSet: ACROSS, currentCell: { row, col } });
         return true;
       }
@@ -334,7 +333,7 @@ class Crossword extends React.PureComponent {
     let row = startRow;
     while (CELLS[row] && CELLS[row][col]) {
       if (!this.state.letters[row][col]) {
-        this.scrollClueIntoView(DOWN, number);
+        this.scrollCluesIntoView(row, col);
         this.setState({ clueSet: DOWN, currentCell: { row, col } });
         return true;
       }
@@ -391,7 +390,7 @@ class Crossword extends React.PureComponent {
     }
     const letters = this.state.letters;
     letters[row][i] = '';
-    this.scrollClueIntoView(ACROSS, number);
+    this.scrollCluesIntoView(row, i);
     this.setState({ letters, clueSet: ACROSS, currentCell: { row, col: i } });
   };
 
@@ -403,7 +402,7 @@ class Crossword extends React.PureComponent {
     }
     const letters = this.state.letters;
     letters[i][col] = '';
-    this.scrollClueIntoView(DOWN, number);
+    this.scrollCluesIntoView(i, col);
     this.setState({ letters, clueSet: DOWN, currentCell: { row: i, col } });
   };
 
@@ -411,31 +410,37 @@ class Crossword extends React.PureComponent {
 
   getClueKey = (clueSet, number) => `${clueSet}_${number}`;
 
-  scrollClueIntoView = (clueSet, number) => {
-    const element = this.clueRefs[this.getClueKey(clueSet, number)];
-    if (element) {
-      element.scrollIntoView();
-    }
-  };
-
-  switchClueSet = cell => {
+  switchClueSet = (row, col) => {
     const clueSet = this.state.clueSet === ACROSS ? DOWN : ACROSS;
-    this.scrollClueIntoView(clueSet, cell[clueSet]);
+    this.scrollCluesIntoView(row, col);
     this.setState({ clueSet });
   };
 
   onCellClick = (rowIdx, colIdx) => {
-    const cell = CELLS[rowIdx][colIdx];
     if (this.isCurrentCell(rowIdx, colIdx)) {
-      this.switchClueSet(cell);
+      this.switchClueSet(rowIdx, colIdx);
     } else {
-      const clueSet = this.state.clueSet;
-      this.scrollClueIntoView(clueSet, cell[clueSet]);
+      this.scrollCluesIntoView(rowIdx, colIdx);
       this.setState({ currentCell: { row: rowIdx, col: colIdx } });
     }
   };
 
   getCellKey = (row, col) => `[${row}][${col}]`;
+
+  scrollCluesIntoView = (row, col) => {
+    if (this.isPhone()) {
+      return;
+    }
+    const cell = CELLS[row][col];
+    const acrossElement = this.clueRefs[this.getClueKey(ACROSS, cell[ACROSS])];
+    if (acrossElement) {
+      acrossElement.scrollIntoView();
+    }
+    const downElement = this.clueRefs[this.getClueKey(DOWN, cell[DOWN])];
+    if (downElement) {
+      downElement.scrollIntoView();
+    }
+  };
 
   renderCell = (cell, number, rowIdx, colIdx) => {
     const { currentCell, clueSet, letters } = this.state;
@@ -515,10 +520,15 @@ class Crossword extends React.PureComponent {
   renderClueList = clueSet => {
     const { row, col } = this.state.currentCell;
     const isCurrentClueSet = clueSet === this.state.clueSet;
-    return Object.keys(CLUES[clueSet]).map(number => {
+    const clues = Object.keys(CLUES[clueSet]).map(number => {
       const isCurrent = isCurrentClueSet && number === CELLS[row][col][clueSet];
       return this.renderClue(clueSet, number, isCurrent);
     });
+    return (
+      <div key={`${clueSet}_clues`} className={styles.clueList}>
+        {clues}
+      </div>
+    );
   };
 
   renderClues() {
@@ -527,10 +537,14 @@ class Crossword extends React.PureComponent {
     const labelClasses = classNames([styles.clueSetLabel, this.props.isDark ? styles.dark : styles.light]);
     return (
       <div className={styles.clues}>
-        <span className={labelClasses}>Across</span>
-        {renderedAcross}
-        <span className={labelClasses}>Down</span>
-        {renderedDown}
+        <div key={'across_clues_container'} className={styles.clueListContainer}>
+          <span className={labelClasses}>Across</span>
+          {renderedAcross}
+        </div>
+        <div key={'down_clues_container'} className={styles.clueListContainer}>
+          <span className={labelClasses}>Down</span>
+          {renderedDown}
+        </div>
       </div>
     );
   }

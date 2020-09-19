@@ -100,8 +100,13 @@
 .clues {
   width: 35%;
   height: 100%;
+}
 
-  @extend %scrollable;
+.clueListContainer {
+  display: flex;
+  flex-direction: column;
+
+  height: 50%;
 }
 
 .clueSetLabel {
@@ -116,6 +121,12 @@
   &.light {
     color: $primary-black;
   }
+}
+
+.clueList {
+  flex: 1;
+
+  @extend %scrollable;
 }
 
 .clue {
