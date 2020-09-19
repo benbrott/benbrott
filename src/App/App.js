@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDom from 'react-dom';
 import { HashRouter, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.scss';
@@ -17,7 +16,7 @@ import Lego from 'svgComponents/Lego';
 import Loading from 'svgComponents/Loading';
 import Moon from 'svgComponents/Moon';
 import Sun from 'svgComponents/Sun';
-import { KEY_CODES } from 'utils/events';
+import KEY_EVENTS from 'utils/events';
 
 const PATH_HOME = '/';
 const PATH_MUSIC = '/music';
@@ -98,12 +97,7 @@ class App extends React.PureComponent {
     return storedTheme ? storedTheme === DARK : window.matchMedia('(prefers-color-scheme: dark)').matches;
   };
 
-  blurIcon = ref => {
-    ReactDom.findDOMNode(this.refs[ref]).blur();
-  };
-
   onNavIconClick = ref => {
-    this.blurIcon(ref);
     this.setState({ currentPage: ref });
   };
 
@@ -127,15 +121,14 @@ class App extends React.PureComponent {
   };
 
   toggleTheme = () => {
-    this.blurIcon(REFS.THEME);
     const toggleDark = !this.state.isDark;
     localStorage.setItem(THEME, toggleDark ? DARK : LIGHT);
     document.body.style.backgroundColor = toggleDark ? DARK_BACKGROUND : LIGHT_BACKGROUND;
     this.setState({ isDark: toggleDark });
   };
 
-  onThemeIconKeyPress = event => {
-    if (event.code === KEY_CODES.ENTER) {
+  onThemeIconKeyDown = event => {
+    if (KEY_EVENTS.ENTER(event)) {
       this.toggleTheme();
     }
   };
@@ -147,7 +140,7 @@ class App extends React.PureComponent {
       <div
         className={classNames(this.getIconContainerClasses(isDark))}
         onClick={this.toggleTheme}
-        onKeyPress={this.onThemeIconKeyPress}
+        onKeyDown={this.onThemeIconKeyDown}
         tabIndex={0}
         ref={REFS.THEME}
       >

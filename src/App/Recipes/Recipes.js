@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Recipes.module.scss';
 import { CATEGORIES, DATA } from './data';
 import withFormFactor from 'utils/withFormFactor';
-import { KEY_CODES, killEvent } from 'utils/events';
+import KEY_EVENTS from 'utils/events';
 
 class Recipes extends React.PureComponent {
   static propTypes = { isDark: PropTypes.bool };
@@ -20,17 +20,9 @@ class Recipes extends React.PureComponent {
     this.setState({ openRecipe: isOpen ? {} : recipe });
   };
 
-  onRecipeHeaderKeyPress = (event, recipe) => {
-    switch (event.code) {
-      case KEY_CODES.ENTER:
-        this.onRecipeHeaderClick(recipe);
-        break;
-      case KEY_CODES.SPACE:
-        killEvent(event);
-        this.onRecipeHeaderClick(recipe);
-        break;
-      default:
-        break;
+  onRecipeHeaderKeyDown = (event, recipe) => {
+    if (KEY_EVENTS.ENTER(event)) {
+      this.onRecipeHeaderClick(recipe);
     }
   };
 
@@ -46,17 +38,9 @@ class Recipes extends React.PureComponent {
     }
   };
 
-  onCategoryKeyPress = (event, category) => {
-    switch (event.code) {
-      case KEY_CODES.ENTER:
-        this.onCategoryClick(category);
-        break;
-      case KEY_CODES.SPACE:
-        killEvent(event);
-        this.onCategoryClick(category);
-        break;
-      default:
-        break;
+  onCategoryKeyDown = (event, category) => {
+    if (KEY_EVENTS.ENTER(event)) {
+      this.onCategoryClick(category);
     }
   };
 
@@ -121,7 +105,7 @@ class Recipes extends React.PureComponent {
       key: `recipe_${name}`,
       className: classNames([styles.recipe, isOpen && styles.open, isMobile && styles.mobile, themeClass]),
       onClick: () => this.onRecipeHeaderClick(recipe),
-      onKeyPress: event => this.onRecipeHeaderKeyPress(event, recipe),
+      onKeyDown: event => this.onRecipeHeaderKeyDown(event, recipe),
       tabIndex: 0
     };
     const portion = serves ? `Serves ${serves}` : `Makes ${makes}`;
@@ -142,7 +126,7 @@ class Recipes extends React.PureComponent {
       key: `category_${category}`,
       className: classNames([styles.category, this.state.category === category && styles.selected, themeClass]),
       onClick: () => this.onCategoryClick(category),
-      onKeyPress: event => this.onCategoryKeyPress(event, category),
+      onKeyDown: event => this.onCategoryKeyDown(event, category),
       tabIndex: 0
     };
     return (

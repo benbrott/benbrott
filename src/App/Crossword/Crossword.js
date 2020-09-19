@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './Crossword.module.scss';
 import { CELLS, CLUES } from './data';
 import withFormFactor from 'utils/withFormFactor';
-import { KEY_CODES } from 'utils/events';
+import KEY_EVENTS from 'utils/events';
 
 const ACROSS = 'across';
 const DOWN = 'down';
@@ -76,17 +76,14 @@ class Crossword extends React.PureComponent {
   };
 
   onKeyDown = event => {
-    const { code } = event;
-    if (code === KEY_CODES.TAB || code === KEY_CODES.ENTER) {
-      return;
-    }
-    event.preventDefault();
     const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
     const cell = CELLS[row][col];
-    if (code === KEY_CODES.SPACE) {
+    if (KEY_EVENTS.SPACE(event)) {
+      event.preventDefault();
       this.switchClueSet(cell);
-    } else if (code === KEY_CODES.UP) {
+    } else if (KEY_EVENTS.UP(event)) {
+      event.preventDefault();
       if (clueSet === ACROSS) {
         this.switchClueSet(cell);
       } else {
@@ -99,7 +96,8 @@ class Crossword extends React.PureComponent {
           i = i - 1;
         }
       }
-    } else if (code === KEY_CODES.DOWN) {
+    } else if (KEY_EVENTS.DOWN(event)) {
+      event.preventDefault();
       if (clueSet === ACROSS) {
         this.switchClueSet(cell);
       } else {
@@ -112,7 +110,8 @@ class Crossword extends React.PureComponent {
           i = i + 1;
         }
       }
-    } else if (code === KEY_CODES.LEFT) {
+    } else if (KEY_EVENTS.LEFT(event)) {
+      event.preventDefault();
       if (clueSet === DOWN) {
         this.switchClueSet(cell);
       } else {
@@ -125,7 +124,8 @@ class Crossword extends React.PureComponent {
           i = i - 1;
         }
       }
-    } else if (code === KEY_CODES.RIGHT) {
+    } else if (KEY_EVENTS.RIGHT(event)) {
+      event.preventDefault();
       if (clueSet === DOWN) {
         this.switchClueSet(cell);
       } else {
@@ -138,7 +138,8 @@ class Crossword extends React.PureComponent {
           i = i + 1;
         }
       }
-    } else if (code === KEY_CODES.BACKSPACE) {
+    } else if (KEY_EVENTS.BACKSPACE(event)) {
+      event.preventDefault();
       if (letters[row][col]) {
         letters[row][col] = '';
         this.storeLetters(letters);
@@ -150,9 +151,10 @@ class Crossword extends React.PureComponent {
       } else {
         this.clearPreviousDownCell(row, col);
       }
-    } else if (code.length === 4 && code.startsWith('Key')) {
+    } else if (event.code.length === 4 && event.code.startsWith('Key')) {
+      event.preventDefault();
       const previousLetter = letters[row][col];
-      letters[row][col] = code[3];
+      letters[row][col] = event.code[3];
       this.storeLetters(letters);
       if (this.checkLettersForCompletion(letters)) {
         return;
