@@ -9,8 +9,6 @@
     align-items: flex-start;
 
     width: 100%;
-    height: 100%;
-    margin-top: $spacing-default;
   }
 }
 
@@ -23,7 +21,6 @@
     align-items: center;
 
     width: 65%;
-    height: 100%;
     margin-right: $spacing-default;
   }
 }
@@ -39,6 +36,8 @@
 .crosswordContainer {
   display: flex;
   justify-content: center;
+
+  height: 100%;
 }
 
 .crossword {
@@ -160,4 +159,14 @@
       background-color: $primary-black;
     }
   }
+}
+
+.hiddenInput {
+  font-size: 24px; // Prevent mobile browser auto zoom
+
+  height: 0;
+  margin: 0;
+  padding: 0;
+
+  border: none;
 }

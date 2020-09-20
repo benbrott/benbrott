@@ -349,6 +349,7 @@ class Crossword extends React.PureComponent {
     if (CELLS[currentRow][previousCol]) {
       const letters = this.state.letters;
       letters[currentRow][previousCol] = '';
+      this.storeLetters(letters);
       this.setState({ letters, currentCell: { row: currentRow, col: previousCol } });
       return;
     }
@@ -368,7 +369,8 @@ class Crossword extends React.PureComponent {
     if (CELLS[currentRow - 1] && CELLS[previousRow][currentCol]) {
       const letters = this.state.letters;
       letters[previousRow][currentCol] = '';
-      this.setState({ currentCell: { row: previousRow, col: currentCol } });
+      this.storeLetters(letters);
+      this.setState({ letters, currentCell: { row: previousRow, col: currentCol } });
       return;
     }
     const currentClue = CELLS[currentRow][currentCol][DOWN];
@@ -390,6 +392,7 @@ class Crossword extends React.PureComponent {
     }
     const letters = this.state.letters;
     letters[row][i] = '';
+    this.storeLetters(letters);
     this.scrollCluesIntoView(row, i);
     this.setState({ letters, clueSet: ACROSS, currentCell: { row, col: i } });
   };
@@ -402,6 +405,7 @@ class Crossword extends React.PureComponent {
     }
     const letters = this.state.letters;
     letters[i][col] = '';
+    this.storeLetters(letters);
     this.scrollCluesIntoView(i, col);
     this.setState({ letters, clueSet: DOWN, currentCell: { row: i, col } });
   };
@@ -531,7 +535,7 @@ class Crossword extends React.PureComponent {
     );
   };
 
-  renderClues() {
+  renderClues = () => {
     const renderedAcross = this.renderClueList(ACROSS);
     const renderedDown = this.renderClueList(DOWN);
     const labelClasses = classNames([styles.clueSetLabel, this.props.isDark ? styles.dark : styles.light]);
@@ -547,7 +551,22 @@ class Crossword extends React.PureComponent {
         </div>
       </div>
     );
-  }
+  };
+
+  renderHiddenInput = () => {
+    const onBlur = event => {
+      if (this.hiddenInput) {
+        this.hiddenInput.focus();
+      }
+    };
+    const props = {
+      className: styles.hiddenInput,
+      autoFocus: true,
+      ref: element => (this.hiddenInput = element),
+      onBlur
+    };
+    return <input {...props} />;
+  };
 
   render() {
     if (this.isPhone()) {
@@ -557,6 +576,7 @@ class Crossword extends React.PureComponent {
       const clue = this.renderClue(clueSet, number, false);
       return (
         <div className={styles.container}>
+          {this.renderHiddenInput()}
           {clue}
           {this.renderCrossword()}
         </div>
