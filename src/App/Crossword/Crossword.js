@@ -554,21 +554,27 @@ class Crossword extends React.PureComponent {
   };
 
   renderHiddenInput = () => {
-    const onBlur = event => {
-      if (this.hiddenInput) {
-        this.hiddenInput.focus();
-      }
-    };
-    const props = {
-      className: styles.hiddenInput,
-      autoFocus: true,
-      ref: element => (this.hiddenInput = element),
-      onBlur
-    };
-    return <input {...props} />;
+    // Only render on touch devices
+    if (window.matchMedia('(hover: none)').matches) {
+      const onBlur = event => {
+        if (this.hiddenInput) {
+          this.hiddenInput.focus();
+        }
+      };
+      const props = {
+        key: 'hidden_input',
+        className: styles.hiddenInput,
+        autoFocus: true,
+        ref: element => (this.hiddenInput = element),
+        onBlur
+      };
+      return <input {...props} />;
+    }
+    return null;
   };
 
   render() {
+    const hiddenInput = this.renderHiddenInput();
     if (this.isPhone()) {
       const clueSet = this.state.clueSet;
       const { row, col } = this.state.currentCell;
@@ -576,7 +582,7 @@ class Crossword extends React.PureComponent {
       const clue = this.renderClue(clueSet, number, false);
       return (
         <div className={styles.container}>
-          {this.renderHiddenInput()}
+          {hiddenInput}
           {clue}
           {this.renderCrossword()}
         </div>
@@ -584,6 +590,7 @@ class Crossword extends React.PureComponent {
     }
     return (
       <div className={styles.container}>
+        {hiddenInput}
         {this.renderCrossword()}
         {this.renderClues()}
       </div>
