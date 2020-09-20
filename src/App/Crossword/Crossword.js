@@ -78,6 +78,7 @@ class Crossword extends React.PureComponent {
   onKeyDown = event => {
     const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
+    const typedLetter = KEY_EVENTS.LETTER(event);
     if (KEY_EVENTS.SPACE(event)) {
       event.preventDefault();
       this.switchClueSet(row, col);
@@ -150,10 +151,10 @@ class Crossword extends React.PureComponent {
       } else {
         this.clearPreviousDownCell(row, col);
       }
-    } else if (event.code.length === 4 && event.code.startsWith('Key')) {
+    } else if (typedLetter) {
       event.preventDefault();
       const previousLetter = letters[row][col];
-      letters[row][col] = event.code[3];
+      letters[row][col] = typedLetter;
       this.storeLetters(letters);
       if (this.checkLettersForCompletion(letters)) {
         return;
@@ -563,6 +564,8 @@ class Crossword extends React.PureComponent {
       };
       const props = {
         key: 'hidden_input',
+        type: 'text',
+        autoComplete: 'off',
         className: styles.hiddenInput,
         autoFocus: true,
         ref: element => (this.hiddenInput = element),
