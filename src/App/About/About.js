@@ -75,10 +75,8 @@ class About extends React.PureComponent {
   render() {
     return (
       <div className={styles.container}>
-        <div>
-          <img key={'banner'} src={this.getBannerSrc()} className={styles.banner} alt="" />
-          {this.renderTextGrid()}
-        </div>
+        <img key={'banner'} src={this.getBannerSrc()} className={styles.banner} alt="" />
+        {this.renderTextGrid()}
         {this.renderSocialLinks()}
       </div>
     );

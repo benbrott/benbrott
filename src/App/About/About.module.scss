@@ -4,10 +4,6 @@ $font-size-default: 1.7em;
 $line-height-default: 1.2em;
 
 @media only screen and (max-width: $screen-width-phone-max) {
-  .container {
-    min-height: calc(100vh - #{$navbar-size} - 3 * #{$spacing-default});
-  }
-
   .grid {
     grid-template-columns: $line-height-default 1fr;
     grid-template-rows: repeat(4, max-content);
@@ -17,13 +13,16 @@ $line-height-default: 1.2em;
     'g h';
     grid-row-gap: 25px;
   }
+
+  .socialLinksContainer {
+    top: 0;
+    right: 0;
+
+    margin: 5px;
+  }
 }
 
 @media only screen and (min-width: $screen-width-tablet-min) {
-  .container {
-    min-height: calc(100vh - 2 * #{$spacing-default});
-  }
-
   .grid {
     grid-template-columns: repeat(4, $line-height-default) 1fr;
     grid-template-rows: repeat(5, max-content);
@@ -38,7 +37,7 @@ $line-height-default: 1.2em;
 
 @media only screen and (max-width: $screen-width-tablet-max) {
   .socialLinksContainer {
-    position: absolute;
+    top: 0;
     right: 0;
 
     margin: 5px;
@@ -47,20 +46,18 @@ $line-height-default: 1.2em;
 
 @media only screen and (min-width: $screen-width-desktop-min) {
   .socialLinksContainer {
-    justify-content: flex-end;
+    right: 0;
+    bottom: 0;
   }
 }
 
 .container {
   position: relative;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
   max-width: 1800px;
   height: 100%;
-  margin: auto;
+
+  @extend %scrollable;
 }
 
 .banner {
@@ -141,6 +138,8 @@ $line-height-default: 1.2em;
 }
 
 .socialLinksContainer {
+  position: absolute;
+
   display: flex;
 }
 
