@@ -7,6 +7,35 @@ export const CATEGORIES = Object.freeze({
 
 export const DATA = [
   {
+    name: 'Apple Turnovers',
+    category: CATEGORIES.DESSERTS,
+    makes: 8,
+    time: '60 minutes',
+    ingredients: [
+      '4 medium granny smith apples, diced',
+      '2 tablespoons butter',
+      '⅓ cup packed brown sugar',
+      '1 teaspoon cinnamon',
+      'Pinch of nutmeg',
+      'Pinch of clove',
+      '2 teaspoons cornstarch',
+      '1 box (2 sheets) puff pastry, thawed',
+      '1 egg + 1 tablespoon water, beaten',
+      'Sugar'
+    ],
+    directions: [
+      'Add the apples, butter, and brown sugar, and spices to a pot and cook over medium-low heat until the apples are tender',
+      'Add the cornstarch and cook until the mixture is thick, just a few minutes',
+      'Preheat the oven to 400° and line a cookie sheet with parchment paper',
+      'Unfold the pastry sheets and roll them out until they are about 9" squares',
+      'Cut them into 4 even squares each, 8 total',
+      'Split the filling among the 8 pastry squares',
+      'Brush a little egg wash along the edges of each square, fold, and pinch with a fork to seal',
+      'Brush a little more egg wash on the tops of each turnover, and sprinkle a pinch of sugar on top',
+      'Bake an inch apart until lightly brown, about 17-20 minutes'
+    ]
+  },
+  {
     name: 'Baklava',
     category: CATEGORIES.DESSERTS,
     makes: 24,
