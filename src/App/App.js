@@ -2,7 +2,6 @@ import React from 'react';
 import { HashRouter, Route, Link } from 'react-router-dom';
 import classNames from 'classnames';
 import styles from './App.module.scss';
-import Home from './Home/Home';
 import Music from './Music/Music';
 import Recipes from './Recipes/Recipes';
 import Crossword from './Crossword/Crossword';
@@ -12,7 +11,6 @@ import Food from 'svgComponents/Food';
 import CrosswordIcon from 'svgComponents/CrosswordIcon';
 import Headphones from 'svgComponents/Headphones';
 import House from 'svgComponents/House';
-import Lego from 'svgComponents/Lego';
 import Loading from 'svgComponents/Loading';
 import Moon from 'svgComponents/Moon';
 import Sun from 'svgComponents/Sun';
@@ -23,7 +21,6 @@ const PATH_MUSIC = '/music';
 const PATH_RECIPES = '/recipes';
 const PATH_CROSSWORD = '/crossword';
 const PATH_LOADING_ANIMATIONS = '/loadingAnimations';
-const PATH_ABOUT = '/about';
 
 const REFS = {
   HOME: 'home',
@@ -31,7 +28,6 @@ const REFS = {
   RECIPES: 'recipes',
   CROSSWORD: 'crossword',
   LOADING_ANIMATIONS: 'loading animations',
-  ABOUT: 'about',
   THEME: 'theme'
 };
 
@@ -60,11 +56,6 @@ const NAV_ICONS = [
     Component: Loading,
     path: PATH_LOADING_ANIMATIONS,
     ref: REFS.LOADING_ANIMATIONS
-  },
-  {
-    Component: Lego,
-    path: PATH_ABOUT,
-    ref: REFS.ABOUT
   }
 ];
 
@@ -161,7 +152,7 @@ class App extends React.PureComponent {
 
   homeComponent = () => {
     this.initialPage = REFS.HOME;
-    return <Home isDark={this.state.isDark} />;
+    return <About isDark={this.state.isDark} />;
   };
 
   musicComponent = () => {
@@ -184,11 +175,6 @@ class App extends React.PureComponent {
     return <LoadingAnimations isDark={this.state.isDark} />;
   };
 
-  aboutComponent = () => {
-    this.initialPage = REFS.ABOUT;
-    return <About isDark={this.state.isDark} />;
-  };
-
   render() {
     return (
       <HashRouter basename={PATH_HOME}>
@@ -200,7 +186,6 @@ class App extends React.PureComponent {
             <Route path={PATH_RECIPES} component={this.recipesComponent} />
             <Route path={PATH_CROSSWORD} component={this.crosswordComponent} />
             <Route path={PATH_LOADING_ANIMATIONS} component={this.loadingAnimationsComponent} />
-            <Route path={PATH_ABOUT} component={this.aboutComponent} />
           </div>
         </div>
       </HashRouter>
