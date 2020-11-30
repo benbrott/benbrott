@@ -42,25 +42,11 @@ export const DATA = [
     color: '#231921'
   },
   {
-    artist: 'Arctic Monkeys',
-    title: 'AM',
-    src: 'https://i.scdn.co/image/f513ae2d610d9255913795d4bc28ca33c827b232',
-    backgroundColor: '#000000',
-    color: '#ffffff'
-  },
-  {
     artist: 'AWOLNATION',
     title: 'Megalithic Symphony',
     src: 'https://i.scdn.co/image/6774e57a7f90fb9338f102fb7d3b9dc9e848b833',
     backgroundColor: '#b6a4a8',
     color: '#201f1f'
-  },
-  {
-    artist: 'Bas',
-    title: 'Too High to Riot',
-    src: 'https://i.scdn.co/image/f8646bee72a7768105189d3c345dd38f12bcb103',
-    backgroundColor: '#ada3a1',
-    color: '#3d3d3d'
   },
   {
     artist: 'Broken Bells',
@@ -119,27 +105,6 @@ export const DATA = [
     color: '#2a2a2a'
   },
   {
-    artist: 'Catfish and the Bottlemen',
-    title: 'The Balcony',
-    src: 'https://i.scdn.co/image/a446c992dbbad2984e9dbce443f0874e4df45f12',
-    backgroundColor: '#000000',
-    color: '#dcdcdc'
-  },
-  {
-    artist: 'Cold War Kids',
-    title: 'Hold My Home',
-    src: 'https://i.scdn.co/image/4517816fb40750bc54014d239ca64ac409c273da',
-    backgroundColor: '#ffffff',
-    color: '#000000'
-  },
-  {
-    artist: 'Cold War Kids',
-    title: 'Robbers & Cowards',
-    src: 'https://i.scdn.co/image/18a6f73dd2af81c56e4549aa1eb7b6a880737fdd',
-    backgroundColor: '#29301e',
-    color: '#edf2f5'
-  },
-  {
     artist: 'Common',
     title: 'Be',
     src: 'https://i.scdn.co/image/a7d3fbe053e83e5f7a61204cd3c4929b741b4a0a',
@@ -147,11 +112,25 @@ export const DATA = [
     color: '#000000'
   },
   {
+    artist: 'Cordae',
+    title: 'The Lost Boy',
+    src: 'https://i.scdn.co/image/1036782a6cd826b580b77efc0e871b2cf9dfec73',
+    backgroundColor: '#603700',
+    color: '#bdac48'
+  },
+  {
     artist: 'Declan McKenna',
     title: 'What Do You Think About the Car?',
     src: 'https://i.scdn.co/image/dc9d2b0cf38e51fb3f7e58ca372bdda2b8b8daca',
     backgroundColor: '#dddddd',
     color: '#352524'
+  },
+  {
+    artist: 'Declan McKenna',
+    title: 'Zeros',
+    src: 'https://i.scdn.co/image/ab67616d0000b2733a06b188cf0080ce95f662eb',
+    backgroundColor: '#2a0d29',
+    color: '#fbf8dc'
   },
   {
     artist: 'Denzel Curry',
@@ -421,13 +400,6 @@ export const DATA = [
   },
   {
     artist: 'Joey Bada$$',
-    title: 'ALL-AMERIKKKAN BADA$$',
-    src: 'https://i.scdn.co/image/ab67706c0000da84344e58ebcf307a2fc02bb99d',
-    backgroundColor: '#96c3d6',
-    color: '#c2594b'
-  },
-  {
-    artist: 'Joey Bada$$',
     title: 'B4.DA.$$',
     src: 'https://i.scdn.co/image/59aacc03bbea4c8fc5a3debb1d6a56ddcff6daf3',
     backgroundColor: '#159845',
@@ -567,13 +539,6 @@ export const DATA = [
     color: '#000000'
   },
   {
-    artist: 'Mac Miller',
-    title: 'Divine Feminine',
-    src: 'https://i.scdn.co/image/ba53abe8e80c4127e5bc8bec23af81e5a6225093',
-    backgroundColor: '#d9c0bb',
-    color: '#1e1e1e'
-  },
-  {
     artist: 'Mosie',
     title: 'Tangerine',
     src: 'https://i.scdn.co/image/6acd293555254a74c956daa52f91ad92e23d121c',
@@ -581,18 +546,11 @@ export const DATA = [
     color: '#76092a'
   },
   {
-    artist: 'Noname',
-    title: 'Room 25',
-    src: 'https://i.scdn.co/image/2de83faa6cf283cd56743451ff3f4d2e16342472',
-    backgroundColor: '#ffffff',
-    color: '#000000'
-  },
-  {
-    artist: 'NxWorries',
-    title: 'Yes Lawd!',
-    src: 'https://i.scdn.co/image/d9517e61311dc7b37a8f7447dfa1d9ecb93c6739',
-    backgroundColor: '#ebe5d7',
-    color: '#000000'
+    artist: 'Nas',
+    title: "King's Disease",
+    src: 'https://i.scdn.co/image/ab67616d0000b273cfae92bfa188457b4bee0055',
+    backgroundColor: '#ce0301',
+    color: '#ecae19'
   },
   {
     artist: 'Of Monsters and Men',
@@ -621,6 +579,13 @@ export const DATA = [
     src: 'https://i.scdn.co/image/ab67616d0000b2733040ca980277cf1445934add',
     backgroundColor: '#052036',
     color: '#ce1e23'
+  },
+  {
+    artist: 'Phoebe Bridgers',
+    title: 'Stranger in the Alps',
+    src: 'https://i.scdn.co/image/ab67616d0000b273bbc87dd5388d9a98e80650a4',
+    backgroundColor: '#83b2c2',
+    color: '#ffffff'
   },
   {
     artist: 'Portugal. The Man',
@@ -656,13 +621,6 @@ export const DATA = [
     src: 'https://i.scdn.co/image/a12a3b925d49fbe32dbca90a19898b879a5457d9',
     backgroundColor: '#c7835c',
     color: '#000000'
-  },
-  {
-    artist: 'RÜFÜS DU SOL',
-    title: 'Bloom',
-    src: 'https://i.scdn.co/image/ea3325205abf3bab41556091e1bbec267e8656c6',
-    backgroundColor: '#2e3f61',
-    color: '#ffffff'
   },
   {
     artist: 'Saint Motel',
@@ -803,13 +761,6 @@ export const DATA = [
     src: 'https://i.scdn.co/image/765dd18a89c2dbbb8d548dfb6387001eb362d25c',
     backgroundColor: '#000000',
     color: '#ffffff'
-  },
-  {
-    artist: 'YBN Cordae',
-    title: 'The Lost Boy',
-    src: 'https://i.scdn.co/image/1036782a6cd826b580b77efc0e871b2cf9dfec73',
-    backgroundColor: '#603700',
-    color: '#bdac48'
   },
   {
     artist: 'Young the Giant',
