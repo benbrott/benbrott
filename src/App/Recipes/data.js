@@ -486,6 +486,33 @@ export const DATA = [
     }
   },
   {
+    name: 'Roasted Garlic Mashed Potatoes',
+    category: CATEGORIES.SIDES,
+    serves: 10,
+    time: '1 hour',
+    ingredients: [
+      '2 heads garlic',
+      '4 tablespoons olive oil',
+      '5 pounds gold potatoes, peeled and cut into 1 inch cubes',
+      '8 ounces sour cream',
+      '½ cup butter',
+      'Salt & pepper, to taste',
+      'Chives, finely sliced'
+    ],
+    directions: [
+      'Preheat oven to 450° and start bringing a very large pot of water to a boil',
+      'Cut the top off of each head of garlic, just exposing the cloves',
+      'Place each head of garlic in a large piece of aluminum foil, and drizzle with olive oil',
+      'Wrap up each head of garlic so that the head will stand upright and roast in the oven for about 45 minutes, until the garlic is very soft',
+      'Meanwhile, boil the potatoes until tender, 10-15 minutes',
+      'Strain the potatoes and return them to the hot pot for a another minute to remove excess water',
+      'Mash the potatoes to the desired consistency',
+      'Once the garlic is done, squeeze out the cloves and mix them, along with the sour cream, into the potatoes',
+      'Melt the butter and fold it into the potatoes',
+      'Season to taste and top with chives'
+    ]
+  },
+  {
     name: 'Snickerdoodles',
     category: CATEGORIES.DESSERTS,
     makes: 24,
