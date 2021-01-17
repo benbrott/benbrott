@@ -1,5 +1,5 @@
 export const CATEGORIES = Object.freeze({
-  MEAT: 'Meats',
+  ENTREES: 'Entrées',
   VEGETARIAN: 'Vegetarian',
   SIDES: 'Sides',
   DESSERTS: 'Desserts'
@@ -161,8 +161,46 @@ export const DATA = [
     ]
   },
   {
+    name: 'Chicken & Wild Rice Soup',
+    category: CATEGORIES.ENTREES,
+    serves: '8',
+    time: '45 minutes',
+    ingredients: [
+      '3 tablespoons olive oil',
+      '2 pounds boneless, skinless chicken breast',
+      'Salt and pepper',
+      '4 tablespoons butter',
+      '1 large onion, diced',
+      '2 carrots, sliced',
+      '3 stalks of celery, sliced',
+      '6 cloves garlic, minced',
+      '3 tablespoons flour',
+      '8 cups chicken broth',
+      '3 sprigs fresh thyme',
+      '1 sprig fresh rosemary, chopped',
+      '1½ cups wild rice',
+      '1 bunch kale, shredded',
+      '1 cup heavy cream'
+    ],
+    directions: [
+      'Heat the oil in a large dutch oven',
+      'Dry the chicken breasts and season them with salt and pepper',
+      'Cook the chicken until cooked through, about 10 minutes per side, and set aside when done',
+      'Meanwhile, prepare the vegetables',
+      'Once the chicken has been removed, melt the butter',
+      'Sauté the onion, carrots, and celery for about 10 minutes, until the onions are just cooked',
+      'Add in the garlic and cook for another couple of minutes',
+      'Mix in the flour and cook for another couple of minutes',
+      'Slowly whisk in the chicken broth and bring to a boil',
+      'Dice the chicken into small chunks',
+      'Add in the thyme, rosemary, and rice and simmer, covered, until the rice is almost done',
+      'Add in the chicken and kale and continue to cook, covered, until the rice is done',
+      'Remove from the heat, mix in the cream, and season as needed'
+    ]
+  },
+  {
     name: 'Chicken Tortilla Soup',
-    category: CATEGORIES.MEAT,
+    category: CATEGORIES.ENTREES,
     serves: '6',
     time: '45 minutes',
     ingredients: [
@@ -175,7 +213,7 @@ export const DATA = [
       '1 14.5-ounce can fire roasted-tomatoes',
       '1 16-ounce jar chunky salsa',
       '1 rotisserie chicken, pulled',
-      '42 ounces chicken broth',
+      '5 cups chicken broth',
       'Juice and zest from 1 lime',
       '1 cup cilantro, chopped',
       'Tortilla chips'
@@ -275,7 +313,7 @@ export const DATA = [
   },
   {
     name: 'Crab Cakes',
-    category: CATEGORIES.MEAT,
+    category: CATEGORIES.ENTREES,
     serves: '3',
     time: '45 minutes',
     ingredients: [
@@ -289,7 +327,7 @@ export const DATA = [
       '2 teaspoons lemon juice',
       '1 teaspoon paprika',
       '¼ teaspoon cayenne pepper',
-      'Salt & pepper, to taste'
+      'Salt and pepper, to taste'
     ],
     directions: [
       'Mix together all ingredients until well combined',
@@ -300,7 +338,7 @@ export const DATA = [
   },
   {
     name: 'Cranberry Bog Turkey Burgers',
-    category: CATEGORIES.MEAT,
+    category: CATEGORIES.ENTREES,
     makes: 4,
     time: '45 minutes',
     source: 'Rachael Ray',
@@ -309,7 +347,7 @@ export const DATA = [
       '1 small apple, finely diced',
       '1 small onion, finely diced',
       '1 teaspoon poultry seasoning',
-      'Salt & pepper, to taste',
+      'Salt and pepper, to taste',
       '1 cup whole-berry cranberry sauce',
       '½ cup mayo',
       '4 english muffins, toasted',
@@ -336,7 +374,7 @@ export const DATA = [
       '1 teaspoon red pepper flakes',
       '1 pound rotini, or similar pasta',
       '8 ounces burrata',
-      'Salt & pepper, to taste'
+      'Salt and pepper, to taste'
     ],
     directions: [
       'In a small pot, heat the olive oil over medium-low heat',
@@ -449,7 +487,7 @@ export const DATA = [
         '1 clove garlic, minced',
         '2 tablespoons butter',
         '4 ounces ricotta cheese (½ cup)',
-        'Salt & pepper, to taste'
+        'Salt and pepper, to taste'
       ],
       Pierogi: ['6 tablespoons butter']
     },
@@ -496,7 +534,7 @@ export const DATA = [
       '5 pounds gold potatoes, peeled and cut into 1 inch cubes',
       '8 ounces sour cream',
       '½ cup butter',
-      'Salt & pepper, to taste',
+      'Salt and pepper, to taste',
       'Chives, finely sliced'
     ],
     directions: [
@@ -545,7 +583,7 @@ export const DATA = [
   },
   {
     name: 'Southwest Burgers',
-    category: CATEGORIES.MEAT,
+    category: CATEGORIES.ENTREES,
     makes: 4,
     time: '45 minutes',
     ingredients: [
@@ -583,7 +621,7 @@ export const DATA = [
       '10 ounces fresh spinach',
       '16 ounces cream cheese',
       '½ cup grated parmesan',
-      'Salt & pepper, to taste',
+      'Salt and pepper, to taste',
       '1 cup shredded mozzarella'
     ],
     directions: [
@@ -607,7 +645,7 @@ export const DATA = [
       '3 large russet potatoes, peeled and very thinly sliced',
       '1 spanish onion, thinly sliced',
       '4 large eggs',
-      'Salt & pepper, to taste'
+      'Salt and pepper, to taste'
     ],
     directions: [
       'In a 9" nonstick pan, heat the oil over medium heat',
