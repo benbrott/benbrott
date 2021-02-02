@@ -29,7 +29,7 @@ class Music extends React.PureComponent {
   };
 
   onAlbumKeyDown = (event, index) => {
-    if (KEY_EVENTS.ENTER) {
+    if (KEY_EVENTS.ENTER(event)) {
       this.onAlbumClick(index);
     }
   };

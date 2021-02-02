@@ -85,6 +85,7 @@
   transition: $hover-transition;
 
   border: $border-default;
+  border-radius: $border-width-default;
 
   &:focus,
   &:hover {

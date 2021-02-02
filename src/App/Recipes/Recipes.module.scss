@@ -1,10 +1,8 @@
 @import 'shared';
 
-$hover-triangle-size: .3em;
+$hover-triangle-size: 8px;
 
 .container {
-  font-size: 1.5em;
-
   display: flex;
 
   width: 100%;
@@ -19,11 +17,11 @@ $hover-triangle-size: .3em;
 
   height: 100%;
 
-  &.mobile {
+  &.phone {
     width: 100%;
   }
 
-  &:not(.mobile) {
+  &:not(.phone) {
     width: 40%;
   }
 }
@@ -34,18 +32,16 @@ $hover-triangle-size: .3em;
 
   margin-bottom: $spacing-default;
 
-  &:not(.mobile) {
+  &:not(.phone) {
     margin-right: calc(#{$spacing-default} + #{$border-width-default});
   }
 }
 
 .category {
-  font-size: .8em;
-
   overflow: hidden;
   flex-grow: 1;
 
-  padding: 3px;
+  padding: 4px;
 
   cursor: pointer;
   white-space: nowrap;
@@ -91,17 +87,22 @@ $hover-triangle-size: .3em;
   @extend %scrollable;
 }
 
-.label {
+.heading {
   font-family: $font-family-heading;
-  font-weight: normal;
 
-  margin: .3em;
+  display: block;
+
+  margin: .6rem;
 
   &.dark {
     color: $accent-gold;
   }
 
-  &.noMargin {
+  &:not(.subsection_heading) {
+    font-size: 1.4rem;
+  }
+
+  &.recipe_heading {
     margin: 0;
   }
 }
@@ -157,11 +158,11 @@ $hover-triangle-size: .3em;
     opacity: 1;
   }
 
-  &.mobile {
+  &.phone {
     width: 100%;
   }
 
-  &:not(.mobile) {
+  &:not(.phone) {
     margin-right: calc(#{$spacing-default} + #{$border-width-default});
 
     &.open {
@@ -177,7 +178,7 @@ $hover-triangle-size: .3em;
   width: 60%;
   height: 100%;
   margin-left: -$border-width-default;
-  padding: 2em 5%;
+  padding: 2rem 5%;
 
   @extend %bordered-default;
   @extend %scrollable;
@@ -194,13 +195,13 @@ $hover-triangle-size: .3em;
 }
 
 .list {
-  line-height: 1.4em;
+  line-height: 1.4rem;
 
-  margin: .5em 0;
+  margin: .8rem 0;
 
   text-align: start;
 }
 
 .source {
-  font-size: .6em;
+  font-size: .8rem;
 }

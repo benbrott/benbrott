@@ -57,8 +57,7 @@ $grow-duration: 200ms;
 }
 
 .albumInfo {
-  font-size: 1.2em;
-  font-weight: 600;
+  font-size: 1.2rem;
 
   position: absolute;
   top: 0;
@@ -69,7 +68,7 @@ $grow-duration: 200ms;
   span {
     display: table;
 
-    padding: 5px 3px;
+    padding: 8px 4px;
 
     @extend %bordered-default;
 

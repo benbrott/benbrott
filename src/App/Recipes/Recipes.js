@@ -53,11 +53,13 @@ class Recipes extends React.PureComponent {
         ))}
       </List>
     ) : (
-      Object.keys(data).map(section => (
-        <div key={`section_${section}`}>
-          <h5 className={classNames([styles.label, themeClass])}>- - - {section} - - -</h5>
+      Object.keys(data).map(subsection => (
+        <div key={`subsection_${subsection}`}>
+          <span className={classNames([styles.heading, styles.subsection_heading, themeClass])}>
+            - - - {subsection} - - -
+          </span>
           <List className={styles.list}>
-            {data[section].map((item, index) => (
+            {data[subsection].map((item, index) => (
               <li key={`list_item_${index}`}>{item}</li>
             ))}
           </List>
@@ -67,13 +69,13 @@ class Recipes extends React.PureComponent {
   };
 
   renderRecipeContent = (ingredients, directions, source, themeClass) => {
-    const headerClasses = classNames([styles.label, themeClass]);
+    const headerClasses = classNames([styles.heading, styles.section_heading, themeClass]);
     const sourceSpan = source && <span className={styles.source}> Based on recipe from {source}</span>;
     return (
       <div>
-        <h3 className={headerClasses}>Ingredients</h3>
+        <span className={headerClasses}>Ingredients</span>
         {this.renderListSection(ingredients, false, themeClass)}
-        <h3 className={headerClasses}>Directions</h3>
+        <span className={headerClasses}>Directions</span>
         {this.renderListSection(directions, true, themeClass)}
         {sourceSpan}
       </div>
@@ -94,7 +96,7 @@ class Recipes extends React.PureComponent {
     );
   };
 
-  renderRecipe = (recipe, isMobile) => {
+  renderRecipe = (recipe, isPhone) => {
     const { name, category, serves, makes, time, source, ingredients, directions } = recipe;
     if (this.state.category && this.state.category !== category) {
       return null;
@@ -103,7 +105,7 @@ class Recipes extends React.PureComponent {
     const isOpen = name === this.state.openRecipe.name;
     const props = {
       key: `recipe_${name}`,
-      className: classNames([styles.recipe, isOpen && styles.open, isMobile && styles.mobile, themeClass]),
+      className: classNames([styles.recipe, isOpen && styles.open, isPhone && styles.phone, themeClass]),
       onClick: () => this.onRecipeHeaderClick(recipe),
       onKeyDown: event => this.onRecipeHeaderKeyDown(event, recipe),
       tabIndex: 0
@@ -111,11 +113,11 @@ class Recipes extends React.PureComponent {
     const portion = serves ? `Serves ${serves}` : `Makes ${makes}`;
     return (
       <div {...props}>
-        <h3 className={classNames([styles.label, styles.noMargin, themeClass])}>{name}</h3>
+        <span className={classNames([styles.heading, styles.recipe_heading, themeClass])}>{name}</span>
         <span>
           {portion} | {time}
         </span>
-        {isMobile && isOpen && this.renderRecipeContent(ingredients, directions, source, themeClass)}
+        {isPhone && isOpen && this.renderRecipeContent(ingredients, directions, source, themeClass)}
       </div>
     );
   };
@@ -137,16 +139,16 @@ class Recipes extends React.PureComponent {
   };
 
   render() {
-    const isMobile = this.props.isMobile;
+    const isPhone = this.props.formFactor === 'PHONE';
     return (
       <div className={styles.container}>
-        <div className={classNames([styles.recipeColumn, isMobile && styles.mobile])}>
-          <div className={classNames([styles.categories, isMobile && styles.mobile])}>
+        <div className={classNames([styles.recipeColumn, isPhone && styles.phone])}>
+          <div className={classNames([styles.categories, isPhone && styles.phone])}>
             {Object.values(CATEGORIES).map(category => this.renderCategory(category))}
           </div>
-          <div className={styles.recipes}>{DATA.map(recipe => this.renderRecipe(recipe, isMobile))}</div>
+          <div className={styles.recipes}>{DATA.map(recipe => this.renderRecipe(recipe, isPhone))}</div>
         </div>
-        {!isMobile && this.renderOpenRecipeDesktop()}
+        {!isPhone && this.renderOpenRecipeDesktop()}
       </div>
     );
   }
