@@ -1,31 +1,29 @@
 import React from 'react';
 
-class Record extends React.PureComponent {
-  render() {
-    return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="26" stroke="#111" strokeWidth="48" fill="none"/>
-        <circle cx="50" cy="50" r="49" stroke="#000" strokeWidth="2" fill="none"/>
-        <circle cx="50" cy="50" r="46" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="44" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="42" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="40" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="38" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="36" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="34" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="32" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="30" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="28" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="26" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="24" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="22" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="20" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="18" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="16" stroke="#000" strokeWidth="1" fill="none"/>
-        <circle cx="50" cy="50" r="8.25" stroke="#000" strokeWidth="12.5" fill="none"/>
-      </svg>
-    );
-  }
+const Record = () => {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="26" stroke="#111" strokeWidth="48" fill="none"/>
+      <circle cx="50" cy="50" r="49" stroke="#000" strokeWidth="2" fill="none"/>
+      <circle cx="50" cy="50" r="46" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="44" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="42" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="40" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="38" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="36" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="34" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="32" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="30" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="28" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="26" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="24" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="22" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="20" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="18" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="16" stroke="#000" strokeWidth="1" fill="none"/>
+      <circle cx="50" cy="50" r="8.25" stroke="#000" strokeWidth="12.5" fill="none"/>
+    </svg>
+  );
 }
 
 export default Record;

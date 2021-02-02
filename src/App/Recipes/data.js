@@ -164,7 +164,7 @@ export const DATA = [
     name: 'Chicken & Wild Rice Soup',
     category: CATEGORIES.ENTREES,
     serves: '8',
-    time: '45 minutes',
+    time: '1 hour',
     ingredients: [
       '3 tablespoons olive oil',
       '2 pounds boneless, skinless chicken breast',

@@ -601,4 +601,4 @@ class Crossword extends React.PureComponent {
   }
 }
 
-export default withFormFactor(Crossword, true);
+export default withFormFactor(Crossword);
