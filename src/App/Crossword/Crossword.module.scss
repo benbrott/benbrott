@@ -92,7 +92,7 @@
 }
 
 .clueDecoration {
-  font-size: .44em;
+  font-size: .4rem;
   font-weight: 600;
 }
 
@@ -110,7 +110,7 @@
 
 .clueSetLabel {
   font-family: $font-family-heading;
-  font-size: 2em;
+  font-size: 1.4rem;
   font-weight: normal;
 
   &.dark {
@@ -129,10 +129,8 @@
 }
 
 .clue {
-  font-size: 1em;
-
   width: 100%;
-  padding: $spacing-default;
+  padding: 4px 6px;
 
   @extend %bordered-default;
 
