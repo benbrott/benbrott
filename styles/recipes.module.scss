@@ -1,0 +1,173 @@
+@import 'shared';
+
+$hover-triangle-size: 8px;
+
+.container {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  text-align: center;
+}
+
+.recipeColumn {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+
+  &.phone {
+    width: 100%;
+  }
+
+  &:not(.phone) {
+    width: 40%;
+  }
+}
+
+.categories {
+  display: flex;
+  flex-direction: row;
+
+  margin-bottom: $spacing-default;
+
+  &:not(.phone) {
+    margin-right: calc(#{$spacing-default} + #{$border-width-default});
+  }
+}
+
+.category {
+  overflow: hidden;
+  flex-grow: 1;
+
+  padding: 4px;
+
+  cursor: pointer;
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+
+  color: $off-white;
+  background-color: $primary-black;
+
+  @extend %bordered-default;
+
+  &:not(:last-of-type) {
+    margin-right: $spacing-default;
+  }
+
+  &.selected {
+    color: $primary-black;
+    background-color: $accent-gold;
+  }
+
+  &:not(.selected) {
+    &:focus,
+    &:hover {
+      background-color: $gray;
+    }
+  }
+}
+
+.recipes {
+  width: 100%;
+  height: 100%;
+
+  @extend %scrollable;
+}
+
+.heading {
+  font-family: $font-family-heading;
+
+  display: block;
+
+  margin: .6rem;
+
+  color: $accent-gold;
+
+  &:not(.subsection_heading) {
+    font-size: 1.4rem;
+  }
+
+  &.recipe_heading {
+    margin: 0;
+  }
+}
+
+.recipe {
+  position: relative;
+
+  padding: $spacing-default calc(2 * #{$spacing-default});
+
+  cursor: pointer;
+
+  color: $off-white;
+  background-color: $primary-black;
+
+  @extend %bordered-default;
+
+  &:not(:last-of-type) {
+    margin-bottom: $spacing-default;
+  }
+
+  &::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: '';
+    transition: $hover-transition;
+
+    opacity: 0;
+    border-top: $hover-triangle-size solid $accent-gold;
+    border-right: $hover-triangle-size solid transparent;
+    border-bottom: $hover-triangle-size solid transparent;
+    border-left: $hover-triangle-size solid $accent-gold;
+  }
+
+  &:focus::before,
+  &:hover::before {
+    opacity: 1;
+  }
+
+  &.phone {
+    width: 100%;
+  }
+
+  &:not(.phone) {
+    margin-right: calc(#{$spacing-default} + #{$border-width-default});
+
+    &.open {
+      margin-right: 0;
+      padding-right: calc(3 * #{$spacing-default} + 2 * #{$border-width-default});
+
+      border-right: none;
+    }
+  }
+}
+
+.openRecipeDesktop {
+  width: 60%;
+  height: 100%;
+  margin-left: -$border-width-default;
+  padding: 2rem 5%;
+
+  color: $off-white;
+  background-color: $primary-black;
+
+  @extend %bordered-default;
+  @extend %scrollable;
+}
+
+.list {
+  line-height: 1.4rem;
+
+  margin: .8rem 0;
+
+  text-align: start;
+}
+
+.source {
+  font-size: .8rem;
+}

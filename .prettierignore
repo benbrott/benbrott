@@ -1,7 +1,5 @@
 node_modules
 build
-.env
+.next
 .vscode/
 README.md
-src/svg
-src/svgComponents

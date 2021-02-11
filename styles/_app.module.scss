@@ -1,0 +1,87 @@
+@import 'shared';
+
+@media only screen and (max-width: $screen-width-tablet-max) {
+  .container {
+    flex-direction: column;
+  }
+
+  .navBar {
+    display: inline-flex;
+    flex-direction: row;
+
+    width: 100%;
+    height: $navbar-size;
+    margin-bottom: $spacing-default;
+  }
+}
+
+@media only screen and (min-width: $screen-width-desktop-min) {
+  .container {
+    flex-direction: row;
+  }
+
+  .navBar {
+    display: flex;
+    flex-direction: column;
+
+    width: $navbar-size;
+    height: 100%;
+    margin-right: $spacing-default;
+  }
+}
+
+.container {
+  display: flex;
+
+  box-sizing: border-box;
+  height: 100%;
+  padding: $spacing-default;
+}
+
+.navBar {
+  position: relative;
+
+  background-color: $primary-black;
+
+  @extend %bordered-default;
+}
+
+.iconContainer {
+  position: relative;
+
+  width: $navbar-size;
+  height: $navbar-size;
+  margin-top: -$spacing-default;
+  margin-left: -$spacing-default;
+
+  cursor: pointer;
+  transition: $hover-transition;
+
+  @extend %bordered-default;
+
+  &:focus,
+  &:hover {
+    &:not(.currentIcon) {
+      opacity: $hover-opacity;
+    }
+  }
+
+  &:not(.currentIcon) {
+    border-color: transparent;
+  }
+
+  &.currentIcon {
+    background-color: $accent-gold;
+  }
+
+  svg {
+    width: 86%;
+    height: 86%;
+    padding: 7%;
+  }
+}
+
+.pageContainer {
+  overflow: hidden;
+  flex: 1;
+}
