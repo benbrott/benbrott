@@ -13,7 +13,7 @@ const TEXT_MAPS = [
   { label: 'WHO', info: 'Ben Brott, software engineer at Appian' },
   { label: 'WHAT', info: 'A site inspired by talks at An Event Apart DC' },
   { label: 'WHY', info: 'To learn CSS, explore SVG, and design eye-catching, responsive UIs' },
-  { label: 'HOW', info: 'React, Sass, GitHub Pages' }
+  { label: 'HOW', info: 'React, Sass, Next.js, Netlify' }
 ];
 
 const SOCIAL_LINKS = [
