@@ -46,13 +46,16 @@ const Crossword = ({ formFactor }) => {
   }, [currentCell, clueSet, letters]);
 
   useEffect(() => {
-    updateContainerSize();
     window.addEventListener('resize', updateContainerSize);
 
     return () => {
       window.removeEventListener('resize', updateContainerSize);
     };
   }, []);
+
+  useEffect(() => {
+    updateContainerSize();
+  }, [formFactor]);
 
   useEffect(() => {
     const storedLetters = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -548,8 +551,8 @@ const Crossword = ({ formFactor }) => {
     // Only render on touch devices
     if (window.matchMedia('(hover: none)').matches) {
       const onBlur = event => {
-        if (hiddenInput) {
-          hiddenInput.focus();
+        if (hiddenInput.current) {
+          hiddenInput.current.focus();
         }
       };
       const props = {
@@ -558,7 +561,7 @@ const Crossword = ({ formFactor }) => {
         autoComplete: 'off',
         className: styles.hiddenInput,
         autoFocus: true,
-        ref: element => (hiddenInput = element),
+        ref: hiddenInput,
         onBlur
       };
       return <input {...props} />;
