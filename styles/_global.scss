@@ -1,15 +1,12 @@
 @import 'shared';
 
 html {
-  height: 100%;
-
-  background-color: $dark-gray;
+  background-color: $background-color;
 }
 
 body {
   font-family: $font-family-primary;
 
-  height: 100%;
   margin: 0;
 
   -webkit-font-smoothing: antialiased;

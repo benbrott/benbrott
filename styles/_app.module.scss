@@ -1,87 +1,55 @@
 @import 'shared';
 
-@media only screen and (max-width: $screen-width-tablet-max) {
-  .container {
-    flex-direction: column;
-  }
-
-  .navBar {
-    display: inline-flex;
-    flex-direction: row;
-
-    width: 100%;
-    height: $navbar-size;
-    margin-bottom: $spacing-default;
-  }
-}
-
-@media only screen and (min-width: $screen-width-desktop-min) {
-  .container {
-    flex-direction: row;
-  }
-
-  .navBar {
-    display: flex;
-    flex-direction: column;
-
-    width: $navbar-size;
-    height: 100%;
-    margin-right: $spacing-default;
-  }
-}
-
-.container {
-  display: flex;
-
-  box-sizing: border-box;
-  height: 100%;
-  padding: $spacing-default;
-}
+$less-padding: 16px;
+$more-padding: 24px;
+$content-height: 32px;
 
 .navBar {
-  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-  background-color: $primary-black;
+  padding: $less-padding $more-padding;
 
-  @extend %bordered-default;
+  background-color: #070707;
+}
+
+.logoContainer {
+  width: 279px; // the svg viewbox is 870x100
+  height: $content-height;
+
+  background-image: url(/logoNameFullLight.svg);
+  background-repeat: no-repeat;
+  background-origin: content-box;
+
+  @extend %transparent-interaction;
 }
 
 .iconContainer {
-  position: relative;
+  display: flex;
+  flex-direction: row;
 
-  width: $navbar-size;
-  height: $navbar-size;
-  margin-top: -$spacing-default;
-  margin-left: -$spacing-default;
+  height: $content-height;
+}
 
-  cursor: pointer;
-  transition: $hover-transition;
+.icon {
+  height: inherit;
+  margin-left: $less-padding;
 
-  @extend %bordered-default;
-
-  &:focus,
-  &:hover {
-    &:not(.currentIcon) {
-      opacity: $hover-opacity;
-    }
-  }
-
-  &:not(.currentIcon) {
-    border-color: transparent;
-  }
-
-  &.currentIcon {
-    background-color: $accent-gold;
-  }
-
+  @extend %transparent-interaction;
   svg {
-    width: 86%;
-    height: 86%;
-    padding: 7%;
+    height: inherit;
   }
 }
 
 .pageContainer {
-  overflow: hidden;
-  flex: 1;
+  overflow-x: hidden;
+}
+
+@media only screen and (max-width: $screen-width-tiny-max) {
+  .logoContainer {
+    width: 103px; // the svg viewbox is 320x100
+
+    background-image: url(/logoNameShortLight.svg);
+  }
 }

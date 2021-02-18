@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Quicksand:wght@400;600;700&display=swap');
 
+$background-color: #111;
+
 $accent-gold: #fcb514;
 $primary-black: #111;
 $primary-white: #eee;
@@ -14,10 +16,12 @@ $hover-opacity: .33;
 $hover-transition: opacity 200ms;
 $font-family-primary: 'Quicksand', sans-serif;
 $font-family-heading: 'Bowlby One SC', sans-serif;
-$screen-width-phone-max: 41.99em;
-$screen-width-tablet-min: 42em;
-$screen-width-tablet-max: 65.99em;
-$screen-width-desktop-min: 66em;
+$screen-width-tiny-max: 536px;
+$screen-width-narrow-min: 537px;
+$screen-width-narrow-max: 728px;
+$screen-width-standard-min: 729px;
+$screen-width-standard-max: 1024px;
+$screen-width-wide-min: 1025px;
 
 %bordered-default {
   box-sizing: border-box;
@@ -31,5 +35,20 @@ $screen-width-desktop-min: 66em;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+%content-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+%transparent-interaction {
+  cursor: pointer;
+  transition: opacity 200ms;
+
+  &:focus-visible,
+  &:hover {
+    opacity: .25;
   }
 }
