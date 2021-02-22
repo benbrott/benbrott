@@ -11,7 +11,7 @@ $content-height: 32px;
 
   padding: $less-padding $more-padding;
 
-  background-color: #070707;
+  background-color: $navbar-color;
 }
 
 .logoContainer {
@@ -44,6 +44,8 @@ $content-height: 32px;
 
 .pageContainer {
   overflow-x: hidden;
+
+  padding: $container-spacing;
 }
 
 @media only screen and (max-width: $screen-width-tiny-max) {
@@ -51,5 +53,11 @@ $content-height: 32px;
     width: 103px; // the svg viewbox is 320x100
 
     background-image: url(/logoNameShortLight.svg);
+  }
+}
+
+@media only screen and (max-width: $screen-width-narrow-max) {
+  .pageContainer {
+    padding: $half-container-spacing;
   }
 }

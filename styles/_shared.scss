@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Quicksand:wght@400;600;700&display=swap');
 
 $background-color: #111;
+$navbar-color: #070707;
+$text-color-light: #eee;
+$text-color-dark: #040404;
+$rust: #b93b15;
+$magenta: #8d016a;
+$royal: #564787;
+$gold: #e59500;
+$container-spacing: 3rem;
+$half-container-spacing: 1.5rem;
+$standard-spacing: 1rem;
 
 $accent-gold: #fcb514;
 $primary-black: #111;
@@ -24,8 +34,6 @@ $screen-width-standard-max: 1024px;
 $screen-width-wide-min: 1025px;
 
 %bordered-default {
-  box-sizing: border-box;
-
   border: $border-default;
   border-radius: $border-width-default;
 }

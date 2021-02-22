@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import styles from 'styles/music.module.scss';
 import { DATA } from 'data/music';
 import KEY_EVENTS from 'utils/events';
-import Record from 'svgComponents/Record';
 
 const Music = () => {
   const [openIndex, setOpenIndex] = useState();
@@ -31,10 +30,9 @@ const Music = () => {
     };
     return (
       <div className={styles.album} onClick={() => onAlbumClick(index)} key={`album_${index}`}>
-        <Record />
-        <div className={styles.albumInfo} style={{ color }}>
-          <span style={{ backgroundColor }}>{title}</span>
-          <span style={{ backgroundColor }}>{artist}</span>
+        <div className={styles.albumInfo}>
+          <span>{artist}</span>
+          <span>{title}</span>
         </div>
         <img {...albumProps} />
       </div>

@@ -1,27 +1,18 @@
 @import 'shared';
 
-$rust: #b93b15;
-$flirt: #8d016a;
-$grape: #564787;
-$standard-spacing: 1rem;
-$rounded-spacing: 1.5rem;
-$container-spacing: 3rem;
-
 .container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-  padding: $container-spacing;
 
   @extend %content-container;
 }
 
 .textSection {
   margin-right: $container-spacing;
-  padding: 0 $rounded-spacing;
+  padding: 0 $half-container-spacing;
 
-  color: #eee;
+  color: $text-color-light;
 
   p {
     font-size: 1.25rem;
@@ -48,11 +39,11 @@ $container-spacing: 3rem;
         right: 100%;
         bottom: 0;
 
-        width: $rounded-spacing;
+        width: $half-container-spacing;
 
         content: '';
 
-        border-top-left-radius: $rounded-spacing;
+        border-top-left-radius: $half-container-spacing;
         background-color: $rust;
       }
 
@@ -71,7 +62,7 @@ $container-spacing: 3rem;
     }
 
     &.blurbLeft {
-      background-color: $grape;
+      background-color: $royal;
 
       &::before {
         position: absolute;
@@ -83,7 +74,7 @@ $container-spacing: 3rem;
 
         content: '';
 
-        background-color: $grape;
+        background-color: $royal;
       }
 
       &::after {
@@ -92,12 +83,12 @@ $container-spacing: 3rem;
         bottom: 0;
         left: 100%;
 
-        width: $rounded-spacing;
+        width: $half-container-spacing;
 
         content: '';
 
-        border-bottom-right-radius: $rounded-spacing;
-        background-color: $grape;
+        border-bottom-right-radius: $half-container-spacing;
+        background-color: $royal;
       }
     }
   }
@@ -114,8 +105,11 @@ $container-spacing: 3rem;
 
   overflow: hidden;
 
-  width: Min(300px, calc(100vw - 2 * #{$rounded-spacing})); // uppercase functions to use CSS versions rather than SASS
-  height: Min(300px, calc(100vw - 2 * #{$rounded-spacing}));
+  width: Min(
+  300px,
+  calc(100vw - 2 * #{$half-container-spacing})
+  ); // uppercase functions to use CSS versions rather than SASS
+  height: Min(300px, calc(100vw - 2 * #{$half-container-spacing}));
 
   border-radius: 100%;
 }
@@ -131,8 +125,8 @@ $container-spacing: 3rem;
   margin: -4rem auto 0 auto;
   padding: 5rem $standard-spacing $standard-spacing $standard-spacing;
 
-  border-radius: $rounded-spacing;
-  background-color: $flirt;
+  border-radius: $half-container-spacing;
+  background-color: $magenta;
 
   a {
     width: 1.5rem;
@@ -159,8 +153,6 @@ $container-spacing: 3rem;
 @media only screen and (max-width: $screen-width-narrow-max) {
   .container {
     flex-direction: column-reverse;
-
-    padding: $rounded-spacing;
   }
 
   .textSection {

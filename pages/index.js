@@ -46,7 +46,7 @@ const About = () => {
       </div>
       <div className={styles.photoSection}>
         <div className={styles.imageContainer}>
-          <Image className={styles.image} src="/me.jpg" alt="Picture of Ben" layout="fill"></Image>
+          <Image className={styles.image} src="/me.jpg" alt="Picture of Ben" layout="fill" />
         </div>
         {renderSocialLinks()}
       </div>
