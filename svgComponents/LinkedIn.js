@@ -2,7 +2,7 @@ import React from 'react';
 
 const LinkedIn = () => {
   return (
-    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 510" fill="#eee">
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 510">
       <path
         d="M459,0H51C22.95,0,0,22.95,0,51v408c0,28.05,22.95,51,51,51h408c28.05,0,51-22.95,51-51V51C510,22.95,487.05,0,459,0z
           M153,433.5H76.5V204H153V433.5z M114.75,160.65c-25.5,0-45.9-20.4-45.9-45.9s20.4-45.9,45.9-45.9s45.9,20.4,45.9,45.9

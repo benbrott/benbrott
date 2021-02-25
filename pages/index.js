@@ -4,9 +4,11 @@ import styles from 'styles/index.module.scss';
 import GitHub from 'svgComponents/GitHub';
 import LinkedIn from 'svgComponents/LinkedIn';
 import Twitter from 'svgComponents/Twitter';
+import CodePen from 'svgComponents/CodePen';
 
 const SOCIAL_LINKS = [
   { Component: GitHub, href: 'https://github.com/BenBrott' },
+  { Component: CodePen, href: 'https://codepen.io/benbrott' },
   { Component: LinkedIn, href: 'https://www.linkedin.com/in/brott/' },
   { Component: Twitter, href: 'https://twitter.com/BenBrott' }
 ];
@@ -39,8 +41,8 @@ const About = () => {
           <h1>benbrott.com</h1>
           <p>
             I was inspired to create this site after attending An Event Apart DC. The site is my sandbox to improve my
-            skills with traditional front-end technologies and modern interface design. All of the icons, save company
-            logos, are custom built SVGs. I use React, Next.js, Sass, and Netlify in my tech stack.
+            skills with modern interface and traditional front-end technologies, such as CSS and SVG. I use React,
+            Next.js, Sass, and Netlify in my tech stack.
           </p>
         </div>
       </div>

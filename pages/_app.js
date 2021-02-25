@@ -7,13 +7,11 @@ import styles from 'styles/_app.module.scss';
 import Food from 'svgComponents/Food';
 import CrosswordIcon from 'svgComponents/CrosswordIcon';
 import Headphones from 'svgComponents/Headphones';
-import Loading from 'svgComponents/Loading';
 
 const NAV_ICONS = [
   { Component: Headphones, path: '/music' },
   { Component: Food, path: '/recipes' },
-  { Component: CrosswordIcon, path: '/crossword' },
-  { Component: Loading, path: '/loadingAnimations' }
+  { Component: CrosswordIcon, path: '/crossword' }
 ];
 
 const App = ({ Component, pageProps }) => {
