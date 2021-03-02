@@ -1,7 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import 'styles/_global.scss';
 import styles from 'styles/_app.module.scss';
 import Food from 'svgComponents/Food';
@@ -15,11 +14,8 @@ const NAV_ICONS = [
 ];
 
 const App = ({ Component, pageProps }) => {
-  const router = useRouter();
-
   const renderNavBar = () => {
     const renderedIcons = NAV_ICONS.map(({ Component, path }, index) => {
-      const currentIcon = path === router.pathname;
       const key = `navIcon_${index}`;
       return (
         <Link href={path} key={key}>
