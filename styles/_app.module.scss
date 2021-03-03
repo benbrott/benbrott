@@ -45,6 +45,8 @@ $content-height: 32px;
 .pageContainer {
   overflow-x: hidden;
 
+  box-sizing: border-box;
+  height: calc(100% - #{$navbar-height});
   padding: $container-spacing;
 }
 

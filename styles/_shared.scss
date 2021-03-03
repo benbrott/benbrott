@@ -11,6 +11,7 @@ $gold: #e59500;
 $container-spacing: 3rem;
 $half-container-spacing: 1.5rem;
 $standard-spacing: 1rem;
+$navbar-height: 64px;
 
 $accent-gold: #fcb514;
 $primary-black: #111;
@@ -40,10 +41,6 @@ $screen-width-wide-min: 1025px;
 
 %scrollable {
   overflow-y: scroll;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 %content-container {

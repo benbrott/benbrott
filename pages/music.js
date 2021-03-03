@@ -19,7 +19,7 @@ const Music = () => {
   };
 
   const renderAlbum = (album, index) => {
-    const { artist, title, src, backgroundColor, color } = album;
+    const { artist, title, src } = album;
     const albumProps = {
       className: classNames([styles.albumArt, openIndex === index && styles.open]),
       onKeyDown: event => onAlbumKeyDown(event, index),

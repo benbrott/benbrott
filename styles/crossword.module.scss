@@ -1,56 +1,66 @@
 @import 'shared';
 
-@media only screen and (max-width: $screen-width-tiny-max) {
-  .container {
-    flex-direction: column;
-  }
-
-  .crosswordContainer {
-    align-items: flex-start;
-
-    width: 100%;
-  }
-}
-
-@media only screen and (min-width: $screen-width-narrow-min) {
-  .container {
-    flex-direction: row;
-  }
-
-  .crosswordContainer {
-    align-items: center;
-
-    width: 65%;
-    margin-right: $spacing-default;
-  }
-}
+$current-clue-height: 1.5rem;
+$border-size: 2px;
 
 .container {
-  display: flex;
+  position: relative;
 
-  box-sizing: border-box;
-  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
   height: 100%;
+
+  @extend %content-container;
 }
 
 .crosswordContainer {
-  display: flex;
-  justify-content: center;
+  position: relative;
 
-  height: 100%;
+  flex-shrink: 0;
+
+  box-sizing: border-box;
+  margin-right: $half-container-spacing;
+  margin-left: calc(#{$current-clue-height} / -2);
+  padding: 0 calc(#{$current-clue-height} / 2); // This will be set to be square in JS, but we actually want the crossword itself to be square. This accounts for the current clues height
+}
+
+.currentClue {
+  font-size: .75rem;
+  line-height: calc(#{$current-clue-height} - #{$border-size});
+
+  overflow-x: hidden;
+  overflow-y: hidden;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: $current-clue-height;
+
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+
+  color: $text-color-dark;
+  border: $border-size solid $navbar-color;
+  border-bottom-width: 0;
+  background-color: $gold;
 }
 
 .crossword {
   display: grid;
 
+  box-sizing: border-box;
+  width: 100%;
+  height: calc(100% - #{$current-clue-height});
+
   user-select: none;
 
-  background-color: #000;
+  border: $border-size solid $navbar-color;
+  background-color: $navbar-color;
 
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
-  grid-gap: 2px;
-  @extend %bordered-default;
+  grid-gap: $border-size;
 }
 
 .cell {
@@ -58,17 +68,17 @@
 
   cursor: pointer;
 
-  background-color: $gray;
+  background-color: $royal;
 
-  fill: $off-white;
+  fill: $text-color-light;
 
   &.inClue {
-    background-color: $dark-gray;
+    background-color: $rust;
 
     &.current {
-      background-color: $accent-gold;
+      background-color: $gold;
 
-      fill: $primary-black;
+      fill: $text-color-dark;
     }
   }
 }
@@ -79,47 +89,63 @@
 }
 
 .clues {
-  width: 35%;
+  display: flex;
+  flex-direction: row;
+
   height: 100%;
 }
 
 .clueListContainer {
   display: flex;
+  flex: 1;
   flex-direction: column;
 
-  height: 50%;
+  &:first-of-type {
+    margin-right: $half-container-spacing;
+  }
 }
 
 .clueSetLabel {
   font-family: $font-family-heading;
-  font-size: 1.4rem;
+  font-size: 1.25rem;
   font-weight: normal;
 
-  color: $accent-gold;
+  color: $magenta;
 }
 
 .clueList {
-  flex: 1;
+  overflow-y: scroll;
 
-  @extend %scrollable;
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+
+  border-radius: $border-size;
+
+  li {
+    margin: 0;
+  }
 }
 
 .clue {
-  width: 100%;
-  padding: 4px 6px;
+  font-size: .75rem;
 
-  color: $off-white;
-  background-color: $primary-black;
+  box-sizing: border-box;
+  padding: 4px 8px;
 
-  @extend %bordered-default;
+  cursor: pointer;
+  user-select: none;
+
+  color: $text-color-light;
+  background-color: $navbar-color;
 
   &:not(:last-of-type) {
-    margin-bottom: $spacing-default;
+    margin-bottom: $border-size;
   }
 
   &.current {
-    color: $primary-black;
-    background-color: $accent-gold;
+    background-color: $rust;
   }
 }
 
@@ -131,4 +157,28 @@
   padding: 0;
 
   border: none;
+}
+
+@media only screen and (max-width: $screen-width-narrow-max) {
+  .crosswordContainer {
+    margin: 0 auto;
+  }
+
+  .clues {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: $screen-width-standard-min) and (max-width: $screen-width-standard-max) {
+  .clues {
+    flex-direction: column;
+  }
+
+  .clueListContainer {
+    height: 50%;
+
+    &:first-of-type {
+      margin-right: 0;
+    }
+  }
 }

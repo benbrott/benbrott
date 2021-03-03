@@ -1,12 +1,19 @@
 @import 'shared';
 
 html {
+  height: 100%;
+
   background-color: $background-color;
+
+  *::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
   font-family: $font-family-primary;
 
+  height: 100%;
   margin: 0;
 
   -webkit-font-smoothing: antialiased;

@@ -1,101 +1,89 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
 import classNames from 'classnames';
 import styles from 'styles/crossword.module.scss';
 import { CELLS, CLUES } from 'data/crossword';
-import withFormFactor from 'utils/withFormFactor';
 import KEY_EVENTS from 'utils/events';
 
 const ACROSS = 'across';
 const DOWN = 'down';
 const ROW_COUNT = CELLS.length;
 const COL_COUNT = CELLS[0].length;
-const LOCAL_STORAGE_KEY = 'first_crossword';
+const LOCAL_STORAGE_KEY = 'crossword_letters';
 
-const constructEmptyLetters = () => {
-  let letters = [];
-  CELLS.forEach(cellRow => {
-    let row = [];
-    cellRow.forEach(() => {
-      row.push('');
-    });
-    letters.push(row);
-  });
-  return letters;
-};
-
-const Crossword = ({ formFactor }) => {
-  const isPhone = formFactor === 'PHONE';
-  const [currentCell, setCurrentCell] = useState({ row: 0, col: 0 });
-  const [clueSet, setClueSet] = useState(ACROSS);
-  const [containerSize, setContainerSize] = useState(0);
-  const [letters, setLetters] = useState(constructEmptyLetters());
-  const [windowIsAvailable, setWindowIsAvailable] = useState(false);
-
-  const crosswordContainer = useRef(null);
-  const hiddenInput = useRef(null);
-  let clueRefs = {};
-
-  useEffect(() => {
-    window.addEventListener('keydown', onKeyDown);
-    setWindowIsAvailable(true);
-
-    return () => {
-      window.removeEventListener('keydown', onKeyDown);
+class Crossword extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.hiddenInput = null;
+    this.container = React.createRef();
+    this.crosswordContainer = React.createRef();
+    this.clueRefs = {};
+    this.state = {
+      currentCell: { row: 0, col: 0 },
+      clueSet: ACROSS,
+      letters: this.constructEmptyLetters(),
+      isClient: false
     };
-  }, [currentCell, clueSet, letters]);
+  }
 
-  useEffect(() => {
-    window.addEventListener('resize', updateContainerSize);
-
-    return () => {
-      window.removeEventListener('resize', updateContainerSize);
-    };
-  }, []);
-
-  useEffect(() => {
-    updateContainerSize();
-  }, [formFactor]);
-
-  useEffect(() => {
+  componentDidMount() {
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    window.addEventListener('keydown', this.onKeyDown);
+    if (this.hiddenInput) {
+      this.hiddenInput.focus();
+    }
     const storedLetters = localStorage.getItem(LOCAL_STORAGE_KEY);
-    if (storedLetters) {
-      setLetters(JSON.parse(storedLetters));
-    }
-  }, []);
+    const letters = storedLetters ? JSON.parse(storedLetters) : this.state.letters;
+    this.setState({ letters, isClient: true });
+  }
 
-  const updateContainerSize = () => {
-    if (crosswordContainer) {
-      const { width, height } = crosswordContainer.current.getBoundingClientRect();
-      setContainerSize(Math.min(width, height));
-    }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onResize);
+    window.removeEventListener('keydown', this.onKeyDown);
+  }
+
+  storeLetters = letters => localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(letters));
+
+  constructEmptyLetters = () => {
+    let letters = [];
+    CELLS.forEach(cellRow => {
+      let row = [];
+      cellRow.forEach(() => {
+        row.push('');
+      });
+      letters.push(row);
+    });
+    return letters;
   };
 
-  const storeLetters = lettersToStore => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(lettersToStore));
-    setLetters(lettersToStore);
-  };
-
-  const isCurrentCell = (rowIdx, colIdx) => {
-    const { row, col } = currentCell;
+  isCurrentCell = (rowIdx, colIdx) => {
+    const { row, col } = this.state.currentCell;
     return row === rowIdx && col === colIdx;
   };
 
-  const onKeyDown = event => {
+  onResize = () => {
+    const { offsetWidth, offsetHeight } = this.container.current;
+    const size = `${Math.min(offsetWidth, offsetHeight)}px`;
+    this.crosswordContainer.current.style.width = size;
+    this.crosswordContainer.current.style.height = size;
+  };
+
+  onKeyDown = event => {
+    const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
     const typedLetter = KEY_EVENTS.LETTER(event);
     if (KEY_EVENTS.SPACE(event)) {
       event.preventDefault();
-      switchClueSet(row, col);
+      this.switchClueSet(row, col);
     } else if (KEY_EVENTS.UP(event)) {
       event.preventDefault();
       if (clueSet === ACROSS) {
-        switchClueSet(row, col);
+        this.switchClueSet(row, col);
       } else {
         let i = row - 1;
         while (i >= 0) {
           if (CELLS[i][col]) {
-            onCellClick(i, col);
+            this.onCellClick(i, col);
             break;
           }
           i = i - 1;
@@ -104,12 +92,12 @@ const Crossword = ({ formFactor }) => {
     } else if (KEY_EVENTS.DOWN(event)) {
       event.preventDefault();
       if (clueSet === ACROSS) {
-        switchClueSet(row, col);
+        this.switchClueSet(row, col);
       } else {
         let i = row + 1;
         while (i < ROW_COUNT) {
           if (CELLS[i][col]) {
-            onCellClick(i, col);
+            this.onCellClick(i, col);
             break;
           }
           i = i + 1;
@@ -118,12 +106,12 @@ const Crossword = ({ formFactor }) => {
     } else if (KEY_EVENTS.LEFT(event)) {
       event.preventDefault();
       if (clueSet === DOWN) {
-        switchClueSet(row, col);
+        this.switchClueSet(row, col);
       } else {
         let i = col - 1;
         while (i >= 0) {
           if (CELLS[row][i]) {
-            onCellClick(row, i);
+            this.onCellClick(row, i);
             break;
           }
           i = i - 1;
@@ -132,12 +120,12 @@ const Crossword = ({ formFactor }) => {
     } else if (KEY_EVENTS.RIGHT(event)) {
       event.preventDefault();
       if (clueSet === DOWN) {
-        switchClueSet(row, col);
+        this.switchClueSet(row, col);
       } else {
         let i = col + 1;
         while (i < COL_COUNT) {
           if (CELLS[row][i]) {
-            onCellClick(row, i);
+            this.onCellClick(row, i);
             break;
           }
           i = i + 1;
@@ -146,48 +134,47 @@ const Crossword = ({ formFactor }) => {
     } else if (KEY_EVENTS.BACKSPACE(event)) {
       event.preventDefault();
       if (letters[row][col]) {
-        const newLetters = Array.from(letters);
-        newLetters[row][col] = '';
-        storeLetters(newLetters);
+        letters[row][col] = '';
+        this.storeLetters(letters);
+        this.forceUpdate();
         return;
       }
       if (clueSet === ACROSS) {
-        clearPreviousAcrossCell(row, col);
+        this.clearPreviousAcrossCell(row, col);
       } else {
-        clearPreviousDownCell(row, col);
+        this.clearPreviousDownCell(row, col);
       }
     } else if (typedLetter) {
       event.preventDefault();
       const previousLetter = letters[row][col];
-      const newLetters = Array.from(letters);
-      newLetters[row][col] = typedLetter;
-      storeLetters(newLetters);
-      if (checkLettersForCompletion(newLetters)) {
+      letters[row][col] = typedLetter;
+      this.storeLetters(letters);
+      if (this.checkLettersForCompletion(letters)) {
         return;
       }
       if (clueSet === ACROSS) {
         if (previousLetter) {
-          goToNextAcrossCell(row, col);
+          this.goToNextAcrossCell(row, col);
         } else {
-          goToNextOpenAcrossCell(row, col);
+          this.goToNextOpenAcrossCell(row, col);
         }
       } else {
         if (previousLetter) {
-          goToNextDownCell(row, col);
+          this.goToNextDownCell(row, col);
         } else {
-          goToNextOpenDownCell(row, col);
+          this.goToNextOpenDownCell(row, col);
         }
       }
     }
   };
 
-  const checkLettersForCompletion = lettersToCheck => {
+  checkLettersForCompletion = letters => {
     let correct = true;
     let filled = true;
     CELLS.forEach((row, rowIdx) => {
       row.forEach((cell, colIdx) => {
         if (cell) {
-          const letter = lettersToCheck[rowIdx][colIdx];
+          const letter = letters[rowIdx][colIdx];
           if (!letter) {
             filled = false;
             correct = false;
@@ -198,19 +185,21 @@ const Crossword = ({ formFactor }) => {
       });
     });
     if (correct) {
-      storeLetters(lettersToCheck);
+      this.forceUpdate();
       const clear = window.confirm('Congratulations! You solved the crossword!\nWould you like to clear the puzzle?');
       if (clear) {
         localStorage.removeItem(LOCAL_STORAGE_KEY);
-        scrollCluesIntoView(0, 0);
-        setCurrentCell({ row: 0, col: 0 });
-        setClueSet(ACROSS);
-        storeLetters(constructEmptyLetters());
+        this.scrollCluesIntoView(0, 0);
+        this.setState({
+          currentCell: { row: 0, col: 0 },
+          clueSet: ACROSS,
+          letters: this.constructEmptyLetters()
+        });
       }
       return true;
     }
     if (filled) {
-      storeLetters(lettersToCheck);
+      this.forceUpdate();
       window.alert(`Something isn't quite right... Take another look!`);
       return true;
     }
@@ -219,9 +208,9 @@ const Crossword = ({ formFactor }) => {
 
   /*** HANDLERS FOR A NEW LETTER KEYDOWN ***/
 
-  const goToNextAcrossCell = (row, col) => {
+  goToNextAcrossCell = (row, col) => {
     if (CELLS[row][col + 1]) {
-      setCurrentCell({ row, col: col + 1 });
+      this.setState({ currentCell: { row, col: col + 1 } });
       return;
     }
     const currentClue = CELLS[row][col][ACROSS];
@@ -229,19 +218,21 @@ const Crossword = ({ formFactor }) => {
     const nextClueNumber = acrossClues[acrossClues.indexOf(currentClue) + 1];
     if (nextClueNumber) {
       const { row: nextRow, col: nextCol } = CLUES[ACROSS][nextClueNumber].startingCell;
-      scrollCluesIntoView(nextRow, nextCol);
-      setCurrentCell({ row: nextRow, col: nextCol });
+      this.scrollCluesIntoView(nextRow, nextCol);
+      this.setState({ currentCell: { row: nextRow, col: nextCol } });
     } else {
       const { row: firstDownRow, col: firstDownCol } = CLUES[DOWN]['1'].startingCell;
-      scrollCluesIntoView(firstDownRow, firstDownCol);
-      setClueSet(DOWN);
-      setCurrentCell({ row: firstDownRow, col: firstDownCol });
+      this.scrollCluesIntoView(firstDownRow, firstDownCol);
+      this.setState({
+        clueSet: DOWN,
+        currentCell: { row: firstDownRow, col: firstDownCol }
+      });
     }
   };
 
-  const goToNextDownCell = (row, col) => {
+  goToNextDownCell = (row, col) => {
     if (CELLS[row + 1] && CELLS[row + 1][col]) {
-      setCurrentCell({ row: row + 1, col: col });
+      this.setState({ currentCell: { row: row + 1, col: col } });
       return;
     }
     const currentClue = CELLS[row][col][DOWN];
@@ -249,33 +240,34 @@ const Crossword = ({ formFactor }) => {
     const nextClueNumber = downClues[downClues.indexOf(currentClue) + 1];
     if (nextClueNumber) {
       const { row: nextRow, col: nextCol } = CLUES[DOWN][nextClueNumber].startingCell;
-      scrollCluesIntoView(nextRow, nextCol);
-      setCurrentCell({ row: nextRow, col: nextCol });
+      this.scrollCluesIntoView(nextRow, nextCol);
+      this.setState({ currentCell: { row: nextRow, col: nextCol } });
     } else {
       const { row: firstAcrossRow, col: firstAcrossCol } = CLUES[ACROSS]['1'].startingCell;
-      scrollCluesIntoView(firstAcrossRow, firstAcrossCol);
-      setClueSet(ACROSS);
-      setCurrentCell({ row: firstAcrossRow, col: firstAcrossCol });
+      this.scrollCluesIntoView(firstAcrossRow, firstAcrossCol);
+      this.setState({
+        clueSet: ACROSS,
+        currentCell: { row: firstAcrossRow, col: firstAcrossCol }
+      });
     }
   };
 
-  const goToFirstOpenCell = targetClueSet => {
-    const { row, col } = CLUES[targetClueSet]['1'].startingCell;
-    if (letters[row][col]) {
-      if (targetClueSet === ACROSS) {
-        goToNextOpenAcrossCell(row, col);
+  goToFirstOpenCell = clueSet => {
+    const { row, col } = CLUES[clueSet]['1'].startingCell;
+    if (this.state.letters[row][col]) {
+      if (clueSet === ACROSS) {
+        this.goToNextOpenAcrossCell(row, col);
       } else {
-        goToNextOpenDownCell(row, col);
+        this.goToNextOpenDownCell(row, col);
       }
     } else {
-      scrollCluesIntoView(row, col);
-      setClueSet(targetClueSet);
-      setCurrentCell({ row, col });
+      this.scrollCluesIntoView(row, col);
+      this.setState({ clueSet, currentCell: { row, col } });
     }
   };
 
-  const goToNextOpenAcrossCell = (row, col) => {
-    if (goToNextOpenCellOfAcrossClue(row, col + 1)) {
+  goToNextOpenAcrossCell = (row, col) => {
+    if (this.goToNextOpenCellOfAcrossClue(row, col + 1)) {
       return;
     }
     const currentClue = CELLS[row][col][ACROSS];
@@ -283,16 +275,16 @@ const Crossword = ({ formFactor }) => {
     let i = acrossClues.indexOf(currentClue) + 1;
     while (i < acrossClues.length) {
       const number = acrossClues[i];
-      if (goToFirstOpenCellOfAcrossClue(number)) {
+      if (this.goToFirstOpenCellOfAcrossClue(number)) {
         return;
       }
       i = i + 1;
     }
-    goToFirstOpenCell(DOWN);
+    this.goToFirstOpenCell(DOWN);
   };
 
-  const goToNextOpenDownCell = (row, col) => {
-    if (goToNextOpenCellOfDownClue(row + 1, col)) {
+  goToNextOpenDownCell = (row, col) => {
+    if (this.goToNextOpenCellOfDownClue(row + 1, col)) {
       return;
     }
     const currentClue = CELLS[row][col][DOWN];
@@ -300,61 +292,59 @@ const Crossword = ({ formFactor }) => {
     let i = downClues.indexOf(currentClue) + 1;
     while (i < downClues.length) {
       const number = downClues[i];
-      if (goToFirstOpenCellOfDownClue(number)) {
+      if (this.goToFirstOpenCellOfDownClue(number)) {
         return;
       }
       i = i + 1;
     }
-    goToFirstOpenCell(ACROSS);
+    this.goToFirstOpenCell(ACROSS);
   };
 
-  const goToFirstOpenCellOfAcrossClue = number => {
+  goToFirstOpenCellOfAcrossClue = number => {
     const { row, col } = CLUES[ACROSS][number].startingCell;
-    return goToNextOpenCellOfAcrossClue(row, col, number);
+    return this.goToNextOpenCellOfAcrossClue(row, col);
   };
 
-  const goToFirstOpenCellOfDownClue = number => {
+  goToFirstOpenCellOfDownClue = number => {
     const { row, col } = CLUES[DOWN][number].startingCell;
-    return goToNextOpenCellOfDownClue(row, col, number);
+    return this.goToNextOpenCellOfDownClue(row, col);
   };
 
-  const goToNextOpenCellOfAcrossClue = (row, startCol) => {
+  goToNextOpenCellOfAcrossClue(row, startCol) {
     let col = startCol;
     while (CELLS[row][col]) {
-      if (!letters[row][col]) {
-        scrollCluesIntoView(row, col);
-        setClueSet(ACROSS);
-        setCurrentCell({ row, col });
+      if (!this.state.letters[row][col]) {
+        this.scrollCluesIntoView(row, col);
+        this.setState({ clueSet: ACROSS, currentCell: { row, col } });
         return true;
       }
       col = col + 1;
     }
     return false;
-  };
+  }
 
-  const goToNextOpenCellOfDownClue = (startRow, col) => {
+  goToNextOpenCellOfDownClue(startRow, col) {
     let row = startRow;
     while (CELLS[row] && CELLS[row][col]) {
-      if (!letters[row][col]) {
-        scrollCluesIntoView(row, col);
-        setClueSet(DOWN);
-        setCurrentCell({ row, col });
+      if (!this.state.letters[row][col]) {
+        this.scrollCluesIntoView(row, col);
+        this.setState({ clueSet: DOWN, currentCell: { row, col } });
         return true;
       }
       row = row + 1;
     }
     return false;
-  };
+  }
 
   /*** HANDLERS FOR A BACKSPACE KEYDOWN ***/
 
-  const clearPreviousAcrossCell = (currentRow, currentCol) => {
+  clearPreviousAcrossCell = (currentRow, currentCol) => {
     const previousCol = currentCol - 1;
     if (CELLS[currentRow][previousCol]) {
-      const newLetters = Array.from(letters);
-      newLetters[currentRow][previousCol] = '';
-      storeLetters(newLetters);
-      setCurrentCell({ row: currentRow, col: previousCol });
+      const letters = this.state.letters;
+      letters[currentRow][previousCol] = '';
+      this.storeLetters(letters);
+      this.setState({ letters, currentCell: { row: currentRow, col: previousCol } });
       return;
     }
     const currentClue = CELLS[currentRow][currentCol][ACROSS];
@@ -362,19 +352,19 @@ const Crossword = ({ formFactor }) => {
     const previousClueIndex = acrossClueNumbers.indexOf(currentClue) - 1;
     if (previousClueIndex < 0) {
       const downClueNumbers = Object.keys(CLUES[DOWN]);
-      clearLastCellOfDownClue(downClueNumbers[downClueNumbers.length - 1]);
+      this.clearLastCellOfDownClue(downClueNumbers[downClueNumbers.length - 1]);
       return;
     }
-    clearLastCellOfAcrossClue(acrossClueNumbers[previousClueIndex]);
+    this.clearLastCellOfAcrossClue(acrossClueNumbers[previousClueIndex]);
   };
 
-  const clearPreviousDownCell = (currentRow, currentCol) => {
+  clearPreviousDownCell = (currentRow, currentCol) => {
     const previousRow = currentRow - 1;
     if (CELLS[currentRow - 1] && CELLS[previousRow][currentCol]) {
-      const newLetters = Array.from(letters);
-      newLetters[previousRow][currentCol] = '';
-      storeLetters(newLetters);
-      setCurrentCell({ row: previousRow, col: currentCol });
+      const letters = this.state.letters;
+      letters[previousRow][currentCol] = '';
+      this.storeLetters(letters);
+      this.setState({ letters, currentCell: { row: previousRow, col: currentCol } });
       return;
     }
     const currentClue = CELLS[currentRow][currentCol][DOWN];
@@ -382,88 +372,127 @@ const Crossword = ({ formFactor }) => {
     const previousClueIndex = downClueNumbers.indexOf(currentClue) - 1;
     if (previousClueIndex < 0) {
       const acrossClueNumbers = Object.keys(CLUES[ACROSS]);
-      clearLastCellOfAcrossClue(acrossClueNumbers[acrossClueNumbers.length - 1]);
+      this.clearLastCellOfAcrossClue(acrossClueNumbers[acrossClueNumbers.length - 1]);
       return;
     }
-    clearLastCellOfDownClue(downClueNumbers[previousClueIndex]);
+    this.clearLastCellOfDownClue(downClueNumbers[previousClueIndex]);
   };
 
-  const clearLastCellOfAcrossClue = number => {
+  clearLastCellOfAcrossClue = number => {
     const { row, col } = CLUES[ACROSS][number].startingCell;
     let i = col;
     while (CELLS[row][i + 1]) {
       i = i + 1;
     }
-    const newLetters = Array.from(letters);
-    newLetters[row][i] = '';
-    scrollCluesIntoView(row, i);
-    storeLetters(newLetters);
-    setClueSet(ACROSS);
-    setCurrentCell({ row, col: i });
+    const letters = this.state.letters;
+    letters[row][i] = '';
+    this.storeLetters(letters);
+    this.scrollCluesIntoView(row, i);
+    this.setState({ letters, clueSet: ACROSS, currentCell: { row, col: i } });
   };
 
-  const clearLastCellOfDownClue = number => {
+  clearLastCellOfDownClue = number => {
     const { row, col } = CLUES[DOWN][number].startingCell;
     let i = row;
     while (CELLS[i + 1] && CELLS[i + 1][col]) {
       i = i + 1;
     }
-    const newLetters = Array.from(letters);
-    newLetters[i][col] = '';
-    scrollCluesIntoView(i, col);
-    storeLetters(newLetters);
-    setClueSet(DOWN);
-    setCurrentCell({ row: i, col });
+    const letters = this.state.letters;
+    letters[i][col] = '';
+    this.storeLetters(letters);
+    this.scrollCluesIntoView(i, col);
+    this.setState({ letters, clueSet: DOWN, currentCell: { row: i, col } });
+  };
+
+  /*** HANDLERS FOR CLICKING ON A CLUE ***/
+
+  goToCellOfAcrossClue = number => {
+    const startingCell = CLUES[ACROSS][number].startingCell;
+    const row = startingCell.row;
+    let col = startingCell.col;
+
+    let colIdx = startingCell.col;
+    while (CELLS[row][colIdx]) {
+      if (!this.state.letters[row][colIdx]) {
+        col = colIdx;
+        break;
+      }
+      colIdx = colIdx + 1;
+    }
+    this.scrollCluesIntoView(row, col);
+    this.setState({ clueSet: ACROSS, currentCell: { row, col } });
+  };
+
+  goToCellOfDownClue = number => {
+    const startingCell = CLUES[DOWN][number].startingCell;
+    const col = startingCell.col;
+    let row = startingCell.row;
+
+    let rowIdx = startingCell.row;
+    while (CELLS[rowIdx][col]) {
+      if (!this.state.letters[rowIdx][col]) {
+        row = rowIdx;
+        break;
+      }
+      rowIdx = rowIdx + 1;
+    }
+    this.scrollCluesIntoView(row, col);
+    this.setState({ clueSet: DOWN, currentCell: { row, col } });
   };
 
   /*** RENDERING ***/
 
-  const getClueKey = (clSet, number) => `${clSet}_${number}`;
+  getClueKey = (clueSet, number) => `${clueSet}_${number}`;
 
-  const switchClueSet = (row, col) => {
-    scrollCluesIntoView(row, col);
-    setClueSet(clueSet === ACROSS ? DOWN : ACROSS);
+  switchClueSet = (row, col) => {
+    const clueSet = this.state.clueSet === ACROSS ? DOWN : ACROSS;
+    this.scrollCluesIntoView(row, col);
+    this.setState({ clueSet });
   };
 
-  const onCellClick = (rowIdx, colIdx) => {
-    if (isCurrentCell(rowIdx, colIdx)) {
-      switchClueSet(rowIdx, colIdx);
+  onCellClick = (rowIdx, colIdx) => {
+    if (this.isCurrentCell(rowIdx, colIdx)) {
+      this.switchClueSet(rowIdx, colIdx);
     } else {
-      scrollCluesIntoView(rowIdx, colIdx);
-      setCurrentCell({ row: rowIdx, col: colIdx });
+      this.scrollCluesIntoView(rowIdx, colIdx);
+      this.setState({ currentCell: { row: rowIdx, col: colIdx } });
     }
   };
 
-  const getCellKey = (row, col) => `[${row}][${col}]`;
+  getCellKey = (row, col) => `[${row}][${col}]`;
 
-  const scrollCluesIntoView = (row, col) => {
-    if (isPhone) {
-      return;
-    }
+  scrollCluesIntoView = (row, col) => {
     const cell = CELLS[row][col];
-    const acrossElement = clueRefs[getClueKey(ACROSS, cell[ACROSS])];
+    const scrollFn = document.body.scrollIntoViewIfNeeded ? 'scrollIntoViewIfNeeded' : 'scrollIntoView';
+    const acrossElement = this.clueRefs[this.getClueKey(ACROSS, cell[ACROSS])];
     if (acrossElement) {
-      acrossElement.scrollIntoView();
+      acrossElement[scrollFn]();
     }
-    const downElement = clueRefs[getClueKey(DOWN, cell[DOWN])];
+    const downElement = this.clueRefs[this.getClueKey(DOWN, cell[DOWN])];
     if (downElement) {
-      downElement.scrollIntoView();
+      downElement[scrollFn]();
     }
   };
 
-  const renderCell = (cell, number, rowIdx, colIdx) => {
+  renderCell = (cell, number, rowIdx, colIdx) => {
+    const { currentCell, clueSet, letters } = this.state;
     const { row, col } = currentCell;
     const inClue = cell[clueSet] === CELLS[row][col][clueSet];
     const isCurrent = rowIdx === row && colIdx === col;
-    const cellStyles = classNames([styles.cell, inClue && styles.inClue, isCurrent && styles.current]);
+    const cellStyles = classNames([
+      styles.cell,
+      this.props.isDark ? styles.dark : styles.light,
+      inClue && styles.inClue,
+      isCurrent && styles.current
+    ]);
     const decoration = number ? (
       <text x="1.5" y="1" alignmentBaseline="hanging" className={styles.clueDecoration}>
         {number}
       </text>
     ) : null;
-    const key = getCellKey(rowIdx, colIdx);
+    const key = this.getCellKey(rowIdx, colIdx);
     return (
-      <svg key={key} viewBox="0 0 25 25" className={cellStyles} onClick={() => onCellClick(rowIdx, colIdx)}>
+      <svg key={key} viewBox="0 0 25 25" className={cellStyles} onClick={() => this.onCellClick(rowIdx, colIdx)}>
         {decoration}
         <text x="50%" y="57%" textAnchor="middle" alignmentBaseline="central">
           {letters[rowIdx][colIdx]}
@@ -472,15 +501,12 @@ const Crossword = ({ formFactor }) => {
     );
   };
 
-  const renderCrossword = () => {
-    const containerSizePx = `${containerSize}px`;
-    const crosswordStyle = { height: containerSizePx, width: containerSizePx };
-
+  renderCrossword = () => {
     let num = 0;
     const renderedCells = CELLS.map((row, rowIdx) => {
       return row.map((cell, colIdx) => {
         if (!cell) {
-          return <div key={getCellKey(rowIdx, colIdx)} />;
+          return <div key={this.getCellKey(rowIdx, colIdx)} />;
         }
         const { across, down } = cell;
         let number;
@@ -490,69 +516,78 @@ const Crossword = ({ formFactor }) => {
           num = maxClue;
         }
 
-        return renderCell(cell, number, rowIdx, colIdx);
+        return this.renderCell(cell, number, rowIdx, colIdx);
       });
     });
 
+    const clueSet = this.state.clueSet;
+    const { row, col } = this.state.currentCell;
+    const number = CELLS[row][col][clueSet];
+
     return (
-      <div className={styles.crosswordContainer} ref={crosswordContainer}>
-        <div className={styles.crossword} style={crosswordStyle}>
-          {renderedCells}
-        </div>
+      <div className={styles.crosswordContainer} ref={this.crosswordContainer}>
+        <div className={styles.currentClue}>{CLUES[clueSet][number].clue}</div>
+        <div className={styles.crossword}>{renderedCells}</div>
       </div>
     );
   };
 
-  const renderClue = (clSet, number, isCurrent) => {
-    const classes = classNames([styles.clue, isCurrent && styles.current]);
-    const key = getClueKey(clSet, number);
+  renderClue = (clueSet, number, isCurrent) => {
+    const classes = classNames([
+      styles.clue,
+      this.props.isDark ? styles.dark : styles.light,
+      isCurrent && styles.current
+    ]);
+    const key = this.getClueKey(clueSet, number);
     const ref = element => {
-      clueRefs[key] = element;
+      this.clueRefs[key] = element;
     };
+    const clickHandler = clueSet === ACROSS ? this.goToCellOfAcrossClue : this.goToCellOfDownClue;
     return (
-      <div className={classes} key={key} ref={ref}>
-        {number}. {CLUES[clSet][number].clue}
-      </div>
+      <li className={classes} key={key} ref={ref} onClick={() => clickHandler(number)}>
+        {number}. {CLUES[clueSet][number].clue}
+      </li>
     );
   };
 
-  const renderClueList = clSet => {
-    const { row, col } = currentCell;
-    const isCurrentClueSet = clSet === clueSet;
-    const clues = Object.keys(CLUES[clSet]).map(number => {
-      const isCurrent = isCurrentClueSet && number === CELLS[row][col][clSet];
-      return renderClue(clSet, number, isCurrent);
+  renderClueList = clueSet => {
+    const { row, col } = this.state.currentCell;
+    const isCurrentClueSet = clueSet === this.state.clueSet;
+    const clues = Object.keys(CLUES[clueSet]).map(number => {
+      const isCurrent = isCurrentClueSet && number === CELLS[row][col][clueSet];
+      return this.renderClue(clueSet, number, isCurrent);
     });
     return (
-      <div key={`${clSet}_clues`} className={styles.clueList}>
+      <ul key={`${clueSet}_clues`} className={styles.clueList}>
         {clues}
-      </div>
+      </ul>
     );
   };
 
-  const renderClues = () => {
-    const renderedAcross = renderClueList(ACROSS);
-    const renderedDown = renderClueList(DOWN);
+  renderClues = () => {
+    const renderedAcross = this.renderClueList(ACROSS);
+    const renderedDown = this.renderClueList(DOWN);
+    const labelClasses = classNames([styles.clueSetLabel, this.props.isDark ? styles.dark : styles.light]);
     return (
       <div className={styles.clues}>
         <div key={'across_clues_container'} className={styles.clueListContainer}>
-          <span className={styles.clueSetLabel}>Across</span>
+          <span className={labelClasses}>Across</span>
           {renderedAcross}
         </div>
         <div key={'down_clues_container'} className={styles.clueListContainer}>
-          <span className={styles.clueSetLabel}>Down</span>
+          <span className={labelClasses}>Down</span>
           {renderedDown}
         </div>
       </div>
     );
   };
 
-  const renderHiddenInput = () => {
+  renderHiddenInput = () => {
     // Only render on touch devices
-    if (window.matchMedia('(hover: none)').matches) {
-      const onBlur = event => {
-        if (hiddenInput.current) {
-          hiddenInput.current.focus();
+    if (this.state.isClient && window.matchMedia('(hover: none)').matches) {
+      const onBlur = () => {
+        if (this.hiddenInput) {
+          this.hiddenInput.focus();
         }
       };
       const props = {
@@ -561,7 +596,7 @@ const Crossword = ({ formFactor }) => {
         autoComplete: 'off',
         className: styles.hiddenInput,
         autoFocus: true,
-        ref: hiddenInput,
+        ref: element => (this.hiddenInput = element),
         onBlur
       };
       return <input {...props} />;
@@ -569,28 +604,17 @@ const Crossword = ({ formFactor }) => {
     return null;
   };
 
-  if (isPhone) {
-    const { row, col } = currentCell;
-    const number = CELLS[row][col][clueSet];
-    const clue = renderClue(clueSet, number, false);
+  render() {
     return (
-      <div className={styles.container}>
-        {windowIsAvailable && renderHiddenInput()}
-        {clue}
-        {renderCrossword()}
-      </div>
+      <>
+        {this.renderHiddenInput()}
+        <div className={styles.container} ref={this.container}>
+          {this.renderCrossword()}
+          {this.renderClues()}
+        </div>
+      </>
     );
   }
-  return (
-    <div className={styles.container}>
-      {windowIsAvailable && renderHiddenInput()}
-      {renderCrossword()}
-      {renderClues()}
-    </div>
-  );
-};
+}
 
-Crossword.propTypes = { formFactor: PropTypes.string };
-Crossword.defaultProps = { formFactor: 'DESKTOP' };
-
-export default withFormFactor(Crossword);
+export default Crossword;
