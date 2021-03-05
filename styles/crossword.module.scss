@@ -20,7 +20,7 @@ $border-size: 2px;
   flex-shrink: 0;
 
   box-sizing: border-box;
-  margin-right: $half-container-spacing;
+  margin-right: $inner-spacing;
   margin-left: calc(#{$current-clue-height} / -2);
   padding: 0 calc(#{$current-clue-height} / 2); // This will be set to be square in JS, but we actually want the crossword itself to be square. This accounts for the current clues height
 }
@@ -101,16 +101,14 @@ $border-size: 2px;
   flex-direction: column;
 
   &:first-of-type {
-    margin-right: $half-container-spacing;
+    margin-right: $inner-spacing;
   }
-}
 
-.clueSetLabel {
-  font-family: $font-family-heading;
-  font-size: 1.25rem;
-  font-weight: normal;
+  h1 {
+    font-size: 1.25rem;
 
-  color: $magenta;
+    color: $magenta;
+  }
 }
 
 .clueList {

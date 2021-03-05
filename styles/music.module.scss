@@ -7,7 +7,7 @@ $double-border-size: 8px;
   display: grid;
 
   grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-  grid-gap: $standard-spacing;
+  grid-gap: $less-spacing;
 }
 
 .album {
@@ -70,11 +70,11 @@ $double-border-size: 8px;
   &:hover,
   &:focus,
   &.open {
-    top: calc(-.5 * #{$standard-spacing});
-    left: calc(-.5 * #{$standard-spacing});
+    top: calc(-.5 * #{$less-spacing});
+    left: calc(-.5 * #{$less-spacing});
 
-    width: calc(100% + #{$standard-spacing});
-    height: calc(100% + #{$standard-spacing});
+    width: calc(100% + #{$less-spacing});
+    height: calc(100% + #{$less-spacing});
   }
 }
 

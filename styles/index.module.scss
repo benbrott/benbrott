@@ -6,23 +6,32 @@
   justify-content: space-between;
 
   @extend %content-container;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 25%;
+
+    width: 25%;
+    height: 100%;
+
+    content: '';
+
+    background-color: $gold;
+  }
 }
 
 .textSection {
-  margin-right: $container-spacing;
-  padding: 0 $half-container-spacing;
+  margin-right: $outer-spacing;
 
   color: $text-color-light;
 
   p {
     font-size: 1.25rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
 
-    margin: $standard-spacing 0;
-  }
-
-  h1 {
-    margin: $standard-spacing 0;
+    margin: 0;
   }
 
   div {
@@ -30,66 +39,20 @@
 
     display: inline-block;
 
-    &.blurbRight {
+    padding: $inner-spacing;
+
+    &:first-of-type {
+      border-top-left-radius: $inner-spacing;
       background-color: $rust;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        right: 100%;
-        bottom: 0;
-
-        width: $half-container-spacing;
-
-        content: '';
-
-        border-top-left-radius: $half-container-spacing;
-        background-color: $rust;
-      }
-
-      &::after {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 100%;
-
-        width: 100vw;
-
-        content: '';
-
-        background-color: $rust;
-      }
+      @extend %extends-right;
     }
 
-    &.blurbLeft {
+    &:last-of-type {
+      border-bottom-right-radius: $inner-spacing;
       background-color: $royal;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: -100vw;
-
-        width: 100vw;
-
-        content: '';
-
-        background-color: $royal;
-      }
-
-      &::after {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 100%;
-
-        width: $half-container-spacing;
-
-        content: '';
-
-        border-bottom-right-radius: $half-container-spacing;
-        background-color: $royal;
-      }
+      @extend %extends-left;
     }
   }
 }
@@ -97,7 +60,8 @@
 .photoSection {
   position: relative;
 
-  margin: auto;
+  margin: 0 auto;
+  padding-top: $inner-spacing;
 }
 
 .imageContainer {
@@ -105,11 +69,8 @@
 
   overflow: hidden;
 
-  width: Min(
-  300px,
-  calc(100vw - 2 * #{$half-container-spacing})
-  ); // uppercase functions to use CSS versions rather than SASS
-  height: Min(300px, calc(100vw - 2 * #{$half-container-spacing}));
+  width: Min(300px, calc(100vw - 2 * #{$inner-spacing})); // uppercase functions to use CSS versions rather than SASS
+  height: Min(300px, calc(100vw - 2 * #{$inner-spacing}));
 
   border-radius: 100%;
 }
@@ -123,24 +84,19 @@
 
   width: max-content;
   margin: -4rem auto 0 auto;
-  padding: 5rem $standard-spacing $standard-spacing $standard-spacing;
+  padding: 5rem $less-spacing $less-spacing $less-spacing;
 
-  border-radius: $half-container-spacing;
+  border-radius: $inner-spacing;
   background-color: $magenta;
 
   a {
     width: 1.5rem;
     height: 1.5rem;
 
-    transition: $hover-transition;
+    @extend %transparent-interaction;
 
     &:not(:last-of-type) {
       margin-right: 1rem;
-    }
-
-    &:focus-visible,
-    &:hover {
-      opacity: $hover-opacity;
     }
 
     svg {
@@ -157,8 +113,12 @@
     flex-direction: column-reverse;
   }
 
+  .photoSection {
+    padding-top: 0;
+  }
+
   .textSection {
-    margin-top: $standard-spacing;
+    margin-top: $inner-spacing;
     margin-right: 0;
   }
 }

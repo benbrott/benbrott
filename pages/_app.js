@@ -14,26 +14,16 @@ const NAV_ICONS = [
 ];
 
 const App = ({ Component, pageProps }) => {
-  const renderNavBar = () => {
-    const renderedIcons = NAV_ICONS.map(({ Component, path }, index) => {
-      const key = `navIcon_${index}`;
-      return (
-        <Link href={path} key={key}>
-          <a className={styles.icon}>
-            <Component primaryColor={'#eee'} />
-          </a>
-        </Link>
-      );
-    });
+  const renderedIcons = NAV_ICONS.map(({ Component, path }, index) => {
+    const key = `navIcon_${index}`;
     return (
-      <div className={styles.navBar}>
-        <Link href={'/'}>
-          <a className={styles.logoContainer} />
-        </Link>
-        <div className={styles.iconContainer}>{renderedIcons}</div>
-      </div>
+      <Link href={path} key={key}>
+        <a className={styles.icon}>
+          <Component primaryColor={'#eee'} />
+        </a>
+      </Link>
     );
-  };
+  });
 
   return (
     <>
@@ -47,7 +37,12 @@ const App = ({ Component, pageProps }) => {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />
       </Head>
-      {renderNavBar()}
+      <div className={styles.navBar}>
+        <Link href={'/'}>
+          <a className={styles.logoContainer}>Link to the home page</a>
+        </Link>
+        <div className={styles.iconContainer}>{renderedIcons}</div>
+      </div>
       <div className={styles.pageContainer}>
         <Component {...pageProps} />
       </div>

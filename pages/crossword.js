@@ -479,12 +479,7 @@ class Crossword extends React.PureComponent {
     const { row, col } = currentCell;
     const inClue = cell[clueSet] === CELLS[row][col][clueSet];
     const isCurrent = rowIdx === row && colIdx === col;
-    const cellStyles = classNames([
-      styles.cell,
-      this.props.isDark ? styles.dark : styles.light,
-      inClue && styles.inClue,
-      isCurrent && styles.current
-    ]);
+    const cellStyles = classNames([styles.cell, inClue && styles.inClue, isCurrent && styles.current]);
     const decoration = number ? (
       <text x="1.5" y="1" alignmentBaseline="hanging" className={styles.clueDecoration}>
         {number}
@@ -533,11 +528,7 @@ class Crossword extends React.PureComponent {
   };
 
   renderClue = (clueSet, number, isCurrent) => {
-    const classes = classNames([
-      styles.clue,
-      this.props.isDark ? styles.dark : styles.light,
-      isCurrent && styles.current
-    ]);
+    const classes = classNames([styles.clue, isCurrent && styles.current]);
     const key = this.getClueKey(clueSet, number);
     const ref = element => {
       this.clueRefs[key] = element;
@@ -567,15 +558,14 @@ class Crossword extends React.PureComponent {
   renderClues = () => {
     const renderedAcross = this.renderClueList(ACROSS);
     const renderedDown = this.renderClueList(DOWN);
-    const labelClasses = classNames([styles.clueSetLabel, this.props.isDark ? styles.dark : styles.light]);
     return (
       <div className={styles.clues}>
         <div key={'across_clues_container'} className={styles.clueListContainer}>
-          <span className={labelClasses}>Across</span>
+          <h1>across</h1>
           {renderedAcross}
         </div>
         <div key={'down_clues_container'} className={styles.clueListContainer}>
-          <span className={labelClasses}>Down</span>
+          <h1>down</h1>
           {renderedDown}
         </div>
       </div>

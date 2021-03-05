@@ -1,4 +1,4 @@
-export const DATA = [
+export default [
   {
     artist: '070 Shake',
     title: 'Modus Vivendi',

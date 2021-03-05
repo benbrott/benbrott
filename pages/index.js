@@ -14,22 +14,19 @@ const SOCIAL_LINKS = [
 ];
 
 const About = () => {
-  const renderSocialLinks = () => {
-    const links = SOCIAL_LINKS.map(({ Component, href }, index) => {
-      const key = `social_link_${index}`;
-      return (
-        <a key={key} href={href} target="_blank" rel="noopener noreferrer">
-          <Component />
-        </a>
-      );
-    });
-    return <div className={styles.linksContainer}>{links}</div>;
-  };
+  const socialLinks = SOCIAL_LINKS.map(({ Component, href }, index) => {
+    const key = `social_link_${index}`;
+    return (
+      <a key={key} href={href} target="_blank" rel="noopener noreferrer">
+        <Component />
+      </a>
+    );
+  });
 
   return (
     <div className={styles.container}>
       <div className={styles.textSection}>
-        <div className={styles.blurbRight}>
+        <div>
           <h1>Ben Brott</h1>
           <p>
             I'm currently a front-end developer at Appian in the Washington D.C. area. Before that, I graduated from
@@ -37,7 +34,7 @@ const About = () => {
             camping, video games, music, and sports.
           </p>
         </div>
-        <div className={styles.blurbLeft}>
+        <div>
           <h1>benbrott.com</h1>
           <p>
             I was inspired to create this site after attending An Event Apart DC. The site is my sandbox to improve my
@@ -50,7 +47,7 @@ const About = () => {
         <div className={styles.imageContainer}>
           <Image className={styles.image} src="/me.jpg" alt="Picture of Ben" layout="fill" />
         </div>
-        {renderSocialLinks()}
+        <div className={styles.linksContainer}>{socialLinks}</div>
       </div>
     </div>
   );

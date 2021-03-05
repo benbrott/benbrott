@@ -10,6 +10,7 @@ const Food = ({ primaryColor }) => {
       strokeLinejoin="round"
       fill={primaryColor}
     >
+      <title>Link to recipes page</title>
       <defs>
         <path
           id="steam"

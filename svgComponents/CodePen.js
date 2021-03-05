@@ -3,6 +3,7 @@ import React from 'react';
 const CodePen = () => {
   return (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
+      <title>Link to Ben's CodePen</title>
       <path
         transform="translate(-2, -2)"
         d="M13.997,6.11c-0.001-0.008-0.003-0.015-0.004-0.022c-0.003-0.015-0.005-0.029-0.009-0.043

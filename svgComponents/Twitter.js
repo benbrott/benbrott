@@ -3,6 +3,7 @@ import React from 'react';
 const Twitter = () => {
   return (
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300.00006 244.18703">
+      <title>Link to Ben's LinkedIn</title>
       <path
         stroke="none"
         transform="translate(-539.17946,-568.85777)"

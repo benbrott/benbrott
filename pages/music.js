@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import styles from 'styles/music.module.scss';
-import { DATA } from 'data/music';
+import DATA from 'data/music';
 import KEY_EVENTS from 'utils/events';
 
 const Music = () => {
@@ -18,7 +18,7 @@ const Music = () => {
     }
   };
 
-  const renderAlbum = (album, index) => {
+  const renderedAlbums = DATA.map((album, index) => {
     const { artist, title, src } = album;
     const albumProps = {
       className: classNames([styles.albumArt, openIndex === index && styles.open]),
@@ -37,9 +37,9 @@ const Music = () => {
         <img {...albumProps} />
       </div>
     );
-  };
+  });
 
-  return <div className={styles.grid}>{DATA.map((album, index) => renderAlbum(album, index))}</div>;
+  return <div className={styles.grid}>{renderedAlbums}</div>;
 };
 
 export default Music;

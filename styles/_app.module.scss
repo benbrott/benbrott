@@ -18,6 +18,7 @@ $content-height: 32px;
   width: 279px; // the svg viewbox is 870x100
   height: $content-height;
 
+  color: transparent;
   background-image: url(/logoNameFullLight.svg);
   background-repeat: no-repeat;
   background-origin: content-box;
@@ -47,7 +48,7 @@ $content-height: 32px;
 
   box-sizing: border-box;
   height: calc(100% - #{$navbar-height});
-  padding: $container-spacing;
+  padding: $outer-spacing;
 }
 
 @media only screen and (max-width: $screen-width-tiny-max) {
@@ -60,6 +61,6 @@ $content-height: 32px;
 
 @media only screen and (max-width: $screen-width-narrow-max) {
   .pageContainer {
-    padding: $half-container-spacing;
+    padding: $inner-spacing;
   }
 }
