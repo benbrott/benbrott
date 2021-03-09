@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const CrosswordIcon = ({ primaryColor }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} strokeWidth="3">
+      <title>Link to crossword page</title>
       <defs>
         <rect id="number" x="0" y="0" width="2" height="2" />
       </defs>

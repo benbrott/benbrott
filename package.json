@@ -5,7 +5,6 @@
   "homepage": "https://benbrott.com",
   "dependencies": {
     "classnames": "latest",
-    "lodash.throttle": "latest",
     "next": "latest",
     "node-sass": "latest",
     "react": "latest",

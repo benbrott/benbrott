@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 const Headphones = ({ primaryColor }) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <title>Link to music page</title>
       <defs>
         <path
           id="cup"

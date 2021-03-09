@@ -1,35 +1,70 @@
 @import url('https://fonts.googleapis.com/css?family=Bowlby+One+SC|Quicksand:wght@400;600;700&display=swap');
 
-$accent-gold: #fcb514;
-$primary-black: #111;
-$primary-white: #eee;
-$off-white: #ddd;
-$gray: #666;
-$dark-gray: #333;
-$border-width-default: 4px;
-$border-default: solid #000 $border-width-default;
-$navbar-size: 52px;
-$spacing-default: 4px;
-$hover-opacity: .33;
-$hover-transition: opacity 200ms;
 $font-family-primary: 'Quicksand', sans-serif;
 $font-family-heading: 'Bowlby One SC', sans-serif;
-$screen-width-phone-max: 41.99em;
-$screen-width-tablet-min: 42em;
-$screen-width-tablet-max: 65.99em;
-$screen-width-desktop-min: 66em;
 
-%bordered-default {
-  box-sizing: border-box;
+$outer-spacing: 3rem;
+$inner-spacing: 1.5rem;
+$less-spacing: 1rem;
+$navbar-height: 64px;
 
-  border: $border-default;
-  border-radius: $border-width-default;
+$background-color: #111;
+$navbar-color: #070707;
+$text-color-light: #eee;
+$text-color-dark: #040404;
+$rust: #b93b15;
+$magenta: #8d016a;
+$royal: #564787;
+$gold: #e59500;
+
+$screen-width-tiny-max: 536px;
+$screen-width-narrow-min: 537px;
+$screen-width-narrow-max: 728px;
+$screen-width-standard-min: 729px;
+$screen-width-standard-max: 1024px;
+$screen-width-wide-min: 1025px;
+
+%content-container {
+  max-width: 1200px;
+  margin: auto;
 }
 
-%scrollable {
-  overflow-y: scroll;
+%transparent-interaction {
+  cursor: pointer;
+  transition: opacity 200ms;
 
-  &::-webkit-scrollbar {
-    display: none;
+  &:focus-visible,
+  &:hover {
+    opacity: .25;
+  }
+}
+
+%extends-left {
+  &::before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -100vw;
+
+    width: 100vw;
+
+    content: '';
+
+    background-color: inherit;
+  }
+}
+
+%extends-right {
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 100%;
+
+    width: 100vw;
+
+    content: '';
+
+    background-color: inherit;
   }
 }

@@ -1,0 +1,78 @@
+@import 'shared';
+
+.container {
+  @extend %content-container;
+}
+
+.heading {
+  position: relative;
+
+  margin-bottom: $inner-spacing;
+  padding: $inner-spacing;
+
+  text-align: center;
+
+  color: $text-color-dark;
+  background-color: $gold;
+
+  @extend %extends-left;
+  @extend %extends-right;
+}
+
+.columns {
+  display: flex;
+  flex-direction: row;
+
+  div {
+    position: relative;
+
+    padding: $inner-spacing;
+
+    color: $text-color-light;
+
+    &:first-of-type {
+      flex: 2;
+
+      margin-right: $inner-spacing;
+
+      border-top-right-radius: $inner-spacing;
+      border-bottom-right-radius: $inner-spacing;
+      background-color: $royal;
+
+      @extend %extends-left;
+    }
+
+    &:last-of-type {
+      flex: 3;
+
+      border-top-left-radius: $inner-spacing;
+      border-bottom-left-radius: $inner-spacing;
+      background-color: $rust;
+
+      @extend %extends-right;
+    }
+
+    h2 {
+      margin-bottom: $less-spacing;
+
+      text-align: center;
+    }
+
+    ul,
+    ol {
+      line-height: 1.5rem;
+
+      margin: .5rem 0;
+    }
+  }
+}
+
+@media only screen and (max-width: $screen-width-narrow-max) {
+  .columns {
+    flex-direction: column;
+
+    div:first-of-type {
+      margin-bottom: $inner-spacing;
+    }
+  }
+}

@@ -1,156 +1,129 @@
 @import 'shared';
 
-$font-size-default: 1.6rem;
-$line-height-default: 1.4em;
-
-@media only screen and (max-width: $screen-width-phone-max) {
-  .grid {
-    grid-template-columns: $line-height-default 1fr;
-    grid-template-rows: repeat(4, max-content);
-    grid-template-areas: 'a b'
-    'c d'
-    'e f'
-    'g h';
-    grid-row-gap: 24px;
-  }
-
-  .socialLinksContainer {
-    top: 0;
-    right: 0;
-
-    margin: $spacing-default;
-  }
-}
-
-@media only screen and (min-width: $screen-width-tablet-min) {
-  .grid {
-    grid-template-columns: repeat(4, $line-height-default) 1fr;
-    grid-template-rows: repeat(5, max-content);
-    grid-template-areas: 'a b b b b'
-    'a c d d d'
-    'a c e f f'
-    'a c e g h'
-    'a c e g h';
-    grid-row-gap: 16px;
-  }
-}
-
-@media only screen and (max-width: $screen-width-tablet-max) {
-  .socialLinksContainer {
-    top: 0;
-    right: 0;
-
-    margin: $spacing-default;
-  }
-}
-
-@media only screen and (min-width: $screen-width-desktop-min) {
-  .socialLinksContainer {
-    right: 0;
-    bottom: 0;
-  }
-}
-
 .container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @extend %content-container;
+
+  &::after {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 25%;
+
+    width: 25%;
+    height: 100%;
+
+    content: '';
+
+    background-color: $gold;
+  }
+}
+
+.textSection {
+  margin-right: $outer-spacing;
+
+  color: $text-color-light;
+
+  p {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+
+    margin: 0;
+  }
+
+  div {
+    position: relative;
+
+    display: inline-block;
+
+    padding: $inner-spacing;
+
+    &:first-of-type {
+      border-top-left-radius: $inner-spacing;
+      background-color: $rust;
+
+      @extend %extends-right;
+    }
+
+    &:last-of-type {
+      border-bottom-right-radius: $inner-spacing;
+      background-color: $royal;
+
+      @extend %extends-left;
+    }
+  }
+}
+
+.photoSection {
   position: relative;
 
-  max-width: 1800px;
-  height: 100%;
-  margin: auto;
-
-  @extend %scrollable;
+  margin: 0 auto;
+  padding-top: $inner-spacing;
 }
 
-.banner {
-  width: 88%;
-  margin: $spacing-default 6%;
+.imageContainer {
+  position: relative;
 
-  svg {
-    max-height: 300px;
+  overflow: hidden;
+
+  width: Min(300px, calc(100vw - 2 * #{$inner-spacing})); // uppercase functions to use CSS versions rather than SASS
+  height: Min(300px, calc(100vw - 2 * #{$inner-spacing}));
+
+  border-radius: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
   }
 }
 
-.grid {
-  font-size: $font-size-default;
-  line-height: $line-height-default;
-
-  display: grid;
-
-  width: 80%;
-  margin: 20px 10%;
-
-  grid-column-gap: 16px;
-}
-
-.label {
-  margin: 0;
-
-  transform: rotate(180deg);
-  text-align: end;
-
-  color: $accent-gold;
-
-  writing-mode: vertical-rl;
-}
-
-.label0 {
-  grid-area: a;
-}
-
-.label1 {
-  grid-area: c;
-}
-
-.label2 {
-  grid-area: e;
-}
-
-.label3 {
-  grid-area: g;
-}
-
-.info {
-  color: $off-white;
-}
-
-.info0 {
-  grid-area: b;
-}
-
-.info1 {
-  grid-area: d;
-}
-
-.info2 {
-  grid-area: f;
-}
-
-.info3 {
-  grid-area: h;
-}
-
-.socialLinksContainer {
-  position: absolute;
+.linksContainer {
+  z-index: -1;
 
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  width: max-content;
+  margin: -4rem auto 0 auto;
+  padding: 5rem $less-spacing $less-spacing $less-spacing;
+
+  border-radius: $inner-spacing;
+  background-color: $magenta;
+
+  a {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    @extend %transparent-interaction;
+
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+
+    svg {
+      width: inherit;
+      height: inherit;
+
+      fill: $text-color-light;
+    }
+  }
 }
 
-.socialLink {
-  transition: $hover-transition;
-
-  &:not(:last-of-type) {
-    margin-right: $spacing-default;
+@media only screen and (max-width: $screen-width-narrow-max) {
+  .container {
+    flex-direction: column-reverse;
   }
 
-  &:focus,
-  &:hover {
-    opacity: $hover-opacity;
+  .photoSection {
+    padding-top: 0;
   }
 
-  svg {
-    display: block;
-
-    width: 2rem;
-    height: 2rem;
+  .textSection {
+    margin-top: $inner-spacing;
+    margin-right: 0;
   }
 }
