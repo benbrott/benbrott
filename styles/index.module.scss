@@ -73,6 +73,11 @@
   height: Min(300px, calc(100vw - 2 * #{$inner-spacing}));
 
   border-radius: 100%;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .linksContainer {

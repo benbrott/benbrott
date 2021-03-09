@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import styles from 'styles/index.module.scss';
 import GitHub from 'svgComponents/GitHub';
 import LinkedIn from 'svgComponents/LinkedIn';
@@ -45,7 +44,7 @@ const About = () => {
       </div>
       <div className={styles.photoSection}>
         <div className={styles.imageContainer}>
-          <Image className={styles.image} src="/me.jpg" alt="Picture of Ben" layout="fill" />
+          <img src="/me.jpg" alt="Picture of Ben" />
         </div>
         <div className={styles.linksContainer}>{socialLinks}</div>
       </div>
