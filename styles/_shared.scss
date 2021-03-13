@@ -18,11 +18,10 @@ $royal: #564787;
 $gold: #e59500;
 
 $screen-width-tiny-max: 536px;
-$screen-width-narrow-min: 537px;
-$screen-width-narrow-max: 728px;
-$screen-width-standard-min: 729px;
-$screen-width-standard-max: 1024px;
-$screen-width-wide-min: 1025px;
+$screen-width-extra-narrow-min: 537px;
+$screen-width-extra-narrow-max: 728px;
+$screen-width-narrow-min: 729px;
+$screen-width-narrow-max: 918px;
 
 %content-container {
   max-width: 1200px;

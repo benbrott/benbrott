@@ -157,7 +157,7 @@ $border-size: 2px;
   border: none;
 }
 
-@media only screen and (max-width: $screen-width-narrow-max) {
+@media only screen and (max-width: $screen-width-extra-narrow-max) {
   .crosswordContainer {
     margin: 0 auto;
   }
@@ -167,7 +167,7 @@ $border-size: 2px;
   }
 }
 
-@media only screen and (min-width: $screen-width-standard-min) and (max-width: $screen-width-standard-max) {
+@media only screen and (min-width: $screen-width-narrow-min) and (max-width: $screen-width-narrow-max) {
   .clues {
     flex-direction: column;
   }

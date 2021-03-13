@@ -59,7 +59,7 @@ $content-height: 32px;
   }
 }
 
-@media only screen and (max-width: $screen-width-narrow-max) {
+@media only screen and (max-width: $screen-width-extra-narrow-max) {
   .pageContainer {
     padding: $inner-spacing;
   }

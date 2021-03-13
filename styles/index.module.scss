@@ -113,7 +113,7 @@
   }
 }
 
-@media only screen and (max-width: $screen-width-narrow-max) {
+@media only screen and (max-width: $screen-width-extra-narrow-max) {
   .container {
     flex-direction: column-reverse;
   }

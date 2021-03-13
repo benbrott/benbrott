@@ -101,7 +101,7 @@ $hover-triangle-size: 8px;
   }
 }
 
-@media only screen and (min-width: $screen-width-narrow-min) and (max-width: $screen-width-standard-max) {
+@media only screen and (min-width: $screen-width-extra-narrow-min) and (max-width: $screen-width-narrow-max) {
   .categorySection {
     h1 {
       transform: rotate(180deg);
