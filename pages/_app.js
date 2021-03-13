@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Router from 'next/router';
 import 'styles/_global.scss';
 import styles from 'styles/_app.module.scss';
 import Food from 'svgComponents/Food';
@@ -14,6 +15,14 @@ const NAV_ICONS = [
 ];
 
 const App = ({ Component, pageProps }) => {
+  const pageContainer = useRef();
+
+  Router.events.on('routeChangeComplete', () => {
+    if (pageContainer) {
+      pageContainer.current.scrollTo(0, 0);
+    }
+  });
+
   const renderedIcons = NAV_ICONS.map(({ Component, path }, index) => {
     const key = `navIcon_${index}`;
     return (
@@ -43,7 +52,7 @@ const App = ({ Component, pageProps }) => {
         </Link>
         <div className={styles.iconContainer}>{renderedIcons}</div>
       </div>
-      <div className={styles.pageContainer}>
+      <div className={styles.pageContainer} ref={pageContainer}>
         <Component {...pageProps} />
       </div>
     </>
