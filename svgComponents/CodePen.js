@@ -5,6 +5,7 @@ const CodePen = () => {
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
       <title>Link to Ben's CodePen</title>
       <path
+        stroke="none"
         transform="translate(-2, -2)"
         d="M13.997,6.11c-0.001-0.008-0.003-0.015-0.004-0.022c-0.003-0.015-0.005-0.029-0.009-0.043
 	c-0.002-0.009-0.006-0.017-0.008-0.025c-0.005-0.012-0.009-0.024-0.014-0.037c-0.004-0.009-0.008-0.017-0.012-0.025

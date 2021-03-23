@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from 'styles/index.module.scss';
+import ResumeIcon from 'svgComponents/ResumeIcon';
 import GitHub from 'svgComponents/GitHub';
 import LinkedIn from 'svgComponents/LinkedIn';
-import Twitter from 'svgComponents/Twitter';
 import CodePen from 'svgComponents/CodePen';
 
 const SOCIAL_LINKS = [
+  { Component: ResumeIcon, href: '/resume.pdf' },
   { Component: GitHub, href: 'https://github.com/BenBrott' },
   { Component: CodePen, href: 'https://codepen.io/benbrott' },
-  { Component: LinkedIn, href: 'https://www.linkedin.com/in/brott/' },
-  { Component: Twitter, href: 'https://twitter.com/BenBrott' }
+  { Component: LinkedIn, href: 'https://www.linkedin.com/in/brott/' }
 ];
 
 const About = () => {
