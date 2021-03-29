@@ -144,7 +144,7 @@ class Crossword extends React.PureComponent {
       } else {
         this.clearPreviousDownCell(row, col);
       }
-    } else if (typedLetter) {
+    } else if (typedLetter && !(event.ctrlKey || event.metaKey)) {
       event.preventDefault();
       const previousLetter = letters[row][col];
       letters[row][col] = typedLetter;
