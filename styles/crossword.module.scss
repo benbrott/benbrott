@@ -8,44 +8,26 @@ $border-size: 2px;
   display: flex;
   justify-content: space-between;
   height: 100%;
-
-  @extend %content-container;
 }
 
 .crosswordContainer {
-  position: relative;
-  flex-shrink: 0;
-  box-sizing: border-box;
+  flex: 2;
   margin-right: $inner-spacing;
-  margin-left: calc(#{$current-clue-height} / -2);
-  padding: 0 calc(#{$current-clue-height} / 2); // This will be set to be square in JS, but we actually want the crossword itself to be square. This accounts for the current clues height
 }
 
 .currentClue {
-  overflow-x: hidden;
-  overflow-y: hidden;
-  box-sizing: border-box;
-  width: 100%;
-  height: $current-clue-height;
-  border: $border-size solid $navbar-color;
-  border-bottom-width: 0;
-  background-color: $gold;
-  color: $text-color-dark;
-  text-align: center;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-size: 0.75rem;
-  line-height: calc(#{$current-clue-height} - #{$border-size});
+  display: none;
 }
 
 .crossword {
   display: grid;
   box-sizing: border-box;
+  max-height: 100%;
   width: 100%;
-  height: calc(100% - #{$current-clue-height});
   border: $border-size solid $navbar-color;
   background-color: $navbar-color;
 
+  aspect-ratio: 1;
   user-select: none;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
@@ -77,6 +59,7 @@ $border-size: 2px;
 
 .clues {
   display: flex;
+  flex: 1;
   flex-direction: row;
   height: 100%;
 }
@@ -113,7 +96,7 @@ $border-size: 2px;
   padding: 4px 8px;
   background-color: $navbar-color;
   color: $text-color-light;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   cursor: pointer;
 
   user-select: none;
@@ -137,6 +120,27 @@ $border-size: 2px;
 
 @media only screen and (max-width: $screen-width-extra-narrow-max) {
   .crosswordContainer {
+    margin: 0 auto;
+  }
+
+  .currentClue {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    height: $current-clue-height;
+    border: $border-size solid $navbar-color;
+    border-bottom-width: 0;
+    background-color: $gold;
+    color: $text-color-dark;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    line-height: calc(#{$current-clue-height} - #{$border-size});
+  }
+
+  .crossword {
     margin: 0 auto;
   }
 

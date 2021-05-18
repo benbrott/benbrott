@@ -14,8 +14,6 @@ class Crossword extends React.PureComponent {
   constructor(props) {
     super(props);
     this.hiddenInput = null;
-    this.container = React.createRef();
-    this.crosswordContainer = React.createRef();
     this.clueRefs = {};
     this.state = {
       currentCell: { row: 0, col: 0 },
@@ -26,8 +24,6 @@ class Crossword extends React.PureComponent {
   }
 
   componentDidMount() {
-    this.onResize();
-    window.addEventListener('resize', this.onResize);
     window.addEventListener('keydown', this.onKeyDown);
     if (this.hiddenInput) {
       this.hiddenInput.focus();
@@ -38,7 +34,6 @@ class Crossword extends React.PureComponent {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('resize', this.onResize);
     window.removeEventListener('keydown', this.onKeyDown);
   }
 
@@ -59,13 +54,6 @@ class Crossword extends React.PureComponent {
   isCurrentCell = (rowIdx, colIdx) => {
     const { row, col } = this.state.currentCell;
     return row === rowIdx && col === colIdx;
-  };
-
-  onResize = () => {
-    const { offsetWidth, offsetHeight } = this.container.current;
-    const size = `${Math.min(offsetWidth, offsetHeight)}px`;
-    this.crosswordContainer.current.style.width = size;
-    this.crosswordContainer.current.style.height = size;
   };
 
   onKeyDown = event => {
@@ -520,7 +508,7 @@ class Crossword extends React.PureComponent {
     const number = CELLS[row][col][clueSet];
 
     return (
-      <div className={styles.crosswordContainer} ref={this.crosswordContainer}>
+      <div className={styles.crosswordContainer}>
         <div className={styles.currentClue}>{CLUES[clueSet][number].clue}</div>
         <div className={styles.crossword}>{renderedCells}</div>
       </div>
@@ -598,7 +586,7 @@ class Crossword extends React.PureComponent {
     return (
       <>
         {this.renderHiddenInput()}
-        <div className={styles.container} ref={this.container}>
+        <div className={styles.container}>
           {this.renderCrossword()}
           {this.renderClues()}
         </div>
