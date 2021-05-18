@@ -24,8 +24,8 @@ $screen-width-narrow-min: 729px;
 $screen-width-narrow-max: 918px;
 
 %content-container {
-  max-width: 1200px;
   margin: auto;
+  max-width: 1200px;
 }
 
 %transparent-interaction {
@@ -34,7 +34,7 @@ $screen-width-narrow-max: 918px;
 
   &:focus-visible,
   &:hover {
-    opacity: .25;
+    opacity: 0.25;
   }
 }
 
@@ -44,12 +44,9 @@ $screen-width-narrow-max: 918px;
     top: 0;
     bottom: 0;
     left: -100vw;
-
     width: 100vw;
-
-    content: '';
-
     background-color: inherit;
+    content: '';
   }
 }
 
@@ -59,11 +56,8 @@ $screen-width-narrow-max: 918px;
     top: 0;
     bottom: 0;
     left: 100%;
-
     width: 100vw;
-
-    content: '';
-
     background-color: inherit;
+    content: '';
   }
 }

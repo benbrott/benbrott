@@ -2,7 +2,6 @@
 
 html {
   height: 100%;
-
   background-color: $background-color;
 
   *::-webkit-scrollbar {
@@ -11,10 +10,9 @@ html {
 }
 
 body {
-  font-family: $font-family-primary;
-
-  height: 100%;
   margin: 0;
+  height: 100%;
+  font-family: $font-family-primary;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,10 +32,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $font-family-heading;
-  font-weight: normal;
-
   margin: 0;
-
   text-transform: lowercase;
+  font-weight: normal;
+  font-family: $font-family-heading;
 }

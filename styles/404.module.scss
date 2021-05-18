@@ -2,9 +2,7 @@
 
 .container {
   display: flex;
-
   height: 100%;
-
   color: $text-color-light;
 
   div {
@@ -13,15 +11,13 @@
     flex: 1;
     flex-direction: column;
     justify-content: center;
-
     box-sizing: border-box;
-    height: 100%;
     padding: $inner-spacing;
+    height: 100%;
 
     &:last-of-type {
       align-items: flex-start;
       flex: 2;
-
       border-radius: $inner-spacing;
       background-color: $rust;
     }

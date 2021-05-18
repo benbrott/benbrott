@@ -9,36 +9,29 @@
 
   &::after {
     position: absolute;
-    z-index: -1;
     top: 0;
     left: 25%;
-
+    z-index: -1;
     width: 25%;
     height: 100%;
-
-    content: '';
-
     background-color: $gold;
+    content: '';
   }
 }
 
 .textSection {
   margin-right: $outer-spacing;
-
   color: $text-color-light;
 
   p {
+    margin: 0;
     font-size: 1.25rem;
     line-height: 2.5rem;
-
-    margin: 0;
   }
 
   div {
     position: relative;
-
     display: inline-block;
-
     padding: $inner-spacing;
 
     &:first-of-type {
@@ -59,19 +52,15 @@
 
 .photoSection {
   position: relative;
-
   margin: 0 auto;
   padding-top: $inner-spacing;
 }
 
 .imageContainer {
   position: relative;
-
   overflow: hidden;
-
   width: Min(300px, calc(100vw - 2 * #{$inner-spacing})); // uppercase functions to use CSS versions rather than SASS
   height: Min(300px, calc(100vw - 2 * #{$inner-spacing}));
-
   border-radius: 100%;
 
   img {
@@ -82,15 +71,12 @@
 
 .linksContainer {
   z-index: -1;
-
   display: flex;
   flex-direction: row;
   justify-content: center;
-
-  width: max-content;
   margin: -4rem auto 0 auto;
   padding: 5rem $less-spacing $less-spacing $less-spacing;
-
+  width: max-content;
   border-radius: $inner-spacing;
   background-color: $magenta;
 

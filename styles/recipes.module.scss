@@ -8,34 +8,31 @@ $hover-triangle-size: 8px;
 
 .categoryContainer {
   position: relative;
-
   display: flex;
   flex-direction: row;
-
   padding: $inner-spacing $outer-spacing;
-
-  color: $royal;
   border-radius: $inner-spacing;
   background-color: $royal;
+  color: $royal;
 
   &:not(:last-of-type) {
     margin-bottom: $inner-spacing;
   }
 
   &:first-of-type {
-    color: $rust;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-color: $rust;
+    color: $rust;
 
     @extend %extends-left;
   }
 
   &:last-of-type {
-    color: $magenta;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     background-color: $magenta;
+    color: $magenta;
 
     @extend %extends-right;
   }
@@ -47,37 +44,30 @@ $hover-triangle-size: 8px;
   flex-direction: column;
 
   h1 {
+    height: min-content;
+    color: $gold;
     font-size: 4rem;
     line-height: 4rem;
 
-    height: min-content;
-
     user-select: none;
-
-    color: $gold;
   }
 
   .dots {
     position: relative;
-
     flex: 1;
-
     background-image: url(/goldCircle.svg);
-    background-repeat: repeat;
     background-size: 3rem;
+    background-repeat: repeat;
 
     &::after {
       position: absolute;
       top: 0;
       left: 0;
-
       width: 100%;
       height: 100%;
-
-      content: '';
-
       background-image: linear-gradient(to top, currentColor, 50%, transparent),
-      linear-gradient(to left, currentColor, 50%, transparent);
+        linear-gradient(to left, currentColor, 50%, transparent);
+      content: '';
     }
   }
 }
@@ -86,16 +76,12 @@ $hover-triangle-size: 8px;
   margin-left: $less-spacing;
 
   a {
-    font-size: 1.25rem;
-
     display: block;
-
     margin-bottom: $less-spacing;
-
+    color: $text-color-light;
     text-align: end;
     text-decoration: none;
-
-    color: $text-color-light;
+    font-size: 1.25rem;
 
     @extend %transparent-interaction;
   }
@@ -104,8 +90,8 @@ $hover-triangle-size: 8px;
 @media only screen and (min-width: $screen-width-extra-narrow-min) and (max-width: $screen-width-narrow-max) {
   .categorySection {
     h1 {
-      transform: rotate(180deg);
       text-align: center;
+      transform: rotate(180deg);
 
       writing-mode: vertical-rl;
     }
@@ -119,7 +105,6 @@ $hover-triangle-size: 8px;
 @media only screen and (max-width: $screen-width-tiny-max) {
   .categoryContainer {
     flex-direction: column;
-
     padding: $inner-spacing;
   }
 

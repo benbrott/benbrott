@@ -8,20 +8,17 @@ $content-height: 32px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
   padding: $less-padding $more-padding;
-
   background-color: $navbar-color;
 }
 
 .logoContainer {
   width: 279px; // the svg viewbox is 870x100
   height: $content-height;
-
-  color: transparent;
   background-image: url(/logoNameFullLight.svg);
-  background-repeat: no-repeat;
   background-origin: content-box;
+  background-repeat: no-repeat;
+  color: transparent;
 
   @extend %transparent-interaction;
 }
@@ -29,15 +26,15 @@ $content-height: 32px;
 .iconContainer {
   display: flex;
   flex-direction: row;
-
   height: $content-height;
 }
 
 .icon {
-  height: inherit;
   margin-left: $less-padding;
+  height: inherit;
 
   @extend %transparent-interaction;
+
   svg {
     height: inherit;
   }
@@ -45,16 +42,14 @@ $content-height: 32px;
 
 .pageContainer {
   overflow-x: hidden;
-
   box-sizing: border-box;
-  height: calc(100% - #{$navbar-height});
   padding: $outer-spacing;
+  height: calc(100% - #{$navbar-height});
 }
 
 @media only screen and (max-width: $screen-width-tiny-max) {
   .logoContainer {
     width: 103px; // the svg viewbox is 320x100
-
     background-image: url(/logoNameShortLight.svg);
   }
 }

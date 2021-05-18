@@ -5,10 +5,8 @@ $border-size: 2px;
 
 .container {
   position: relative;
-
   display: flex;
   justify-content: space-between;
-
   height: 100%;
 
   @extend %content-container;
@@ -16,9 +14,7 @@ $border-size: 2px;
 
 .crosswordContainer {
   position: relative;
-
   flex-shrink: 0;
-
   box-sizing: border-box;
   margin-right: $inner-spacing;
   margin-left: calc(#{$current-clue-height} / -2);
@@ -26,38 +22,31 @@ $border-size: 2px;
 }
 
 .currentClue {
-  font-size: .75rem;
-  line-height: calc(#{$current-clue-height} - #{$border-size});
-
   overflow-x: hidden;
   overflow-y: hidden;
-
   box-sizing: border-box;
   width: 100%;
   height: $current-clue-height;
-
-  text-align: center;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-
-  color: $text-color-dark;
   border: $border-size solid $navbar-color;
   border-bottom-width: 0;
   background-color: $gold;
+  color: $text-color-dark;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.75rem;
+  line-height: calc(#{$current-clue-height} - #{$border-size});
 }
 
 .crossword {
   display: grid;
-
   box-sizing: border-box;
   width: 100%;
   height: calc(100% - #{$current-clue-height});
-
-  user-select: none;
-
   border: $border-size solid $navbar-color;
   background-color: $navbar-color;
 
+  user-select: none;
   grid-template-columns: repeat(16, 1fr);
   grid-template-rows: repeat(16, 1fr);
   grid-gap: $border-size;
@@ -65,10 +54,8 @@ $border-size: 2px;
 
 .cell {
   width: 100%;
-
-  cursor: pointer;
-
   background-color: $royal;
+  cursor: pointer;
 
   fill: $text-color-light;
 
@@ -84,14 +71,13 @@ $border-size: 2px;
 }
 
 .clueDecoration {
-  font-size: .4rem;
   font-weight: 600;
+  font-size: 0.4rem;
 }
 
 .clues {
   display: flex;
   flex-direction: row;
-
   height: 100%;
 }
 
@@ -105,21 +91,17 @@ $border-size: 2px;
   }
 
   h1 {
-    font-size: 1.25rem;
-
     color: $magenta;
+    font-size: 1.25rem;
   }
 }
 
 .clueList {
   overflow-y: scroll;
-
   margin: 0;
   padding: 0;
-
-  list-style-type: none;
-
   border-radius: $border-size;
+  list-style-type: none;
 
   li {
     margin: 0;
@@ -127,16 +109,14 @@ $border-size: 2px;
 }
 
 .clue {
-  font-size: .75rem;
-
   box-sizing: border-box;
   padding: 4px 8px;
-
-  cursor: pointer;
-  user-select: none;
-
-  color: $text-color-light;
   background-color: $navbar-color;
+  color: $text-color-light;
+  font-size: 0.75rem;
+  cursor: pointer;
+
+  user-select: none;
 
   &:not(:last-of-type) {
     margin-bottom: $border-size;
@@ -148,13 +128,11 @@ $border-size: 2px;
 }
 
 .hiddenInput {
-  font-size: 24px; // Prevent mobile browser auto zoom
-
-  height: 0;
   margin: 0;
   padding: 0;
-
+  height: 0;
   border: none;
+  font-size: 24px; // Prevent mobile browser auto zoom
 }
 
 @media only screen and (max-width: $screen-width-extra-narrow-max) {
