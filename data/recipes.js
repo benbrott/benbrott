@@ -3,11 +3,11 @@ export const CATEGORIES = [
     category: 'Entrées',
     recipes: {
       'chicken-rice-soup': {
-        name: 'Chicken & Wild Rice Soup',
+        name: 'Chicken & Wild Rice Stew',
         serves: '8',
         ingredients: [
           '3 tablespoons olive oil',
-          '2 pounds boneless, skinless chicken breast',
+          '3 pounds boneless, skinless chicken breast',
           'Salt and pepper',
           '4 tablespoons butter',
           '1 large onion, diced',
