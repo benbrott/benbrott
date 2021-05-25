@@ -1,10 +1,28 @@
-export const CATEGORIES = [
+export type RecipeSection = string[] | { [key: string]: string[] };
+
+export type Recipe = {
+  name: string;
+  serves?: number;
+  makes?: number;
+  source?: string;
+  ingredients: RecipeSection;
+  directions: RecipeSection;
+};
+
+type RecipeMap = { [key: string]: Recipe };
+
+type RecipeCategory = {
+  category: string;
+  recipes: RecipeMap;
+};
+
+export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Entrées',
     recipes: {
       'chicken-rice-soup': {
         name: 'Chicken & Wild Rice Stew',
-        serves: '8',
+        serves: 8,
         ingredients: [
           '3 tablespoons olive oil',
           '3 pounds boneless, skinless chicken breast',
@@ -40,7 +58,7 @@ export const CATEGORIES = [
       },
       'chicken-tortilla-soup': {
         name: 'Chicken Tortilla Soup',
-        serves: '6',
+        serves: 6,
         ingredients: [
           '1 large onion, diced',
           '2 cloves garlic, minced',
@@ -67,7 +85,7 @@ export const CATEGORIES = [
       },
       'crab-cakes': {
         name: 'Crab Cakes',
-        serves: '3',
+        serves: 3,
         ingredients: [
           '1 pound lump crab meat',
           '1 small green pepper, finely diced',
@@ -238,7 +256,7 @@ export const CATEGORIES = [
     recipes: {
       cornbread: {
         name: 'Cheesy Jalapeño Cornbread',
-        serves: '10',
+        serves: 10,
         source: 'Hillstone Restaurant Group',
         ingredients: [
           '¾ cup butter, softened',
@@ -542,11 +560,10 @@ export const CATEGORIES = [
   }
 ];
 
-export const ALL_RECIPES = CATEGORIES.reduce((allRecipes, category) => {
+export const ALL_RECIPES = CATEGORIES.reduce((allRecipes: RecipeMap, category: RecipeCategory) => {
   return { ...allRecipes, ...category.recipes };
 }, {});
 
-export const getRecipe = id => {
-  console.log(id);
+export const getRecipe = (id: string) => {
   return ALL_RECIPES[id];
 };

@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from 'styles/index.module.scss';
-import ResumeIcon from 'svgComponents/ResumeIcon';
-import GitHub from 'svgComponents/GitHub';
-import LinkedIn from 'svgComponents/LinkedIn';
-import CodePen from 'svgComponents/CodePen';
+import Document from 'components/externalIcons/document';
+import GitHub from 'components/externalIcons/gitHub';
+import LinkedIn from 'components/externalIcons/linkedIn';
+import CodePen from 'components/externalIcons/codePen';
 
 const SOCIAL_LINKS = [
-  { Component: ResumeIcon, href: '/resume.pdf' },
+  { Component: Document, href: '/resume.pdf' },
   { Component: GitHub, href: 'https://github.com/BenBrott' },
   { Component: CodePen, href: 'https://codepen.io/benbrott' },
   { Component: LinkedIn, href: 'https://www.linkedin.com/in/brott/' }
@@ -38,7 +38,7 @@ const About = () => {
           <p>
             I was inspired to create this site after attending An Event Apart DC. The site is my sandbox to improve my
             skills with modern interface and traditional front-end technologies, such as CSS and SVG. I use React,
-            Next.js, Sass, and Netlify in my tech stack.
+            Next.js, TypeScript, Sass, and Netlify in my tech stack.
           </p>
         </div>
       </div>

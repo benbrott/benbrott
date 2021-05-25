@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PageIconProps from './pageIconProps';
 
-const Headphones = ({ primaryColor }) => {
+const Headphones = ({ primaryColor }: PageIconProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
       <title>Link to music page</title>
@@ -41,7 +41,5 @@ const Headphones = ({ primaryColor }) => {
     </svg>
   );
 };
-
-Headphones.propTypes = { primaryColor: PropTypes.string };
 
 export default Headphones;

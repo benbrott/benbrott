@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ResumeIcon = () => {
+const Document = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" strokeWidth="8">
       <rect x="5" y="5" width="90" height="90" fill="none" />
@@ -15,4 +15,4 @@ const ResumeIcon = () => {
   );
 };
 
-export default ResumeIcon;
+export default Document;

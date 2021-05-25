@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PageIconProps from './pageIconProps';
 
-const Food = ({ primaryColor }) => {
+const Food = ({ primaryColor }: PageIconProps) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -43,7 +43,5 @@ const Food = ({ primaryColor }) => {
     </svg>
   );
 };
-
-Food.propTypes = { primaryColor: PropTypes.string };
 
 export default Food;

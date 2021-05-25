@@ -1,4 +1,10 @@
-export default [
+type Album = {
+  artist: string;
+  title: string;
+  src: string;
+};
+
+const data: Album[] = [
   {
     artist: '070 Shake',
     title: 'Modus Vivendi',
@@ -452,3 +458,5 @@ export default [
     src: 'https://i.scdn.co/image/443c2f393d74bbe325d50b8b13b59bf2f74d3fde'
   }
 ];
+
+export default data;

@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PageIconProps from './pageIconProps';
 
-const CrosswordIcon = ({ primaryColor }) => {
+const CrosswordPuzzle = ({ primaryColor }: PageIconProps) => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" stroke={primaryColor} strokeWidth="3">
       <title>Link to crossword page</title>
@@ -26,6 +26,4 @@ const CrosswordIcon = ({ primaryColor }) => {
   );
 };
 
-CrosswordIcon.propTypes = { primaryColor: PropTypes.string };
-
-export default CrosswordIcon;
+export default CrosswordPuzzle;
