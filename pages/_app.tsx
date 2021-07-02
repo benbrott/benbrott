@@ -1,24 +1,25 @@
 import React, { useRef } from 'react';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
 import 'styles/_global.scss';
 import styles from 'styles/_app.module.scss';
-import Food from 'svgComponents/Food';
-import CrosswordIcon from 'svgComponents/CrosswordIcon';
-import Headphones from 'svgComponents/Headphones';
+import Food from 'components/pageIcons/food';
+import CrosswordPuzzle from 'components/pageIcons/crosswordPuzzle';
+import Headphones from 'components/pageIcons/headphones';
 
 const NAV_ICONS = [
   { Component: Headphones, path: '/music' },
   { Component: Food, path: '/recipes' },
-  { Component: CrosswordIcon, path: '/crossword' }
+  { Component: CrosswordPuzzle, path: '/crossword' }
 ];
 
-const App = ({ Component, pageProps }) => {
-  const pageContainer = useRef();
+const App = ({ Component, pageProps }: AppProps) => {
+  const pageContainer = useRef<HTMLDivElement>(null);
 
   Router.events.on('routeChangeComplete', () => {
-    if (pageContainer) {
+    if (pageContainer && pageContainer.current) {
       pageContainer.current.scrollTo(0, 0);
     }
   });

@@ -1,63 +1,4 @@
-const createCells = letters => {
-  let nextClue = 1;
-  return letters.reduce((rows, row, rowIndex) => {
-    const prevRow = rows[rowIndex - 1];
-    const newRow = row.reduce((cells, letter, letterIndex) => {
-      if (!letter || letter === ' ') {
-        cells.push(null);
-        return cells;
-      }
-      const leftCell = cells[letterIndex - 1];
-      const prevAcross = leftCell && leftCell.across;
-      const across = prevAcross ? prevAcross : nextClue.toString();
-
-      const aboveCell = prevRow && prevRow[letterIndex];
-      const prevDown = aboveCell && aboveCell.down;
-      const down = prevDown ? prevDown : nextClue.toString();
-
-      if (!(prevAcross && prevDown)) {
-        nextClue = nextClue + 1;
-      }
-      cells.push({ letter, across, down });
-      return cells;
-    }, []);
-    rows.push(newRow);
-    return rows;
-  }, []);
-};
-
-const createClues = (cells, acrossClues, downClues) => {
-  const across = {};
-  const down = {};
-  let prevAcross = 0;
-  let prevDown = 0;
-  cells.forEach((row, rowIdx) => {
-    row.forEach((cell, colIdx) => {
-      if (!cell) {
-        return;
-      }
-      const acrossNumber = parseInt(cell.across);
-      if (acrossNumber > prevAcross) {
-        across[acrossNumber] = {
-          clue: acrossClues.shift(),
-          startingCell: { row: rowIdx, col: colIdx }
-        };
-        prevAcross = acrossNumber;
-      }
-      const downNumber = parseInt(cell.down);
-      if (downNumber > prevDown) {
-        down[downNumber] = {
-          clue: downClues.shift(),
-          startingCell: { row: rowIdx, col: colIdx }
-        };
-        prevDown = downNumber;
-      }
-    });
-  });
-  return { across, down };
-};
-
-const LETTERS = [
+export const SOLUTION = [
   ['A', 'T', 'E', 'F', ' ', ' ', 'T', 'A', 'P', 'E', ' ', ' ', 'A', 'L', 'L', 'I'],
   ['F', 'A', 'V', 'A', ' ', 'J', 'I', 'H', 'A', 'D', 'S', ' ', 'B', 'O', 'A', 'T'],
   ['A', 'C', 'I', 'D', ' ', 'U', 'T', 'O', 'P', 'I', 'A', ' ', 'R', 'A', 'Z', 'E'],
@@ -163,5 +104,4 @@ const DOWN = [
   'Wear, as a hat'
 ];
 
-export const CELLS = createCells(LETTERS);
-export const CLUES = createClues(CELLS, ACROSS, DOWN);
+export const CLUE_LISTS = { ACROSS, DOWN };

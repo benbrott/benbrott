@@ -1,24 +1,29 @@
 import React from 'react';
+import { GetStaticProps, GetStaticPaths } from 'next';
 import styles from 'styles/recipe.module.scss';
-import { ALL_RECIPES, getRecipe } from 'data/recipes';
+import { Recipe, RecipeSection, ALL_RECIPES, getRecipe } from 'data/recipes';
 
-const Recipe = ({ recipe }) => {
+type RecipePageProps = {
+  recipe: Recipe;
+};
+
+const RecipePage = ({ recipe }: RecipePageProps) => {
   const { name, serves, makes, source, ingredients, directions } = recipe;
 
-  const renderListSection = (data, ordered) => {
+  const renderListSection = (section: RecipeSection, ordered: boolean) => {
     const List = ordered ? 'ol' : 'ul';
-    return Array.isArray(data) ? (
+    return Array.isArray(section) ? (
       <List>
-        {data.map((item, index) => (
+        {section.map((item, index) => (
           <li key={`list_item_${index}`}>{item}</li>
         ))}
       </List>
     ) : (
-      Object.keys(data).map(subsection => (
+      Object.keys(section).map(subsection => (
         <React.Fragment key={`subsection_${subsection}`}>
           <h3>{subsection}</h3>
           <List>
-            {data[subsection].map((item, index) => (
+            {section[subsection].map((item, index) => (
               <li key={`list_item_${index}`}>{item}</li>
             ))}
           </List>
@@ -53,21 +58,25 @@ const Recipe = ({ recipe }) => {
   );
 };
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = Object.keys(ALL_RECIPES).map(id => `/recipes/${id}`);
   return {
     paths,
     fallback: false
   };
-}
+};
 
-export async function getStaticProps({ params }) {
-  const recipe = getRecipe(params.id);
-  return {
-    props: {
-      recipe
-    }
-  };
-}
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (params && params.id) {
+    const recipeId = Array.isArray(params.id) ? params.id[0] : params.id;
+    const recipe = getRecipe(recipeId);
+    return {
+      props: {
+        recipe
+      }
+    };
+  }
+  return { props: {} };
+};
 
-export default Recipe;
+export default RecipePage;
