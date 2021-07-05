@@ -20,6 +20,37 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Entrées',
     recipes: {
+      'chicken-veggie-burritos': {
+        name: 'Chicken & Veggie Burritos',
+        serves: 6,
+        ingredients: [
+          'Olive oil',
+          '2 zucchini, diced',
+          '2 red peppers, sliced',
+          '1 green pepper, sliced',
+          '1 large onion, thinly sliced',
+          '1 cup corn',
+          '1 rotisserie chicken, pulled',
+          '14.5-ounce can seasoned diced tomatoes',
+          '8 ounces shredded Mexican cheese',
+          'Taco seasoning',
+          '10-ounce can red enchilada sauce',
+          '10 8-inch flour tortillas'
+        ],
+        directions: [
+          'In batches, sauté the veggies in oil on medium-high heat until browned',
+          'Preheat the oven to 350°',
+          'In a large bowl, mix the veggies, chicken, tomatoes, and about half of the cheese. If the mixture too dry to mix well, add in a little of the sauce',
+          'Add in taco seasoning, to taste (you need a lot)',
+          'Coat the bottom of a  9" x 13" pan with some of the sauce',
+          'Evenly distribute the filling between the tortillas',
+          'Roll the tortillas tightly around the filling, putting them seam-side down in the pan. You may need to squish them a little to get them to all fit',
+          'Pour the remaining sauce overtop of the rolled burritos',
+          'Add the remaining cheese to the long edges of the pan',
+          'Bake until the cheese is melted and the burritos are hot inside, about 30 minutes',
+          'Cut down the center before serving'
+        ]
+      },
       'chicken-rice-soup': {
         name: 'Chicken & Wild Rice Stew',
         serves: 8,
