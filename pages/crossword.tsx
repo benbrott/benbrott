@@ -82,6 +82,12 @@ const Crossword = () => {
     }
   };
 
+  const getFirstEmptyCellOfClue = (clue: Clue, startingIndex: number = 0) => {
+    return clue.cells.find((cell, index) => {
+      return index >= startingIndex && crossword.isCellEmpty(cell);
+    });
+  }
+
   const onKeyDown = useCallback(
     (event: KeyboardEvent) => {
       if (event.ctrlKey || event.metaKey || event.altKey) {
@@ -215,10 +221,10 @@ const Crossword = () => {
             }
           } else {
             let emptyCellClue = currentClue;
-            let emptyCell = crossword.getFirstEmptyCellOfClue(currentClue, cellIndex + 1);
+            let emptyCell = getFirstEmptyCellOfClue(currentClue, cellIndex + 1);
             while (!emptyCell) {
               emptyCellClue = getNextClue(CLUES, emptyCellClue);
-              emptyCell = crossword.getFirstEmptyCellOfClue(emptyCellClue);
+              emptyCell = getFirstEmptyCellOfClue(emptyCellClue);
             }
             setCurrentClue(emptyCellClue);
             setCurrentCell(emptyCell);
@@ -261,7 +267,7 @@ const Crossword = () => {
 
   const renderClueList = (clueSet: ClueSet) => {
     const onClick = (clue: Clue) => {
-      const targetCell = crossword.getFirstEmptyCellOfClue(clue) || clue.cells[0];
+      const targetCell = getFirstEmptyCellOfClue(clue) || clue.cells[0];
       setCurrentClue(clue);
       setCurrentCell(targetCell);
     };
@@ -309,12 +315,5 @@ const Crossword = () => {
     </div>
   );
 };
-
-// class Crossword extends React.PureComponent {
-//   // isClient: false
-
-//   componentDidMount() {
-//     // this.setState({ isClient: true });
-//   }
 
 export default Crossword;
