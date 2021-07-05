@@ -1,4 +1,4 @@
-import { Cell, Clue, getNextClue } from 'components/crossword/helpers';
+import { Cell } from 'components/crossword/helpers';
 
 const EMPTY_LETTER = ' ';
 
@@ -69,11 +69,5 @@ export default class ImmutableCrossword {
 
   isCellEmpty(cell: Cell) {
     return !this.getLetter(cell);
-  }
-
-  getFirstEmptyCellOfClue(clue: Clue, startingIndex: number = 0) {
-    return clue.cells.find((cell, index) => {
-      return index >= startingIndex && this.isCellEmpty(cell);
-    });
   }
 }
