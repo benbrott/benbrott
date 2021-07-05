@@ -500,6 +500,47 @@ export const CATEGORIES: RecipeCategory[] = [
           'Bake until cooked through, about 25 minutes'
         ]
       },
+      'rhubarb-pie': {
+        name: 'Rhubarb Pie',
+        serves: 8,
+        ingredients: {
+          Crust: [
+            '160 grams flour',
+            '½ teaspoon salt',
+            '½ cup shortening, chilled',
+            '2 tablespoons butter, chilled and diced',
+            '¼ cup cold water'
+          ],
+          Topping: ['½ cup flour', '½ cup brown sugar', '6 tablespoons butter, softened'],
+          Filling: ['1⅓ cups sugar', '⅓ cup flour', '5 cups chopped rhubarb']
+        },
+        directions: {
+          Crust: [
+            'Mix the flour and salt until well combined',
+            'Cut the shortening and butter into the flour until the mixture resembles small gravel',
+            "Using a rubber spatula, mix in the water a little at a time until the dough comes together, but isn't wet",
+            'Gently fold the dough a few times on a floured surface, form a ball, and press into a thick disc',
+            'Wrap the dough is plastic wrap and refrigerate for at least 2 hours'
+          ],
+          Topping: [
+            'Mix the ingredients together, cutting the butter into the dry ingredients',
+            'Set aside until the pie is ready to bake'
+          ],
+          Filling: [
+            'Preheat the oven to 450°',
+            'Lightly grease a 9¼" pie pan',
+            'Mix the flour and sugar',
+            'Roll out the pie crust and press it into the pan',
+            'Sprinkle about ½ cup of the mixture into the pie crust',
+            'Add in the rhubarb',
+            'Sprinkle the remaining mixture overtop the rhubarb and shake the pie to get the contents to settle',
+            'Cover the pie with the topping mixture',
+            'Bake for 15 minutes',
+            'Reduce the oven temperature to 350° and continue to bake until the rhubarb mixture bubbles, about 35 more minutes',
+            'Let cool a little before cutting and serving'
+          ]
+        }
+      },
       'spiced-chocolate-cookies': {
         name: 'Spiced Chocolate Cookies',
         makes: 24,
