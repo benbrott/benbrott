@@ -3,7 +3,7 @@ export type RecipeSection = string[] | { [key: string]: string[] };
 export type Recipe = {
   name: string;
   serves?: number;
-  makes?: number;
+  makes?: number | string;
   source?: string;
   ingredients: RecipeSection;
   directions: RecipeSection;
@@ -355,6 +355,23 @@ export const CATEGORIES: RecipeCategory[] = [
           'Once the garlic is done, squeeze out the cloves and mix them, along with the sour cream, into the potatoes',
           'Melt the butter and fold it into the potatoes',
           'Season to taste and top with chives'
+        ]
+      },
+      'serrano-pineapple-hot-sauce': {
+        name: 'Serrano & Pineapple Hot Sauce',
+        makes: '12 oz',
+        ingredients: [
+          '½ pound serrano peppers, de-stemmed',
+          '1 cup chopped pineapple (200g)',
+          '3 cloves garlic',
+          'Juice from 1 lime',
+          '2 tablespoons white vinegar',
+          '½ teaspoon kosher salt'
+        ],
+        directions: [
+          'Blend all of the ingredients together until smooth',
+          'Bring the sauce to a boil and then simmer for 10 minutes',
+          'Let the sauce cool before bottling'
         ]
       },
       'spinach-artichoke-dip': {
