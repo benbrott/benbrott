@@ -3,6 +3,12 @@
 $border-size: 4px;
 $double-border-size: 8px;
 
+.durationContainer {
+  margin-bottom: $inner-spacing;
+  color: $text-color-light;
+  font-size: 1.25rem;
+}
+
 .grid {
   display: grid;
 

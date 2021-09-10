@@ -1,0 +1,41 @@
+@import 'shared';
+
+.container {
+  position: relative;
+  display: inline-block;
+  color: $text-color-light;
+
+  &:hover,
+  &:focus {
+    .control {
+      color: $gold;
+    }
+  }
+}
+
+.control {
+  cursor: pointer;
+
+  span {
+    border-bottom: 2px solid currentColor;
+  }
+}
+
+.menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  z-index: 1;
+  border: 4px solid #000;
+  border-radius: 4px;
+  background-color: $background-color;
+}
+
+.option {
+  padding: 6px 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $gold;
+    color: $text-color-dark;
+  }
+}
