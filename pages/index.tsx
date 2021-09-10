@@ -38,7 +38,7 @@ const About = () => {
           <p>
             I was inspired to create this site after attending An Event Apart DC. The site is my sandbox to improve my
             skills with modern interface and traditional front-end technologies, such as CSS and SVG. I use React,
-            Next.js, TypeScript, Sass, and Netlify in my tech stack.
+            Next.js, TypeScript, Sass, and Netlify in my tech stack. I use the Spotify API for my music history.
           </p>
         </div>
       </div>
