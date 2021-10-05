@@ -209,7 +209,7 @@ export const CATEGORIES: RecipeCategory[] = [
           ],
           Filling: [
             'In a large pot, cover the potatoes in water and bring to boil',
-            'Reduce to summer and cook until the potatoes are fork tender, about 20 minutes',
+            'Reduce to simmer and cook until the potatoes are fork tender, about 20 minutes',
             'Sauté the onions and garlic in butter on low-medium heat until lightly browned',
             'Using an electric mixer, blend the potatoes, onions, and ricotta until smooth',
             'Season with salt and pepper'
@@ -278,6 +278,42 @@ export const CATEGORIES: RecipeCategory[] = [
           'Press the edges down into the pan to make a slightly domed shape',
           'Cook until the bottom is lightly browned and the tortilla is completely set',
           'Cut into 6 wedges, season with salt'
+        ]
+      },
+      'white-chicken-chili': {
+        name: 'White Chicken Chili',
+        serves: 8,
+        ingredients: [
+          '1 large onion, diced',
+          '2 cloves garlic, minced',
+          '2 tablespoons canola oil',
+          '2 serrano peppers, diced',
+          '4 cups chicken broth',
+          '2 4-ounce cans diced green chiles',
+          '½ tablespoon cumin',
+          '½ teaspoon paprika',
+          '½ teaspoon oregano',
+          '½ teaspoon coriander',
+          '½ teaspoon black pepper',
+          '14.5-ounce can navy beans, rinsed',
+          '14.5-ounce can cannellini beans, rinsed',
+          '14.5-ounce can corn, drained',
+          '2 14.5-ounce cans hominy, drained',
+          '1 rotisserie chicken, pulled',
+          '1 cup cilantro, chopped',
+          'Juice from 1 lime',
+          'Mexican cheese',
+          'Tortilla chips'
+        ],
+        directions: [
+          'In a large pot, sauté the onion and garlic in the canola oil until onions are tender',
+          'Add in serrano peppers and cook for a couple minutes',
+          'Add in chiles, spices, and broth',
+          'Bring to a boil and simmer, covered, for 10 minutes',
+          'Mash the navy beans with a little of the liquid until smooth',
+          'Add in the mashed beans, whole beans, corn, and hominy, and simmer for another 10 minutes',
+          'Stir in the chicken, cilantro, and lime and remove from the heat',
+          'Top with cheese and serve with tortilla chips'
         ]
       }
     }
