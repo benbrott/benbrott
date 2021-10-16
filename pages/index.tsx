@@ -28,9 +28,9 @@ const About = () => {
         <div>
           <h1>Ben Brott</h1>
           <p>
-            I'm currently a front-end developer at Appian in the Washington D.C. area. Before that, I graduated from
-            Virginia Tech in 2018 with degrees in computer science and math. My interests include cooking, crocheting,
-            camping, video games, music, and sports.
+            I'm currently a front-end engineer at AllTrails, working remotely in the Washington D.C. area. I graduated
+            from Virginia Tech in 2018 with degrees in computer science and math. My interests include cooking, camping,
+            hiking, video games, music, and sports.
           </p>
         </div>
         <div>
