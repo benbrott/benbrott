@@ -553,6 +553,50 @@ export const CATEGORIES: RecipeCategory[] = [
           'Bake until cooked through, about 25 minutes'
         ]
       },
+      'lemon-shortbread-thumbprint-cookies': {
+        name: 'Lemon Shortbread Thumbprint Cookies',
+        makes: 30,
+        ingredients: {
+          Dough: [
+            '1 cup butter, softened',
+            '135 grams sugar',
+            '½ tablespoon vanilla extract',
+            'Zest of a whole lemon',
+            'Juice of half a lemon',
+            '275 grams flour'
+          ],
+          Jam: [
+            '200 grams frozen blueberries, raspberries, and blackberries',
+            '100 grams sugar',
+            'Juice of half a lemon'
+          ]
+        },
+        directions: {
+          Dough: [
+            'Cream the butter and sugar',
+            'Mix in the vanilla, lemon zest, and lemon juice',
+            'Add in the flour and mix, on low speed, just until a dough forms',
+            'Compact the dough, wrap in plastic, and refrigerate while making the jam'
+          ],
+          Jam: [
+            'Combine all ingredients in a pot on the lowest heat until the berries are defrosted',
+            'Put a few spoons in the freezer',
+            'Bring the mixture to a boil',
+            'Cook the jam, stirring often, until the jam sets on the back on a cold spoon, about 20 minutes',
+            'Let the jam cool while shaping the cookies'
+          ],
+          Cookies: [
+            'Roll the dough into small balls, about 1 tablespoon of dough per cookie',
+            'Press your thumb into each dough ball, trying to keep the walls of the pocket even in height',
+            'If any cracks form, try to smooth them over or compress the dough a little to fill them back up',
+            'Space the cookies out evenly on two baking sheets and refrigerate for another 30 minutes to help the cookies keep their shape',
+            'Preheat the oven to 350°',
+            'Fill each cookie with jam, being careful not to overflow the pockets',
+            'Bake until the cookies are just beginning to brown, about 13 minutes',
+            'Let cool, or even chill, before serving'
+          ]
+        }
+      },
       'rhubarb-pie': {
         name: 'Rhubarb Pie',
         serves: 8,
