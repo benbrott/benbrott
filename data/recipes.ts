@@ -183,6 +183,37 @@ export const CATEGORIES: RecipeCategory[] = [
           'Serve the pasta in 4 bowls, each topped with 2 ounces of burrata'
         ]
       },
+      lasagna: {
+        name: 'Lasagna',
+        serves: 8,
+        ingredients: [
+          '1 large eggplant, sliced into ¼-inch rounds',
+          'Olive oil',
+          'Italian breadcrumbs',
+          '1 pound lasagna',
+          '1 pound ground hot italian sausage',
+          '10 ounces frozen chopped spinach',
+          '15-ounce tub ricotta cheese ',
+          '1 pound shredded italian cheese',
+          '40 ounces tomato sauce',
+          '16-ounce jar of roasted red peppers, drained, cut into strips'
+        ],
+        directions: [
+          'Preheat the oven to 400°',
+          'Lightly brush one side of the eggplant with olive oil',
+          'Sprinkle italian breadcrumbs on each slice',
+          'Bake the eggplant, in batches if needed, until it is starting to brown, about 10 minutes',
+          'Meanwhile, boil the lasagna noodles and set aside',
+          'Cook the sausage on high heat until done, chopping it into crumbles as it cooks. Set aside',
+          'Saute the spinach until it is completely defrosted and the liquid has cooked off',
+          'Mix the spinach, ricotta, and shredded cheese until well combined',
+          'Preheat the oven to 350°',
+          'In a 9" x 13" dish, put a layer of sauce in the bottom of the pan, followed by a layer of lasagna',
+          'Until the lasagna is used up, repeat layers of cheese, sausage and peppers, eggplant, sauce, and lasagna, compressing the layers as you go',
+          'Top with a final layer of cheese and sauce',
+          'Cover with foil and bake until hot throughout, about 90 minutes'
+        ]
+      },
       pierogi: {
         name: 'Potato & Cheese Pierogi',
         makes: 36,
