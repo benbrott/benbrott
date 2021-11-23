@@ -614,6 +614,7 @@ export const CATEGORIES: RecipeCategory[] = [
             'Put a few spoons in the freezer',
             'Bring the mixture to a boil',
             'Cook the jam, stirring often, until the jam sets on the back on a cold spoon, about 20 minutes',
+            'Press the jam through a sieve to remove any seeds',
             'Let the jam cool while shaping the cookies'
           ],
           Cookies: [
