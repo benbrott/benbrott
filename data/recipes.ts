@@ -114,6 +114,34 @@ export const CATEGORIES: RecipeCategory[] = [
           'Serve over tortilla chips'
         ]
       },
+      'coors-chili': {
+        name: 'Coors Chili',
+        source: 'Coors',
+        serves: 4,
+        ingredients: [
+          '1 pound ground beef',
+          '14.5-ounce can pinto beans, rinsed',
+          '12-ounce can beer, lager or similar',
+          '1 tablespoon chili powder',
+          '1 teaspoon oregano',
+          '½ tablespoon cumin',
+          '½ teaspoon salt',
+          '¼ teaspoon cayenne pepper',
+          '1 teaspoon worcestershire',
+          '1 tablespoon masa harina or cornmeal',
+          'Elbow noodles',
+          'Shredded cheddar cheese',
+          'Tabasco'
+        ],
+        directions: [
+          'In a heavy bottomed skillet or pot, brown the beef',
+          'Add beans, beer, spices, and worcestershire and bring to boil',
+          'Simmer, covered, for 45 minutes',
+          'Combine the masa harina with ¼ cup of water, and add to chili',
+          'Continue simmering for another 15 minutes',
+          'Serve over elbows with cheese and tabasco'
+        ]
+      },
       'crab-cakes': {
         name: 'Crab Cakes',
         serves: 3,
@@ -181,6 +209,34 @@ export const CATEGORIES: RecipeCategory[] = [
           'Cook the pasta, strain, and return to the pot',
           'Mix the oil and vegetable mixture into the pasta, and season with salt and pepper',
           'Serve the pasta in 4 bowls, each topped with 2 ounces of burrata'
+        ]
+      },
+      gnocchi: {
+        name: 'Gnocchi with Burst Tomatoes & Mozzarella',
+        source: 'NYT Cooking',
+        serves: 3,
+        ingredients: [
+          'Olive oil',
+          '18-ounce package non-frozen gnocchi',
+          '2 tablespoons butter',
+          '2 cloves garlic, minced',
+          '¼ teaspoon red pepper flakes',
+          '1 pint cherry tomatoes, halved (for quicker recipe)',
+          'Salt and pepper, to taste',
+          'Fresh basil, thinly sliced',
+          '4 ounces fresh mozzarella, torn into small pieces'
+        ],
+        directions: [
+          'In a large, oven-safe skillet, heat olive oil, on medium-high, to coat the pan',
+          'Add gnocchi and brown, about 2 minutes on each side',
+          'Remove the gnocchi and set aside',
+          'Melt the butter over medium heat and add in the garlic and red pepper flakes, cooking for just a minute',
+          'Add in the tomatoes and 2 tablespoons of water, stirring occasionally',
+          'Preheat the broiler',
+          'Once the tomatoes have softened, smash the tomatoes to help them burst completely',
+          'Add back in the gnocchi, along with the basil, salt, and pepper',
+          'Mix and arrange the gnocchi in a fairly even layer',
+          'Top with mozzarella and broil until melted and browned'
         ]
       },
       lasagna: {
@@ -260,6 +316,34 @@ export const CATEGORIES: RecipeCategory[] = [
             'Repeat the steps two more times, until all of the pierogi have been fried'
           ]
         }
+      },
+      'pork-bulgogi': {
+        name: 'Pork Bulgogi',
+        source: 'Serious Eats',
+        serves: 4,
+        ingredients: [
+          '⅓ cup soy sauce',
+          '3 tablespoons sugar',
+          '1 tablespoon toasted sesame oil',
+          '4 cloves garlic, grated',
+          '2 teaspoons grated ginger',
+          '1½ tablespoons corn starch (for tenderizing)',
+          '1½ pounds pork tenderloin, thinly sliced',
+          '1 small onion, thinly sliced',
+          '4 scallions, sliced into 2-inch long pieces, whites and greens separated',
+          'Neutral oil',
+          'White rice',
+          'Optional toppings: sesame seeds, pickled radishes, sautéed cabbage, lime, cilantro'
+        ],
+        directions: [
+          'Combine the soy sauce, sugar, sesame oil, garlic, ginger, and corn starch to make the marinade',
+          'Marinade the pork, onions, and scallion whites for at least a few hours, until ready to cook',
+          'In a cast iron pan, heat a tablespoon of oil on medium-high heat',
+          'Add some of the marinated pork, onions, and scallion whites in a single layer, avoiding over-crowding the pan',
+          'Cook for a minute or two on each side until done and browned',
+          'Repeat in batches with remaining ingredients',
+          'Top with scallion greens and serve over rice with optional toppings'
+        ]
       },
       'southwest-burgers': {
         name: 'Southwest Burgers',
@@ -531,33 +615,6 @@ export const CATEGORIES: RecipeCategory[] = [
             'Let cool completely before storing'
           ]
         }
-      },
-      'banana-nut-bars': {
-        name: 'Banana Nut Bars',
-        makes: 15,
-        ingredients: [
-          '4 ripe bananas',
-          '3 tablespoons peanut butter',
-          '½ tablespoon vanilla',
-          '¾ cup brown sugar',
-          '1 teaspoon cinnamon',
-          '¼ cup coconut oil',
-          '¼ cup whole milk',
-          '2 large eggs, beaten',
-          '½ cup walnuts, finely chopped',
-          '¾ cup mini chocolate chips',
-          '1 teaspoon baking soda',
-          '½ teaspoon salt',
-          '1½ cups flour'
-        ],
-        directions: [
-          'Preheat the oven to 350° and grease a jelly roll pan',
-          'Mash bananas and mix in peanut butter, vanilla, sugar, cinnamon, oil, milk, and eggs',
-          'Mix in nuts, and chocolate chips. The mixture should still be very wet',
-          'Combine baking soda, salt, and flour',
-          'Add dry ingredients into the wet mixture and spread evenly in the pan',
-          'Bake until cooked through, about 20 minutes'
-        ]
       },
       'fruit-cocktail-cake': {
         name: 'Fruit Cocktail Cake',
