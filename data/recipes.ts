@@ -374,14 +374,14 @@ export const CATEGORIES: RecipeCategory[] = [
         name: 'Tortilla Española',
         serves: 6,
         ingredients: [
-          '1½ cups canola oil',
-          '3 large russet potatoes, peeled and very thinly sliced',
-          '1 spanish onion, thinly sliced',
-          '4 large eggs',
+          '1 cup olive oil',
+          '3 large yukon gold potatoes, peeled and very thinly sliced',
+          '1 yellow onion, thinly sliced',
+          '4-6 large eggs, depending on potato size',
           'Salt and pepper, to taste'
         ],
         directions: [
-          'In a 9" nonstick pan, heat the oil over medium heat',
+          'In a 9" nonstick pan, heat the oil over medium heat. Only use cast iron if it is very well seasoned',
           'Add the potatoes and onions and cook until the potatoes are tender, flipping occasionally, about 10-15 minutes',
           'Meanwhile, beat the eggs and season with salt and pepper',
           'Strain off the oil and put the potatoes and onions in a separate bowl',
