@@ -2,9 +2,11 @@ export type RecipeSection = string[] | { [key: string]: string[] };
 
 export type Recipe = {
   name: string;
-  serves?: number;
-  makes?: number | string;
-  source?: string;
+  portion: {
+    verb: 'serves' | 'makes';
+    quantity: number;
+    units?: string;
+  };
   ingredients: RecipeSection;
   directions: RecipeSection;
 };
@@ -20,9 +22,45 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Entrées',
     recipes: {
+      'beef-leek-soup': {
+        name: 'Beef & Leek Soup',
+        portion: {
+          verb: 'serves',
+          quantity: 6
+        },
+        ingredients: [
+          'Olive oil',
+          'Salt and pepper',
+          '½ pound carrots, diced (about 3 large carrots)',
+          '½ pound celery, diced (about 1 heart)',
+          '1 pound leeks, cut lengthwise and thinly sliced (about 4 trimmed leeks)',
+          '6 cloves garlic, minced',
+          '1 pound 80/20 ground beef (or lamb)',
+          '2 tablespoons flour',
+          '6 cups beef stock',
+          '3 tablespoons fish sauce',
+          '1 tablespoon dried thyme',
+          "1 cup Trader Joe's Harvest Blend (couscous, orzo, quinoa blend)"
+        ],
+        directions: [
+          'In a large dutch oven, sauté the carrots, celery, and leeks on medium-low heat with plenty of oil, salt, and pepper',
+          'Once the veggies have softened and the leeks have significantly cooked down, add in the garlic and cook until fragrant',
+          'Remove the veggies from the dutch oven and set aside',
+          'On medium-high heat, brown the ground beef and chop it up into very small bits',
+          'Once the beef has browned, add in the flour and mix well',
+          'Add the veggies back along with a little stock to deglaze the dutch oven',
+          'Add the stock, fish sauce, and thyme and bring to a boil',
+          'Once boiling, add in the Harvest Blend, reduce to a simmer, and cover',
+          'Cook until the grain blend is done, then remove from heat and let sit for 15 minutes to thicken',
+          'Serve with bread'
+        ]
+      },
       'chicken-veggie-burritos': {
         name: 'Chicken & Veggie Burritos',
-        serves: 6,
+        portion: {
+          verb: 'makes',
+          quantity: 10
+        },
         ingredients: [
           'Olive oil',
           '2 zucchini, diced',
@@ -53,7 +91,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'chicken-rice-soup': {
         name: 'Chicken & Wild Rice Stew',
-        serves: 8,
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
         ingredients: [
           '3 tablespoons olive oil',
           '3 pounds boneless, skinless chicken breast',
@@ -87,64 +128,12 @@ export const CATEGORIES: RecipeCategory[] = [
           'Remove from the heat, mix in the cream, and season as needed'
         ]
       },
-      'chicken-tortilla-soup': {
-        name: 'Chicken Tortilla Soup',
-        serves: 6,
-        ingredients: [
-          '1 large onion, diced',
-          '2 cloves garlic, minced',
-          '2 tablespoons canola oil',
-          '2 serrano peppers, seeded and diced',
-          '14.5-ounce can corn, drained',
-          '14.5-ounce can black beans, rinsed',
-          '14.5-ounce can fire roasted-tomatoes',
-          '16-ounce jar chunky salsa',
-          '1 rotisserie chicken, pulled',
-          '5 cups chicken broth',
-          'Juice and zest from 1 lime',
-          '1 cup cilantro, chopped',
-          'Tortilla chips'
-        ],
-        directions: [
-          'In a large pot, sauté the onion and garlic in the canola oil until onions are tender',
-          'Add in serrano peppers and cook for a couple minutes',
-          'Add in corn, beans, tomatoes, salsa, chicken and broth',
-          'Bring to a boil and simmer, covered, for 30 minutes',
-          'Add in lime juice, zest, and cilantro',
-          'Serve over tortilla chips'
-        ]
-      },
-      'coors-chili': {
-        name: 'Coors Chili',
-        source: 'Coors',
-        serves: 4,
-        ingredients: [
-          '1 pound ground beef',
-          '14.5-ounce can pinto beans, rinsed',
-          '12-ounce can beer, lager or similar',
-          '1 tablespoon chili powder',
-          '1 teaspoon oregano',
-          '½ tablespoon cumin',
-          '½ teaspoon salt',
-          '¼ teaspoon cayenne pepper',
-          '1 teaspoon worcestershire',
-          '1 tablespoon masa harina or cornmeal',
-          'Elbow noodles',
-          'Shredded cheddar cheese',
-          'Tabasco'
-        ],
-        directions: [
-          'In a heavy bottomed skillet or pot, brown the beef',
-          'Add beans, beer, spices, and worcestershire and bring to boil',
-          'Simmer, covered, for 45 minutes',
-          'Combine the masa harina with ¼ cup of water, and add to chili',
-          'Continue simmering for another 15 minutes',
-          'Serve over elbows with cheese and tabasco'
-        ]
-      },
       'crab-cakes': {
         name: 'Crab Cakes',
-        serves: 3,
+        portion: {
+          verb: 'makes',
+          quantity: 6
+        },
         ingredients: [
           '1 pound lump crab meat',
           '1 small green pepper, finely diced',
@@ -168,8 +157,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'cranberry-turkey-burgers': {
         name: 'Cranberry Bog Turkey Burgers',
-        makes: 4,
-        source: 'Rachael Ray',
+        portion: {
+          verb: 'makes',
+          quantity: 4
+        },
         ingredients: [
           '1 pound ground turkey',
           '1 small apple, finely diced',
@@ -188,33 +179,12 @@ export const CATEGORIES: RecipeCategory[] = [
           'Serve burgers on english muffins, topped with lettuce and cranberry mayo'
         ]
       },
-      'fennel-burrata-pasta': {
-        name: 'Fennel & Burrata Pasta',
-        serves: 4,
-        source: 'NYT Cooking',
-        ingredients: [
-          '¾ cup olive oil',
-          '3 cups fennel, thinly sliced (about 1 large bulb, or 2-3 smaller ones)',
-          '1 large onion, diced',
-          '1 head garlic, thinly sliced',
-          '1 teaspoon red pepper flakes',
-          '1 pound rotini, or similar pasta',
-          '8 ounces burrata',
-          'Salt and pepper, to taste'
-        ],
-        directions: [
-          'In a small pot, heat the olive oil over medium-low heat',
-          'Add in the fennel, onion, garlic, and red pepper flakes',
-          'Cook until the fennel and onions are very tender, about 25 minutes',
-          'Cook the pasta, strain, and return to the pot',
-          'Mix the oil and vegetable mixture into the pasta, and season with salt and pepper',
-          'Serve the pasta in 4 bowls, each topped with 2 ounces of burrata'
-        ]
-      },
       gnocchi: {
         name: 'Gnocchi with Burst Tomatoes & Mozzarella',
-        source: 'NYT Cooking',
-        serves: 3,
+        portion: {
+          verb: 'serves',
+          quantity: 3
+        },
         ingredients: [
           'Olive oil',
           '18-ounce package non-frozen gnocchi',
@@ -241,7 +211,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       lasagna: {
         name: 'Lasagna',
-        serves: 8,
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
         ingredients: [
           '1 large eggplant, sliced into ¼-inch rounds',
           'Olive oil',
@@ -272,7 +245,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       pierogi: {
         name: 'Potato & Cheese Pierogi',
-        makes: 36,
+        portion: {
+          verb: 'makes',
+          quantity: 36
+        },
         ingredients: {
           Dough: ['2 cups flour', '½ teaspoon salt', '2 tablespoons butter', '½ cup water', '1 large egg'],
           Filling: [
@@ -319,8 +295,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'pork-bulgogi': {
         name: 'Pork Bulgogi',
-        source: 'Serious Eats',
-        serves: 4,
+        portion: {
+          verb: 'serves',
+          quantity: 4
+        },
         ingredients: [
           '⅓ cup soy sauce',
           '3 tablespoons sugar',
@@ -347,7 +325,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'southwest-burgers': {
         name: 'Southwest Burgers',
-        makes: 4,
+        portion: {
+          verb: 'makes',
+          quantity: 4
+        },
         ingredients: [
           '1 large onion, sliced',
           '2 tablespoons canola oil',
@@ -372,7 +353,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'tortilla-espanola': {
         name: 'Tortilla Española',
-        serves: 6,
+        portion: {
+          verb: 'serves',
+          quantity: 6
+        },
         ingredients: [
           '1 cup olive oil',
           '3 large yukon gold potatoes, peeled and very thinly sliced',
@@ -397,7 +381,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'white-chicken-chili': {
         name: 'White Chicken Chili',
-        serves: 8,
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
         ingredients: [
           '1 large onion, diced',
           '2 cloves garlic, minced',
@@ -438,8 +425,10 @@ export const CATEGORIES: RecipeCategory[] = [
     recipes: {
       cornbread: {
         name: 'Cheesy Jalapeño Cornbread',
-        serves: 10,
-        source: 'Hillstone Restaurant Group',
+        portion: {
+          verb: 'serves',
+          quantity: 10
+        },
         ingredients: [
           '¾ cup butter, softened',
           '½ cup sugar',
@@ -465,7 +454,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'corn-salad': {
         name: 'Corn Salad',
-        serves: 8,
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
         ingredients: [
           '8 ears of corn (or 6 cups frozen corn)',
           '½ cup mayo',
@@ -485,7 +477,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'mashed-potatoes': {
         name: 'Roasted Garlic Mashed Potatoes',
-        serves: 10,
+        portion: {
+          verb: 'serves',
+          quantity: 10
+        },
         ingredients: [
           '2 heads garlic',
           '4 tablespoons olive oil',
@@ -510,7 +505,11 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'serrano-pineapple-hot-sauce': {
         name: 'Serrano & Pineapple Hot Sauce',
-        makes: '12 oz',
+        portion: {
+          verb: 'makes',
+          quantity: 12,
+          units: 'oz'
+        },
         ingredients: [
           '½ pound serrano peppers, de-stemmed',
           '1 cup chopped pineapple (200g)',
@@ -527,7 +526,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'spinach-artichoke-dip': {
         name: 'Spinach & Artichoke Dip',
-        serves: 12,
+        portion: {
+          verb: 'serves',
+          quantity: 12
+        },
         ingredients: [
           '1 large onion, diced',
           '3 cloves garlic, minced',
@@ -555,70 +557,30 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Desserts',
     recipes: {
-      'apple-turnovers': {
-        name: 'Apple Turnovers',
-        makes: 8,
+      'cinnamon-hot-chocolate': {
+        name: 'Cinnamon Hot Chocolate Mix',
+        portion: {
+          verb: 'makes',
+          quantity: 8,
+          units: 'mugs'
+        },
         ingredients: [
-          '4 medium granny smith apples, diced',
-          '2 tablespoons butter',
-          '⅓ cup packed brown sugar',
-          '1 teaspoon cinnamon',
-          'Pinch of nutmeg',
-          'Pinch of clove',
-          '2 teaspoons cornstarch',
-          '1 box (2 sheets) puff pastry, thawed',
-          '1 egg + 1 tablespoon water, beaten',
-          'Sugar'
+          '¾ cups cocoa powder',
+          '¾ cups granulated sugar',
+          '1 tablespoon cinnamon',
+          '¼ teaspoon kosher salt'
         ],
         directions: [
-          'Add the apples, butter, and brown sugar, and spices to a pot and cook over medium-low heat until the apples are tender',
-          'Add the cornstarch and cook until the mixture is thick, just a few minutes',
-          'Preheat the oven to 400° and line a cookie sheet with parchment paper',
-          'Unfold the pastry sheets and roll them out until they are about 9" squares',
-          'Cut them into 4 even squares each, 8 total',
-          'Split the filling among the 8 pastry squares',
-          'Brush a little egg wash along the edges of each square, fold, and pinch with a fork to seal',
-          'Brush a little more egg wash on the tops of each turnover, and sprinkle a pinch of sugar on top',
-          'Bake an inch apart until lightly brown, about 17-20 minutes'
+          'Combine all of the ingredients and mix extremely well',
+          'To serve, combine 3 tablespoons of mix with 12 ounces of hot milk'
         ]
-      },
-      baklava: {
-        name: 'Baklava',
-        makes: 24,
-        source: 'NEONWILLIE (allrecipes)',
-        ingredients: {
-          Filling: ['6 ounces shelled pistachios', '10 ounces walnuts', '1 tablespoon cinnamon', '¼ cup sugar'],
-          Pastry: ['¾ cup butter, melted', '1-pound package phyllo dough, thawed'],
-          Syrup: ['¾ cup water', '½ cup sugar', '½ cup honey']
-        },
-        directions: {
-          Filling: ['Using a food processor, roughly chop the nuts', 'Mix in the cinnamon and sugar, and set aside'],
-          Pastry: [
-            'Preheat the oven to 350°',
-            'Lightly brush the bottom and sides of a 9" x 13" pan with butter',
-            'Carefully unroll the phyllo dough and keep it covered with a damp towel while assembling the pastry',
-            'Place two layers of phyllo in the pan, and brush the top with butter',
-            'Repeat this until almost half of the phyllo is used',
-            'Sprinkle half of the filling over the top layer',
-            'Using about 20% of the remaining phyllo, repeat the dough/butter layers',
-            'Sprinkle the remaining filling over the top layer',
-            'Repeat the dough/butter layers until all of the dough is used',
-            'Cut the baklava into 24 even pieces, making sure to cut all the way through',
-            'Bake for about 45 minutes, until the pastry is crisp and cooked through'
-          ],
-          Syrup: [
-            'Mix the water and sugar in a small pot and heat until dissolved',
-            'Add in honey and bring to boil',
-            'Reduce to simmer and stir occasionally until the mixture is hot and well combined, about 15 minutes',
-            'Remove from heat until the pastry is done',
-            'Remove the pastry from the oven and immediately pour the syrup over the baklava',
-            'Let cool completely before storing'
-          ]
-        }
       },
       'fruit-cocktail-cake': {
         name: 'Fruit Cocktail Cake',
-        serves: 9,
+        portion: {
+          verb: 'serves',
+          quantity: 9
+        },
         ingredients: [
           '½ cup butter, softened',
           '¼ cup sugar',
@@ -643,7 +605,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'lemon-shortbread-thumbprint-cookies': {
         name: 'Lemon Shortbread Thumbprint Cookies',
-        makes: 30,
+        portion: {
+          verb: 'makes',
+          quantity: 30
+        },
         ingredients: {
           Dough: [
             '1 cup butter, softened',
@@ -688,7 +653,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'rhubarb-pie': {
         name: 'Rhubarb Pie',
-        serves: 8,
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
         ingredients: {
           Crust: [
             '160 grams flour',
@@ -717,6 +685,8 @@ export const CATEGORIES: RecipeCategory[] = [
             'Lightly grease a 9¼" pie pan',
             'Mix the flour and sugar',
             'Roll out the pie crust and press it into the pan',
+            'Mix the flour and sugar',
+            'Roll out the pie crust and press it into the pan',
             'Sprinkle about ½ cup of the mixture into the pie crust',
             'Add in the rhubarb',
             'Sprinkle the remaining mixture overtop the rhubarb and shake the pie to get the contents to settle',
@@ -729,8 +699,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'spiced-chocolate-cookies': {
         name: 'Spiced Chocolate Cookies',
-        makes: 24,
-        source: 'Nealey Dozier',
+        portion: {
+          verb: 'makes',
+          quantity: 24
+        },
         ingredients: [
           '½ cup butter',
           '4 ounces unsweetened chocolate',
@@ -759,7 +731,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       'oatmeal-cookies': {
         name: 'Oatmeal Apple Chip Cookies',
-        makes: 30,
+        portion: {
+          verb: 'makes',
+          quantity: 30
+        },
         ingredients: [
           '1 cup butter, softened',
           '1 cup brown sugar',
@@ -787,8 +762,10 @@ export const CATEGORIES: RecipeCategory[] = [
       },
       snickerdoodles: {
         name: 'Snickerdoodles',
-        makes: 24,
-        source: 'Modern Honey',
+        portion: {
+          verb: 'makes',
+          quantity: 24
+        },
         ingredients: {
           Dough: [
             '1 cup butter, softened',

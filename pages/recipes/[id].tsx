@@ -8,7 +8,7 @@ type RecipePageProps = {
 };
 
 const RecipePage = ({ recipe }: RecipePageProps) => {
-  const { name, serves, makes, source, ingredients, directions } = recipe;
+  const { name, portion, ingredients, directions } = recipe;
 
   const renderListSection = (section: RecipeSection, ordered: boolean) => {
     const List = ordered ? 'ol' : 'ul';
@@ -35,14 +35,13 @@ const RecipePage = ({ recipe }: RecipePageProps) => {
   const ingredientsSection = renderListSection(ingredients, false);
   const directionsSection = renderListSection(directions, true);
 
-  const portion = serves ? `Serves ${serves}` : `Makes ${makes}`;
-  const headingInfo = source ? `${portion} ~ Credit to ${source}` : portion;
+  const portionInfo = `${portion.verb} ${portion.quantity}${portion.units ? ' ' + portion.units : ''}`;
 
   return (
     <div className={styles.container}>
       <div className={styles.heading}>
         <h1>{name}</h1>
-        <span>{headingInfo}</span>
+        <span>{portionInfo}</span>
       </div>
       <div className={styles.columns}>
         <div>
