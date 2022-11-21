@@ -1,14 +1,12 @@
 @import 'shared';
 
-$less-padding: 16px;
-$more-padding: 24px;
 $content-height: 32px;
 
 .navBar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: $less-padding $more-padding;
+  padding: $space-16 $space-24;
   background-color: $navbar-color;
 }
 
@@ -30,7 +28,7 @@ $content-height: 32px;
 }
 
 .icon {
-  margin-left: $less-padding;
+  margin-left: $space-16;
   height: inherit;
 
   @extend %transparent-interaction;
@@ -43,7 +41,7 @@ $content-height: 32px;
 .pageContainer {
   overflow-x: hidden;
   box-sizing: border-box;
-  padding: $outer-spacing;
+  padding: $space-48;
   height: calc(100% - #{$navbar-height});
 }
 
@@ -56,6 +54,6 @@ $content-height: 32px;
 
 @media only screen and (max-width: $screen-width-extra-narrow-max) {
   .pageContainer {
-    padding: $inner-spacing;
+    padding: $space-24;
   }
 }

@@ -6,8 +6,8 @@
 
 .heading {
   position: relative;
-  margin-bottom: $inner-spacing;
-  padding: $inner-spacing;
+  margin-bottom: $space-24;
+  padding: $space-24;
   background-color: $gold;
   color: $text-color-dark;
   text-align: center;
@@ -22,14 +22,14 @@
 
   div {
     position: relative;
-    padding: $inner-spacing;
+    padding: $space-24;
     color: $text-color-light;
 
     &:first-of-type {
       flex: 2;
-      margin-right: $inner-spacing;
-      border-top-right-radius: $inner-spacing;
-      border-bottom-right-radius: $inner-spacing;
+      margin-right: $space-24;
+      border-top-right-radius: $space-24;
+      border-bottom-right-radius: $space-24;
       background-color: $royal;
 
       @extend %extends-left;
@@ -37,21 +37,21 @@
 
     &:last-of-type {
       flex: 3;
-      border-top-left-radius: $inner-spacing;
-      border-bottom-left-radius: $inner-spacing;
+      border-top-left-radius: $space-24;
+      border-bottom-left-radius: $space-24;
       background-color: $rust;
 
       @extend %extends-right;
     }
 
     h2 {
-      margin-bottom: $less-spacing;
+      margin-bottom: $space-16;
       text-align: center;
     }
 
     ul,
     ol {
-      margin: 0.5rem 0;
+      margin: $space-8 0;
       line-height: 1.5rem;
     }
   }
@@ -62,7 +62,7 @@
     flex-direction: column;
 
     div:first-of-type {
-      margin-bottom: $inner-spacing;
+      margin-bottom: $space-24;
     }
   }
 }

@@ -1,6 +1,6 @@
 @import 'shared';
 
-$current-clue-height: 1.5rem;
+$current-clue-height: 24px;
 $border-size: 2px;
 
 .container {
@@ -12,7 +12,7 @@ $border-size: 2px;
 
 .crosswordContainer {
   flex: 3;
-  margin-right: $inner-spacing;
+  margin-right: $space-24;
 }
 
 .currentClue {
@@ -53,8 +53,8 @@ $border-size: 2px;
 }
 
 .clueDecoration {
-  font-weight: 600;
-  font-size: 0.4rem;
+  font-weight: bold;
+  font-size: 8px; // Gets scaled with the svg
 }
 
 .clues {
@@ -70,12 +70,12 @@ $border-size: 2px;
   flex-direction: column;
 
   &:first-of-type {
-    margin-right: $inner-spacing;
+    margin-right: $space-24;
   }
 
   h1 {
     color: $magenta;
-    font-size: 1.25rem;
+    font-size: $size-20;
   }
 }
 
@@ -93,10 +93,10 @@ $border-size: 2px;
 
 .clue {
   box-sizing: border-box;
-  padding: 4px 8px;
+  padding: $space-4 $space-8;
   background-color: $navbar-color;
   color: $text-color-light;
-  font-size: 0.875rem;
+  font-size: $size-14;
   cursor: pointer;
 
   user-select: none;
@@ -108,14 +108,6 @@ $border-size: 2px;
   &.current {
     background-color: $rust;
   }
-}
-
-.hiddenInput {
-  margin: 0;
-  padding: 0;
-  height: 0;
-  border: none;
-  font-size: 24px; // Prevent mobile browser auto zoom
 }
 
 @media only screen and (max-width: $screen-width-extra-narrow-max) {
@@ -136,8 +128,8 @@ $border-size: 2px;
     text-align: center;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 0.875rem;
-    line-height: calc(#{$current-clue-height} - #{$border-size});
+    font-size: $size-14;
+    line-height: calc($current-clue-height - $border-size);
   }
 
   .crossword {
