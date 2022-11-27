@@ -2,6 +2,7 @@ import React from 'react';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import styles from 'styles/recipe.module.scss';
 import { Recipe, RecipeSection, ALL_RECIPES, getRecipe } from 'data/recipes';
+import classNames from 'utils/classNames';
 
 type RecipePageProps = {
   recipe: Recipe;
@@ -41,16 +42,16 @@ const RecipePage = ({ recipe }: RecipePageProps) => {
     <div className={styles.container}>
       <div className={styles.heading}>
         <h1>{name}</h1>
-        <span>{portionInfo}</span>
+        <div className={styles.portion}>{portionInfo}</div>
       </div>
-      <div className={styles.columns}>
-        <div>
+      <div className={styles.rows}>
+        <div className={styles.row}>
           <h2>Ingredients</h2>
-          {ingredientsSection}
+          <div className={classNames([styles.textContainer, styles.ingredients])}>{ingredientsSection}</div>
         </div>
-        <div>
+        <div className={styles.row}>
           <h2>Directions</h2>
-          {directionsSection}
+          <div className={classNames([styles.textContainer, styles.directions])}>{directionsSection}</div>
         </div>
       </div>
     </div>
