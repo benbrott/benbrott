@@ -1,19 +1,18 @@
 @import 'shared';
 
 $border-size: 4px;
-$double-border-size: 8px;
 
 .durationContainer {
-  margin-bottom: $inner-spacing;
+  margin-bottom: $space-24;
   color: $text-color-light;
-  font-size: 1.25rem;
+  font-size: $size-20;
 }
 
 .grid {
   display: grid;
 
   grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-  grid-gap: $less-spacing;
+  grid-gap: $space-16;
 }
 
 .album {
@@ -70,10 +69,10 @@ $double-border-size: 8px;
   &:hover,
   &:focus,
   &.open {
-    top: calc(-0.5 * #{$less-spacing});
-    left: calc(-0.5 * #{$less-spacing});
-    width: calc(100% + #{$less-spacing});
-    height: calc(100% + #{$less-spacing});
+    top: calc(-0.5 * #{$space-16});
+    left: calc(-0.5 * #{$space-16});
+    width: calc(100% + #{$space-16});
+    height: calc(100% + #{$space-16});
   }
 }
 
@@ -86,11 +85,11 @@ $double-border-size: 8px;
 
   span {
     display: table;
-    padding: $double-border-size $border-size;
-    border-radius: $border-size;
+    padding: $space-8 $space-4;
+    border-radius: 4px;
 
     &:first-child {
-      margin-left: $double-border-size;
+      margin-left: $space-8;
     }
   }
 }

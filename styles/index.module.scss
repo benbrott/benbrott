@@ -20,29 +20,29 @@
 }
 
 .textSection {
-  margin-right: $outer-spacing;
+  margin-right: $space-48;
   color: $text-color-light;
 
   p {
     margin: 0;
-    font-size: 1.25rem;
-    line-height: 2.5rem;
+    font-size: $size-20;
+    line-height: 2;
   }
 
   div {
     position: relative;
     display: inline-block;
-    padding: $inner-spacing;
+    padding: $space-24;
 
     &:first-of-type {
-      border-top-left-radius: $inner-spacing;
+      border-top-left-radius: $space-24;
       background-color: $rust;
 
       @extend %extends-right;
     }
 
     &:last-of-type {
-      border-bottom-right-radius: $inner-spacing;
+      border-bottom-right-radius: $space-24;
       background-color: $royal;
 
       @extend %extends-left;
@@ -53,14 +53,16 @@
 .photoSection {
   position: relative;
   margin: 0 auto;
-  padding-top: $inner-spacing;
+  padding-top: $space-24;
 }
 
 .imageContainer {
   position: relative;
   overflow: hidden;
-  width: Min(300px, calc(100vw - 2 * #{$inner-spacing})); // uppercase functions to use CSS versions rather than SASS
-  height: Min(300px, calc(100vw - 2 * #{$inner-spacing}));
+  box-sizing: border-box;
+  width: Min(300px, calc(100vw - 2 * $space-24)); // uppercase functions to use CSS versions rather than SASS
+  height: Min(300px, calc(100vw - 2 * $space-24));
+  border: 4px solid $background-color;
   border-radius: 100%;
 
   img {
@@ -74,20 +76,20 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin: -4rem auto 0 auto;
-  padding: 5rem $less-spacing $less-spacing $less-spacing;
+  margin: -$space-64 auto 0 auto;
+  padding: $space-80 $space-16 $space-16 $space-16;
   width: max-content;
-  border-radius: $inner-spacing;
+  border-radius: 24px;
   background-color: $magenta;
 
   a {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 24px;
+    height: 24px;
 
     @extend %transparent-interaction;
 
     &:not(:last-of-type) {
-      margin-right: 1rem;
+      margin-right: $space-16;
     }
 
     svg {
@@ -110,7 +112,7 @@
   }
 
   .textSection {
-    margin-top: $inner-spacing;
+    margin-top: $space-24;
     margin-right: 0;
   }
 }

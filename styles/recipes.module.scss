@@ -1,7 +1,5 @@
 @import 'shared';
 
-$hover-triangle-size: 8px;
-
 .container {
   @extend %content-container;
 }
@@ -10,13 +8,13 @@ $hover-triangle-size: 8px;
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: $inner-spacing $outer-spacing;
-  border-radius: $inner-spacing;
+  padding: $space-24 $space-48;
+  border-radius: $space-24;
   background-color: $royal;
   color: $royal;
 
   &:not(:last-of-type) {
-    margin-bottom: $inner-spacing;
+    margin-bottom: $space-24;
   }
 
   &:first-of-type {
@@ -46,8 +44,7 @@ $hover-triangle-size: 8px;
   h1 {
     height: min-content;
     color: $gold;
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: $size-64;
 
     user-select: none;
   }
@@ -56,7 +53,7 @@ $hover-triangle-size: 8px;
     position: relative;
     flex: 1;
     background-image: url(/goldCircle.svg);
-    background-size: 3rem;
+    background-size: 48px;
     background-repeat: repeat;
 
     &::after {
@@ -73,15 +70,15 @@ $hover-triangle-size: 8px;
 }
 
 .recipeSection {
-  margin-left: $less-spacing;
+  margin-left: $space-16;
 
   a {
     display: block;
-    margin-bottom: $less-spacing;
+    margin-bottom: $space-16;
     color: $text-color-light;
     text-align: end;
     text-decoration: none;
-    font-size: 1.25rem;
+    font-size: $size-20;
 
     @extend %transparent-interaction;
   }
@@ -105,13 +102,12 @@ $hover-triangle-size: 8px;
 @media only screen and (max-width: $screen-width-tiny-max) {
   .categoryContainer {
     flex-direction: column;
-    padding: $inner-spacing;
+    padding: $space-24;
   }
 
   .categorySection {
     h1 {
-      font-size: 2rem;
-      line-height: 2rem;
+      font-size: $size-32;
     }
 
     .dots {
@@ -120,7 +116,7 @@ $hover-triangle-size: 8px;
   }
 
   .recipeSection {
-    margin-top: $less-spacing;
+    margin-top: $space-16;
     margin-left: 0;
     a {
       text-align: start;

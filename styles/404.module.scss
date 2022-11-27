@@ -12,13 +12,13 @@
     flex-direction: column;
     justify-content: center;
     box-sizing: border-box;
-    padding: $inner-spacing;
+    padding: $space-24;
     height: 100%;
 
     &:last-of-type {
       align-items: flex-start;
       flex: 2;
-      border-radius: $inner-spacing;
+      border-radius: $space-24;
       background-color: $rust;
     }
   }

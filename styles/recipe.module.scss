@@ -5,64 +5,108 @@
 }
 
 .heading {
-  position: relative;
-  margin-bottom: $inner-spacing;
-  padding: $inner-spacing;
-  background-color: $gold;
-  color: $text-color-dark;
-  text-align: center;
+  margin-bottom: $space-24;
+  color: $gold;
+  font-family: $font-family-heading;
 
-  @extend %extends-left;
-  @extend %extends-right;
-}
+  h1 {
+    font-size: $size-64;
+    line-height: 1;
+  }
 
-.columns {
-  display: flex;
-  flex-direction: row;
-
-  div {
-    position: relative;
-    padding: $inner-spacing;
-    color: $text-color-light;
-
-    &:first-of-type {
-      flex: 2;
-      margin-right: $inner-spacing;
-      border-top-right-radius: $inner-spacing;
-      border-bottom-right-radius: $inner-spacing;
-      background-color: $royal;
-
-      @extend %extends-left;
-    }
-
-    &:last-of-type {
-      flex: 3;
-      border-top-left-radius: $inner-spacing;
-      border-bottom-left-radius: $inner-spacing;
-      background-color: $rust;
-
-      @extend %extends-right;
-    }
-
-    h2 {
-      margin-bottom: $less-spacing;
-      text-align: center;
-    }
-
-    ul,
-    ol {
-      margin: 0.5rem 0;
-      line-height: 1.5rem;
-    }
+  .portion {
+    font-size: $size-32;
   }
 }
 
-@media only screen and (max-width: $screen-width-extra-narrow-max) {
-  .columns {
+.rows {
+  display: flex;
+  flex-direction: column;
+
+  row-gap: $space-24;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  color: $text-color-light;
+
+  gap: $space-24;
+
+  h2 {
+    padding: $space-4 0;
+    text-align: end;
+    font-size: $size-32;
+    line-height: 1;
+
+    writing-mode: vertical-lr;
+    rotate: 180deg;
+  }
+}
+
+.textContainer {
+  flex: 1;
+  padding: $space-24;
+  border-radius: 24px;
+
+  &.ingredients {
+    background-color: $royal;
+
+    ul {
+      columns: 3;
+      column-gap: $space-32;
+    }
+  }
+
+  &.directions {
+    background-color: $rust;
+  }
+
+  h3 {
+    margin-bottom: $space-8;
+    font-size: $size-24;
+    line-height: 1;
+
+    &:not(:first-of-type) {
+      margin-top: $space-24;
+    }
+  }
+
+  ol,
+  ul {
+    margin: 0;
+    font-size: $size-20;
+    line-height: 1.5;
+
+    padding-inline-start: $space-32;
+  }
+}
+
+@media only screen and (min-width: $screen-width-narrow-min) and (max-width: $screen-width-narrow-max) {
+  .textContainer.ingredients ul {
+    columns: 2;
+  }
+}
+
+@media only screen and (min-width: $screen-width-extra-narrow-min) and (max-width: $screen-width-extra-narrow-max) {
+  .textContainer.ingredients ul {
+    columns: 1;
+  }
+}
+
+@media only screen and (max-width: $screen-width-tiny-max) {
+  .row {
     flex-direction: column;
 
-    div:first-of-type {
-      margin-bottom: $inner-spacing;
+    h2 {
+      text-align: center;
+
+      writing-mode: unset;
+      rotate: none;
     }
+  }
+
+  .textContainer.ingredients ul {
+    columns: 1;
   }
 }
