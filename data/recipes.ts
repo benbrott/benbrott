@@ -55,6 +55,47 @@ export const CATEGORIES: RecipeCategory[] = [
           'Serve with bread'
         ]
       },
+      'butternut-squash-mac': {
+        name: 'Butternut Squash Mac & Cheese',
+        portion: {
+          verb: 'serves',
+          quantity: 6
+        },
+        ingredients: [
+          '1 pound butternut squash, cubed (dice size)',
+          'Olive oil',
+          '½ teaspoon cinnamon',
+          '½ teaspoon smoked paprika',
+          '½ teaspoon dried thyme',
+          '½ teaspoon dried rosemary',
+          '¼ teaspoon nutmeg',
+          '¼ teaspoon red pepper flakes',
+          'Couple dashes of ground cloves',
+          'Salt and pepper to taste',
+          '1 cup chicken broth',
+          '4 ounces pancetta, cubed',
+          '1 pound pasta, cavatappi, rigatoni, or a similar size',
+          '1 shallot, minced',
+          '4 cloves garlic, minced',
+          '1 tablespoon butter',
+          '2 tablespoons flour',
+          '2 cups whole milk',
+          '8 ounces gouda and/or cheddar, freshly grated'
+        ],
+        directions: [
+          'Preheat the oven to 400°',
+          'Mix the squash, oil, and spices and roast until very soft, about 20 minutes',
+          'Let the squash cool for at least 10 minutes then blend with the chicken broth to form a thick purée',
+          'In a large pot, sauté the pancetta on medium heat, letting the fat render out',
+          'Meanwhile, cook the pasta and set aside once done',
+          'Once the pancetta is crispy, reduce the heat to low, add in the shallot and garlic, and cook until the shallot is soft',
+          'If there is still a lot of fat from the pancetta, skip the butter - otherwise, add in the butter and let it melt',
+          'Whisk in the flour and slowly add the milk, whisking constantly',
+          'Whisk in the squash purée and bring to a simmer, but not a boil',
+          'Take the pot off of the heat and whisk in the cheese until completely melted',
+          'Stir in the pasta and season with salt and pepper as needed'
+        ]
+      },
       'chicken-veggie-burritos': {
         name: 'Chicken & Veggie Burritos',
         portion: {
@@ -323,6 +364,38 @@ export const CATEGORIES: RecipeCategory[] = [
           'Top with scallion greens and serve over rice with optional toppings'
         ]
       },
+      'sausage-quiche': {
+        name: 'Sausage Quiche',
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
+        ingredients: [
+          '1 pound ground italian sausage',
+          '1 large red bell pepper, diced',
+          '½ yellow onion, diced',
+          '2 cloves garlic, minced',
+          '8 ounces fresh spinach, chopped',
+          '6 large eggs',
+          '1 cup whole milk',
+          '6 ounces gouda, cheddar, or another mild cheese, cubed',
+          'Salt and pepper, to taste (depends on the type of sausage)',
+          '1 pre-baked pie crust'
+        ],
+        directions: [
+          'Preheat the oven to 350°',
+          'On medium-high heat, brown the sausage and break it up into little clumps',
+          'Set aside the sausage in a large bowl and sauté the peppers and onions',
+          'Once the peppers and onions are about done, add in the garlic and cook until fragrant',
+          'Add the cooked peppers and onions to the bowl with the sausage, the cook then spinach',
+          'Once the spinach has fully wilted, press out as much water as possible and add it to the bowl',
+          'Beat together the eggs and milk, and add it to the other ingredients',
+          'Add in the cheese, salt, and pepper, and mix well',
+          'Pour the mixture into the pre-baked pie crust',
+          'Cover the edges of the pie crust with foil to prevent burning',
+          'Bake until the middle has just set, about 1 hour'
+        ]
+      },
       'southwest-burgers': {
         name: 'Southwest Burgers',
         portion: {
@@ -503,27 +576,6 @@ export const CATEGORIES: RecipeCategory[] = [
           'Season to taste and top with chives'
         ]
       },
-      'serrano-pineapple-hot-sauce': {
-        name: 'Serrano & Pineapple Hot Sauce',
-        portion: {
-          verb: 'makes',
-          quantity: 12,
-          units: 'oz'
-        },
-        ingredients: [
-          '½ pound serrano peppers, de-stemmed',
-          '1 cup chopped pineapple (200g)',
-          '3 cloves garlic',
-          'Juice from 1 lime',
-          '2 tablespoons white vinegar',
-          '½ teaspoon kosher salt'
-        ],
-        directions: [
-          'Blend all of the ingredients together until smooth',
-          'Bring the sauce to a boil and then simmer for 10 minutes',
-          'Let the sauce cool before bottling'
-        ]
-      },
       'spinach-artichoke-dip': {
         name: 'Spinach & Artichoke Dip',
         portion: {
@@ -557,24 +609,6 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Desserts',
     recipes: {
-      'cinnamon-hot-chocolate': {
-        name: 'Cinnamon Hot Chocolate Mix',
-        portion: {
-          verb: 'makes',
-          quantity: 8,
-          units: 'mugs'
-        },
-        ingredients: [
-          '¾ cups cocoa powder',
-          '¾ cups granulated sugar',
-          '1 tablespoon cinnamon',
-          '¼ teaspoon kosher salt'
-        ],
-        directions: [
-          'Combine all of the ingredients and mix extremely well',
-          'To serve, combine 3 tablespoons of mix with 12 ounces of hot milk'
-        ]
-      },
       'fruit-cocktail-cake': {
         name: 'Fruit Cocktail Cake',
         portion: {
@@ -657,45 +691,29 @@ export const CATEGORIES: RecipeCategory[] = [
           verb: 'serves',
           quantity: 8
         },
-        ingredients: {
-          Crust: [
-            '160 grams flour',
-            '½ teaspoon salt',
-            '½ cup shortening, chilled',
-            '2 tablespoons butter, chilled and diced',
-            '¼ cup cold water'
-          ],
-          Topping: ['½ cup flour', '½ cup brown sugar', '6 tablespoons butter, softened'],
-          Filling: ['1⅓ cups sugar', '⅓ cup flour', '5 cups chopped rhubarb']
-        },
-        directions: {
-          Crust: [
-            'Mix the flour and salt until well combined',
-            'Cut the shortening and butter into the flour until the mixture resembles small gravel',
-            "Using a rubber spatula, mix in the water a little at a time until the dough comes together, but isn't wet",
-            'Gently fold the dough a few times on a floured surface, form a ball, and press into a thick disc',
-            'Wrap the dough is plastic wrap and refrigerate for at least 2 hours'
-          ],
-          Topping: [
-            'Mix the ingredients together, cutting the butter into the dry ingredients',
-            'Set aside until the pie is ready to bake'
-          ],
-          Filling: [
-            'Preheat the oven to 450°',
-            'Lightly grease a 9¼" pie pan',
-            'Mix the flour and sugar',
-            'Roll out the pie crust and press it into the pan',
-            'Mix the flour and sugar',
-            'Roll out the pie crust and press it into the pan',
-            'Sprinkle about ½ cup of the mixture into the pie crust',
-            'Add in the rhubarb',
-            'Sprinkle the remaining mixture overtop the rhubarb and shake the pie to get the contents to settle',
-            'Cover the pie with the topping mixture',
-            'Bake for 15 minutes',
-            'Reduce the oven temperature to 350° and continue to bake until the rhubarb mixture bubbles, about 35 more minutes',
-            'Let cool a little before cutting and serving'
-          ]
-        }
+        ingredients: [
+          '½ cup + ⅓ cup flour',
+          '½ cup brown sugar',
+          '6 tablespoons butter, softened',
+          '1⅓ cups sugar',
+          '5 cups chopped rhubarb',
+          '1 pie crust'
+        ],
+        directions: [
+          'To make the topping, mix together ½ cup flour and the brown sugar',
+          'Cut the butter into the dry ingredients and set aside',
+          'Preheat the oven to 450°',
+          'Lightly grease a 9¼" pie pan',
+          'Roll out the pie crust and press it into the pan',
+          'Mix the remaining flour and sugar',
+          'Sprinkle about ½ cup of the mixture into the pie crust',
+          'Add in the rhubarb',
+          'Sprinkle the remaining flour & sugar mixture overtop the rhubarb and shake the pie to get the contents to settle',
+          'Cover the pie with the topping mixture',
+          'Bake for 15 minutes',
+          'Reduce the oven temperature to 350° and continue to bake until the rhubarb mixture bubbles, about 35 more minutes',
+          'Let cool before cutting and serving'
+        ]
       },
       'spiced-chocolate-cookies': {
         name: 'Spiced Chocolate Cookies',
@@ -789,6 +807,78 @@ export const CATEGORIES: RecipeCategory[] = [
           'Roll the dough into small balls, about 1 heaping tablespoon each',
           'Coat the balls in the cinnamon-sugar mixture and place on the baking sheets, lightly pressing down in the middle of each',
           'Bake for 10 minutes'
+        ]
+      }
+    }
+  },
+  {
+    category: 'Misc.',
+    recipes: {
+      'cinnamon-hot-chocolate': {
+        name: 'Cinnamon Hot Chocolate Mix',
+        portion: {
+          verb: 'makes',
+          quantity: 8,
+          units: 'mugs'
+        },
+        ingredients: [
+          '¾ cups cocoa powder',
+          '¾ cups granulated sugar',
+          '1 tablespoon cinnamon',
+          '¼ teaspoon kosher salt'
+        ],
+        directions: [
+          'Combine all of the ingredients and mix extremely well',
+          'To serve, combine 3 tablespoons of mix with 12 ounces of hot milk'
+        ]
+      },
+      'pie-crust': {
+        name: 'Pie Crust',
+        portion: {
+          verb: 'makes',
+          quantity: 1,
+          units: '10-inch crust'
+        },
+        ingredients: [
+          '150 grams flour',
+          '¼ teaspoon salt',
+          '10 tablespoons butter, cubed and chilled',
+          '4 tablespoons ice-cold water'
+        ],
+        directions: [
+          'In a food processor, pulse the flour and salt until well combined',
+          'Add in the butter and pulse until the mixture resembles small gravel',
+          '1 tablespoon at a time, add in the water until a dough begins to form but is not too wet',
+          'Gently fold the dough a few times on a floured surface, form a ball, and press into a thick disc',
+          'Wrap the dough is plastic wrap and refrigerate for at least 30 minutes',
+          'For a pre-baked crust, preheat the oven to 425°',
+          'Roll out the crust and press it into a greased pie pan',
+          'Add a layer of parchment paper, followed by pie weights',
+          'Bake the crust for 10 minutes',
+          'Remove the parchment and pie weights and poke holes in the bottom of the crust with a fork',
+          'Bake for another 10 minutes, until the crust is fully cooked',
+          'Trim the excess dough around the rim'
+        ]
+      },
+      'serrano-pineapple-hot-sauce': {
+        name: 'Serrano & Pineapple Hot Sauce',
+        portion: {
+          verb: 'makes',
+          quantity: 12,
+          units: 'oz'
+        },
+        ingredients: [
+          '½ pound serrano peppers, de-stemmed',
+          '1 cup chopped pineapple (200g)',
+          '3 cloves garlic',
+          'Juice from 1 lime',
+          '2 tablespoons white vinegar',
+          '½ teaspoon kosher salt'
+        ],
+        directions: [
+          'Blend all of the ingredients together until smooth',
+          'Bring the sauce to a boil and then simmer for 10 minutes',
+          'Let the sauce cool before bottling'
         ]
       }
     }

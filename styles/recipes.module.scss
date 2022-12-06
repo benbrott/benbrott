@@ -10,14 +10,8 @@
   flex-direction: row;
   padding: $space-24 $space-48;
   border-radius: $space-24;
-  background-color: $royal;
-  color: $royal;
 
-  &:not(:last-of-type) {
-    margin-bottom: $space-24;
-  }
-
-  &:first-of-type {
+  &:nth-child(1) {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     background-color: $rust;
@@ -26,13 +20,27 @@
     @extend %extends-left;
   }
 
-  &:last-of-type {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
+  &:nth-child(2) {
+    background-color: $royal;
+    color: $royal;
+  }
+
+  &:nth-child(3) {
     background-color: $magenta;
     color: $magenta;
+  }
+
+  &:nth-child(4) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: $black;
+    color: $black;
 
     @extend %extends-right;
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: $space-24;
   }
 }
 
@@ -88,6 +96,7 @@
   .categorySection {
     h1 {
       text-align: center;
+      line-height: 1;
       transform: rotate(180deg);
 
       writing-mode: vertical-rl;

@@ -24,8 +24,8 @@ $border-size: 2px;
   box-sizing: border-box;
   max-width: 100%;
   max-height: 100%;
-  border: $border-size solid $navbar-color;
-  background-color: $navbar-color;
+  border: $border-size solid $black;
+  background-color: $black;
 
   aspect-ratio: 1;
   user-select: none;
@@ -94,7 +94,7 @@ $border-size: 2px;
 .clue {
   box-sizing: border-box;
   padding: $space-4 $space-8;
-  background-color: $navbar-color;
+  background-color: $black;
   color: $text-color-light;
   font-size: $size-14;
   cursor: pointer;
@@ -121,7 +121,7 @@ $border-size: 2px;
     overflow-y: hidden;
     box-sizing: border-box;
     height: $current-clue-height;
-    border: $border-size solid $navbar-color;
+    border: $border-size solid $black;
     border-bottom-width: 0;
     background-color: $gold;
     color: $text-color-dark;

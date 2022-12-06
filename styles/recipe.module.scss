@@ -89,12 +89,25 @@
 }
 
 @media only screen and (min-width: $screen-width-extra-narrow-min) and (max-width: $screen-width-extra-narrow-max) {
+  .heading {
+    h1 {
+      font-size: $size-48;
+    }
+  }
+
   .textContainer.ingredients ul {
     columns: 1;
   }
 }
 
 @media only screen and (max-width: $screen-width-tiny-max) {
+  .heading {
+    h1 {
+      word-wrap: break-word;
+      font-size: $size-48;
+    }
+  }
+
   .row {
     flex-direction: column;
 
