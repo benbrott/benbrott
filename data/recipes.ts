@@ -338,24 +338,25 @@ export const CATEGORIES: RecipeCategory[] = [
         name: 'Pork Bulgogi',
         portion: {
           verb: 'serves',
-          quantity: 4
+          quantity: 6
         },
         ingredients: [
-          '⅓ cup soy sauce',
+          '6 tablespoons soy sauce',
           '3 tablespoons sugar',
+          '2 tablespoons gochujang',
           '1 tablespoon toasted sesame oil',
           '4 cloves garlic, grated',
           '2 teaspoons grated ginger',
-          '1½ tablespoons corn starch (for tenderizing)',
-          '1½ pounds pork tenderloin, thinly sliced',
+          '1 small asian pear, grated (or 2 tablespoons corn starch, for tenderizing)',
+          '2 pounds pork tenderloin, thinly sliced',
           '1 small onion, thinly sliced',
-          '4 scallions, sliced into 2-inch long pieces, whites and greens separated',
+          '8 scallions, sliced into 2-inch long pieces, whites and greens separated',
           'Neutral oil',
           'White rice',
           'Optional toppings: sesame seeds, pickled radishes, sautéed cabbage, lime, cilantro'
         ],
         directions: [
-          'Combine the soy sauce, sugar, sesame oil, garlic, ginger, and corn starch to make the marinade',
+          'Combine the soy sauce, sugar, gochujang, sesame oil, garlic, ginger, and pear to make the marinade',
           'Marinade the pork, onions, and scallion whites for at least a few hours, until ready to cook',
           'In a cast iron pan, heat a tablespoon of oil on medium-high heat',
           'Add some of the marinated pork, onions, and scallion whites in a single layer, avoiding over-crowding the pan',
