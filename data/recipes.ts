@@ -96,6 +96,47 @@ export const CATEGORIES: RecipeCategory[] = [
           'Stir in the pasta and season with salt and pepper as needed'
         ]
       },
+      'cauliflower-curry': {
+        name: 'Cauliflower Curry',
+        portion: {
+          verb: 'serves',
+          quantity: 6
+        },
+        ingredients: [
+          'Olive oil',
+          'Salt and pepper',
+          '1 large cauliflower, cut into small florets',
+          '6 cloves garlic, smashed',
+          '2-inch piece of ginger, peeled and cut into 4 wedges',
+          '1 yellow onion, diced',
+          '2 jalapeños, seeded and diced',
+          '2 red bell peppers, largely diced',
+          '1 teaspoon cumin',
+          '1 teaspoon red chili powder',
+          '½ teaspoon coriander',
+          '½ teaspoon turmeric',
+          '1 large gold potato, cut into ½-inch cubes',
+          '14.5-ounce can diced tomatoes',
+          '2 tablespoons tomato paste',
+          '14.5-ounce can chickpeas, drained and rinsed',
+          '14.5-ounce can coconut milk',
+          '2 teaspoons garam masala',
+          'Chopped cilantro'
+        ],
+        directions: [
+          'In a 400° oven, roast the cauliflower with olive oil, salt, and pepper, until it begins to char, about 20 minutes',
+          'Meanwhile, in a large dutch oven, sauté the garlic and ginger on medium-low heat until fragrant, about 1 minute',
+          'Add in the onion and cook until it begins to soften, about 3 minutes',
+          'Add in a little more oil, the diced peppers, cumin, chili powder, coriander, and turmeric, and mix well',
+          'Cook for another minute to allow the spices to bloom. Add in a splash of veggie broth or water if the the spices are sticking to the bottom',
+          'Add in the potatoes and sauté for about 5 minutes, mixing occasionally',
+          'Add tomatoes and tomato paste and continue cooking for another few minutes to cook off the raw tomato taste',
+          'Add in the chickpeas, coconut milk, and salt to taste',
+          'Cook on low, covered, until the potatoes are just fork tender, about 20 minutes. The chickpeas should also be done by this point',
+          'Add in the roasted cauliflower and garam masala and continue cooking, uncovered, for about 5-10 minutes to let the curry thicken',
+          'Remove the ginger pieces, top with fresh cilantro, and serve over rice'
+        ]
+      },
       'chicken-veggie-burritos': {
         name: 'Chicken & Veggie Burritos',
         portion: {
