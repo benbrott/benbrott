@@ -651,6 +651,34 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Desserts',
     recipes: {
+      'banana-brownies': {
+        name: 'Banana Brownies',
+        portion: {
+          verb: 'makes',
+          quantity: 16
+        },
+        ingredients: [
+          '½ cup butter, melted',
+          '1¼ cups sugar',
+          '3 large eggs',
+          '1½ teaspoons vanilla extract',
+          '3 ripe bananas, mashed',
+          '½ cup greek yogurt',
+          '1 cup flour',
+          '½ cup cocoa powder',
+          '½ teaspoon kosher salt',
+          '½ teaspoon baking powder',
+          '1 cup semi-sweet chocolate chunks'
+        ],
+        directions: [
+          'Preheat the oven to 350° and grease and line a 9" x 13" pan',
+          'Combine the butter, sugar, eggs, vanilla, banana, and yogurt, and mix well',
+          'Combine dry ingredients separately and sift into the wet mixture',
+          'Fold in the chocolate chunks',
+          'Pour the mixture into the prepared pan',
+          'Bake until cooked through, about 35 minutes'
+        ]
+      },
       'fruit-cocktail-cake': {
         name: 'Fruit Cocktail Cake',
         portion: {
