@@ -930,6 +930,28 @@ export const CATEGORIES: RecipeCategory[] = [
           'Trim the excess dough around the rim'
         ]
       },
+      'salsa-verde': {
+        name: 'Salsa Verde',
+        portion: {
+          verb: 'makes',
+          quantity: 20,
+          units: 'oz'
+        },
+        ingredients: [
+          '1 pound tomatillos, de-husked and halved',
+          '1 small white onion, cut into wedges and separated',
+          '2 jalapeños, halved',
+          '2 cloves garlic',
+          'Juice from 1 lime',
+          'Handful of cilantro, roughly chopped',
+          'Salt to taste'
+        ],
+        directions: [
+          'Put the tomatillos, onion, jalapeños, and garlic on a large baking sheet, cut side down',
+          'Broil until the tomatillo have mostly charred. At this point, the onion and jalapeños should have also at least started to char',
+          'Once cooled, throw everything into a blender with the remaining ingredients and blend until pretty smooth, or desired texture'
+        ]
+      },
       'serrano-pineapple-hot-sauce': {
         name: 'Serrano & Pineapple Hot Sauce',
         portion: {
