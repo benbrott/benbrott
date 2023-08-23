@@ -162,7 +162,7 @@ export const CATEGORIES: RecipeCategory[] = [
           'Preheat the oven to 350°',
           'In a large bowl, mix the veggies, chicken, tomatoes, and about half of the cheese. If the mixture too dry to mix well, add in a little of the sauce',
           'Add in taco seasoning, to taste (you need a lot)',
-          'Coat the bottom of a  9" x 13" pan with some of the sauce',
+          'Coat the bottom of a 9" x 13" pan with some of the sauce',
           'Evenly distribute the filling between the tortillas',
           'Roll the tortillas tightly around the filling, putting them seam-side down in the pan. You may need to squish them a little to get them to all fit',
           'Pour the remaining sauce overtop of the rolled burritos',
@@ -833,36 +833,50 @@ export const CATEGORIES: RecipeCategory[] = [
           'Form cookies using a heaping tablespoon each and bake for about 14 minutes'
         ]
       },
-      'oatmeal-cookies': {
-        name: 'Oatmeal Apple Chip Cookies',
+      'peach-berry-cobbler': {
+        name: 'Peach & Berry Cobbler',
         portion: {
-          verb: 'makes',
-          quantity: 30
+          verb: 'serves',
+          quantity: 16
         },
-        ingredients: [
-          '1 cup butter, softened',
-          '1 cup brown sugar',
-          '½ cup sugar',
-          '2 large eggs',
-          '4 teaspoons vanilla',
-          '1 tablespoon bitters',
-          '2 cups oats (rolled or steel-cut)',
-          '1½ cups flour',
-          '1 tablespoon ground cinnamon',
-          '1 teaspoon baking soda',
-          '½ teaspoon salt',
-          '1 cup semisweet chocolate chips',
-          '1 cup finely diced apple, peeled (about 1 small apple)'
-        ],
-        directions: [
-          'Preheat the oven to 350°',
-          'Cream butter and sugars',
-          'Mix in eggs, vanilla, and bitters',
-          'Combine oats, flour, cinnamon, baking soda, and salt',
-          'Mix dry ingredients into the wet mixture until just combined',
-          'Fold in chocolate chips and apple',
-          'Drop cookie dough onto baking sheets and bake for about 12 minutes, until cooked through but soft'
-        ]
+        ingredients: {
+          Filling: [
+            '2 pounds ripe peaches, pitted and cubed',
+            '1 pint blackberries, halved if large',
+            '1 pint blueberries',
+            '½ cup sugar',
+            'Juice from 1 lemon',
+            '1 tablespoon grated ginger or ½ teaspoon ground ginger',
+            '2 tablespoons cornstarch',
+            'Salt to taste'
+          ],
+          Biscuit: [
+            '2 cups flour',
+            '½ cup sugar',
+            '2 teaspoons baking powder',
+            'Salt to taste',
+            '½ cup cold butter, cubed',
+            '1¼ cups buttermilk',
+            'Simple syrup or egg wash'
+          ]
+        },
+        directions: {
+          Filling: [
+            'Preheat the oven to 375°',
+            'In a 9" x 13" dish, mix all of the filling ingredients until well combined',
+            'Bake for 10 minutes and set aside',
+            'Meanwhile, make the biscuit dough'
+          ],
+          Biscuit: [
+            'Whisk together dry ingredients',
+            'Cut butter into dry mix until the butter resembles small pebbles',
+            'Mix in buttermilk until just combined. The dough should be pretty wet',
+            'Spread the dough in a fairly even layer on top of the baked filling, leaving small gaps to let some moisture escape',
+            'Bake for 15 minutes and prep the simple syrup or egg wash',
+            'Brush a thin layer of the syrup or egg wash over the biscuit topping, and bake for another 25 minutes, or until the biscuit has browned',
+            'Let sit for 30 minutes before serving to allow the filling to thicken'
+          ]
+        }
       },
       snickerdoodles: {
         name: 'Snickerdoodles',
