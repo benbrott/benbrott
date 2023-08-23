@@ -162,7 +162,7 @@ export const CATEGORIES: RecipeCategory[] = [
           'Preheat the oven to 350°',
           'In a large bowl, mix the veggies, chicken, tomatoes, and about half of the cheese. If the mixture too dry to mix well, add in a little of the sauce',
           'Add in taco seasoning, to taste (you need a lot)',
-          'Coat the bottom of a  9" x 13" pan with some of the sauce',
+          'Coat the bottom of a 9" x 13" pan with some of the sauce',
           'Evenly distribute the filling between the tortillas',
           'Roll the tortillas tightly around the filling, putting them seam-side down in the pan. You may need to squish them a little to get them to all fit',
           'Pour the remaining sauce overtop of the rolled burritos',
@@ -295,35 +295,51 @@ export const CATEGORIES: RecipeCategory[] = [
         name: 'Lasagna',
         portion: {
           verb: 'serves',
-          quantity: 8
+          quantity: 12
         },
-        ingredients: [
-          '1 large eggplant, sliced into ¼-inch rounds',
-          'Olive oil',
-          'Italian breadcrumbs',
-          '1 pound lasagna',
-          '1 pound ground hot italian sausage',
-          '10 ounces frozen chopped spinach',
-          '15-ounce tub ricotta cheese ',
-          '1 pound shredded italian cheese',
-          '40 ounces tomato sauce',
-          '16-ounce jar of roasted red peppers, drained, cut into strips'
-        ],
-        directions: [
-          'Preheat the oven to 400°',
-          'Lightly brush one side of the eggplant with olive oil',
-          'Sprinkle italian breadcrumbs on each slice',
-          'Bake the eggplant, in batches if needed, until it is starting to brown, about 10 minutes',
-          'Meanwhile, boil the lasagna noodles and set aside',
-          'Cook the sausage on high heat until done, chopping it into crumbles as it cooks. Set aside',
-          'Saute the spinach until it is completely defrosted and the liquid has cooked off',
-          'Mix the spinach, ricotta, and shredded cheese until well combined',
-          'Preheat the oven to 350°',
-          'In a 9" x 13" dish, put a layer of sauce in the bottom of the pan, followed by a layer of lasagna',
-          'Until the lasagna is used up, repeat layers of cheese, sausage and peppers, eggplant, sauce, and lasagna, compressing the layers as you go',
-          'Top with a final layer of cheese and sauce',
-          'Cover with foil and bake until hot throughout, about 90 minutes'
-        ]
+        ingredients: {
+          Ragù: [
+            'Olive oil',
+            '1 pound ground hot italian sausage',
+            '1 pound ground beef',
+            '1 yellow onion, diced',
+            '8 cloves garlic, minced',
+            '2 28-ounce cans crushed tomatoes',
+            '1 cup water',
+            '1 tablespoon dried oregano',
+            '1 tablespoon sugar',
+            '1 teaspoon red pepper flakes, or to taste',
+            'Salt and pepper to taste'
+          ],
+          Lasagna: [
+            '16 or 20 lasagna noodles, or however many comes in a 1-pound box',
+            '32 ounces ricotta cheese ',
+            '1 pound shredded mozzarella',
+            '1 egg',
+            '1 teaspoon dried oregano or italian seasoning',
+            'Salt and pepper to taste',
+            'Freshly grated parmesan'
+          ]
+        },
+        directions: {
+          Ragù: [
+            'On high heat, in a large dutch oven, brown the sausage and beef in a little olive oil, breaking it up as you go',
+            'Once browned, add in the onion and cook until soft',
+            'Reduce the heat to medium, add in the garlic, and cook until fragrant',
+            'Add in the remaining ingredients and simmer with the lid slightly ajar for at least an hour. Add in more water if it cooks down too much.'
+          ],
+          Lasagna: [
+            'Preheat the oven to 375°',
+            'Boil the lasagna noodles until just cooked, and set aside',
+            'Meanwhile, combine the ricotta, 12 ounces of the mozzarella, egg, oregano, salt, and pepper until well mixed',
+            'In a deep 9" x 13" dish, put a layer of sauce in the bottom of the pan, a sprinkle of parmesan, and a layer of 4 lasagna noodles',
+            'Until the noodles are used up, repeat layers of ricotta, sauce, parmesan, and 4 noodles',
+            'Top with a final layer of sauce',
+            'Cover with foil and bake for 30 minutes',
+            'Remove foil, add the remaining mozzarella, and bake until the cheese is melted and browned, about 15 minutes',
+            'Let rest for 15 minutes before cutting and serving'
+          ]
+        }
       },
       pierogi: {
         name: 'Potato & Cheese Pierogi',
@@ -817,36 +833,50 @@ export const CATEGORIES: RecipeCategory[] = [
           'Form cookies using a heaping tablespoon each and bake for about 14 minutes'
         ]
       },
-      'oatmeal-cookies': {
-        name: 'Oatmeal Apple Chip Cookies',
+      'peach-berry-cobbler': {
+        name: 'Peach & Berry Cobbler',
         portion: {
-          verb: 'makes',
-          quantity: 30
+          verb: 'serves',
+          quantity: 16
         },
-        ingredients: [
-          '1 cup butter, softened',
-          '1 cup brown sugar',
-          '½ cup sugar',
-          '2 large eggs',
-          '4 teaspoons vanilla',
-          '1 tablespoon bitters',
-          '2 cups oats (rolled or steel-cut)',
-          '1½ cups flour',
-          '1 tablespoon ground cinnamon',
-          '1 teaspoon baking soda',
-          '½ teaspoon salt',
-          '1 cup semisweet chocolate chips',
-          '1 cup finely diced apple, peeled (about 1 small apple)'
-        ],
-        directions: [
-          'Preheat the oven to 350°',
-          'Cream butter and sugars',
-          'Mix in eggs, vanilla, and bitters',
-          'Combine oats, flour, cinnamon, baking soda, and salt',
-          'Mix dry ingredients into the wet mixture until just combined',
-          'Fold in chocolate chips and apple',
-          'Drop cookie dough onto baking sheets and bake for about 12 minutes, until cooked through but soft'
-        ]
+        ingredients: {
+          Filling: [
+            '2 pounds ripe peaches, pitted and cubed',
+            '1 pint blackberries, halved if large',
+            '1 pint blueberries',
+            '½ cup sugar',
+            'Juice from 1 lemon',
+            '1 tablespoon grated ginger or ½ teaspoon ground ginger',
+            '2 tablespoons cornstarch',
+            'Salt to taste'
+          ],
+          Biscuit: [
+            '2 cups flour',
+            '½ cup sugar',
+            '2 teaspoons baking powder',
+            'Salt to taste',
+            '½ cup cold butter, cubed',
+            '1¼ cups buttermilk',
+            'Simple syrup or egg wash'
+          ]
+        },
+        directions: {
+          Filling: [
+            'Preheat the oven to 375°',
+            'In a 9" x 13" dish, mix all of the filling ingredients until well combined',
+            'Bake for 10 minutes and set aside',
+            'Meanwhile, make the biscuit dough'
+          ],
+          Biscuit: [
+            'Whisk together dry ingredients',
+            'Cut butter into dry mix until the butter resembles small pebbles',
+            'Mix in buttermilk until just combined. The dough should be pretty wet',
+            'Spread the dough in a fairly even layer on top of the baked filling, leaving small gaps to let some moisture escape',
+            'Bake for 15 minutes and prep the simple syrup or egg wash',
+            'Brush a thin layer of the syrup or egg wash over the biscuit topping, and bake for another 25 minutes, or until the biscuit has browned',
+            'Let sit for 30 minutes before serving to allow the filling to thicken'
+          ]
+        }
       },
       snickerdoodles: {
         name: 'Snickerdoodles',
