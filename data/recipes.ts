@@ -454,6 +454,38 @@ export const CATEGORIES: RecipeCategory[] = [
           'Bake until the middle has just set, about 1 hour'
         ]
       },
+      'sausage-tortellini-soup': {
+        name: 'Sausage, Kale, & Tortellini Soup',
+        portion: {
+          verb: 'serves',
+          quantity: 8
+        },
+        ingredients: [
+          '1 pound hot italian sausage',
+          'Olive oil',
+          '1 large yellow onion, diced',
+          '8 cloves garlic, minced',
+          '14.5-ounce can tomato sauce',
+          '1 tablespoon oregano or italian seasoning',
+          '2 14.5-ounce cans cannellini beans, drained',
+          '8 cups chicken broth',
+          '1 pound kale, stemmed and chopped',
+          '20 ounces refrigerated cheese tortellini',
+          'Salt, pepper, and parmesan, to taste'
+        ],
+        directions: [
+          'In a large dutch oven or pot, brown the italian sausage on high heat, breaking it up as you go',
+          'Remove the sausage, setting aside until later',
+          'Add in a little oil and sauté the onions on medium-low heat until soft',
+          'Add in the garlic and cook for a few more minutes',
+          'Add a little more oil if the pot is dry and add the tomato sauce and oregano, cooking and stirring for just a few minutes',
+          'Scrape the bottom to make sure nothing is stuck before adding the beans and broth and bringing everything to a simmer',
+          'Use an immersion blender to blend everything until smooth',
+          'Add back in the sausage, along with the kale, and bring to a boil',
+          'The kale should have significantly cooked down by now - add in the tortellini and cook until done',
+          'Remove from the heat, add in a ton of parmesan, and season as needed'
+        ]
+      },
       'southwest-burgers': {
         name: 'Southwest Burgers',
         portion: {
