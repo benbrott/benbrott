@@ -586,6 +586,43 @@ export const CATEGORIES: RecipeCategory[] = [
   {
     category: 'Sides',
     recipes: {
+      'chickpea-lemon-salad': {
+        name: 'Roasted Chickpea & Lemon Salad',
+        portion: {
+          verb: 'serves',
+          quantity: 4
+        },
+        ingredients: {
+          Dressing: [
+            '¼ cup lemon juice',
+            '¼ cup olive oil',
+            '1 clove garlic, grated',
+            '1 teaspoon dijon mustard',
+            '½ teaspoon honey',
+            '½ small shallot, minced',
+            'Fresh or dried herbs, like thyme and basil, to taste',
+            'Salt and pepper, to taste'
+          ],
+          Salad: [
+            '½ 14-ounce can chickpeas, drained, rinsed, and pat dry',
+            '2 tablespoons olive oil',
+            'Salt and pepper, to taste',
+            '½ small shallot, thinly sliced',
+            '3 ounces spinach',
+            '3 ounces arugula',
+            '2 ounces goat cheese, crumbled',
+            '½ cup dried cranberries'
+          ]
+        },
+        directions: [
+          'Preheat the oven to 400°',
+          'Toss the chickpeas in 2 tablespoons olive oil, salt, and pepper',
+          'Roast chickpeas until crispy, about 30 minutes',
+          'Meanwhile, add the sliced shallots to a small bowl and cover with water, set aside',
+          'Make the dressing by whisking together all of the ingredients, set aside',
+          'Once the chickpeas have cooled, drain the shallots and toss together all ingredients'
+        ]
+      },
       cornbread: {
         name: 'Cheesy Jalapeño Cornbread',
         portion: {
@@ -841,9 +878,9 @@ export const CATEGORIES: RecipeCategory[] = [
         },
         ingredients: [
           '½ cup butter',
-          '4 ounces unsweetened chocolate',
-          '1 cup brown sugar',
-          '½ cup white sugar',
+          '12 ounces semisweet chocolate chips',
+          '¾ cup brown sugar',
+          '¼ cup white sugar',
           '2 teaspoons vanilla',
           '1 large egg + 2 egg yolks',
           '1 cups flour',
@@ -852,17 +889,16 @@ export const CATEGORIES: RecipeCategory[] = [
           '1 teaspoon chili powder',
           '¼ teaspoon cayenne pepper',
           '½ teaspoon salt',
-          '½ teaspoon baking powder',
-          '1½ cups semisweet chocolate chunks'
+          '½ teaspoon baking powder'
         ],
         directions: [
           'Preheat the oven to 325°',
-          'Melt butter and unsweetened chocolate together and let cool',
+          'Melt butter and 4 ounces of the chocolate chips together and let cool',
           'Slowly beat together sugars, vanilla, and eggs until well combined',
           'Mix in cooled chocolate mixture',
           'Sift together remaining dry ingredients and mix slowly into the batter',
-          'Fold in chocolate chunks',
-          'Form cookies using a heaping tablespoon each and bake for about 14 minutes'
+          'Fold in remaining chocolate chips',
+          'Form cookies using a medium cookie scoop and bake for about 12 minutes'
         ]
       },
       'peach-berry-cobbler': {
