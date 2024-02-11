@@ -514,6 +514,35 @@ export const CATEGORIES: RecipeCategory[] = [
           'Top the burgers with the caramelized onions and chipotle mayo'
         ]
       },
+      'stove-top-mac': {
+        name: 'Stove-top Mac & Cheese',
+        portion: {
+          verb: 'serves',
+          quantity: 6
+        },
+        ingredients: [
+          '1 pound elbow macaroni',
+          '3 tablespoons butter',
+          '3 tablespoons flour',
+          '½ teaspoon paprika',
+          '½ teaspoon garlic powder',
+          '½ teaspoon onion powder',
+          '2 12-ounce cans evaporated milk',
+          '4 ounces sliced american cheese',
+          '4 ounces sliced cheddar cheese',
+          'Salt and pepper to taste'
+        ],
+        directions: [
+          'Boil the pasta and set aside',
+          'Meanwhile, melt the butter in a large pot on medium-low heat',
+          'Whisk in the flour and spices to create a roux and cook for a minute',
+          'Whisk in the evaporated milk a little at a time until fully incorporated',
+          'Bring to a simmer',
+          'Tear up the cheese slices and whisk them into the sauce until completely melted',
+          'Season with salt and pepper to taste',
+          'Remove the sauce from the heat and stir in the noodles'
+        ]
+      },
       'tortilla-espanola': {
         name: 'Tortilla Española',
         portion: {
@@ -707,28 +736,29 @@ export const CATEGORIES: RecipeCategory[] = [
         name: 'Spinach & Artichoke Dip',
         portion: {
           verb: 'serves',
-          quantity: 12
+          quantity: 8
         },
         ingredients: [
-          '1 large onion, diced',
-          '3 cloves garlic, minced',
-          '2 14-ounce cans artichoke hearts, drained and chopped',
           '4 tablespoons butter',
-          '10 ounces fresh spinach',
-          '16 ounces cream cheese',
+          '1 small onion, diced',
+          '2 cloves garlic, minced',
+          '12 ounces fresh spinach, chopped',
+          '14-ounce cans artichoke hearts, drained and chopped',
+          '8 ounces cream cheese, softened',
+          '4 ounces low moisture mozzarella, shredded',
           '½ cup grated parmesan',
-          'Salt and pepper, to taste',
-          '1 cup shredded mozzarella'
+          '¼ cup sour cream, greek yogurt, or mayo',
+          'Salt and pepper, to taste'
         ],
         directions: [
           'Preheat the oven to 400°',
-          'Sauté the onion, garlic, and artichokes in butter until tender',
-          'Mix in spinach and cook until wilted',
-          'Add in cream cheese and parmesan',
-          'Continue to heat and stir the mixture until well combined',
+          'Sauté the onion and garlic in butter until softened',
+          'Add in the spinach a little at a time and cook until completely wilted and the moisture is evaporated',
+          'Add in the artichokes and continue to cook for a few minutes until tender',
+          'Mix in the cheeses and sour cream until melted',
           'Season with salt and pepper',
-          'Pour mixture into a 9" x 13" or 8" x 8" pan and top with mozzarella',
-          'Bake until bubbly, about 25 minutes'
+          'Pour mixture into a an oven safe dish and bake until very hot, about 15 minutes',
+          'Finish under the broiler until the top is golden brown'
         ]
       }
     }
