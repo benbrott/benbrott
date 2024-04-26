@@ -549,26 +549,38 @@ export const CATEGORIES: RecipeCategory[] = [
           verb: 'serves',
           quantity: 6
         },
-        ingredients: [
-          '1 cup olive oil',
-          '3 large yukon gold potatoes, peeled and very thinly sliced',
-          '1 yellow onion, thinly sliced',
-          '4-6 large eggs, depending on potato size',
-          'Salt and pepper, to taste'
-        ],
+        ingredients: {
+          Tortilla: [
+            '1 cup olive oil',
+            '4 large yukon gold potatoes, peeled, quartered length-wise, and thinly sliced',
+            '1 yellow onion, thinly sliced',
+            '6-8 large eggs, depending on potato size',
+            'Salt and pepper, to taste'
+          ],
+          'Garlic mayo': [
+            '½ cup mayo',
+            '3 tablespoons olive oil',
+            '2 cloves garlic, grated',
+            'A few dashes of worcestershire',
+            'Thinly sliced chives (optional)',
+            'Salt and pepper, to taste'
+          ]
+        },
         directions: [
-          'In a 9" nonstick pan, heat the oil over medium heat. Only use cast iron if it is very well seasoned',
-          'Add the potatoes and onions and cook until the potatoes are tender, flipping occasionally, about 10-15 minutes',
-          'Meanwhile, beat the eggs and season with salt and pepper',
-          'Strain off the oil and put the potatoes and onions in a separate bowl',
-          'Keep a little oil in the pan and keep it on low heat',
-          'Quickly mix the eggs into the hot potatoes and pour the mixture back into the pan',
+          'In a 10" high-walled nonstick pan, heat the oil over medium heat. Only use cast iron if it is very well seasoned',
+          'Add the potatoes and onions and cook until the potatoes are tender, flipping occasionally, about 15 minutes',
+          'Meanwhile, in a large bowl, beat the eggs and season with salt and pepper',
+          'Reserve a little of the oil and dump the rest of the potato mixture into the eggs',
+          'Keep the pan low heat and add back the reserved oil',
+          'Quickly fold the eggs into the hot potatoes and pour the mixture back into the pan',
           'With a rubber spatula, spread the mixture evenly in the pan',
           'Cook on medium-low heat until the bottom is lightly browned and the middle is slightly set, about 10 minutes',
+          'If the bottom is browning too fast for the middle to set, put the pan under the broiler for a few minutes to help cook the top',
           'Using a completely flat surface, such as a large cutting board, flip the tortilla and slide it back into the pan',
-          'Press the edges down into the pan to make a slightly domed shape',
-          'Cook until the bottom is lightly browned and the tortilla is completely set',
-          'Cut into 6 wedges, season with salt'
+          'Press the edges down into the pan to make a rounded edge',
+          'Cook until the bottom is lightly browned and the tortilla is completely set, just a few minutes',
+          'Let the tortilla cool at least 30 minutes before cutting into 6 wedges',
+          'In the meantime, mix all of the mayo ingredients until well combined and serve on the side'
         ]
       },
       'white-chicken-chili': {
