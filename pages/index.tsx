@@ -28,7 +28,7 @@ const About = () => {
         <div>
           <h1>Ben Brott</h1>
           <p>
-            I'm currently a front-end engineer at AllTrails, working remotely in Boulder, Colorado. I graduated from
+            I'm currently a front-end engineer at AllTrails, working remotely from Denver, Colorado. I graduated from
             Virginia Tech in 2018 with degrees in computer science and math. My interests include cooking, camping,
             hiking, video games, music, and sports.
           </p>

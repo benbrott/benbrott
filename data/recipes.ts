@@ -63,6 +63,7 @@ export const CATEGORIES: RecipeCategory[] = [
         },
         ingredients: [
           '1 pound butternut squash, cubed (dice size)',
+          '4 cloves garlic, smashed',
           'Olive oil',
           '½ teaspoon cinnamon',
           '½ teaspoon smoked paprika',
@@ -72,25 +73,22 @@ export const CATEGORIES: RecipeCategory[] = [
           '¼ teaspoon red pepper flakes',
           'Couple dashes of ground cloves',
           'Salt and pepper to taste',
-          '1 cup chicken broth',
+          '2½ 12-ounce cans evaporated milk',
           '4 ounces pancetta, cubed',
           '1 pound pasta, cavatappi, rigatoni, or a similar size',
-          '1 shallot, minced',
-          '4 cloves garlic, minced',
           '1 tablespoon butter',
           '2 tablespoons flour',
-          '2 cups whole milk',
           '8 ounces gouda and/or cheddar, freshly grated'
         ],
         directions: [
           'Preheat the oven to 400°',
-          'Mix the squash, oil, and spices and roast until very soft, about 20 minutes',
-          'Let the squash cool for at least 10 minutes then blend with the chicken broth to form a thick purée',
+          'Mix the squash, garlic, oil, and spices and roast until very soft, about 20 minutes',
+          'Let the squash and garlic cool for at least 10 minutes then blend with 6 ounces of evaporated milk to form a thick purée',
           'In a large pot, sauté the pancetta on medium heat, letting the fat render out',
           'Meanwhile, cook the pasta and set aside once done',
-          'Once the pancetta is crispy, reduce the heat to low, add in the shallot and garlic, and cook until the shallot is soft',
+          'Once the pancetta is crispy, reduce the heat to low',
           'If there is still a lot of fat from the pancetta, skip the butter - otherwise, add in the butter and let it melt',
-          'Whisk in the flour and slowly add the milk, whisking constantly',
+          'Whisk in the flour and slowly add the remaining evaporated milk, whisking constantly',
           'Whisk in the squash purée and bring to a simmer, but not a boil',
           'Take the pot off of the heat and whisk in the cheese until completely melted',
           'Stir in the pasta and season with salt and pepper as needed'
@@ -135,40 +133,6 @@ export const CATEGORIES: RecipeCategory[] = [
           'Cook on low, covered, until the potatoes are just fork tender, about 20 minutes. The chickpeas should also be done by this point',
           'Add in the roasted cauliflower and garam masala and continue cooking, uncovered, for about 5-10 minutes to let the curry thicken',
           'Remove the ginger pieces, top with fresh cilantro, and serve over rice'
-        ]
-      },
-      'chicken-veggie-burritos': {
-        name: 'Chicken & Veggie Burritos',
-        portion: {
-          verb: 'makes',
-          quantity: 10
-        },
-        ingredients: [
-          'Olive oil',
-          '2 zucchini, diced',
-          '2 red peppers, sliced',
-          '1 green pepper, sliced',
-          '1 large onion, thinly sliced',
-          '1 cup corn',
-          '1 rotisserie chicken, pulled',
-          '14.5-ounce can seasoned diced tomatoes',
-          '8 ounces shredded Mexican cheese',
-          'Taco seasoning',
-          '10-ounce can red enchilada sauce',
-          '10 8-inch flour tortillas'
-        ],
-        directions: [
-          'In batches, sauté the veggies in oil on medium-high heat until browned',
-          'Preheat the oven to 350°',
-          'In a large bowl, mix the veggies, chicken, tomatoes, and about half of the cheese. If the mixture too dry to mix well, add in a little of the sauce',
-          'Add in taco seasoning, to taste (you need a lot)',
-          'Coat the bottom of a 9" x 13" pan with some of the sauce',
-          'Evenly distribute the filling between the tortillas',
-          'Roll the tortillas tightly around the filling, putting them seam-side down in the pan. You may need to squish them a little to get them to all fit',
-          'Pour the remaining sauce overtop of the rolled burritos',
-          'Add the remaining cheese to the long edges of the pan',
-          'Bake until the cheese is melted and the burritos are hot inside, about 30 minutes',
-          'Cut down the center before serving'
         ]
       },
       'chicken-rice-soup': {
@@ -259,36 +223,6 @@ export const CATEGORIES: RecipeCategory[] = [
           'Pan fry the burgers in a cast iron skillet',
           'Combine the cranberry sauce and mayo and mix until well combined',
           'Serve burgers on english muffins, topped with lettuce and cranberry mayo'
-        ]
-      },
-      gnocchi: {
-        name: 'Gnocchi with Burst Tomatoes & Mozzarella',
-        portion: {
-          verb: 'serves',
-          quantity: 3
-        },
-        ingredients: [
-          'Olive oil',
-          '18-ounce package non-frozen gnocchi',
-          '2 tablespoons butter',
-          '2 cloves garlic, minced',
-          '¼ teaspoon red pepper flakes',
-          '1 pint cherry tomatoes, halved (for quicker recipe)',
-          'Salt and pepper, to taste',
-          'Fresh basil, thinly sliced',
-          '4 ounces fresh mozzarella, torn into small pieces'
-        ],
-        directions: [
-          'In a large, oven-safe skillet, heat olive oil, on medium-high, to coat the pan',
-          'Add gnocchi and brown, about 2 minutes on each side',
-          'Remove the gnocchi and set aside',
-          'Melt the butter over medium heat and add in the garlic and red pepper flakes, cooking for just a minute',
-          'Add in the tomatoes and 2 tablespoons of water, stirring occasionally',
-          'Preheat the broiler',
-          'Once the tomatoes have softened, smash the tomatoes to help them burst completely',
-          'Add back in the gnocchi, along with the basil, salt, and pepper',
-          'Mix and arrange the gnocchi in a fairly even layer',
-          'Top with mozzarella and broil until melted and browned'
         ]
       },
       lasagna: {
@@ -391,37 +325,6 @@ export const CATEGORIES: RecipeCategory[] = [
           ]
         }
       },
-      'pork-bulgogi': {
-        name: 'Pork Bulgogi',
-        portion: {
-          verb: 'serves',
-          quantity: 6
-        },
-        ingredients: [
-          '6 tablespoons soy sauce',
-          '3 tablespoons sugar',
-          '2 tablespoons gochujang',
-          '1 tablespoon toasted sesame oil',
-          '4 cloves garlic, grated',
-          '2 teaspoons grated ginger',
-          '1 small asian pear, grated (or 2 tablespoons corn starch, for tenderizing)',
-          '2 pounds pork tenderloin, thinly sliced',
-          '1 small onion, thinly sliced',
-          '8 scallions, sliced into 2-inch long pieces, whites and greens separated',
-          'Neutral oil',
-          'White rice',
-          'Optional toppings: sesame seeds, pickled radishes, sautéed cabbage, lime, cilantro'
-        ],
-        directions: [
-          'Combine the soy sauce, sugar, gochujang, sesame oil, garlic, ginger, and pear to make the marinade',
-          'Marinade the pork, onions, and scallion whites for at least a few hours, until ready to cook',
-          'In a cast iron pan, heat a tablespoon of oil on medium-high heat',
-          'Add some of the marinated pork, onions, and scallion whites in a single layer, avoiding over-crowding the pan',
-          'Cook for a minute or two on each side until done and browned',
-          'Repeat in batches with remaining ingredients',
-          'Top with scallion greens and serve over rice with optional toppings'
-        ]
-      },
       'sausage-quiche': {
         name: 'Sausage Quiche',
         portion: {
@@ -484,34 +387,6 @@ export const CATEGORIES: RecipeCategory[] = [
           'Add back in the sausage, along with the kale, and bring to a boil',
           'The kale should have significantly cooked down by now - add in the tortellini and cook until done',
           'Remove from the heat, add in a ton of parmesan, and season as needed'
-        ]
-      },
-      'southwest-burgers': {
-        name: 'Southwest Burgers',
-        portion: {
-          verb: 'makes',
-          quantity: 4
-        },
-        ingredients: [
-          '1 large onion, sliced',
-          '2 tablespoons canola oil',
-          '2 jalapeños',
-          '½ cup cilantro',
-          '2 cloves garlic',
-          '1 tablespoon lime juice',
-          '1 pound ground beef or ground turkey',
-          '4 slices pepper jack cheese',
-          '4 hamburger buns or english muffins, toasted',
-          'Chipotle mayo'
-        ],
-        directions: [
-          'Caramelize the onions in canola oil over low-medium heat',
-          'Add jalapeños (with seeds), cilantro, garlic, and lime juice to a food processor and chop until very fine',
-          'Add the mixture into the ground meat and combine well',
-          'Form 4 patties, each slightly bigger than the buns',
-          'Pan fry the burgers until cooked through, about 5 minutes on each side',
-          'Melt the cheese on top of the burgers in the last couple minutes of cooking',
-          'Top the burgers with the caramelized onions and chipotle mayo'
         ]
       },
       'stove-top-mac': {
