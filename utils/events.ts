@@ -9,7 +9,7 @@ const getLetter = (event: KeyboardEvent) => {
   }
 };
 
-export default {
+const events = {
   BACKSPACE: (event: KeyboardEvent) => checkKeyCode(event, 8),
   TAB: (event: KeyboardEvent) => checkKeyCode(event, 9),
   ENTER: (event: KeyboardEvent | React.KeyboardEvent) => checkKeyCode(event, 13),
@@ -20,3 +20,5 @@ export default {
   DOWN: (event: KeyboardEvent) => checkKeyCode(event, 40),
   LETTER: (event: KeyboardEvent) => getLetter(event)
 };
+
+export default events;

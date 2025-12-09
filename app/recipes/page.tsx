@@ -1,7 +1,6 @@
-import React from 'react';
 import Link from 'next/link';
-import styles from 'styles/recipes.module.scss';
-import { CATEGORIES } from 'data/recipes';
+import styles from '@/styles/recipes.module.scss';
+import { CATEGORIES } from '@/app/recipes/data';
 
 const Recipes = () => {
   return (
@@ -17,7 +16,7 @@ const Recipes = () => {
               {Object.entries(recipes).map(([path, recipe]) => {
                 return (
                   <Link href={`/recipes/${path}`} key={path}>
-                    <a>{recipe.name}</a>
+                    {recipe.name}
                   </Link>
                 );
               })}
@@ -29,4 +28,4 @@ const Recipes = () => {
   );
 };
 
-export default React.memo(Recipes);
+export default Recipes;

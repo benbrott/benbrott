@@ -10,6 +10,7 @@ const useLocalStorage = <T>(
     try {
       const storedStr = localStorage.getItem(key);
       return storedStr ? fromString(storedStr) : initial;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       return initial;
     }

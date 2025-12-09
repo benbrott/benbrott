@@ -1,3 +1,5 @@
-export default function (classes: Array<string | false>) {
+const classNames = (classes: Array<string | false>) => {
   return classes.filter(c => !!c).join(' ');
-}
+};
+
+export default classNames;

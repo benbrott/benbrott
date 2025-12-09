@@ -1,5 +1,4 @@
-import React from 'react';
-import PageIconProps from './pageIconProps';
+import PageIconProps from '@/types/PageIconProps';
 
 const CrosswordPuzzle = ({ primaryColor }: PageIconProps) => {
   return (

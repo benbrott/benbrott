@@ -1,4 +1,4 @@
-import { Cell } from 'components/crossword/helpers';
+import { Cell } from '@/components/crossword/helpers';
 
 const EMPTY_LETTER = ' ';
 

@@ -1,26 +1,4 @@
-type Artist = {
-  name: string;
-  [key: string]: any;
-};
-
-type AlbumImage = {
-  url: string;
-  [key: string]: any;
-};
-
-export type Album = {
-  name: string;
-  artists: Artist[];
-  images: AlbumImage[];
-  [key: string]: any;
-};
-
-type Track = {
-  name: string;
-  album: Album;
-  artists: Artist[];
-  [key: string]: any;
-};
+import type { Album, Track } from '@/types/music';
 
 export const getAccessToken = async (refreshToken: string, clientId: string, clientSecret: string) => {
   const tokenRequestBody = new URLSearchParams();

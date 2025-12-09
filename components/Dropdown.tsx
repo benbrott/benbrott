@@ -1,5 +1,5 @@
-import React, { KeyboardEvent, useCallback, useState } from 'react';
-import styles from 'styles/dropdown.module.scss';
+import { useState } from 'react';
+import styles from '@/styles/dropdown.module.scss';
 
 type DropdownProps = {
   options: string[];

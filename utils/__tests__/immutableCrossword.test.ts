@@ -1,5 +1,5 @@
-import { Cell } from 'components/crossword/helpers';
-import ImmutableCrossword from 'utils/immutableCrossword';
+import { Cell } from '@/components/crossword/helpers';
+import ImmutableCrossword from '@/utils/immutableCrossword';
 
 const SOLUTION = [
   ['A', 'B', 'C'],

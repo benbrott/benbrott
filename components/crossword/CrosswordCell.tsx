@@ -1,7 +1,6 @@
-import React from 'react';
-import styles from 'styles/crossword.module.scss';
-import classNames from 'utils/classNames';
 import { Cell } from './helpers';
+import styles from '@/styles/crossword.module.scss';
+import classNames from '@/utils/classNames';
 
 type CrosswordCellProps = {
   cell: Cell;
