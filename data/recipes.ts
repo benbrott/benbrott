@@ -48,7 +48,7 @@ export const CATEGORIES: RecipeCategory[] = [
           'Remove the veggies from the dutch oven and set aside',
           'On medium-high heat, brown the ground beef and chop it up into very small bits',
           'Once the beef has browned, add in the flour and mix well',
-          'Add the veggies back along with a little stock to deglaze the dutch oven',
+          'Add the veggies back along with a little stock to de-glaze the dutch oven',
           'Add the stock, fish sauce, and thyme and bring to a boil',
           'Once boiling, add in the Harvest Blend, reduce to a simmer, and cover',
           'Cook until the grain blend is done, then remove from heat and let sit for 15 minutes to thicken',
@@ -172,6 +172,40 @@ export const CATEGORIES: RecipeCategory[] = [
           'Add in the thyme, rosemary, and rice and simmer, covered, until the rice is almost done',
           'Add in the chicken and kale and continue to cook, covered, until the rice is done',
           'Remove from the heat, mix in the cream, and season as needed'
+        ]
+      },
+      'chorizo-red-pepper-pasta': {
+        name: 'Chorizo & Red Pepper Pasta',
+        portion: {
+          verb: 'serves',
+          quantity: 4
+        },
+        ingredients: [
+          '1 pound rigatoni, or similar pasta',
+          '1 pound ground chorizo',
+          '½ yellow onion, diced',
+          '2 red bell peppers, diced',
+          '½ cup frozen corn',
+          '1 roasted red pepper',
+          '1 cup whole milk',
+          '2 tablespoons tomato paste',
+          '1 teaspoon ground cumin',
+          '2 tablespoons white wine vinegar',
+          'Red pepper flakes, to taste',
+          '4 ounces queso fresco, or similar cheese',
+          'Sliced scallions or garlic chives, for garnish'
+        ],
+        directions: [
+          'Boil the pasta and set aside, reserving a little pasta water',
+          'In a large skillet, cook the chorizo on high heat, breaking it up as it cooks',
+          'Once the chorizo has gotten a good sear, reduce the heat to medium and add the onion, diced peppers, and corn',
+          'Meanwhile, blend the roasted red pepper with the milk',
+          'Once the veggies have started to caramelize, add in the tomato paste and cumin and sauté for a few more minutes',
+          'De-glaze the pan with the white wine vinegar',
+          'Reduce the heat to low and add in the milk mixture and red pepper flakes',
+          'Cook while stirring until the sauce has come together and thickened',
+          'Combine with pasta and reserved pasta water, as needed',
+          'Top with queso fresco and scallions to serve'
         ]
       },
       'crab-cakes': {
@@ -589,6 +623,31 @@ export const CATEGORIES: RecipeCategory[] = [
           'Let the corn cool while prepping the other ingredients',
           'Once cool, mix in all other ingredients, and season with salt to taste',
           'Serve chilled'
+        ]
+      },
+      'curried-cauliflower': {
+        name: 'Curried Cauliflower',
+        portion: {
+          verb: 'serves',
+          quantity: 4
+        },
+        ingredients: [
+          '2 tablespoons canola oil',
+          '1 head cauliflower, cut into medium florets, stems included',
+          "4 tablespoons Mama Lam's Malaysian Curry Paste, divided",
+          '2 tablespoons olive oil',
+          '7 ounces coconut milk (½ can)',
+          'Salt, to taste'
+        ],
+        directions: [
+          'Add the canola oil to a cast iron skillet',
+          'Preheat oven to 450° with the cast iron skillet inside',
+          'Toss cauliflower with olive oil and 3 tablespoons of curry paste. If using a thicker curry paste, use a little less and thin it out with a little extra olive oil',
+          'Once the skillet has preheated, add the cauliflower to the skillet and cook for about 15 minutes',
+          'Meanwhile, combine the remaining curry paste with the coconut milk',
+          'After 15 minutes, add the coconut mixture to the cauliflower and mix to coat',
+          'Cook for another 20-25 minutes until the sauce has thickened and the cauliflower is tender',
+          'Season with salt, to taste'
         ]
       },
       'mashed-potatoes': {
