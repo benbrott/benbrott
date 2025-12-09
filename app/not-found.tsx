@@ -1,5 +1,4 @@
-import React from 'react';
-import styles from 'styles/404.module.scss';
+import styles from '@/styles/404.module.scss';
 
 const Error = () => {
   return (
@@ -14,4 +13,4 @@ const Error = () => {
   );
 };
 
-export default React.memo(Error);
+export default Error;

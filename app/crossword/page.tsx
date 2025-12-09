@@ -1,8 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import styles from 'styles/crossword.module.scss';
-import { SOLUTION, CLUE_LISTS } from 'data/crossword';
-import KEY_EVENTS from 'utils/events';
-import classNames from 'utils/classNames';
+'use client';
+
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { SOLUTION, CLUE_LISTS } from './data';
+import styles from '@/styles/crossword.module.scss';
+import KEY_EVENTS from '@/utils/events';
+import classNames from '@/utils/classNames';
 import {
   Cell,
   Clue,
@@ -15,10 +17,10 @@ import {
   getClueById,
   getPreviousClue,
   getNextClue
-} from 'components/crossword/helpers';
-import useLocalStorage from 'utils/useLocalStorage';
-import ImmutableCrossword from 'utils/immutableCrossword';
-import CrosswordCell from 'components/crossword/crosswordCell';
+} from '@/components/crossword/helpers';
+import useLocalStorage from '@/utils/useLocalStorage';
+import ImmutableCrossword from '@/utils/immutableCrossword';
+import CrosswordCell from '@/components/crossword/CrosswordCell';
 
 const ACROSS = 'across';
 const DOWN = 'down';
@@ -62,7 +64,7 @@ const Crossword = () => {
     }
   };
 
-  const switchClueSet = () => {
+  const switchClueSet = useCallback(() => {
     if (currentClue.clueSet === ACROSS) {
       const newClue = getClueById(CLUES, DOWN, currentCell.down, currentClue);
       setCurrentClue(newClue);
@@ -70,23 +72,29 @@ const Crossword = () => {
       const newClue = getClueById(CLUES, ACROSS, currentCell.across, currentClue);
       setCurrentClue(newClue);
     }
-  };
+  }, [currentCell.across, currentCell.down, currentClue]);
 
-  const onCellClick = (cell: Cell) => {
-    if (cell === currentCell) {
-      switchClueSet();
-    } else {
-      const clueSet = currentClue.clueSet;
-      setCurrentClue(getClueById(CLUES, clueSet, cell[clueSet], currentClue));
-      setCurrentCell(cell);
-    }
-  };
+  const onCellClick = useCallback(
+    (cell: Cell) => {
+      if (cell === currentCell) {
+        switchClueSet();
+      } else {
+        const clueSet = currentClue.clueSet;
+        setCurrentClue(getClueById(CLUES, clueSet, cell[clueSet], currentClue));
+        setCurrentCell(cell);
+      }
+    },
+    [currentCell, currentClue, switchClueSet]
+  );
 
-  const getFirstEmptyCellOfClue = (clue: Clue, startingIndex: number = 0) => {
-    return clue.cells.find((cell, index) => {
-      return index >= startingIndex && crossword.isCellEmpty(cell);
-    });
-  }
+  const getFirstEmptyCellOfClue = useCallback(
+    (clue: Clue, startingIndex: number = 0) => {
+      return clue.cells.find((cell, index) => {
+        return index >= startingIndex && crossword.isCellEmpty(cell);
+      });
+    },
+    [crossword]
+  );
 
   const onKeyDown = useCallback(
     (event: KeyboardEvent) => {
@@ -232,7 +240,7 @@ const Crossword = () => {
         }
       }
     },
-    [crossword, currentCell, currentClue]
+    [crossword, currentCell, currentClue, getFirstEmptyCellOfClue, onCellClick, setCrossword, switchClueSet]
   );
 
   useEffect(() => {
@@ -251,9 +259,10 @@ const Crossword = () => {
         return <div key={key} />;
       }
       let clueNumber: number | undefined;
-      let maxClue = Math.max(parseInt(cell.across), parseInt(cell.down));
+      const maxClue = Math.max(parseInt(cell.across), parseInt(cell.down));
       if (maxClue > maxClueNumber) {
         clueNumber = maxClue;
+        // eslint-disable-next-line react-hooks/immutability
         maxClueNumber = maxClue;
       }
 

@@ -1,15 +1,4 @@
-export type RecipeSection = string[] | { [key: string]: string[] };
-
-export type Recipe = {
-  name: string;
-  portion: {
-    verb: 'serves' | 'makes';
-    quantity: number;
-    units?: string;
-  };
-  ingredients: RecipeSection;
-  directions: RecipeSection;
-};
+import type { Recipe } from '@/types/recipes';
 
 type RecipeMap = { [key: string]: Recipe };
 
@@ -1054,7 +1043,3 @@ export const CATEGORIES: RecipeCategory[] = [
 export const ALL_RECIPES = CATEGORIES.reduce((allRecipes: RecipeMap, category: RecipeCategory) => {
   return { ...allRecipes, ...category.recipes };
 }, {});
-
-export const getRecipe = (id: string) => {
-  return ALL_RECIPES[id];
-};

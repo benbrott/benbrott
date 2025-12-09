@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from 'styles/index.module.scss';
-import Document from 'components/externalIcons/document';
-import GitHub from 'components/externalIcons/gitHub';
-import LinkedIn from 'components/externalIcons/linkedIn';
-import CodePen from 'components/externalIcons/codePen';
+import Image from 'next/image';
+import styles from '@/styles/index.module.scss';
+import Document from '@/components/externalIcons/Document';
+import GitHub from '@/components/externalIcons/GitHub';
+import LinkedIn from '@/components/externalIcons/LinkedIn';
+import CodePen from '@/components/externalIcons/CodePen';
 
 const SOCIAL_LINKS = [
   { Component: Document, href: '/resume.pdf' },
@@ -44,7 +44,7 @@ const About = () => {
       </div>
       <div className={styles.photoSection}>
         <div className={styles.imageContainer}>
-          <img src="/me.jpg" alt="Picture of Ben" />
+          <Image src="/me.jpg" alt="Picture of Ben" fill />
         </div>
         <div className={styles.linksContainer}>{socialLinks}</div>
       </div>
@@ -52,4 +52,4 @@ const About = () => {
   );
 };
 
-export default React.memo(About);
+export default About;

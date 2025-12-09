@@ -1,14 +1,16 @@
-import React from 'react';
-import { GetStaticProps, GetStaticPaths } from 'next';
-import styles from 'styles/recipe.module.scss';
-import { Recipe, RecipeSection, ALL_RECIPES, getRecipe } from 'data/recipes';
-import classNames from 'utils/classNames';
+import { Fragment } from 'react';
+import { notFound } from 'next/navigation';
+import styles from '@/styles/recipe.module.scss';
+import { ALL_RECIPES } from '@/app/recipes/data';
+import { type RecipeSection } from '@/types/recipes';
+import classNames from '@/utils/classNames';
 
-type RecipePageProps = {
-  recipe: Recipe;
-};
-
-const RecipePage = ({ recipe }: RecipePageProps) => {
+const RecipePage = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = await params;
+  const recipe = ALL_RECIPES[slug];
+  if (!recipe) {
+    return notFound();
+  }
   const { name, portion, ingredients, directions } = recipe;
 
   const renderListSection = (section: RecipeSection, ordered: boolean) => {
@@ -21,14 +23,14 @@ const RecipePage = ({ recipe }: RecipePageProps) => {
       </List>
     ) : (
       Object.keys(section).map(subsection => (
-        <React.Fragment key={`subsection_${subsection}`}>
+        <Fragment key={`subsection_${subsection}`}>
           <h3>{subsection}</h3>
           <List>
             {section[subsection].map((item, index) => (
               <li key={`list_item_${index}`}>{item}</li>
             ))}
           </List>
-        </React.Fragment>
+        </Fragment>
       ))
     );
   };
@@ -56,27 +58,6 @@ const RecipePage = ({ recipe }: RecipePageProps) => {
       </div>
     </div>
   );
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = Object.keys(ALL_RECIPES).map(id => `/recipes/${id}`);
-  return {
-    paths,
-    fallback: false
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (params && params.id) {
-    const recipeId = Array.isArray(params.id) ? params.id[0] : params.id;
-    const recipe = getRecipe(recipeId);
-    return {
-      props: {
-        recipe
-      }
-    };
-  }
-  return { props: {} };
 };
 
 export default RecipePage;

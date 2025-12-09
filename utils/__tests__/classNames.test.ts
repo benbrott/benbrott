@@ -1,4 +1,4 @@
-import classNames from 'utils/classNames';
+import classNames from '@/utils/classNames';
 
 describe('classNames util function', () => {
   test('removes false values', () => {
