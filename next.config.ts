@@ -2,6 +2,7 @@ import path from 'path';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
+  distDir: 'out',
   images: {
     remotePatterns: [new URL('https://i.scdn.co/**')]
   },
